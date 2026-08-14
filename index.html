@@ -4,26 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="NameForge - Générateur gratuit de noms pour jeux, personnages, clans, guildes, royaumes et créatures.">
-<meta name="keywords" content="name generator, générateur de noms, pseudo, RPG, gaming, fantasy, anime, clan, guilde">
-<meta name="theme-color" content="#080b14">
+<meta name="description" content="NameForge V4 - Générateur gratuit de noms pour personnages, RPG, jeux vidéo, clans, guildes, royaumes et créatures.">
+<meta name="keywords" content="générateur de noms, name generator, pseudo, RPG, gaming, fantasy, anime, personnage, clan, guilde">
+<meta name="author" content="NameForge">
 
-<title>NameForge V3 - Name Generator</title>
+<meta property="og:title" content="NameForge - Forge ton nom légendaire">
+<meta property="og:description" content="Crée des noms uniques pour tes personnages, jeux et univers fantastiques.">
+<meta property="og:type" content="website">
+
+<title>NameForge V4 - Générateur de noms</title>
 
 <style>
 :root{
-    --bg:#070a12;
-    --bg2:#0d1220;
+    --bg:#070912;
+    --bg2:#0c1120;
     --panel:#111827;
     --panel2:#172033;
     --border:#29354d;
     --text:#f5f7ff;
     --muted:#9ba7bd;
+
     --purple:#8b5cf6;
     --blue:#06b6d4;
     --pink:#ec4899;
     --green:#34d399;
-    --danger:#fb7185;
+    --gold:#fbbf24;
+    --red:#fb7185;
 }
 
 *{
@@ -39,6 +45,7 @@ html{
 body{
     min-height:100vh;
     color:var(--text);
+
     font-family:
         Inter,
         system-ui,
@@ -50,12 +57,12 @@ body{
     background:
         radial-gradient(
             circle at 10% 0%,
-            rgba(139,92,246,.18),
+            rgba(139,92,246,.20),
             transparent 30%
         ),
         radial-gradient(
             circle at 90% 5%,
-            rgba(6,182,212,.14),
+            rgba(6,182,212,.15),
             transparent 28%
         ),
         var(--bg);
@@ -81,7 +88,7 @@ a{
 }
 
 /* =========================
-   HEADER
+HEADER
 ========================= */
 
 header{
@@ -89,10 +96,11 @@ header{
     top:0;
     z-index:100;
 
-    background:rgba(7,10,18,.82);
-    backdrop-filter:blur(16px);
+    background:rgba(7,9,18,.84);
+    backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
 }
 
 .navbar{
@@ -131,7 +139,7 @@ header{
         );
 
     box-shadow:
-        0 10px 30px rgba(139,92,246,.25);
+        0 10px 35px rgba(139,92,246,.28);
 }
 
 .nav-right{
@@ -148,7 +156,9 @@ header{
 .nav-links a{
     color:var(--muted);
     text-decoration:none;
-    font-weight:700;
+
+    font-weight:750;
+
     transition:.2s;
 }
 
@@ -178,7 +188,7 @@ header{
     color:var(--muted);
 
     font-size:.78rem;
-    font-weight:800;
+    font-weight:850;
 }
 
 .lang-btn.active{
@@ -187,11 +197,12 @@ header{
 }
 
 /* =========================
-   HERO
+HERO
 ========================= */
 
 .hero{
     text-align:center;
+
     padding:80px 0 45px;
 }
 
@@ -208,14 +219,13 @@ header{
 
     color:#dce3f5;
 
-    font-size:.86rem;
-    font-weight:800;
+    font-size:.84rem;
+    font-weight:850;
 }
 
 .hero h1{
-    margin:22px auto;
-
     max-width:950px;
+    margin:22px auto;
 
     font-size:
         clamp(
@@ -246,7 +256,7 @@ header{
 }
 
 .hero p{
-    max-width:730px;
+    max-width:750px;
     margin:auto;
 
     color:var(--muted);
@@ -256,14 +266,14 @@ header{
 }
 
 /* =========================
-   GENERATOR
+GENERATOR
 ========================= */
 
 .generator-panel{
     padding:26px;
 
     border:1px solid var(--border);
-    border-radius:20px;
+    border-radius:22px;
 
     background:
         linear-gradient(
@@ -361,15 +371,19 @@ header{
         );
 }
 
+.random-btn{
+    min-width:180px;
+}
+
 /* =========================
-   STATS
+STATS
 ========================= */
 
 .stats{
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(4,1fr);
 
     gap:12px;
 
@@ -390,7 +404,7 @@ header{
 .stat-number{
     display:block;
 
-    font-size:1.3rem;
+    font-size:1.25rem;
     font-weight:900;
 
     color:white;
@@ -398,11 +412,11 @@ header{
 
 .stat-label{
     color:var(--muted);
-    font-size:.78rem;
+    font-size:.75rem;
 }
 
 /* =========================
-   SECTIONS
+SECTION
 ========================= */
 
 .section{
@@ -433,64 +447,142 @@ header{
 }
 
 /* =========================
-   RESULTS
+RESULTS
 ========================= */
 
 .results{
     display:grid;
 
     grid-template-columns:
-        repeat(5,1fr);
+        repeat(4,1fr);
 
-    gap:12px;
+    gap:14px;
 }
 
 .name-card{
-    min-height:160px;
+    position:relative;
+
+    min-height:235px;
 
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 
-    padding:18px 15px;
+    padding:20px;
 
     border:1px solid var(--border);
-    border-radius:16px;
+    border-radius:18px;
 
     background:
-        rgba(15,22,37,.9);
+        linear-gradient(
+            160deg,
+            rgba(20,29,47,.95),
+            rgba(12,17,29,.95)
+        );
 
-    transition:.2s;
+    overflow:hidden;
+
+    transition:.25s;
+}
+
+.name-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--card-color,var(--purple)),
+            transparent
+        );
 }
 
 .name-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
     border-color:
         rgba(139,92,246,.55);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.25);
+        0 18px 45px rgba(0,0,0,.28);
+}
+
+.rarity{
+    display:inline-flex;
+
+    width:max-content;
+
+    padding:5px 9px;
+
+    border-radius:999px;
+
+    font-size:.68rem;
+    font-weight:900;
+
+    letter-spacing:.4px;
+}
+
+.rarity-common{
+    background:rgba(148,163,184,.12);
+    color:#cbd5e1;
+}
+
+.rarity-rare{
+    background:rgba(6,182,212,.13);
+    color:#67e8f9;
+}
+
+.rarity-epic{
+    background:rgba(139,92,246,.15);
+    color:#c4b5fd;
+}
+
+.rarity-legendary{
+    background:rgba(251,191,36,.15);
+    color:#fcd34d;
 }
 
 .name-text{
-    font-size:1.13rem;
-    font-weight:900;
+    margin-top:15px;
+
+    font-size:1.35rem;
+    font-weight:950;
 
     overflow-wrap:anywhere;
 }
 
-.name-meta{
-    margin-top:6px;
+.name-type{
+    margin-top:5px;
 
     color:var(--muted);
 
-    font-size:.74rem;
+    font-size:.76rem;
+}
+
+.description{
+    margin-top:12px;
+
+    color:#b7c1d5;
+
+    font-size:.82rem;
+
+    line-height:1.5;
 }
 
 .card-buttons{
     display:flex;
+
     gap:7px;
+
+    margin-top:18px;
 }
 
 .small-btn{
@@ -505,7 +597,7 @@ header{
     color:#e8ecf8;
 
     font-size:.78rem;
-    font-weight:800;
+    font-weight:850;
 
     transition:.2s;
 }
@@ -522,11 +614,12 @@ header{
 }
 
 /* =========================
-   FAVORITES
+FAVORITES
 ========================= */
 
 .tools{
     display:flex;
+
     gap:8px;
 }
 
@@ -556,7 +649,7 @@ header{
 }
 
 /* =========================
-   CATEGORIES
+CATEGORIES
 ========================= */
 
 .category-grid{
@@ -588,6 +681,7 @@ header{
 
 .category-icon{
     font-size:1.8rem;
+
     margin-bottom:9px;
 }
 
@@ -604,7 +698,7 @@ header{
 }
 
 /* =========================
-   FEATURES
+FEATURES
 ========================= */
 
 .features{
@@ -627,22 +721,26 @@ header{
 
 .feature-icon{
     font-size:1.8rem;
+
     margin-bottom:10px;
 }
 
 .feature strong{
     display:block;
+
     margin-bottom:7px;
 }
 
 .feature span{
     color:var(--muted);
+
     line-height:1.55;
+
     font-size:.9rem;
 }
 
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer{
@@ -663,7 +761,7 @@ footer strong{
 }
 
 /* =========================
-   TOAST
+TOAST
 ========================= */
 
 .toast{
@@ -673,6 +771,8 @@ footer strong{
     bottom:20px;
 
     z-index:500;
+
+    max-width:calc(100% - 40px);
 
     padding:13px 17px;
 
@@ -701,10 +801,10 @@ footer strong{
 }
 
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 
-@media(max-width:1000px){
+@media(max-width:1050px){
 
     .results{
         grid-template-columns:
@@ -723,7 +823,7 @@ footer strong{
 
 }
 
-@media(max-width:680px){
+@media(max-width:720px){
 
     .nav-links{
         display:none;
@@ -750,8 +850,17 @@ footer strong{
         grid-template-columns:1fr;
     }
 
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
     .actions{
         flex-direction:column;
+    }
+
+    .random-btn{
+        min-width:0;
     }
 
     .tools{
@@ -762,24 +871,28 @@ footer strong{
         width:100%;
     }
 
-    .category-grid{
-        grid-template-columns:1fr;
-    }
-
     .generator-panel{
         padding:18px;
     }
 
 }
 
-@media(max-width:430px){
+@media(max-width:460px){
 
     .results{
         grid-template-columns:1fr;
     }
 
-    .stats{
+    .category-grid{
         grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .name-card{
+        min-height:215px;
     }
 
 }
@@ -792,10 +905,7 @@ footer strong{
 
 <nav class="container navbar">
 
-<a
-    href="#top"
-    class="brand"
->
+<a href="#top" class="brand">
     <span class="logo">⚡</span>
     NameForge
 </a>
@@ -848,7 +958,7 @@ EN
 <section class="hero container">
 
 <span class="badge">
-✨ NameForge V3 · Free Name Generator
+✨ NameForge V4 · Legendary Name Generator
 </span>
 
 <h1>
@@ -864,11 +974,9 @@ nom légendaire
 </h1>
 
 <p data-i18n="heroText">
-
 Crée des noms uniques pour tes personnages,
 pseudos, clans, guildes, royaumes et créatures.
-Choisis ton univers et laisse NameForge faire le reste.
-
+Choisis ton univers, ta rareté et ton style.
 </p>
 
 </section>
@@ -877,8 +985,8 @@ Choisis ton univers et laisse NameForge faire le reste.
 <!-- GENERATOR -->
 
 <section
-    class="container"
-    id="generator"
+class="container"
+id="generator"
 >
 
 <div class="generator-panel">
@@ -968,6 +1076,42 @@ Choisis ton univers et laisse NameForge faire le reste.
 
 <div class="field">
 
+<label data-i18n="gender">
+👤 Genre
+</label>
+
+<select id="gender">
+
+<option value="neutral">Neutre</option>
+<option value="male">Masculin</option>
+<option value="female">Féminin</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label data-i18n="rarity">
+⭐ Rareté
+</label>
+
+<select id="rarity">
+
+<option value="any">Aléatoire</option>
+<option value="common">Commun</option>
+<option value="rare">Rare</option>
+<option value="epic">Épique</option>
+<option value="legendary">Légendaire</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
 <label data-i18n="length">
 📏 Longueur
 </label>
@@ -991,9 +1135,9 @@ Choisis ton univers et laisse NameForge faire le reste.
 
 <select id="count">
 
-<option>5</option>
-<option>8</option>
-<option>10</option>
+<option>4</option>
+<option selected>8</option>
+<option>12</option>
 
 </select>
 
@@ -1007,10 +1151,27 @@ Choisis ton univers et laisse NameForge faire le reste.
 </label>
 
 <input
-    id="prefix"
-    maxlength="15"
-    placeholder="Ex. Ray"
+id="prefix"
+maxlength="15"
+placeholder="Ex. Ray"
 >
+
+</div>
+
+
+<div class="field">
+
+<label data-i18n="surname">
+📜 Nom de famille
+</label>
+
+<select id="surnameMode">
+
+<option value="auto">Automatique</option>
+<option value="yes">Prénom + nom</option>
+<option value="no">Prénom seul</option>
+
+</select>
 
 </div>
 
@@ -1020,19 +1181,21 @@ Choisis ton univers et laisse NameForge faire le reste.
 <div class="actions">
 
 <button
-    class="btn primary"
-    id="generate"
+class="btn primary"
+id="generate"
 >
-⚡ <span data-i18n="generate">
+⚡
+<span data-i18n="generate">
 Générer des noms
 </span>
 </button>
 
 <button
-    class="btn"
-    id="random"
+class="btn random-btn"
+id="random"
 >
-🎲 <span data-i18n="surprise">
+🎲
+<span data-i18n="surprise">
 Surprendre-moi
 </span>
 </button>
@@ -1045,15 +1208,15 @@ Surprendre-moi
 <div class="stat">
 
 <span
-    class="stat-number"
-    id="generationCount"
+class="stat-number"
+id="generationCount"
 >
 0
 </span>
 
 <span
-    class="stat-label"
-    data-i18n="generated"
+class="stat-label"
+data-i18n="generated"
 >
 Noms générés
 </span>
@@ -1064,15 +1227,15 @@ Noms générés
 <div class="stat">
 
 <span
-    class="stat-number"
-    id="favoriteCount"
+class="stat-number"
+id="favoriteCount"
 >
 0
 </span>
 
 <span
-    class="stat-label"
-    data-i18n="saved"
+class="stat-label"
+data-i18n="saved"
 >
 Favoris
 </span>
@@ -1087,10 +1250,29 @@ Favoris
 </span>
 
 <span
-    class="stat-label"
-    data-i18n="free"
+class="stat-label"
+data-i18n="free"
 >
 Générations gratuites
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="legendaryCount"
+>
+0
+</span>
+
+<span
+class="stat-label"
+data-i18n="legendaryGenerated"
+>
+Légendaires
 </span>
 
 </div>
@@ -1111,17 +1293,17 @@ Générations gratuites
 <div>
 
 <h2
-    class="section-title"
-    data-i18n="resultsTitle"
+class="section-title"
+data-i18n="resultsTitle"
 >
 ✨ Résultats
 </h2>
 
 <div
-    class="hint"
-    data-i18n="resultsHint"
+class="hint"
+data-i18n="resultsHint"
 >
-Choisis ton préféré.
+Chaque nom possède sa propre rareté et description.
 </div>
 
 </div>
@@ -1130,8 +1312,8 @@ Choisis ton préféré.
 
 
 <div
-    id="results"
-    class="results"
+id="results"
+class="results"
 ></div>
 
 </section>
@@ -1140,8 +1322,8 @@ Choisis ton préféré.
 <!-- FAVORITES -->
 
 <section
-    class="section container"
-    id="favorites"
+class="section container"
+id="favorites"
 >
 
 <div class="section-head">
@@ -1149,15 +1331,15 @@ Choisis ton préféré.
 <div>
 
 <h2
-    class="section-title"
-    data-i18n="favoritesTitle"
+class="section-title"
+data-i18n="favoritesTitle"
 >
 ❤️ Mes favoris
 </h2>
 
 <div
-    class="hint"
-    data-i18n="favoritesHint"
+class="hint"
+data-i18n="favoritesHint"
 >
 Tes noms sont sauvegardés dans ton navigateur.
 </div>
@@ -1168,15 +1350,15 @@ Tes noms sont sauvegardés dans ton navigateur.
 <div class="tools">
 
 <input
-    id="search"
-    class="search"
-    placeholder="🔎 Rechercher..."
+id="search"
+class="search"
+placeholder="🔎 Rechercher..."
 >
 
 <button
-    id="clear"
-    class="btn"
-    data-i18n="clear"
+id="clear"
+class="btn"
+data-i18n="clear"
 >
 Effacer
 </button>
@@ -1194,8 +1376,8 @@ Effacer
 <!-- CATEGORIES -->
 
 <section
-    class="section container"
-    id="categories"
+class="section container"
+id="categories"
 >
 
 <div class="section-head">
@@ -1203,17 +1385,17 @@ Effacer
 <div>
 
 <h2
-    class="section-title"
-    data-i18n="categoryTitle"
+class="section-title"
+data-i18n="categoryTitle"
 >
 🎮 Univers
 </h2>
 
 <div
-    class="hint"
-    data-i18n="categoryHint"
+class="hint"
+data-i18n="categoryHint"
 >
-Des styles pour tous tes projets.
+Choisis un univers pour inspirer tes prochaines créations.
 </div>
 
 </div>
@@ -1234,7 +1416,7 @@ RPG
 </strong>
 
 <span>
-Warriors, mages, kingdoms...
+Guerriers, mages, royaumes et aventuriers.
 </span>
 
 </div>
@@ -1251,7 +1433,7 @@ Dark Fantasy
 </strong>
 
 <span>
-Dark, mysterious and powerful names.
+Noms sombres, mystérieux et puissants.
 </span>
 
 </div>
@@ -1268,7 +1450,7 @@ Anime
 </strong>
 
 <span>
-Names inspired by Japanese fantasy.
+Inspirations japonaises et fantastiques.
 </span>
 
 </div>
@@ -1285,7 +1467,7 @@ Fantasy
 </strong>
 
 <span>
-Dragons, elves, legends and magic.
+Dragons, magie, elfes et légendes.
 </span>
 
 </div>
@@ -1302,7 +1484,7 @@ Sci-Fi
 </strong>
 
 <span>
-Futuristic and technological names.
+Technologie, espace et futurs lointains.
 </span>
 
 </div>
@@ -1319,7 +1501,7 @@ Viking
 </strong>
 
 <span>
-Nordic warriors and ancient clans.
+Clans nordiques et anciens guerriers.
 </span>
 
 </div>
@@ -1336,7 +1518,7 @@ Royal
 </strong>
 
 <span>
-Kings, queens and legendary realms.
+Rois, reines et royaumes légendaires.
 </span>
 
 </div>
@@ -1349,11 +1531,11 @@ Kings, queens and legendary realms.
 </div>
 
 <strong>
-Monsters
+Monstres
 </strong>
 
 <span>
-Creatures, bosses and enemies.
+Créatures, boss et ennemis.
 </span>
 
 </div>
@@ -1372,8 +1554,8 @@ Creatures, bosses and enemies.
 <div>
 
 <h2
-    class="section-title"
-    data-i18n="why"
+class="section-title"
+data-i18n="why"
 >
 Pourquoi NameForge ?
 </h2>
@@ -1406,16 +1588,16 @@ sans inscription et sans installation.
 <div class="feature">
 
 <div class="feature-icon">
-🌍
+⭐
 </div>
 
-<strong data-i18n="multiTitle">
-International
+<strong data-i18n="rareTitle">
+Rareté
 </strong>
 
-<span data-i18n="multiText">
-Interface disponible en français,
-anglais et arabe.
+<span data-i18n="rareText">
+Découvre des noms communs, rares, épiques
+et légendaires.
 </span>
 
 </div>
@@ -1471,863 +1653,1265 @@ Le nom de ton prochain héros commence ici.
 
 
 <div
-    id="toast"
-    class="toast"
+id="toast"
+class="toast"
 ></div>
 
 
 <script>
 
 /* =========================================================
-   NAME DATABASE
+DATABASE
 ========================================================= */
 
 const DB = {
 
-themes: {
+themes:{
 
-"Loup":["Fen","Varg","Lyc","Lun","Skal","Rav","Ulf","Wol","Fang","Kry","Lyk","Vul"],
-"Dragon":["Drak","Zyr","Vyr","Azh","Ryu","Kyr","Dra","Drac","Ign","Ryuj","Zan","Thar"],
-"Nuit":["Nox","Nyx","Noct","Umb","Ten","Vey","Dusk","Ner","Vel","Lun","Myr","Noir"],
-"Feu":["Ign","Pyra","Sol","Fyr","Vul","Ember","Kael","Rag","Ash","Cind","Flam","Pyro"],
-"Glace":["Cry","Frost","Eir","Isk","Glac","Skadi","Niv","Hail","Rime","Frei","Ice","Ymir"],
-"Ombre":["Umbra","Shade","Morl","Vel","Dus","Obsc","Nyx","Vant","Void","Noir","Murk","Shad"],
-"Tonnerre":["Thor","Volt","Raik","Temp","Zer","Storm","Kera","Astra","Rai","Tyr","Zeus","Volt"],
-"Lune":["Lun","Sel","Cres","Artem","Nyx","Selen","Luma","Ely","Mira","Cyr","Moon","Lun"],
-"Démon":["Zar","Mal","Azr","Bel","Kha","Mor","Vez","Rav","Dae","Xar","Demon","Vaal"],
-"Nature":["Syl","Ver","Flor","Eld","Gaia","Thorn","Eryn","Moss","Oak","Ael","Leaf","Terra"],
-"Océan":["Mar","Ner","Aqua","Cor","Tide","Nami","Mare","Thal","Azul","Pearl","Wave","Ocean"],
-"Cosmos":["Astr","Nova","Cosm","Zen","Lyr","Orion","Vega","Astra","Neb","Star","Cosmo","Void"],
-"Étoile":["Star","Astr","Stel","Vega","Nova","Lyr","Sol","Siri","Lux","Astra","Cel","Zia"],
-"Poison":["Ven","Tox","Nox","Viper","Mias","Hex","Bane","Acid","Veno","Zer","Rot","Plag"],
-"Acier":["Iron","Steel","Ferr","Titan","Met","Chrome","Arg","Forge","Axel","Rex","Gear","Mech"]
+"Loup":[
+"Fen","Varg","Lyc","Lun","Skal","Rav",
+"Ulf","Wol","Fang","Kry","Lyk","Vul"
+],
+
+"Dragon":[
+"Drak","Zyr","Vyr","Azh","Ryu","Kyr",
+"Dra","Drac","Ign","Ryuj","Zan","Thar"
+],
+
+"Nuit":[
+"Nox","Nyx","Noct","Umb","Ten","Vey",
+"Dusk","Ner","Vel","Lun","Myr","Noir"
+],
+
+"Feu":[
+"Ign","Pyra","Sol","Fyr","Vul","Ember",
+"Kael","Rag","Ash","Cind","Flam","Pyro"
+],
+
+"Glace":[
+"Cry","Frost","Eir","Isk","Glac","Skadi",
+"Niv","Hail","Rime","Frei","Ice","Ymir"
+],
+
+"Ombre":[
+"Umbra","Shade","Morl","Vel","Dus","Obsc",
+"Nyx","Vant","Void","Noir","Murk","Shad"
+],
+
+"Tonnerre":[
+"Thor","Volt","Raik","Temp","Zer","Storm",
+"Kera","Astra","Rai","Tyr","Zeus","Volt"
+],
+
+"Lune":[
+"Lun","Sel","Cres","Artem","Nyx","Selen",
+"Luma","Ely","Mira","Cyr","Moon","Lun"
+],
+
+"Démon":[
+"Zar","Mal","Azr","Bel","Kha","Mor",
+"Vez","Rav","Dae","Xar","Demon","Vaal"
+],
+
+"Nature":[
+"Syl","Ver","Flor","Eld","Gaia","Thorn",
+"Eryn","Moss","Oak","Ael","Leaf","Terra"
+],
+
+"Océan":[
+"Mar","Ner","Aqua","Cor","Tide","Nami",
+"Mare","Thal","Azul","Pearl","Wave","Ocean"
+],
+
+"Cosmos":[
+"Astr","Nova","Cosm","Zen","Lyr","Orion",
+"Vega","Astra","Neb","Star","Cosmo","Void"
+],
+
+"Étoile":[
+"Star","Astr","Stel","Vega","Nova","Lyr",
+"Sol","Siri","Lux","Astra","Cel","Zia"
+],
+
+"Poison":[
+"Ven","Tox","Nox","Viper","Mias","Hex",
+"Bane","Acid","Veno","Zer","Rot","Plag"
+],
+
+"Acier":[
+"Iron","Steel","Ferr","Titan","Met","Chrome",
+"Arg","Forge","Axel","Rex","Gear","Mech"
+]
 
 },
 
 
-styles: {
+styles:{
 
-"Fantastique":["aris","ion","iel","ora","yn","ael","is","or","ia","en","iel","eth"],
-"Sombre":["nox","raith","vyr","mor","th","grim","vek","zar","eth","yx","ven","dark"],
-"Mythique":["eus","heon","aris","aion","theon","iel","yra","or","ion","ios","ael","is"],
-"Épique":["dor","kar","dran","ius","gard","ron","mir","thor","dan","rak","zar","ion"],
-"Mystérieux":["veil","ryn","eth","ys","en","vane","ith","el","enne","oir","yn","ess"],
-"Japonais":["hiro","kage","yuki","ra","ken","sora","tsu","mori","aki","ren","shi","to"],
-"Nordique":["ulf","rik","vald","bjorn","heim","skar","sten","grim","hild","var","thor","ulf"],
-"Futuriste":["ix","on","ex","ium","tek","vex","ora","zen","byte","xen","tron","ix"],
-"Anime":["kun","shi","rai","ya","suke","to","mi","ka","zen","chi","hiro","ruki"],
-"Cyberpunk":["ex","x","byte","tek","core","net","vex","zero","syn","cy","nex","rix"],
-"Royal":["ius","ion","ian","eus","or","is","elle","ara","mont","ric","val","dor"],
-"Ancien":["us","ius","ae","um","os","ael","eth","or","is","ian","eus","ar"]
+"Fantastique":[
+"aris","ion","iel","ora","yn","ael",
+"is","or","ia","en","iel","eth"
+],
+
+"Sombre":[
+"nox","raith","vyr","mor","th","grim",
+"vek","zar","eth","yx","ven","dark"
+],
+
+"Mythique":[
+"eus","heon","aris","aion","theon","iel",
+"yra","or","ion","ios","ael","is"
+],
+
+"Épique":[
+"dor","kar","dran","ius","gard","ron",
+"mir","thor","dan","rak","zar","ion"
+],
+
+"Mystérieux":[
+"veil","ryn","eth","ys","en","vane",
+"ith","el","enne","oir","yn","ess"
+],
+
+"Japonais":[
+"hiro","kage","yuki","ra","ken","sora",
+"tsu","mori","aki","ren","shi","to"
+],
+
+"Nordique":[
+"ulf","rik","vald","bjorn","heim","skar",
+"sten","grim","hild","var","thor","ulf"
+],
+
+"Futuriste":[
+"ix","on","ex","ium","tek","vex",
+"ora","zen","byte","xen","tron","ix"
+],
+
+"Anime":[
+"kun","shi","rai","ya","suke","to",
+"mi","ka","zen","chi","hiro","ruki"
+],
+
+"Cyberpunk":[
+"ex","x","ix","byte","tek","core",
+"net","vex","zero","syn","cy","rix"
+],
+
+"Royal":[
+"ius","ion","ian","eus","or","is",
+"elle","ara","mont","ric","val","dor"
+],
+
+"Ancien":[
+"us","ius","ae","um","os","ael",
+"eth","or","is","ian","eus","ar"
+]
 
 },
 
 
-types: {
+types:{
 
-"Personnage":["a","e","i","o","en","is","an","ia"],
-"Pseudo":["x","z","ix","y","exe","7","xx","99"],
-"Guerrier":["ar","or","ak","us","dr","gar","dan","rik"],
-"Mage":["ia","iel","ara","ora","yne","is","ael","eth"],
-"Assassin":["is","eth","yn","yx","ven","ash","rei","sil"],
-"Créature":["oth","ak","um","yr","on","og","ul","ar"],
-"Royaume":["ia","heim","ara","or","ion","ria","dor","land"],
-"Clan":["en","ar","ir","an","ai","or","ok","ul"],
-"Guilde":["a","en","ia","or","is","um","ar","eth"],
-"Boss":["on","or","ax","us","ar","oth","rex","ion"],
-"Monstre":["oth","ak","um","yr","on","og","ul","mor"],
-"Héros":["a","ion","iel","us","ar","or","en","is"]
+"Personnage":[
+"a","e","i","o","en","is","an","ia"
+],
 
-}
+"Pseudo":[
+"x","z","ix","y","exe","7","xx","99"
+],
+
+"Guerrier":[
+"ar","or","ak","us","dr","gar","dan","rik"
+],
+
+"Mage":[
+"ia","iel","ara","ora","yne","is","ael","eth"
+],
+
+"Assassin":[
+"is","eth","yn","yx","ven","ash","rei","sil"
+],
+
+"Créature":[
+"oth","ak","um","yr","on","og","ul","ar"
+],
+
+"Royaume":[
+"ia","heim","ara","or","ion","ria","dor","land"
+],
+
+"Clan":[
+"en","ar","ir","an","ai","or","ok","ul"
+],
+
+"Guilde":[
+"a","en","ia","or","is","um","ar","eth"
+],
+
+"Boss":[
+"on","or","ax","us","ar","oth","rex","ion"
+],
+
+"Monstre":[
+"oth","ak","um","yr","on","og","ul","mor"
+],
+
+"Héros":[
+"a","ion","iel","us","ar","or","en","is"
+]
+
+},
+
+
+male:[
+"an","or","en","us","ar","ion"
+],
+
+female:[
+"a","ia","elle","ine","ara","yra"
+],
+
+surname:[
+"Val","Storm","Night","Wolf","Raven","Moon",
+"Frost","Drake","Shadow","Fire","Star","Stone",
+"Wind","Dawn","Thorn","Steel","Ash","Blood"
+]
 
 };
 
 
 /* =========================================================
-   TRANSLATIONS
-========================================================= */
-
-const translations = {
-
-fr:{
-generator:"Générateur",
-favorites:"Favoris",
-categories:"Catégories",
-hero1:"Forge ton prochain",
-hero2:"nom légendaire",
-heroText:"Crée des noms uniques pour tes personnages, pseudos, clans, guildes, royaumes et créatures. Choisis ton univers et laisse NameForge faire le reste.",
-type:"🎭 Type",
-style:"🎨 Style",
-theme:"🔥 Thème",
-length:"📏 Longueur",
-count:"🔢 Résultats",
-prefix:"🧩 Préfixe",
-generate:"Générer des noms",
-surprise:"Surprendre-moi",
-generated:"Noms générés",
-saved:"Favoris",
-free:"Générations gratuites",
-resultsTitle:"✨ Résultats",
-resultsHint:"Choisis ton préféré.",
-favoritesTitle:"❤️ Mes favoris",
-favoritesHint:"Tes noms sont sauvegardés dans ton navigateur.",
-clear:"Effacer",
-categoryTitle:"🎮 Univers",
-categoryHint:"Des styles pour tous tes projets.",
-why:"Pourquoi NameForge ?",
-fastTitle:"Rapide",
-fastText:"Génère plusieurs noms en quelques secondes, sans inscription et sans installation.",
-multiTitle:"International",
-multiText:"Interface disponible en français, anglais et arabe.",
-favTitle:"Favoris",
-favText:"Sauvegarde tes meilleurs noms directement dans ton navigateur.",
-footerText:"Le nom de ton prochain héros commence ici."
-},
-
-en:{
-generator:"Generator",
-favorites:"Favorites",
-categories:"Categories",
-hero1:"Forge your next",
-hero2:"legendary name",
-heroText:"Create unique names for your characters, usernames, clans, guilds, kingdoms and creatures. Choose your universe and let NameForge do the rest.",
-type:"🎭 Type",
-style:"🎨 Style",
-theme:"🔥 Theme",
-length:"📏 Length",
-count:"🔢 Results",
-prefix:"🧩 Prefix",
-generate:"Generate names",
-surprise:"Surprise me",
-generated:"Generated",
-saved:"Favorites",
-free:"Free generations",
-resultsTitle:"✨ Results",
-resultsHint:"Choose your favorite.",
-favoritesTitle:"❤️ My favorites",
-favoritesHint:"Your names are saved in your browser.",
-clear:"Clear",
-categoryTitle:"🎮 Universes",
-categoryHint:"Styles for all your projects.",
-why:"Why NameForge?",
-fastTitle:"Fast",
-fastText:"Generate multiple names in seconds, without registration or installation.",
-multiTitle:"International",
-multiText:"Available in French, English and Arabic.",
-favTitle:"Favorites",
-favText:"Save your best names directly in your browser.",
-footerText:"The name of your next hero starts here."
-},
-
-ar:{
-generator:"مولّد الأسماء",
-favorites:"المفضلة",
-categories:"التصنيفات",
-hero1:"اصنع اسمك",
-hero2:"الأسطوري القادم",
-heroText:"أنشئ أسماء مميزة لشخصياتك وألعابك وعشائرك وممالكك ومخلوقاتك.",
-type:"🎭 النوع",
-style:"🎨 الأسلوب",
-theme:"🔥 الموضوع",
-length:"📏 الطول",
-count:"🔢 النتائج",
-prefix:"🧩 بادئة",
-generate:"إنشاء الأسماء",
-surprise:"فاجئني",
-generated:"الأسماء المولدة",
-saved:"المفضلة",
-free:"توليد مجاني",
-resultsTitle:"✨ النتائج",
-resultsHint:"اختر الاسم الذي يعجبك.",
-favoritesTitle:"❤️ المفضلة",
-favoritesHint:"يتم حفظ الأسماء في متصفحك.",
-clear:"مسح",
-categoryTitle:"🎮 العوالم",
-categoryHint:"أنماط مختلفة لمشاريعك.",
-why:"لماذا NameForge؟",
-fastTitle:"سريع",
-fastText:"أنشئ عدة أسماء خلال ثوانٍ بدون تسجيل أو تثبيت.",
-multiTitle:"متعدد اللغات",
-multiText:"متوفر بالفرنسية والإنجليزية والعربية.",
-favTitle:"المفضلة",
-favText:"احفظ أفضل الأسماء مباشرة في متصفحك.",
-footerText:"اسم بطلك القادم يبدأ من هنا."
-}
-
-};
-
-
-/* =========================================================
-   ELEMENTS
+ELEMENTS
 ========================================================= */
 
 const $ = id =>
-    document.getElementById(id);
+document.getElementById(id);
 
 
 /* =========================================================
-   LOCAL STORAGE
+STORAGE
 ========================================================= */
 
 let favorites =
-    JSON.parse(
-        localStorage.getItem(
-            "nameforge_v3_favorites"
-        ) || "[]"
-    );
-
+JSON.parse(
+localStorage.getItem(
+"nameforge_v4_favorites"
+)||"[]"
+);
 
 let generationCount =
-    Number(
-        localStorage.getItem(
-            "nameforge_v3_generations"
-        ) || 0
-    );
+Number(
+localStorage.getItem(
+"nameforge_v4_generations"
+)||0
+);
+
+let legendaryCount =
+Number(
+localStorage.getItem(
+"nameforge_v4_legendary"
+)||0
+);
 
 
 /* =========================================================
-   UTILS
+UTILITY
 ========================================================= */
 
 function randomItem(array){
 
-    return array[
-        Math.floor(
-            Math.random()*array.length
-        )
-    ];
+return array[
+Math.floor(
+Math.random()*array.length
+)
+];
 
 }
 
 
 function cleanName(name){
 
-    name =
-        name.replace(
-            /(.)\1{2,}/g,
-            "$1$1"
-        );
+name =
+name.replace(
+/(.)\1{2,}/g,
+"$1$1"
+);
 
-    return (
-        name.charAt(0).toUpperCase()+
-        name.slice(1).toLowerCase()
-    );
+return (
+name.charAt(0).toUpperCase()+
+name.slice(1).toLowerCase()
+);
 
 }
 
 
 function escapeHTML(text){
 
-    return text.replace(
-        /[&<>"']/g,
-        c => ({
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#039;"
-        })[c]
-    );
+return String(text).replace(
+/[&<>"']/g,
+c=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[c])
+);
 
 }
 
 
 function escapeAttr(text){
 
-    return text
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'");
+return String(text)
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
 
 }
 
 
 /* =========================================================
-   GENERATOR
+RARITY
+========================================================= */
+
+function getRarity(){
+
+const selected =
+$("rarity").value;
+
+if(selected!=="any")
+return selected;
+
+const r =
+Math.random();
+
+if(r<.50)
+return "common";
+
+if(r<.80)
+return "rare";
+
+if(r<.95)
+return "epic";
+
+return "legendary";
+
+}
+
+
+const rarityInfo={
+
+common:{
+label:"COMMON",
+className:"rarity-common"
+},
+
+rare:{
+label:"RARE",
+className:"rarity-rare"
+},
+
+epic:{
+label:"EPIC",
+className:"rarity-epic"
+},
+
+legendary:{
+label:"LEGENDARY",
+className:"rarity-legendary"
+}
+
+};
+
+
+/* =========================================================
+DESCRIPTION
+========================================================= */
+
+const descriptions={
+
+"Loup":[
+"Un nom associé à un esprit sauvage et indomptable.",
+"Un guerrier guidé par l'instinct du loup.",
+"Une présence solitaire qui règne sous la lune.",
+"Un chasseur silencieux des terres sauvages."
+],
+
+"Dragon":[
+"Un nom digne d'une créature ancienne et puissante.",
+"Une légende née des flammes des dragons.",
+"Un être dont le pouvoir semble dépasser les mortels.",
+"Une force ancienne réveillée après des siècles."
+],
+
+"Nuit":[
+"Une silhouette mystérieuse qui disparaît dans les ténèbres.",
+"Un nom associé aux secrets de la nuit.",
+"Une présence silencieuse que peu osent affronter.",
+"Une légende née lorsque le soleil disparaît."
+],
+
+"Feu":[
+"Un nom forgé dans les flammes.",
+"Une volonté brûlante impossible à éteindre.",
+"Une force qui avance comme un incendie.",
+"Un guerrier dont la rage ressemble au feu."
+],
+
+"Glace":[
+"Un nom aussi froid qu'une montagne éternelle.",
+"Une âme calme cachant une puissance glaciale.",
+"Une légende née dans les terres gelées.",
+"Un pouvoir capable de figer le champ de bataille."
+],
+
+"Ombre":[
+"Un être dont la véritable identité reste inconnue.",
+"Une présence qui se déplace entre les ténèbres.",
+"Une légende racontée uniquement à voix basse.",
+"Un mystérieux voyageur venu des profondeurs."
+],
+
+"Tonnerre":[
+"Une force rapide comme l'éclair.",
+"Un nom qui résonne comme le tonnerre.",
+"Une puissance capable de bouleverser le ciel.",
+"Un guerrier qui frappe avant même d'être aperçu."
+],
+
+"Lune":[
+"Un nom lié aux mystères de la lune.",
+"Une âme guidée par la lumière nocturne.",
+"Une légende qui apparaît uniquement la nuit.",
+"Un voyageur des royaumes lunaires."
+],
+
+"Démon":[
+"Un nom qui inspire la crainte et le respect.",
+"Une puissance ancienne venue des profondeurs.",
+"Une légende entourée de mystères interdits.",
+"Un être dont le pouvoir dépasse les frontières."
+],
+
+"Nature":[
+"Un esprit profondément lié aux forces naturelles.",
+"Une légende née au cœur d'une forêt ancienne.",
+"Un protecteur des terres sauvages.",
+"Une présence qui semble parler avec la nature."
+],
+
+"Océan":[
+"Un nom porté par les vagues et les océans.",
+"Une âme libre comme la mer.",
+"Une légende venue d'un royaume sous-marin.",
+"Un voyageur qui connaît les secrets des profondeurs."
+],
+
+"Cosmos":[
+"Un nom venu des profondeurs de l'univers.",
+"Une entité liée aux étoiles lointaines.",
+"Une légende qui dépasse les frontières du monde.",
+"Un voyageur entre les mondes."
+],
+
+"Étoile":[
+"Un nom qui brille comme une étoile dans la nuit.",
+"Une légende destinée à être remarquée.",
+"Une âme guidée par les constellations.",
+"Une présence lumineuse dans un monde obscur."
+],
+
+"Poison":[
+"Un nom subtil mais dangereux.",
+"Une présence dont le danger n'apparaît qu'au dernier instant.",
+"Une légende associée aux poisons mystérieux.",
+"Un adversaire qu'il vaut mieux ne jamais sous-estimer."
+],
+
+"Acier":[
+"Un nom forgé comme une lame.",
+"Une volonté aussi solide que l'acier.",
+"Un guerrier impossible à briser.",
+"Une légende née dans les forges."
+]
+
+};
+
+
+/* =========================================================
+CREATE NAME
 ========================================================= */
 
 function createName(){
 
-    const theme =
-        $("theme").value;
+const theme =
+$("theme").value;
 
-    const style =
-        $("style").value;
+const style =
+$("style").value;
 
-    const type =
-        $("type").value;
+const type =
+$("type").value;
 
-    const length =
-        $("length").value;
+const length =
+$("length").value;
 
-    const prefix =
-        $("prefix").value.trim();
+const gender =
+$("gender").value;
 
+const prefix =
+$("prefix").value.trim();
 
-    let name;
-
-
-    if(length==="Court"){
-
-        name =
-            randomItem(DB.themes[theme])+
-            randomItem(DB.types[type]);
-
-    }
-
-    else if(length==="Long"){
-
-        name =
-            randomItem(DB.themes[theme])+
-            randomItem(DB.styles[style])+
-            randomItem(DB.types[type]);
-
-    }
-
-    else{
-
-        const choice =
-            Math.random();
-
-        if(choice < .33){
-
-            name =
-                randomItem(DB.themes[theme])+
-                randomItem(DB.styles[style]);
-
-        }
-
-        else if(choice < .66){
-
-            name =
-                randomItem(DB.themes[theme])+
-                randomItem(DB.types[type]);
-
-        }
-
-        else{
-
-            name =
-                randomItem(DB.themes[theme])+
-                randomItem(DB.styles[style])+
-                randomItem(DB.types[type]);
-
-        }
-
-    }
+const surnameMode =
+$("surnameMode").value;
 
 
-    if(prefix){
-
-        name =
-            prefix+
-            name;
-
-    }
+let name;
 
 
-    return cleanName(name);
+if(length==="Court"){
+
+name =
+randomItem(DB.themes[theme])+
+randomItem(DB.types[type]);
+
+}
+
+else if(length==="Long"){
+
+name =
+randomItem(DB.themes[theme])+
+randomItem(DB.styles[style])+
+randomItem(DB.types[type]);
+
+}
+
+else{
+
+const choice =
+Math.random();
+
+if(choice<.34){
+
+name =
+randomItem(DB.themes[theme])+
+randomItem(DB.styles[style]);
+
+}
+
+else if(choice<.67){
+
+name =
+randomItem(DB.themes[theme])+
+randomItem(DB.types[type]);
+
+}
+
+else{
+
+name =
+randomItem(DB.themes[theme])+
+randomItem(DB.styles[style])+
+randomItem(DB.types[type]);
+
+}
+
+}
+
+
+/* Gender */
+
+if(
+gender==="male"
+){
+
+name +=
+randomItem(DB.male);
+
+}
+
+else if(
+gender==="female"
+){
+
+name +=
+randomItem(DB.female);
+
+}
+
+
+/* Prefix */
+
+if(prefix){
+
+name =
+prefix+
+name;
+
+}
+
+
+name =
+cleanName(name);
+
+
+/* Surname */
+
+let surname="";
+
+let shouldSurname =
+surnameMode==="yes" ||
+(
+surnameMode==="auto" &&
+Math.random()<.45
+);
+
+
+if(
+shouldSurname &&
+type!=="Royaume" &&
+type!=="Clan" &&
+type!=="Guilde"
+){
+
+surname =
+" "+
+cleanName(
+randomItem(
+DB.surname
+)
+);
+
+}
+
+
+/* Rare suffix */
+
+const rarity =
+getRarity();
+
+if(
+rarity==="legendary"
+){
+
+const legendarySuffixes=[
+"Prime",
+"Arcanum",
+"Eternal",
+"Ascendant",
+"Divine",
+"Infinity"
+];
+
+name +=
+" "+
+randomItem(
+legendarySuffixes
+);
+
+}
+
+
+return{
+
+name:name+surname,
+rarity:rarity,
+theme:theme,
+type:type,
+description:
+randomItem(
+descriptions[theme]
+)
+
+};
 
 }
 
 
 /* =========================================================
-   GENERATE NAMES
+GENERATE
 ========================================================= */
 
 function generateNames(){
 
-    const count =
-        Number(
-            $("count").value
-        );
+const count =
+Number(
+$("count").value
+);
+
+const generated=[];
+
+const used=
+new Set();
+
+let attempts=0;
 
 
-    const names = [];
+while(
+generated.length<count &&
+attempts<1000
+){
 
-    const used =
-        new Set();
+const result =
+createName();
 
+if(
+!used.has(result.name)
+){
 
-    let attempts=0;
+used.add(
+result.name
+);
 
+generated.push(
+result
+);
 
-    while(
-        names.length<count &&
-        attempts<1000
-    ){
+}
 
-        const name =
-            createName();
+attempts++;
 
-
-        if(!used.has(name)){
-
-            used.add(name);
-
-            names.push(name);
-
-        }
-
-
-        attempts++;
-
-    }
+}
 
 
-    generationCount += names.length;
+generationCount +=
+generated.length;
 
 
-    localStorage.setItem(
-        "nameforge_v3_generations",
-        generationCount
-    );
+legendaryCount +=
+generated.filter(
+x=>x.rarity==="legendary"
+).length;
 
 
-    updateStats();
+localStorage.setItem(
+"nameforge_v4_generations",
+generationCount
+);
 
-    renderResults(names);
+localStorage.setItem(
+"nameforge_v4_legendary",
+legendaryCount
+);
+
+
+updateStats();
+
+renderResults(
+generated
+);
 
 }
 
 
 /* =========================================================
-   RESULTS
+RESULTS
 ========================================================= */
 
-function renderResults(names){
+function renderResults(results){
 
-    $("results").innerHTML =
-        names.map(
-            name => `
+$("results").innerHTML =
+results.map(
+result=>{
 
-            <article class="name-card">
+const info =
+rarityInfo[
+result.rarity
+];
 
-                <div>
-
-                    <div class="name-text">
-                        ${escapeHTML(name)}
-                    </div>
-
-                    <div class="name-meta">
-
-                        ${escapeHTML(
-                            $("theme").value
-                        )}
-
-                        ·
-
-                        ${escapeHTML(
-                            $("style").value
-                        )}
-
-                    </div>
-
-                </div>
+const favorite =
+favorites.some(
+x=>x.name===result.name
+);
 
 
-                <div class="card-buttons">
+return`
 
-                    <button
-                        class="small-btn"
-                        onclick="
-                            copyName(
-                                '${escapeAttr(name)}'
-                            )
-                        "
-                    >
-                        📋
-                    </button>
+<article
+class="name-card"
+style="
+--card-color:
+${
+result.rarity==="legendary"
+? "var(--gold)"
+: result.rarity==="epic"
+? "var(--purple)"
+: result.rarity==="rare"
+? "var(--blue)"
+: "var(--border)"
+};
+">
 
+<div>
 
-                    <button
-                        class="
-                            small-btn
-                            ${
-                                favorites.includes(name)
-                                ? "favorite"
-                                : ""
-                            }
-                        "
-                        onclick="
-                            toggleFavorite(
-                                '${escapeAttr(name)}'
-                            )
-                        "
-                    >
-                        ${
-                            favorites.includes(name)
-                            ? "♥"
-                            : "♡"
-                        }
-                    </button>
+<span
+class="rarity ${info.className}"
+>
+${info.label}
+</span>
 
 
-                    <button
-                        class="small-btn"
-                        onclick="
-                            shareName(
-                                '${escapeAttr(name)}'
-                            )
-                        "
-                    >
-                        ↗
-                    </button>
+<div class="name-text">
+${escapeHTML(result.name)}
+</div>
 
-                </div>
 
-            </article>
+<div class="name-type">
+${escapeHTML(result.type)}
+·
+${escapeHTML(result.theme)}
+</div>
 
-        `
-        ).join("");
+
+<div class="description">
+${escapeHTML(result.description)}
+</div>
+
+</div>
+
+
+<div class="card-buttons">
+
+<button
+class="small-btn"
+onclick="
+copyName(
+'${escapeAttr(result.name)}'
+)
+"
+>
+📋
+</button>
+
+
+<button
+class="
+small-btn
+${favorite ? "favorite":""}
+"
+onclick="
+toggleFavorite(
+'${escapeAttr(result.name)}'
+)
+"
+>
+${favorite ? "♥":"♡"}
+</button>
+
+
+<button
+class="small-btn"
+onclick="
+shareName(
+'${escapeAttr(result.name)}'
+)
+"
+>
+↗
+</button>
+
+</div>
+
+</article>
+
+`;
+
+}
+).join("");
 
 }
 
 
 /* =========================================================
-   FAVORITES
+FAVORITES
 ========================================================= */
 
 function saveFavorites(){
 
-    localStorage.setItem(
-        "nameforge_v3_favorites",
-        JSON.stringify(favorites)
-    );
+localStorage.setItem(
+"nameforge_v4_favorites",
+JSON.stringify(
+favorites
+)
+);
 
 }
 
 
 function toggleFavorite(name){
 
-    if(
-        favorites.includes(name)
-    ){
-
-        favorites =
-            favorites.filter(
-                n => n!==name
-            );
-
-        showToast(
-            "Retiré des favoris"
-        );
-
-    }
-
-    else{
-
-        favorites.unshift(name);
-
-        showToast(
-            "Ajouté aux favoris ❤️"
-        );
-
-    }
+const existing =
+favorites.find(
+x=>x.name===name
+);
 
 
-    saveFavorites();
+if(existing){
 
-    updateStats();
+favorites =
+favorites.filter(
+x=>x.name!==name
+);
 
-    renderFavorites();
+showToast(
+"Retiré des favoris"
+);
 
-    generateNames();
+}
+
+else{
+
+favorites.unshift({
+
+name:name,
+rarity:"favorite",
+theme:"NameForge",
+type:"Favori",
+description:
+"Ton nom sauvegardé dans NameForge."
+
+});
+
+showToast(
+"Ajouté aux favoris ❤️"
+);
+
+}
+
+
+saveFavorites();
+
+updateStats();
+
+renderFavorites();
+
+generateNames();
 
 }
 
 
 function renderFavorites(){
 
-    const query =
-        $("search")
-        .value
-        .trim()
-        .toLowerCase();
+const query =
+$("search")
+.value
+.trim()
+.toLowerCase();
 
 
-    const list =
-        favorites.filter(
-            name =>
-                name
-                .toLowerCase()
-                .includes(query)
-        );
+const list =
+favorites.filter(
+item=>
+item.name
+.toLowerCase()
+.includes(query)
+);
 
 
-    if(!list.length){
+if(!list.length){
 
-        $("favoritesList").innerHTML = `
+$("favoritesList").innerHTML=`
 
-            <div class="empty">
+<div class="empty">
 
-                ${
-                    query
-                    ? "Aucun résultat."
-                    : "Aucun favori pour le moment."
-                }
+${
+query
+? "Aucun résultat."
+: "Aucun favori pour le moment."
+}
 
-            </div>
+</div>
 
-        `;
+`;
 
-        return;
+return;
 
-    }
+}
 
 
-    $("favoritesList").innerHTML = `
+$("favoritesList").innerHTML=`
 
-        <div class="results">
+<div class="results">
 
-        ${
-            list.map(
-                name => `
+${
 
-                <article class="name-card">
+list.map(
+item=>`
 
-                    <div class="name-text">
-                        ${escapeHTML(name)}
-                    </div>
+<article
+class="name-card"
+>
 
-                    <div class="card-buttons">
+<div>
 
-                        <button
-                            class="small-btn"
-                            onclick="
-                                copyName(
-                                    '${escapeAttr(name)}'
-                                )
-                            "
-                        >
-                            📋
-                        </button>
+<span
+class="
+rarity
+rarity-rare
+"
+>
+♥ FAVORI
+</span>
 
-                        <button
-                            class="
-                                small-btn
-                                favorite
-                            "
-                            onclick="
-                                toggleFavorite(
-                                    '${escapeAttr(name)}'
-                                )
-                            "
-                        >
-                            ♥
-                        </button>
+<div class="name-text">
+${escapeHTML(item.name)}
+</div>
 
-                        <button
-                            class="small-btn"
-                            onclick="
-                                shareName(
-                                    '${escapeAttr(name)}'
-                                )
-                            "
-                        >
-                            ↗
-                        </button>
+<div class="name-type">
+${escapeHTML(item.type)}
+</div>
 
-                    </div>
+<div class="description">
+${escapeHTML(item.description)}
+</div>
 
-                </article>
+</div>
 
-                `
-            ).join("")
-        }
 
-        </div>
+<div class="card-buttons">
 
-    `;
+<button
+class="small-btn"
+onclick="
+copyName(
+'${escapeAttr(item.name)}'
+)
+"
+>
+📋
+</button>
+
+<button
+class="small-btn favorite"
+onclick="
+toggleFavorite(
+'${escapeAttr(item.name)}'
+)
+"
+>
+♥
+</button>
+
+<button
+class="small-btn"
+onclick="
+shareName(
+'${escapeAttr(item.name)}'
+)
+"
+>
+↗
+</button>
+
+</div>
+
+</article>
+
+`
+).join("")
+
+}
+
+</div>
+
+`;
 
 }
 
 
 /* =========================================================
-   COPY
+COPY
 ========================================================= */
 
 async function copyName(name){
 
-    try{
+try{
 
-        await navigator.clipboard.writeText(
-            name
-        );
+await navigator.clipboard.writeText(
+name
+);
 
-    }
+}
 
-    catch{
+catch{
 
-        const textarea =
-            document.createElement(
-                "textarea"
-            );
+const textarea =
+document.createElement(
+"textarea"
+);
 
-        textarea.value=name;
+textarea.value=name;
 
-        document.body.appendChild(
-            textarea
-        );
+document.body.appendChild(
+textarea
+);
 
-        textarea.select();
+textarea.select();
 
-        document.execCommand(
-            "copy"
-        );
+document.execCommand(
+"copy"
+);
 
-        textarea.remove();
+textarea.remove();
 
-    }
+}
 
 
-    showToast(
-        "Nom copié ! 📋"
-    );
+showToast(
+"Nom copié ! 📋"
+);
 
 }
 
 
 /* =========================================================
-   SHARE
+SHARE
 ========================================================= */
 
 async function shareName(name){
 
-    if(
-        navigator.share
-    ){
+if(
+navigator.share
+){
 
-        try{
+try{
 
-            await navigator.share({
+await navigator.share({
 
-                title:
-                    "NameForge",
+title:
+"NameForge",
 
-                text:
-                    "Mon nom NameForge : "+
-                    name,
+text:
+"Mon nom NameForge : "+
+name,
 
-                url:
-                    window.location.href
+url:
+window.location.href
 
-            });
+});
 
-        }
+}
+catch{}
 
-        catch{}
+}
 
-    }
+else{
 
-    else{
+await copyName(name);
 
-        await copyName(name);
-
-    }
+}
 
 }
 
 
 /* =========================================================
-   RANDOM
+SURPRISE
 ========================================================= */
 
 function surprise(){
 
-    const selects=[
-        "type",
-        "style",
-        "theme",
-        "length",
-        "count"
-    ];
+const ids=[
+"type",
+"style",
+"theme",
+"gender",
+"rarity",
+"length",
+"count"
+];
 
 
-    selects.forEach(
-        id => {
+ids.forEach(
+id=>{
 
-            const select =
-                $(id);
+const select =
+$(id);
 
-            select.selectedIndex =
-                Math.floor(
-                    Math.random()*
-                    select.options.length
-                );
+select.selectedIndex =
+Math.floor(
+Math.random()*
+select.options.length
+);
 
-        }
-    );
-
-
-    $("prefix").value="";
+});
 
 
-    generateNames();
+$("prefix").value="";
+
+$("surnameMode").selectedIndex=
+Math.floor(
+Math.random()*
+$("surnameMode").options.length
+);
 
 
-    showToast(
-        "Nouveau monde généré 🎲"
-    );
+generateNames();
+
+showToast(
+"Nouveau destin généré 🎲"
+);
 
 }
 
 
 /* =========================================================
-   CLEAR
+CLEAR
 ========================================================= */
 
 function clearFavorites(){
 
-    if(
-        favorites.length===0
-    ){
+if(!favorites.length){
 
-        showToast(
-            "Aucun favori."
-        );
+showToast(
+"Aucun favori."
+);
 
-        return;
+return;
 
-    }
+}
 
 
-    favorites=[];
+favorites=[];
 
-    saveFavorites();
+saveFavorites();
 
-    updateStats();
+updateStats();
 
-    renderFavorites();
+renderFavorites();
 
-    generateNames();
-
-    showToast(
-        "Favoris effacés."
-    );
+showToast(
+"Favoris effacés."
+);
 
 }
 
 
 /* =========================================================
-   STATS
+STATS
 ========================================================= */
 
 function updateStats(){
 
-    $("generationCount")
-        .textContent =
-        generationCount.toLocaleString();
+$("generationCount")
+.textContent=
+generationCount.toLocaleString();
 
 
-    $("favoriteCount")
-        .textContent =
-        favorites.length;
+$("favoriteCount")
+.textContent=
+favorites.length;
+
+
+$("legendaryCount")
+.textContent=
+legendaryCount.toLocaleString();
 
 }
 
 
 /* =========================================================
-   TOAST
+TOAST
 ========================================================= */
 
 let toastTimer;
@@ -2335,182 +2919,349 @@ let toastTimer;
 
 function showToast(message){
 
-    const toast =
-        $("toast");
+const toast =
+$("toast");
 
+toast.textContent=
+message;
 
-    toast.textContent=
-        message;
+toast.classList.add(
+"show"
+);
 
+clearTimeout(
+toastTimer
+);
 
-    toast.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer =
-        setTimeout(
-            () => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            1800
-        );
+toastTimer=
+setTimeout(
+()=>{
+toast.classList.remove(
+"show"
+);
+},
+1800
+);
 
 }
 
 
 /* =========================================================
-   LANGUAGE
+LANGUAGES
 ========================================================= */
+
+const translations={
+
+fr:{
+generator:"Générateur",
+favorites:"Favoris",
+categories:"Catégories",
+
+hero1:"Forge ton prochain",
+hero2:"nom légendaire",
+
+heroText:
+"Crée des noms uniques pour tes personnages, pseudos, clans, guildes, royaumes et créatures. Choisis ton univers, ta rareté et ton style.",
+
+type:"🎭 Type",
+style:"🎨 Style",
+theme:"🔥 Thème",
+gender:"👤 Genre",
+rarity:"⭐ Rareté",
+length:"📏 Longueur",
+count:"🔢 Résultats",
+prefix:"🧩 Préfixe",
+surname:"📜 Nom de famille",
+
+generate:"Générer des noms",
+surprise:"Surprendre-moi",
+
+generated:"Noms générés",
+saved:"Favoris",
+free:"Générations gratuites",
+legendaryGenerated:"Légendaires",
+
+resultsTitle:"✨ Résultats",
+resultsHint:
+"Chaque nom possède sa propre rareté et description.",
+
+favoritesTitle:"❤️ Mes favoris",
+favoritesHint:
+"Tes noms sont sauvegardés dans ton navigateur.",
+
+clear:"Effacer",
+
+categoryTitle:"🎮 Univers",
+categoryHint:
+"Choisis un univers pour inspirer tes prochaines créations.",
+
+why:"Pourquoi NameForge ?",
+
+fastTitle:"Rapide",
+fastText:
+"Génère plusieurs noms en quelques secondes, sans inscription et sans installation.",
+
+rareTitle:"Rareté",
+rareText:
+"Découvre des noms communs, rares, épiques et légendaires.",
+
+favTitle:"Favoris",
+favText:
+"Sauvegarde tes meilleurs noms directement dans ton navigateur.",
+
+footerText:
+"Le nom de ton prochain héros commence ici."
+},
+
+en:{
+generator:"Generator",
+favorites:"Favorites",
+categories:"Categories",
+
+hero1:"Forge your next",
+hero2:"legendary name",
+
+heroText:
+"Create unique names for your characters, usernames, clans, guilds, kingdoms and creatures. Choose your universe, rarity and style.",
+
+type:"🎭 Type",
+style:"🎨 Style",
+theme:"🔥 Theme",
+gender:"👤 Gender",
+rarity:"⭐ Rarity",
+length:"📏 Length",
+count:"🔢 Results",
+prefix:"🧩 Prefix",
+surname:"📜 Surname",
+
+generate:"Generate names",
+surprise:"Surprise me",
+
+generated:"Generated",
+saved:"Favorites",
+free:"Free generations",
+legendaryGenerated:"Legendary",
+
+resultsTitle:"✨ Results",
+resultsHint:
+"Every name has its own rarity and description.",
+
+favoritesTitle:"❤️ My favorites",
+favoritesHint:
+"Your names are saved in your browser.",
+
+clear:"Clear",
+
+categoryTitle:"🎮 Universes",
+categoryHint:
+"Choose an universe for your next creations.",
+
+why:"Why NameForge?",
+
+fastTitle:"Fast",
+fastText:
+"Generate multiple names in seconds, without registration or installation.",
+
+rareTitle:"Rarity",
+rareText:
+"Discover common, rare, epic and legendary names.",
+
+favTitle:"Favorites",
+favText:
+"Save your best names directly in your browser.",
+
+footerText:
+"The name of your next hero starts here."
+},
+
+ar:{
+generator:"مولد الأسماء",
+favorites:"المفضلة",
+categories:"التصنيفات",
+
+hero1:"اصنع اسمك",
+hero2:"الأسطوري القادم",
+
+heroText:
+"أنشئ أسماء مميزة لشخصياتك وألعابك وعشائرك وممالكك ومخلوقاتك. اختر عالمك وأسلوبك ودرجة الندرة.",
+
+type:"🎭 النوع",
+style:"🎨 الأسلوب",
+theme:"🔥 الموضوع",
+gender:"👤 الجنس",
+rarity:"⭐ الندرة",
+length:"📏 الطول",
+count:"🔢 النتائج",
+prefix:"🧩 بادئة",
+surname:"📜 اسم العائلة",
+
+generate:"إنشاء الأسماء",
+surprise:"فاجئني",
+
+generated:"الأسماء المولدة",
+saved:"المفضلة",
+free:"توليد مجاني",
+legendaryGenerated:"أسطورية",
+
+resultsTitle:"✨ النتائج",
+resultsHint:
+"كل اسم لديه درجة ندرة ووصف خاص.",
+
+favoritesTitle:"❤️ المفضلة",
+favoritesHint:
+"يتم حفظ الأسماء في متصفحك.",
+
+clear:"مسح",
+
+categoryTitle:"🎮 العوالم",
+categoryHint:
+"اختر عالماً لإلهام إبداعاتك القادمة.",
+
+why:"لماذا NameForge؟",
+
+fastTitle:"سريع",
+fastText:
+"أنشئ عدة أسماء خلال ثوانٍ بدون تسجيل أو تثبيت.",
+
+rareTitle:"الندرة",
+rareText:
+"اكتشف أسماء عادية ونادرة وملحمية وأسطورية.",
+
+favTitle:"المفضلة",
+favText:
+"احفظ أفضل الأسماء مباشرة في متصفحك.",
+
+footerText:
+"اسم بطلك القادم يبدأ من هنا."
+}
+
+};
+
 
 function changeLanguage(lang){
 
-    const t =
-        translations[lang];
+const t =
+translations[lang];
 
 
-    document
-        .querySelectorAll(
-            "[data-i18n]"
-        )
-        .forEach(
-            element => {
+document
+.querySelectorAll(
+"[data-i18n]"
+)
+.forEach(
+element=>{
 
-                const key =
-                    element.dataset.i18n;
+const key =
+element.dataset.i18n;
 
-
-                if(t[key]){
-
-                    element.textContent =
-                        t[key];
-
-                }
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".lang-btn"
-        )
-        .forEach(
-            button => {
-
-                button.classList.toggle(
-                    "active",
-                    button.dataset.lang===lang
-                );
-
-            }
-        );
-
-
-    document.documentElement.lang =
-        lang;
-
-
-    document.documentElement.dir =
-        lang==="ar"
-        ? "rtl"
-        : "ltr";
-
-
-    localStorage.setItem(
-        "nameforge_language",
-        lang
-    );
-
-
-    showToast(
-        lang==="fr"
-        ? "Français 🇫🇷"
-        : lang==="en"
-        ? "English 🇬🇧"
-        : "العربية 🇩🇿"
-    );
+if(t[key])
+element.textContent=
+t[key];
 
 }
-
-
-/* =========================================================
-   EVENTS
-========================================================= */
-
-$("generate")
-.addEventListener(
-    "click",
-    generateNames
-);
-
-
-$("random")
-.addEventListener(
-    "click",
-    surprise
-);
-
-
-$("search")
-.addEventListener(
-    "input",
-    renderFavorites
-);
-
-
-$("clear")
-.addEventListener(
-    "click",
-    clearFavorites
 );
 
 
 document
 .querySelectorAll(
-    ".lang-btn"
+".lang-btn"
 )
 .forEach(
-    button => {
+button=>{
 
-        button.addEventListener(
-            "click",
-            () =>
-                changeLanguage(
-                    button.dataset.lang
-                )
-        );
+button.classList.toggle(
+"active",
+button.dataset.lang===lang
+);
 
-    }
+}
+);
+
+
+document.documentElement.lang=
+lang;
+
+document.documentElement.dir=
+lang==="ar"
+? "rtl"
+: "ltr";
+
+
+localStorage.setItem(
+"nameforge_language",
+lang
+);
+
+}
+
+
+/* =========================================================
+EVENTS
+========================================================= */
+
+$("generate")
+.addEventListener(
+"click",
+generateNames
+);
+
+
+$("random")
+.addEventListener(
+"click",
+surprise
+);
+
+
+$("search")
+.addEventListener(
+"input",
+renderFavorites
+);
+
+
+$("clear")
+.addEventListener(
+"click",
+clearFavorites
+);
+
+
+document
+.querySelectorAll(
+".lang-btn"
+)
+.forEach(
+button=>{
+
+button.addEventListener(
+"click",
+()=>changeLanguage(
+button.dataset.lang
+)
+);
+
+}
 );
 
 
 /* =========================================================
-   START
+START
 ========================================================= */
 
 const savedLanguage =
-    localStorage.getItem(
-        "nameforge_language"
-    ) || "fr";
+localStorage.getItem(
+"nameforge_language"
+) || "fr";
 
 
 if(
-    savedLanguage!=="fr"
+savedLanguage!=="fr"
 ){
 
-    changeLanguage(
-        savedLanguage
-    );
+changeLanguage(
+savedLanguage
+);
 
 }
 
