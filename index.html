@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NameForge - Générateur de noms pour personnages, jeux vidéo, clans et univers fantastiques.">
+  <title>NameForge — Générateur de noms</title>
+  <style>
+    :root{
+      --bg:#080b14;
+      --panel:#111624;
+      --panel-2:#151b2d;
+      --border:#283149;
+      --text:#f3f5ff;
+      --muted:#9aa4bd;
+      --accent:#8b5cf6;
+      --accent-2:#06b6d4;
+      --danger:#f87171;
+      --shadow:0 18px 45px rgba(0,0,0,.28);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(139,92,246,.14), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(6,182,212,.10), transparent 28%),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+    }
+    button,select{font:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(8,11,20,.78);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav{
+      min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{
+      color:var(--text);text-decoration:none;font-weight:850;font-size:1.25rem;
+      letter-spacing:.3px;display:flex;align-items:center;gap:10px;
+    }
+    .brand-mark{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 8px 25px rgba(139,92,246,.25);
+    }
+    nav a:not(.brand){color:var(--muted);text-decoration:none;font-weight:650}
+    nav a:not(.brand):hover{color:var(--text)}
+    .hero{text-align:center;padding:76px 0 40px}
+    .eyebrow{
+      display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid var(--border);
+      border-radius:999px;color:#c8cdec;background:rgba(17,22,36,.72);font-size:.85rem;
+    }
+    h1{font-size:clamp(2.4rem,7vw,5rem);line-height:.98;margin:20px 0 18px;letter-spacing:-3px}
+    .gradient{background:linear-gradient(90deg,#fff,var(--accent-2),#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:650px;margin:auto;color:var(--muted);font-size:1.08rem;line-height:1.7}
+    .panel{
+      background:linear-gradient(180deg,rgba(21,27,45,.94),rgba(15,20,34,.94));
+      border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);
+    }
+    .generator{padding:26px}
+    .fields{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    label{display:block;color:#dbe1f5;font-weight:700;margin-bottom:8px}
+    select{
+      width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--border);
+      background:#0c1120;color:var(--text);outline:none;cursor:pointer;
+    }
+    select:focus{border-color:var(--accent)}
+    .actions{display:flex;gap:12px;align-items:center;margin-top:20px}
+    .btn{
+      border:0;border-radius:13px;padding:13px 18px;cursor:pointer;font-weight:800;
+      transition:transform .18s,filter .18s,background .18s;
+    }
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .primary{color:white;background:linear-gradient(135deg,var(--accent),#6d28d9);flex:1}
+    .secondary{color:#e8ebf7;background:#1a2133;border:1px solid var(--border)}
+    .section{padding:58px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}
+    h2{margin:0;font-size:1.7rem}
+    .hint{color:var(--muted);font-size:.92rem}
+    .results{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .name-card{
+      position:relative;padding:20px 14px;background:rgba(17,22,36,.85);
+      border:1px solid var(--border);border-radius:16px;min-height:145px;
+      display:flex;flex-direction:column;justify-content:space-between;gap:14px;
+      animation:rise .35s ease both;
+    }
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .name{font-size:1.08rem;font-weight:850;word-break:break-word}
+    .card-actions{display:flex;gap:7px}
+    .small-btn{
+      flex:1;padding:9px 8px;border-radius:10px;border:1px solid var(--border);
+      background:#171d30;color:#dce2f5;cursor:pointer;font-size:.82rem;font-weight:750;
+    }
+    .small-btn:hover{background:#202940}
+    .favorite.active{color:#f9a8d4;border-color:#7c3f67}
+    .empty{
+      padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--border);
+      border-radius:16px;background:rgba(17,22,36,.45)
+    }
+    .toast{
+      position:fixed;right:22px;bottom:22px;z-index:50;padding:12px 16px;border-radius:12px;
+      background:#e9edf9;color:#101525;font-weight:800;box-shadow:var(--shadow);
+      transform:translateY(20px);opacity:0;pointer-events:none;transition:.25s;
+    }
+    .toast.show{transform:none;opacity:1}
+    footer{border-top:1px solid rgba(255,255,255,.07);padding:30px 0;color:var(--muted);text-align:center}
+    .footer-title{color:var(--text);font-weight:800;margin-bottom:5px}
+    @media(max-width:900px){.results{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:650px){
+      nav{min-height:64px}
+      .fields{grid-template-columns:1fr}
+      .results{grid-template-columns:1fr 1fr}
+      .hero{padding-top:52px}
+      h1{letter-spacing:-2px}
+      .generator{padding:18px}
+      .actions{flex-direction:column}
+      .actions .btn{width:100%}
+    }
+    @media(max-width:430px){.results{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#top"><span class="brand-mark">⚡</span>NameForge</a>
+      <a href="#favorites">❤️ Favoris</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <span class="eyebrow">✨ Générateur de noms fantastiques</span>
+      <h1>Forge ton prochain <span class="gradient">nom légendaire</span></h1>
+      <p>Crée rapidement des noms pour tes personnages, jeux vidéo, clans et univers fantastiques.</p>
+    </section>
+
+    <section class="container">
+      <div class="panel generator">
+        <div class="fields">
+          <div>
+            <label for="type">Type de nom</label>
+            <select id="type">
+              <option>Personnage</option><option>Pseudo</option><option>Guerrier</option>
+              <option>Mage</option><option>Assassin</option><option>Créature</option>
+              <option>Royaume</option><option>Clan</option>
+            </select>
+          </div>
+          <div>
+            <label for="style">Style</label>
+            <select id="style">
+              <option>Fantastique</option><option>Sombre</option><option>Mythique</option>
+              <option>Épique</option><option>Mystérieux</option><option>Japonais</option>
+              <option>Nordique</option><option>Futuriste</option>
+            </select>
+          </div>
+          <div>
+            <label for="theme">Thème</label>
+            <select id="theme">
+              <option>Loup</option><option>Dragon</option><option>Nuit</option>
+              <option>Feu</option><option>Glace</option><option>Ombre</option>
+              <option>Tonnerre</option><option>Lune</option><option>Démon</option><option>Nature</option>
+            </select>
+          </div>
+          <div>
+            <label for="length">Longueur</label>
+            <select id="length">
+              <option>Court</option><option selected>Moyen</option><option>Long</option>
+            </select>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="generate">⚡ Générer 5 noms</button>
+          <button class="btn secondary" id="randomize">🎲 Surprendre-moi</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <h2>✨ Noms générés</h2>
+          <div class="hint">Clique sur Copier ou ajoute un nom à tes favoris.</div>
+        </div>
+      </div>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section class="section container" id="favorites">
+      <div class="section-head">
+        <div>
+          <h2>❤️ Mes favoris</h2>
+          <div class="hint">Ils restent enregistrés sur cet appareil.</div>
+        </div>
+        <button class="btn secondary" id="clearFavorites">Effacer tout</button>
+      </div>
+      <div id="favoritesList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-title">NameForge</div>
+      <div>Créé pour les aventuriers, joueurs et créateurs.</div>
+      <div style="margin-top:8px">© 2026 NameForge</div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const data = {
+      themes: {
+        Loup:["Fen","Lyc","Varg","Wol","Lun","Nox","Skal","Rav"],
+        Dragon:["Drak","Drac","Zyr","Vyr","Azh","Ryu","Kyr","Dra"],
+        Nuit:["Nox","Nyx","Noct","Umb","Ten","Vey","Dusk","Ner"],
+        Feu:["Ign","Pyra","Sol","Fyr","Vul","Ember","Kael","Rag"],
+        Glace:["Cry","Frost","Eir","Isk","Glac","Skadi","Niv","Hail"],
+        Ombre:["Umbra","Shade","Morl","Vel","Dus","Obsc","Nyx","Vant"],
+        Tonnerre:["Thor","Volt","Raik","Temp","Zer","Storm","Kera","Astra"],
+        Lune:["Lun","Sel","Cres","Artem","Nyx","Selen","Luma","Ely"],
+        Démon:["Demon","Zar","Mal","Azr","Bel","Kha","Mor","Vez"],
+        Nature:["Syl","Ver","Flor","Eld","Gaia","Thorn","Eryn","Moss"]
+      },
+      styles: {
+        Fantastique:["aris","ion","iel","ora","yn","ael","is","or"],
+        Sombre:["nox","raith","vyr","mor","th","grim","vek","zar"],
+        Mythique:["eus","heon","aris","aion","theon","iel","yra","or"],
+        Épique:["dor","kar","dran","ius","gard","ron","mir","thor"],
+        Mystérieux:["veil","ryn","eth","ys","en","vane","ith","el"],
+        Japonais:["hiro","kage","yuki","ra","ken","sora","tsu","mori"],
+        Nordique:["ulf","rik","vald","bjorn","heim","skar","sten","grim"],
+        Futuriste:["ix","on","ex","ium","tek","vex","ora","zen"]
+      },
+      types: {
+        Personnage:["a","e","i","o"],
+        Pseudo:["x","z","ix","y"],
+        Guerrier:["ar","or","ak","us"],
+        Mage:["ia","iel","ara","ora"],
+        Assassin:["is","eth","yn","yx"],
+        Créature:["oth","ak","um","yr"],
+        Royaume:["ia","heim","ara","or"],
+        Clan:["en","ar","ir","an"]
+      }
+    };
+
+    const $ = id => document.getElementById(id);
+    let favorites = JSON.parse(localStorage.getItem("nameforge_favorites") || "[]");
+
+    function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+    function cleanName(name){
+      name = name.replace(/(.)\1{2,}/g,"$1$1");
+      return name.charAt(0).toUpperCase()+name.slice(1).toLowerCase();
+    }
+
+    function makeName(){
+      const theme = $("theme").value;
+      const style = $("style").value;
+      const type = $("type").value;
+      const length = $("length").value;
+
+      const prefixes = data.themes[theme];
+      const suffixes = data.styles[style];
+      const endings = data.types[type];
+
+      let raw;
+      if(length === "Court"){
+        raw = pick(prefixes) + pick(endings);
+      } else if(length === "Long"){
+        raw = pick(prefixes) + pick(suffixes) + pick(endings);
+      } else {
+        raw = pick(prefixes) + (Math.random() < .55 ? pick(suffixes) : pick(endings));
+      }
+      return cleanName(raw);
+    }
+
+    function generate(count=5){
+      const names = [];
+      let attempts = 0;
+      while(names.length < count && attempts < 100){
+        const n = makeName();
+        if(!names.includes(n)) names.push(n);
+        attempts++;
+      }
+      renderResults(names);
+    }
+
+    function renderResults(names){
+      $("results").innerHTML = names.map((name,i)=>`
+        <article class="name-card" style="animation-delay:${i*55}ms">
+          <div class="name">${escapeHtml(name)}</div>
+          <div class="card-actions">
+            <button class="small-btn" onclick="copyName('${escapeAttr(name)}')">📋 Copier</button>
+            <button class="small-btn favorite ${favorites.includes(name) ? "active" : ""}" onclick="toggleFavorite('${escapeAttr(name)}')">
+              ${favorites.includes(name) ? "♥" : "♡"} Favori
+            </button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderFavorites(){
+      if(!favorites.length){
+        $("favoritesList").innerHTML = `<div class="empty">Aucun nom favori pour le moment.</div>`;
+        return;
+      }
+      $("favoritesList").innerHTML = `
+        <div class="results">
+          ${favorites.map((name,i)=>`
+            <article class="name-card" style="animation-delay:${i*40}ms">
+              <div class="name">${escapeHtml(name)}</div>
+              <div class="card-actions">
+                <button class="small-btn" onclick="copyName('${escapeAttr(name)}')">📋 Copier</button>
+                <button class="small-btn favorite active" onclick="toggleFavorite('${escapeAttr(name)}')">♥ Retirer</button>
+              </div>
+            </article>
+          `).join("")}
+        </div>`;
+    }
+
+    function toggleFavorite(name){
+      if(favorites.includes(name)){
+        favorites = favorites.filter(x=>x!==name);
+        showToast("Retiré des favoris");
+      } else {
+        favorites.unshift(name);
+        showToast("Ajouté aux favoris ❤️");
+      }
+      localStorage.setItem("nameforge_favorites",JSON.stringify(favorites));
+      renderFavorites();
+      generate();
+    }
+
+    async function copyName(name){
+      try{
+        await navigator.clipboard.writeText(name);
+        showToast("Nom copié !");
+      }catch{
+        const area=document.createElement("textarea");
+        area.value=name;document.body.appendChild(area);area.select();
+        document.execCommand("copy");area.remove();
+        showToast("Nom copié !");
+      }
+    }
+
+    function showToast(message){
+      const toast=$("toast");
+      toast.textContent=message;
+      toast.classList.add("show");
+      clearTimeout(window.toastTimer);
+      window.toastTimer=setTimeout(()=>toast.classList.remove("show"),1800);
+    }
+
+    function escapeHtml(str){
+      return str.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+    }
+    function escapeAttr(str){ return str.replace(/\\/g,"\\\\").replace(/'/g,"\\'"); }
+
+    $("generate").addEventListener("click",()=>generate());
+
+    $("randomize").addEventListener("click",()=>{
+      const ids=["type","style","theme","length"];
+      ids.forEach(id=>{
+        const select=$(id);
+        select.selectedIndex=Math.floor(Math.random()*select.options.length);
+      });
+      generate();
+      showToast("Paramètres aléatoires !");
+    });
+
+    $("clearFavorites").addEventListener("click",()=>{
+      if(!favorites.length) return;
+      favorites=[];
+      localStorage.setItem("nameforge_favorites","[]");
+      renderFavorites();
+      generate();
+      showToast("Favoris effacés");
+    });
+
+    // Première génération au chargement.
+    generate();
+    renderFavorites();
+  </script>
+</body>
+</html>
