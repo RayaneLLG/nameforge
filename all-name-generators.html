@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,32 +8,16 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>All Name Generators — Fantasy, RPG, Anime & More | NameForge</title>
+<title>All Name Generators — NameForge</title>
 
 <meta name="description"
-      content="Explore all free NameForge name generators. Generate fantasy, RPG, anime and character names for games, stories and fictional worlds.">
-
-<meta name="keywords"
-      content="name generator, fantasy name generator, RPG name generator, anime name generator, character name generator, gaming name generator">
+      content="Explore all NameForge name generators for fantasy, RPG, anime, gaming and more.">
 
 <meta name="robots"
       content="index, follow">
 
 <link rel="canonical"
       href="https://rayanellg.github.io/nameforge/all-name-generators.html">
-
-<meta property="og:type"
-      content="website">
-
-<meta property="og:title"
-      content="All Name Generators — NameForge">
-
-<meta property="og:description"
-      content="Explore free fantasy, RPG, anime and character name generators.">
-
-<meta property="og:url"
-      content="https://rayanellg.github.io/nameforge/all-name-generators.html">
-
 
 <style>
 
@@ -44,17 +29,12 @@
     --muted:#9ba7bd;
     --purple:#8b5cf6;
     --blue:#06b6d4;
-    --pink:#ec4899;
 }
 
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
@@ -79,7 +59,7 @@ body{
         ),
 
         radial-gradient(
-            circle at 90% 5%,
+            circle at 90% 0%,
             rgba(6,182,212,.15),
             transparent 30%
         ),
@@ -136,9 +116,9 @@ nav{
 
     text-decoration:none;
 
-    font-weight:950;
-
     font-size:1.2rem;
+
+    font-weight:950;
 }
 
 .logo-icon{
@@ -154,7 +134,6 @@ nav{
     border-radius:11px;
 
     background:
-
         linear-gradient(
             135deg,
             var(--purple),
@@ -166,7 +145,7 @@ nav{
 
     display:flex;
 
-    gap:18px;
+    gap:20px;
 }
 
 .nav-links a{
@@ -187,7 +166,7 @@ nav{
 
     text-align:center;
 
-    padding:75px 0 50px;
+    padding:80px 0 50px;
 }
 
 .badge{
@@ -211,8 +190,6 @@ nav{
 
 h1{
 
-    max-width:900px;
-
     margin:20px auto;
 
     font-size:
@@ -228,12 +205,11 @@ h1{
     color:transparent;
 
     background:
-
         linear-gradient(
             90deg,
             white,
-            var(--blue),
-            #c084fc
+            #c084fc,
+            #22d3ee
         );
 
     background-clip:text;
@@ -243,13 +219,12 @@ h1{
 
 .hero p{
 
-    max-width:750px;
+    max-width:730px;
 
     margin:auto;
 
     color:var(--muted);
 
-    font-size:1.05rem;
 }
 
 .generators{
@@ -261,18 +236,18 @@ h1{
 
     gap:18px;
 
-    padding-bottom:70px;
+    padding-bottom:80px;
 }
 
-.generator-card{
+.card{
 
     display:flex;
 
     flex-direction:column;
 
-    padding:25px;
+    min-height:285px;
 
-    min-height:270px;
+    padding:25px;
 
     border:1px solid var(--border);
 
@@ -282,25 +257,20 @@ h1{
 
         linear-gradient(
             145deg,
-            rgba(20,29,47,.96),
-            rgba(12,17,29,.96)
+            rgba(20,29,47,.97),
+            rgba(12,17,29,.97)
         );
 
-    transition:
-        transform .2s,
-        border-color .2s,
-        box-shadow .2s;
+    transition:.2s;
 }
 
-.generator-card:hover{
+.card:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-5px);
 
     border-color:
         rgba(139,92,246,.6);
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.25);
 }
 
 .icon{
@@ -313,40 +283,46 @@ h1{
 
     place-items:center;
 
+    margin-bottom:18px;
+
     border-radius:16px;
 
     background:#182236;
 
     font-size:1.8rem;
-
-    margin-bottom:18px;
 }
 
-.generator-card h2{
+.card h2{
 
-    margin-bottom:9px;
+    margin-bottom:8px;
 
-    font-size:1.4rem;
+    font-size:1.35rem;
 }
 
-.generator-card p{
+.card p{
 
     color:var(--muted);
 
-    font-size:.94rem;
+    font-size:.92rem;
 
     margin-bottom:20px;
 }
 
-.generator-link{
+.link{
 
-    display:inline-block;
+    display:block;
 
     margin-top:auto;
 
     padding:11px 15px;
 
     border-radius:10px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-weight:900;
 
     background:
         linear-gradient(
@@ -355,23 +331,14 @@ h1{
             #6d28d9
         );
 
-    color:white;
-
-    text-decoration:none;
-
-    text-align:center;
-
-    font-weight:900;
-}
-
-.generator-link:hover{
-
-    opacity:.9;
 }
 
 .section{
 
-    padding:65px 0;
+    padding:60px 0;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
 }
 
 .content{
@@ -383,7 +350,7 @@ h1{
 
 .content h2{
 
-    margin-bottom:15px;
+    margin-bottom:14px;
 
     font-size:2rem;
 }
@@ -392,42 +359,7 @@ h1{
 
     color:var(--muted);
 
-    margin-bottom:16px;
-}
-
-.info-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:14px;
-
-    margin-top:30px;
-}
-
-.info{
-
-    padding:20px;
-
-    border:1px solid var(--border);
-
-    border-radius:15px;
-
-    background:#101625;
-}
-
-.info h3{
-
-    margin-bottom:7px;
-}
-
-.info p{
-
-    font-size:.9rem;
-
-    margin:0;
+    margin-bottom:15px;
 }
 
 footer{
@@ -442,17 +374,12 @@ footer{
     color:var(--muted);
 }
 
-@media(max-width:800px){
+@media(max-width:850px){
 
     .generators{
 
         grid-template-columns:
             repeat(2,1fr);
-    }
-
-    .info-grid{
-
-        grid-template-columns:1fr;
     }
 
 }
@@ -467,11 +394,6 @@ footer{
     .generators{
 
         grid-template-columns:1fr;
-    }
-
-    .hero{
-
-        padding-top:50px;
     }
 
 }
@@ -510,7 +432,7 @@ Home
 </a>
 
 <a href="all-name-generators.html">
-Generators
+All Generators
 </a>
 
 </div>
@@ -529,16 +451,16 @@ Generators
 
 
 <span class="badge">
-⚡ NAMEFORGE GENERATORS
+⚡ NAMEFORGE COLLECTION
 </span>
 
 
 <h1>
 
-Find the perfect
+All
 
 <span class="gradient">
-name generator
+Name Generators
 </span>
 
 </h1>
@@ -546,9 +468,9 @@ name generator
 
 <p>
 
-Explore all NameForge generators and create
-unique names for characters, games, stories,
-RPGs, fantasy worlds and more.
+Explore the complete collection of NameForge
+generators and find names for characters,
+games, stories and fictional worlds.
 
 </p>
 
@@ -557,12 +479,12 @@ RPGs, fantasy worlds and more.
 
 
 
-<section
-    class="generators container"
->
+<section class="generators container">
 
 
-<article class="generator-card">
+<!-- FANTASY -->
+
+<article class="card">
 
 
 <div class="icon">
@@ -578,14 +500,14 @@ Fantasy Name Generator
 <p>
 
 Create fantasy names for heroes, warriors,
-mages, villains, kingdoms and magical worlds.
+mages, villains and magical worlds.
 
 </p>
 
 
 <a
     href="fantasy-name-generator.html"
-    class="generator-link"
+    class="link"
 >
 
 Open Generator →
@@ -597,7 +519,9 @@ Open Generator →
 
 
 
-<article class="generator-card">
+<!-- RPG -->
+
+<article class="card">
 
 
 <div class="icon">
@@ -612,15 +536,15 @@ RPG Name Generator
 
 <p>
 
-Generate RPG character names for warriors,
-mages, rogues, paladins, rangers and villains.
+Generate names for RPG characters,
+adventurers, warriors, mages and rogues.
 
 </p>
 
 
 <a
     href="rpg-name-generator.html"
-    class="generator-link"
+    class="link"
 >
 
 Open Generator →
@@ -632,7 +556,9 @@ Open Generator →
 
 
 
-<article class="generator-card">
+<!-- ANIME -->
+
+<article class="card">
 
 
 <div class="icon">
@@ -648,14 +574,14 @@ Anime Name Generator
 <p>
 
 Create anime-inspired names for heroes,
-ninjas, demons, warriors, villains and royals.
+villains, ninjas, demons and warriors.
 
 </p>
 
 
 <a
     href="anime-name-generator.html"
-    class="generator-link"
+    class="link"
 >
 
 Open Generator →
@@ -667,7 +593,9 @@ Open Generator →
 
 
 
-<article class="generator-card">
+<!-- GAMING -->
+
+<article class="card">
 
 
 <div class="icon">
@@ -682,18 +610,18 @@ Gaming Name Generator
 
 <p>
 
-Coming soon: generate unique gaming names,
-usernames, gamer tags and online aliases.
+Generate gamer tags, gaming usernames
+and online aliases for your next profile.
 
 </p>
 
 
 <a
-    href="index.html"
-    class="generator-link"
+    href="gaming-name-generator.html"
+    class="link"
 >
 
-Coming Soon
+Open Generator →
 
 </a>
 
@@ -702,7 +630,9 @@ Coming Soon
 
 
 
-<article class="generator-card">
+<!-- KINGDOM -->
+
+<article class="card">
 
 
 <div class="icon">
@@ -717,15 +647,15 @@ Kingdom Name Generator
 
 <p>
 
-Coming soon: create names for kingdoms,
-empires, cities, nations and fictional realms.
+Create names for kingdoms, empires,
+cities and fictional realms.
 
 </p>
 
 
 <a
     href="index.html"
-    class="generator-link"
+    class="link"
 >
 
 Coming Soon
@@ -737,7 +667,9 @@ Coming Soon
 
 
 
-<article class="generator-card">
+<!-- DRAGON -->
+
+<article class="card">
 
 
 <div class="icon">
@@ -752,15 +684,15 @@ Dragon Name Generator
 
 <p>
 
-Coming soon: generate powerful names for
-dragons, ancient beasts and mythical creatures.
+Generate powerful names for dragons,
+ancient beasts and mythical creatures.
 
 </p>
 
 
 <a
     href="index.html"
-    class="generator-link"
+    class="link"
 >
 
 Coming Soon
@@ -782,148 +714,24 @@ Coming Soon
 
 
 <h2>
-Why use NameForge?
+Name generators for every idea
 </h2>
 
 
 <p>
 
-Finding the right fictional name can take time.
-NameForge provides simple browser-based generators
-that help you quickly create ideas for characters,
-games, stories and fictional worlds.
+NameForge is being built as a growing collection
+of specialized name generators. Each generator
+focuses on a different genre or creative purpose.
 
 </p>
 
 
 <p>
 
-Each generator focuses on a specific type of name,
-making it easier to find something that matches
-your character or creative project.
-
-</p>
-
-
-<div class="info-grid">
-
-
-<div class="info">
-
-<h3>
-⚡ Fast
-</h3>
-
-<p>
-
-Generate multiple names instantly without
-installing an application.
-
-</p>
-
-</div>
-
-
-<div class="info">
-
-<h3>
-🌍 Free
-</h3>
-
-<p>
-
-Use the NameForge generators directly in
-your browser.
-
-</p>
-
-</div>
-
-
-<div class="info">
-
-<h3>
-📱 Anywhere
-</h3>
-
-<p>
-
-The generators work on desktop, tablet
-and mobile browsers.
-
-</p>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<section class="section">
-
-
-<div class="content">
-
-
-<h2>
-Name generators for creators
-</h2>
-
-
-<p>
-
-NameForge is designed for gamers, writers,
-RPG players, storytellers and anyone who needs
-creative name ideas.
-
-</p>
-
-
-<p>
-
-Whether you need a fantasy hero, an RPG warrior,
-an anime villain or a name for an entire fictional
-kingdom, the NameForge collection is designed to
-make the process faster.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-<section class="section">
-
-
-<div class="content">
-
-
-<h2>
-Explore NameForge
-</h2>
-
-
-<p>
-
-<a
-    href="index.html"
-    style="color:#a78bfa;font-weight:800;"
->
-
-← Return to the main NameForge generator
-
-</a>
+More generators will be added over time,
+including gaming, kingdoms, dragons and other
+fantasy and fictional categories.
 
 </p>
 
@@ -959,6 +767,19 @@ games, stories and fictional worlds.
 <br><br>
 
 
+<a
+    href="index.html"
+    style="color:#a78bfa;text-decoration:none;font-weight:800;"
+>
+
+← Return to Home
+
+</a>
+
+
+<br><br>
+
+
 © 2026 NameForge
 
 
@@ -969,4 +790,5 @@ games, stories and fictional worlds.
 
 
 </body>
+
 </html>
