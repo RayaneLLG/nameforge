@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Wizard Name Generator — Free Wizard Names | NameForge</title>
+
+<meta name="description"
+      content="Generate unique wizard names for fantasy characters, mages, sorcerers and magical heroes with the free NameForge Wizard Name Generator.">
+
+<meta name="robots"
+      content="index, follow">
+
+<link rel="canonical"
+      href="https://rayanellg.github.io/nameforge/wizard-name-generator.html">
+
+
+<style>
+
+:root{
+    --bg:#070912;
+    --panel:#101827;
+    --border:#29354d;
+    --text:#f5f7ff;
+    --muted:#9ba7bd;
+    --purple:#8b5cf6;
+    --blue:#06b6d4;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(139,92,246,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(6,182,212,.12),
+            transparent 30%
+        ),
+        var(--bg);
+    line-height:1.6;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(7,9,18,.9);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+nav{
+    min-height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:white;
+    text-decoration:none;
+    font-size:1.2rem;
+    font-weight:950;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:800;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.hero{
+    text-align:center;
+    padding:75px 0 45px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 13px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:#0e1421;
+    color:#dce3f5;
+    font-size:.82rem;
+    font-weight:850;
+}
+
+h1{
+    max-width:900px;
+    margin:20px auto;
+    font-size:clamp(2.5rem,6vw,5rem);
+    line-height:1;
+    letter-spacing:-2px;
+}
+
+.gradient{
+    color:transparent;
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #c084fc,
+            #67e8f9
+        );
+    background-clip:text;
+    -webkit-background-clip:text;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    color:var(--muted);
+    font-size:1.05rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:22px;
+    padding:13px 19px;
+    border-radius:12px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+    color:white;
+    text-decoration:none;
+    font-weight:900;
+}
+
+.generator{
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:
+        linear-gradient(
+            160deg,
+            rgba(20,29,47,.97),
+            rgba(12,17,29,.97)
+        );
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.3);
+}
+
+.generator h2{
+    margin-bottom:6px;
+}
+
+.generator p{
+    color:var(--muted);
+}
+
+.controls{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+select,
+button{
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#090e1a;
+    color:white;
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+    font-weight:850;
+}
+
+.generate{
+    flex:1;
+    border:0;
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+}
+
+.results{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+    margin-top:18px;
+}
+
+.result{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:#101625;
+    text-align:center;
+    transition:.2s;
+}
+
+.result:hover{
+    transform:translateY(-3px);
+    border-color:rgba(139,92,246,.55);
+}
+
+.result-name{
+    font-size:1.15rem;
+    font-weight:950;
+    word-break:break-word;
+}
+
+.copy{
+    margin-top:12px;
+    width:100%;
+    background:#182236;
+}
+
+.section{
+    padding:65px 0;
+}
+
+.content{
+    max-width:850px;
+    margin:auto;
+}
+
+.content h2{
+    margin-bottom:14px;
+    font-size:2rem;
+}
+
+.content h3{
+    margin-top:27px;
+    margin-bottom:8px;
+}
+
+.content p{
+    color:var(--muted);
+    margin-bottom:15px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.card{
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:#101625;
+}
+
+.card h3{
+    margin-bottom:7px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:.9rem;
+}
+
+.faq details{
+    margin-bottom:10px;
+    padding:17px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#101625;
+}
+
+.faq summary{
+    cursor:pointer;
+    font-weight:900;
+}
+
+.faq p{
+    margin-top:10px;
+    color:var(--muted);
+}
+
+footer{
+    padding:40px 0;
+    border-top:1px solid rgba(255,255,255,.06);
+    text-align:center;
+    color:var(--muted);
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+    .results,
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<nav class="container">
+
+<a
+    href="index.html"
+    class="logo"
+>
+
+<span class="logo-icon">
+🧙
+</span>
+
+NameForge
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="all-name-generators.html">
+Generators
+</a>
+
+<a href="#generator">
+Generator
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero container">
+
+<span class="badge">
+🧙 FREE WIZARD NAME GENERATOR
+</span>
+
+
+<h1>
+
+Forge your
+
+<span class="gradient">
+magical wizard
+</span>
+
+</h1>
+
+
+<p>
+
+Generate unique wizard names for fantasy
+characters, mages, sorcerers, spellcasters
+and magical heroes.
+
+</p>
+
+
+<a
+    href="#generator"
+    class="btn"
+>
+
+🧙 Generate Wizard Names
+
+</a>
+
+</section>
+
+
+
+<section
+    class="container"
+    id="generator"
+>
+
+<div class="generator">
+
+<h2>
+🧙 Wizard Name Generator
+</h2>
+
+<p>
+Choose a magical style and generate nine
+wizard names instantly.
+</p>
+
+
+<div class="controls">
+
+
+<select id="style">
+
+<option value="arcane">
+✨ Arcane Wizard
+</option>
+
+<option value="dark">
+🌑 Dark Wizard
+</option>
+
+<option value="elemental">
+🔥 Elemental Mage
+</option>
+
+<option value="ancient">
+📜 Ancient Wizard
+</option>
+
+<option value="royal">
+👑 Royal Wizard
+</option>
+
+<option value="mystic">
+🔮 Mystic Sorcerer
+</option>
+
+</select>
+
+
+<select id="length">
+
+<option value="short">
+Short
+</option>
+
+<option value="medium" selected>
+Medium
+</option>
+
+<option value="long">
+Long
+</option>
+
+</select>
+
+
+<button
+    class="generate"
+    onclick="generate()"
+>
+
+🧙 Generate Names
+
+</button>
+
+</div>
+
+
+<div
+    id="results"
+    class="results"
+></div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="content">
+
+<h2>
+What is a wizard name generator?
+</h2>
+
+<p>
+
+A wizard name generator creates fictional
+names for magical characters such as wizards,
+mages, sorcerers and spellcasters.
+
+</p>
+
+<p>
+
+These names can be useful for fantasy stories,
+RPG campaigns, games, novels and fictional
+worlds.
+
+</p>
+
+
+<h3>
+✨ Arcane Wizards
+</h3>
+
+<p>
+
+Names inspired by ancient magic, mystical
+knowledge and powerful spellcasters.
+
+</p>
+
+
+<h3>
+🌑 Dark Wizards
+</h3>
+
+<p>
+
+Names suited to mysterious spellcasters,
+shadow mages and dark fantasy characters.
+
+</p>
+
+
+<h3>
+🔥 Elemental Mages
+</h3>
+
+<p>
+
+Names inspired by fire, ice, storms, earth
+and other magical elements.
+
+</p>
+
+
+<h3>
+📜 Ancient Wizards
+</h3>
+
+<p>
+
+Names designed for legendary sorcerers,
+ancient sages and forgotten magical masters.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="section container">
+
+<div class="content">
+
+<h2>
+Popular Wizard Styles
+</h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+✨ Arcane
+</h3>
+
+<p>
+Mystical names for powerful arcane
+spellcasters.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🌑 Dark
+</h3>
+
+<p>
+Mysterious names for shadowy and
+dark fantasy wizards.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🔥 Elemental
+</h3>
+
+<p>
+Names inspired by magical elemental
+powers.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+📜 Ancient
+</h3>
+
+<p>
+Names for legendary and forgotten
+wizards.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+👑 Royal
+</h3>
+
+<p>
+Elegant names for court wizards
+and magical rulers.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🔮 Mystic
+</h3>
+
+<p>
+Mystical names for mysterious
+sorcerers.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section
+    class="section container"
+    id="faq"
+>
+
+<div class="content">
+
+<h2>
+Wizard Name Generator FAQ
+</h2>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+Is the wizard name generator free?
+</summary>
+
+<p>
+Yes. The NameForge Wizard Name Generator
+is free to use in your browser.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+What can I use these wizard names for?
+</summary>
+
+<p>
+You can use them as inspiration for
+fantasy characters, games, RPGs, stories
+and fictional worlds.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I generate short wizard names?
+</summary>
+
+<p>
+Yes. Choose Short, Medium or Long before
+generating your names.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+What types of wizard names can I generate?
+</summary>
+
+<p>
+You can generate arcane, dark, elemental,
+ancient, royal and mystic wizard names.
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section container">
+
+<div class="content">
+
+<h2>
+Explore more NameForge generators
+</h2>
+
+
+<p>
+<a
+    href="all-name-generators.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+← All Name Generators
+</a>
+</p>
+
+
+<p>
+<a
+    href="fantasy-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+🐉 Fantasy Name Generator
+</a>
+</p>
+
+
+<p>
+<a
+    href="rpg-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+🎲 RPG Name Generator
+</a>
+</p>
+
+
+<p>
+<a
+    href="anime-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+✨ Anime Name Generator
+</a>
+</p>
+
+
+<p>
+<a
+    href="gaming-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+🎮 Gaming Name Generator
+</a>
+</p>
+
+
+<p>
+<a
+    href="kingdom-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+🏰 Kingdom Name Generator
+</a>
+</p>
+
+
+<p>
+<a
+    href="dragon-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+🐲 Dragon Name Generator
+</a>
+</p>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+<div class="container">
+
+<strong>
+🧙 NameForge
+</strong>
+
+<br><br>
+
+Free wizard name generator for fantasy
+stories, games, RPGs and fictional worlds.
+
+<br><br>
+
+© 2026 NameForge
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+const prefixes = {
+
+arcane:[
+"Arcan",
+"Alth",
+"Merl",
+"Val",
+"Zor",
+"Elth",
+"Cael",
+"Orin",
+"Thaum",
+"Vey"
+],
+
+dark:[
+"Mor",
+"Nyx",
+"Vhar",
+"Mal",
+"Grim",
+"Vor",
+"Dread",
+"Umb",
+"Zar",
+"Kor"
+],
+
+elemental:[
+"Pyro",
+"Fyr",
+"Volt",
+"Terra",
+"Frost",
+"Storm",
+"Aero",
+"Ember",
+"Hydr",
+"Flam"
+],
+
+ancient:[
+"Azar",
+"Orun",
+"Thal",
+"Arkan",
+"Xal",
+"Valen",
+"Drav",
+"Ur",
+"Kael",
+"Zeth"
+],
+
+royal:[
+"Alar",
+"Edric",
+"Valer",
+"Cael",
+"Leon",
+"Ther",
+"Aurel",
+"Evander",
+"Lucan",
+"Arven"
+],
+
+mystic:[
+"Nyra",
+"Sel",
+"Vey",
+"Mir",
+"Elun",
+"Isar",
+"Ryn",
+"Zel",
+"Astra",
+"Lun"
+]
+
+};
+
+
+const middles = {
+
+arcane:[
+"an",
+"or",
+"eth",
+"iel",
+"ar",
+"en",
+"ion",
+"us",
+"yr",
+"al"
+],
+
+dark:[
+"or",
+"ath",
+"yr",
+"an",
+"ek",
+"ul",
+"eth",
+"ar",
+"on",
+"ir"
+],
+
+elemental:[
+"ar",
+"on",
+"yr",
+"eth",
+"ia",
+"or",
+"an",
+"el",
+"us",
+"ir"
+],
+
+ancient:[
+"ar",
+"on",
+"eth",
+"ur",
+"an",
+"or",
+"ia",
+"um",
+"ir",
+"ak"
+],
+
+royal:[
+"en",
+"ar",
+"iel",
+"or",
+"ian",
+"eth",
+"us",
+"el",
+"an",
+"er"
+],
+
+mystic:[
+"el",
+"ia",
+"or",
+"yn",
+"ar",
+"eth",
+"iel",
+"on",
+"is",
+"en"
+]
+
+};
+
+
+const endings = {
+
+arcane:[
+"ion",
+"iel",
+"or",
+"ius",
+"eth",
+"ar",
+"en",
+"wyn",
+"us",
+"iel"
+],
+
+dark:[
+"oth",
+"or",
+"ax",
+"ar",
+"eth",
+"ul",
+"on",
+"yr",
+"ek",
+"an"
+],
+
+elemental:[
+"on",
+"ar",
+"us",
+"eth",
+"or",
+"ion",
+"ak",
+"yr",
+"an",
+"el"
+],
+
+ancient:[
+"or",
+"on",
+"um",
+"ar",
+"eth",
+"ius",
+"an",
+"ax",
+"ir",
+"oth"
+],
+
+royal:[
+"ian",
+"iel",
+"or",
+"us",
+"eth",
+"ar",
+"en",
+"ion",
+"el",
+"er"
+],
+
+mystic:[
+"ia",
+"iel",
+"or",
+"en",
+"eth",
+"yn",
+"ar",
+"is",
+"el",
+"ion"
+]
+
+};
+
+
+function randomItem(array){
+
+    return array[
+        Math.floor(
+            Math.random()*array.length
+        )
+    ];
+
+}
+
+
+function capitalize(name){
+
+    return name.charAt(0).toUpperCase()
+        + name.slice(1);
+
+}
+
+
+function makeName(style,length){
+
+    let name;
+
+
+    if(length==="short"){
+
+        name =
+            randomItem(prefixes[style]) +
+            randomItem(endings[style]);
+
+    }
+
+    else if(length==="medium"){
+
+        name =
+            randomItem(prefixes[style]) +
+            randomItem(middles[style]) +
+            randomItem(endings[style]);
+
+    }
+
+    else{
+
+        name =
+            randomItem(prefixes[style]) +
+            randomItem(middles[style]) +
+            randomItem(middles[style]) +
+            randomItem(endings[style]);
+
+    }
+
+
+    return capitalize(name);
+
+}
+
+
+function generate(){
+
+    const style =
+        document.getElementById(
+            "style"
+        ).value;
+
+
+    const length =
+        document.getElementById(
+            "length"
+        ).value;
+
+
+    const names=[];
+
+
+    while(names.length<9){
+
+        const name =
+            makeName(
+                style,
+                length
+            );
+
+
+        if(!names.includes(name)){
+
+            names.push(name);
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "results"
+    ).innerHTML =
+
+        names.map(name => `
+
+            <div class="result">
+
+                <div class="result-name">
+                    ${name}
+                </div>
+
+                <button
+                    class="copy"
+                    onclick="copyName('${name.replace(/'/g,"\\'")}')"
+                >
+
+                    📋 Copy name
+
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            name
+        );
+
+        alert(
+            "Name copied: " + name
+        );
+
+    }
+
+    catch{
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+generate();
+
+</script>
+
+
+</body>
+
+</html>
