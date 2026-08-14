@@ -1,1192 +1,1471 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="NameForge - Générateur gratuit de noms pour personnages, pseudos, clans, guildes, royaumes et créatures.">
-
-    <meta name="keywords"
-          content="générateur de noms, pseudo, RPG, fantasy, anime, clan, guilde, personnage, royaume">
-
-    <meta name="theme-color" content="#080b14">
-
-    <title>NameForge V2 - Générateur de noms</title>
-
-    <style>
-        :root {
-            --bg: #080b14;
-            --panel: #111827;
-            --panel-light: #172033;
-            --border: #2a354d;
-            --text: #f4f6ff;
-            --muted: #9ca8c0;
-            --purple: #8b5cf6;
-            --blue: #06b6d4;
-            --pink: #ec4899;
-            --green: #34d399;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(
-                    circle at 10% 5%,
-                    rgba(139, 92, 246, 0.16),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 10%,
-                    rgba(6, 182, 212, 0.12),
-                    transparent 28%
-                ),
-                var(--bg);
-
-            color: var(--text);
-            font-family:
-                Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-        }
-
-        button,
-        select,
-        input {
-            font: inherit;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .container {
-            width: min(1150px, 92%);
-            margin: auto;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-
-            background: rgba(8, 11, 20, 0.82);
-            backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        nav {
-            height: 70px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="NameForge - Générateur gratuit de noms pour jeux, personnages, clans, guildes, royaumes et créatures.">
+<meta name="keywords" content="name generator, générateur de noms, pseudo, RPG, gaming, fantasy, anime, clan, guilde">
+<meta name="theme-color" content="#080b14">
+
+<title>NameForge V3 - Name Generator</title>
+
+<style>
+:root{
+    --bg:#070a12;
+    --bg2:#0d1220;
+    --panel:#111827;
+    --panel2:#172033;
+    --border:#29354d;
+    --text:#f5f7ff;
+    --muted:#9ba7bd;
+    --purple:#8b5cf6;
+    --blue:#06b6d4;
+    --pink:#ec4899;
+    --green:#34d399;
+    --danger:#fb7185;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(139,92,246,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(6,182,212,.14),
+            transparent 28%
+        ),
+        var(--bg);
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:rgba(7,10,18,.82);
+    backdrop-filter:blur(16px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.navbar{
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-            text-decoration: none;
+    text-decoration:none;
 
-            font-size: 1.3rem;
-            font-weight: 900;
-        }
+    font-size:1.3rem;
+    font-weight:900;
+}
 
-        .logo {
-            width: 40px;
-            height: 40px;
+.logo{
+    width:40px;
+    height:40px;
 
-            display: grid;
-            place-items: center;
+    display:grid;
+    place-items:center;
 
-            border-radius: 12px;
+    border-radius:12px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--purple),
-                    var(--blue)
-                );
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
 
-            box-shadow:
-                0 10px 30px rgba(139, 92, 246, 0.25);
-        }
+    box-shadow:
+        0 10px 30px rgba(139,92,246,.25);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 22px;
-        }
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
 
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 700;
+.nav-links{
+    display:flex;
+    gap:20px;
+}
 
-            transition: 0.2s;
-        }
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:700;
+    transition:.2s;
+}
 
-        .nav-links a:hover {
-            color: white;
-        }
+.nav-links a:hover{
+    color:white;
+}
 
-        /* =========================
-           HERO
-        ========================= */
+.language{
+    display:flex;
+    gap:4px;
 
-        .hero {
-            text-align: center;
-            padding: 75px 0 45px;
-        }
+    padding:4px;
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
+    border:1px solid var(--border);
+    border-radius:10px;
 
-            padding: 8px 14px;
+    background:#0b101d;
+}
 
-            border: 1px solid var(--border);
-            border-radius: 999px;
+.lang-btn{
+    border:0;
+    border-radius:7px;
 
-            background: rgba(17, 24, 39, 0.75);
+    padding:6px 8px;
 
-            color: #dbe2f5;
+    background:transparent;
+    color:var(--muted);
 
-            font-size: 0.88rem;
-            font-weight: 700;
-        }
+    font-size:.78rem;
+    font-weight:800;
+}
 
-        .hero h1 {
-            margin: 22px 0;
+.lang-btn.active{
+    background:var(--purple);
+    color:white;
+}
 
-            font-size: clamp(2.7rem, 7vw, 5.3rem);
-            line-height: 0.95;
+/* =========================
+   HERO
+========================= */
 
-            letter-spacing: -3px;
-        }
+.hero{
+    text-align:center;
+    padding:80px 0 45px;
+}
 
-        .gradient {
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    var(--blue),
-                    #c084fc
-                );
+.badge{
+    display:inline-flex;
+    align-items:center;
 
-            color: transparent;
+    padding:8px 14px;
 
-            background-clip: text;
-            -webkit-background-clip: text;
-        }
+    border:1px solid var(--border);
+    border-radius:999px;
 
-        .hero p {
-            max-width: 720px;
-            margin: auto;
+    background:rgba(17,24,39,.7);
 
-            color: var(--muted);
+    color:#dce3f5;
 
-            font-size: 1.08rem;
-            line-height: 1.7;
-        }
+    font-size:.86rem;
+    font-weight:800;
+}
 
-        /* =========================
-           PANEL
-        ========================= */
+.hero h1{
+    margin:22px auto;
 
-        .panel {
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(21, 28, 45, 0.96),
-                    rgba(14, 20, 33, 0.96)
-                );
+    max-width:950px;
 
-            border: 1px solid var(--border);
+    font-size:
+        clamp(
+            2.7rem,
+            7vw,
+            5.5rem
+        );
 
-            border-radius: 20px;
+    line-height:.95;
 
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+    letter-spacing:-3px;
+}
 
-        .generator {
-            padding: 26px;
-        }
+.gradient{
+    color:transparent;
 
-        .fields {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+    background:
+        linear-gradient(
+            90deg,
+            white,
+            var(--blue),
+            #c084fc,
+            #f472b6
+        );
 
-            gap: 15px;
-        }
+    background-clip:text;
+    -webkit-background-clip:text;
+}
 
-        .field label {
-            display: block;
+.hero p{
+    max-width:730px;
+    margin:auto;
 
-            margin-bottom: 8px;
+    color:var(--muted);
 
-            font-weight: 800;
-            color: #dce2f4;
-        }
+    font-size:1.08rem;
+    line-height:1.7;
+}
 
-        .field select,
-        .field input {
-            width: 100%;
+/* =========================
+   GENERATOR
+========================= */
 
-            padding: 13px 14px;
+.generator-panel{
+    padding:26px;
 
-            border: 1px solid var(--border);
-            border-radius: 12px;
+    border:1px solid var(--border);
+    border-radius:20px;
 
-            background: #0b101d;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(21,28,45,.97),
+            rgba(13,18,31,.97)
+        );
 
-            color: var(--text);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.3);
+}
 
-            outline: none;
+.fields{
+    display:grid;
 
-            transition: 0.2s;
-        }
+    grid-template-columns:
+        repeat(3,1fr);
 
-        .field select:focus,
-        .field input:focus {
-            border-color: var(--purple);
+    gap:15px;
+}
 
-            box-shadow:
-                0 0 0 3px rgba(139, 92, 246, 0.12);
-        }
+.field label{
+    display:block;
 
-        .actions {
-            display: flex;
+    margin-bottom:8px;
 
-            gap: 10px;
+    color:#dfe5f5;
 
-            margin-top: 18px;
-        }
+    font-weight:800;
+}
 
-        .btn {
-            padding: 13px 18px;
+.field select,
+.field input{
+    width:100%;
 
-            border-radius: 13px;
+    padding:13px 14px;
 
-            border: 1px solid var(--border);
+    border:1px solid var(--border);
+    border-radius:12px;
 
-            background: #192235;
+    outline:none;
 
-            color: var(--text);
+    background:#090e1a;
+    color:var(--text);
 
-            font-weight: 850;
+    transition:.2s;
+}
 
-            transition: 0.18s;
-        }
+.field select:focus,
+.field input:focus{
+    border-color:var(--purple);
 
-        .btn:hover {
-            transform: translateY(-2px);
+    box-shadow:
+        0 0 0 3px
+        rgba(139,92,246,.12);
+}
 
-            filter: brightness(1.12);
-        }
+.actions{
+    display:flex;
 
-        .primary {
-            flex: 1;
+    gap:10px;
 
-            border: 0;
+    margin-top:20px;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--purple),
-                    #6d28d9
-                );
+.btn{
+    padding:13px 18px;
 
-            color: white;
-        }
+    border:1px solid var(--border);
+    border-radius:13px;
 
-        /* =========================
-           SECTIONS
-        ========================= */
+    background:#192235;
+    color:white;
 
-        .section {
-            padding: 58px 0;
-        }
+    font-weight:850;
 
-        .section-head {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
+    transition:.2s;
+}
 
-            gap: 15px;
+.btn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.12);
+}
 
-            margin-bottom: 20px;
-        }
+.primary{
+    flex:1;
 
-        .section-head h2 {
-            font-size: 1.75rem;
-        }
+    border:0;
 
-        .hint {
-            margin-top: 5px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            #6d28d9
+        );
+}
 
-            color: var(--muted);
+/* =========================
+   STATS
+========================= */
 
-            font-size: 0.92rem;
-        }
+.stats{
+    display:grid;
 
-        /* =========================
-           RESULTS
-        ========================= */
+    grid-template-columns:
+        repeat(3,1fr);
 
-        .results {
-            display: grid;
+    gap:12px;
 
-            grid-template-columns:
-                repeat(5, 1fr);
+    margin-top:15px;
+}
 
-            gap: 12px;
-        }
+.stat{
+    padding:14px;
 
-        .card {
-            min-height: 150px;
+    text-align:center;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+    border:1px solid var(--border);
+    border-radius:14px;
 
-            padding: 18px 14px;
+    background:#0e1421;
+}
 
-            border: 1px solid var(--border);
+.stat-number{
+    display:block;
 
-            border-radius: 16px;
+    font-size:1.3rem;
+    font-weight:900;
 
-            background:
-                rgba(16, 22, 36, 0.88);
+    color:white;
+}
 
-            transition: 0.2s;
-        }
+.stat-label{
+    color:var(--muted);
+    font-size:.78rem;
+}
 
-        .card:hover {
-            transform: translateY(-3px);
+/* =========================
+   SECTIONS
+========================= */
 
-            border-color:
-                rgba(139, 92, 246, 0.55);
+.section{
+    padding:60px 0;
+}
 
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, 0.25);
-        }
+.section-head{
+    display:flex;
 
-        .name {
-            font-size: 1.12rem;
+    align-items:end;
+    justify-content:space-between;
 
-            font-weight: 900;
+    gap:15px;
 
-            overflow-wrap: anywhere;
-        }
+    margin-bottom:20px;
+}
 
-        .meta {
-            margin-top: 5px;
+.section-title{
+    font-size:1.8rem;
+}
 
-            color: var(--muted);
+.hint{
+    margin-top:5px;
 
-            font-size: 0.76rem;
-        }
+    color:var(--muted);
 
-        .card-buttons {
-            display: flex;
+    font-size:.92rem;
+}
 
-            gap: 7px;
-        }
+/* =========================
+   RESULTS
+========================= */
 
-        .small-btn {
-            flex: 1;
+.results{
+    display:grid;
 
-            padding: 9px 6px;
+    grid-template-columns:
+        repeat(5,1fr);
 
-            border: 1px solid var(--border);
+    gap:12px;
+}
 
-            border-radius: 10px;
+.name-card{
+    min-height:160px;
 
-            background: #171f32;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 
-            color: #e5e9f7;
+    padding:18px 15px;
 
-            font-size: 0.8rem;
+    border:1px solid var(--border);
+    border-radius:16px;
 
-            font-weight: 800;
+    background:
+        rgba(15,22,37,.9);
 
-            transition: 0.18s;
-        }
+    transition:.2s;
+}
 
-        .small-btn:hover {
-            background: #202a40;
+.name-card:hover{
+    transform:translateY(-4px);
 
-            transform: translateY(-1px);
-        }
+    border-color:
+        rgba(139,92,246,.55);
 
-        .favorite-active {
-            color: #f9a8d4;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+}
 
-            border-color:
-                rgba(236, 72, 153, 0.45);
-        }
+.name-text{
+    font-size:1.13rem;
+    font-weight:900;
 
-        /* =========================
-           FAVORITES
-        ========================= */
+    overflow-wrap:anywhere;
+}
 
-        .tools {
-            display: flex;
+.name-meta{
+    margin-top:6px;
 
-            gap: 8px;
-        }
+    color:var(--muted);
 
-        .search {
-            width: 260px;
+    font-size:.74rem;
+}
 
-            padding: 11px 13px;
+.card-buttons{
+    display:flex;
+    gap:7px;
+}
 
-            border: 1px solid var(--border);
+.small-btn{
+    flex:1;
 
-            border-radius: 11px;
+    padding:9px 5px;
 
-            background: #0b101d;
+    border:1px solid var(--border);
+    border-radius:9px;
 
-            color: var(--text);
+    background:#171f32;
+    color:#e8ecf8;
 
-            outline: none;
-        }
+    font-size:.78rem;
+    font-weight:800;
 
-        .empty {
-            padding: 30px;
+    transition:.2s;
+}
 
-            text-align: center;
+.small-btn:hover{
+    background:#222d45;
+}
 
-            border: 1px dashed var(--border);
+.favorite{
+    color:#f9a8d4;
 
-            border-radius: 16px;
+    border-color:
+        rgba(236,72,153,.45);
+}
 
-            color: var(--muted);
-        }
+/* =========================
+   FAVORITES
+========================= */
 
-        /* =========================
-           FEATURES
-        ========================= */
+.tools{
+    display:flex;
+    gap:8px;
+}
 
-        .features {
-            display: grid;
+.search{
+    width:260px;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    padding:11px 13px;
 
-            gap: 14px;
-        }
+    border:1px solid var(--border);
+    border-radius:11px;
 
-        .feature {
-            padding: 22px;
+    outline:none;
 
-            border: 1px solid var(--border);
+    background:#090e1a;
+    color:white;
+}
 
-            border-radius: 16px;
+.empty{
+    padding:32px;
 
-            background:
-                rgba(16, 22, 36, 0.65);
-        }
+    text-align:center;
 
-        .feature-icon {
-            font-size: 1.7rem;
+    border:1px dashed var(--border);
+    border-radius:16px;
 
-            margin-bottom: 10px;
-        }
+    color:var(--muted);
+}
 
-        .feature strong {
-            display: block;
+/* =========================
+   CATEGORIES
+========================= */
 
-            margin-bottom: 7px;
+.category-grid{
+    display:grid;
 
-            font-size: 1.05rem;
-        }
+    grid-template-columns:
+        repeat(4,1fr);
 
-        .feature span {
-            color: var(--muted);
+    gap:12px;
+}
 
-            line-height: 1.55;
+.category{
+    padding:20px;
 
-            font-size: 0.92rem;
-        }
+    border:1px solid var(--border);
+    border-radius:16px;
 
-        /* =========================
-           FOOTER
-        ========================= */
+    background:#101625;
 
-        footer {
-            margin-top: 30px;
+    transition:.2s;
+}
 
-            padding: 35px 0;
+.category:hover{
+    transform:translateY(-3px);
 
-            text-align: center;
+    border-color:
+        rgba(6,182,212,.45);
+}
 
-            border-top:
-                1px solid rgba(255, 255, 255, 0.06);
+.category-icon{
+    font-size:1.8rem;
+    margin-bottom:9px;
+}
 
-            color: var(--muted);
-        }
+.category strong{
+    display:block;
 
-        footer strong {
-            color: white;
-        }
+    margin-bottom:5px;
+}
 
-        /* =========================
-           TOAST
-        ========================= */
+.category span{
+    color:var(--muted);
 
-        .toast {
-            position: fixed;
+    font-size:.84rem;
+}
 
-            right: 20px;
-            bottom: 20px;
+/* =========================
+   FEATURES
+========================= */
 
-            z-index: 100;
+.features{
+    display:grid;
 
-            padding: 13px 17px;
+    grid-template-columns:
+        repeat(3,1fr);
 
-            border-radius: 12px;
+    gap:14px;
+}
 
-            background: #eef2ff;
+.feature{
+    padding:23px;
 
-            color: #101525;
+    border:1px solid var(--border);
+    border-radius:17px;
 
-            font-weight: 850;
+    background:#101625aa;
+}
 
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.35);
+.feature-icon{
+    font-size:1.8rem;
+    margin-bottom:10px;
+}
 
-            opacity: 0;
+.feature strong{
+    display:block;
+    margin-bottom:7px;
+}
 
-            transform: translateY(15px);
+.feature span{
+    color:var(--muted);
+    line-height:1.55;
+    font-size:.9rem;
+}
 
-            pointer-events: none;
+/* =========================
+   FOOTER
+========================= */
 
-            transition: 0.25s;
-        }
+footer{
+    margin-top:25px;
 
-        .toast.show {
-            opacity: 1;
+    padding:40px 0;
 
-            transform: translateY(0);
-        }
+    text-align:center;
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+    border-top:
+        1px solid rgba(255,255,255,.06);
 
-        @media (max-width: 950px) {
+    color:var(--muted);
+}
 
-            .results {
-                grid-template-columns:
-                    repeat(3, 1fr);
-            }
+footer strong{
+    color:white;
+}
 
-            .fields {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-        }
+/* =========================
+   TOAST
+========================= */
 
-        @media (max-width: 650px) {
+.toast{
+    position:fixed;
 
-            .nav-links {
-                display: none;
-            }
+    right:20px;
+    bottom:20px;
 
-            .hero {
-                padding-top: 50px;
-            }
+    z-index:500;
 
-            .hero h1 {
-                letter-spacing: -2px;
-            }
+    padding:13px 17px;
 
-            .fields {
-                grid-template-columns: 1fr;
-            }
+    border-radius:12px;
 
-            .results {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+    background:#eef2ff;
+    color:#101525;
 
-            .features {
-                grid-template-columns: 1fr;
-            }
+    font-weight:850;
 
-            .actions {
-                flex-direction: column;
-            }
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
 
-            .tools {
-                flex-direction: column;
-            }
+    opacity:0;
 
-            .search {
-                width: 100%;
-            }
+    transform:translateY(15px);
 
-            .generator {
-                padding: 18px;
-            }
-        }
+    pointer-events:none;
 
-        @media (max-width: 430px) {
+    transition:.25s;
+}
 
-            .results {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+    .results{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .fields{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .category-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:680px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .fields{
+        grid-template-columns:1fr;
+    }
+
+    .results{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .tools{
+        flex-direction:column;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .category-grid{
+        grid-template-columns:1fr;
+    }
+
+    .generator-panel{
+        padding:18px;
+    }
+
+}
+
+@media(max-width:430px){
+
+    .results{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
 </head>
 
 <body>
 
 <header>
 
-    <nav class="container">
+<nav class="container navbar">
 
-        <a class="brand" href="#top">
+<a
+    href="#top"
+    class="brand"
+>
+    <span class="logo">⚡</span>
+    NameForge
+</a>
 
-            <span class="logo">
-                ⚡
-            </span>
+<div class="nav-right">
 
-            NameForge
+<div class="nav-links">
 
-        </a>
+<a href="#generator" data-i18n="generator">
+Générateur
+</a>
 
-        <div class="nav-links">
+<a href="#favorites" data-i18n="favorites">
+Favoris
+</a>
 
-            <a href="#generator">
-                Générateur
-            </a>
+<a href="#categories" data-i18n="categories">
+Catégories
+</a>
 
-            <a href="#favorites">
-                ❤️ Favoris
-            </a>
+</div>
 
-            <a href="#about">
-                À propos
-            </a>
+<div class="language">
 
-        </div>
+<button class="lang-btn active" data-lang="fr">
+FR
+</button>
 
-    </nav>
+<button class="lang-btn" data-lang="en">
+EN
+</button>
+
+<button class="lang-btn" data-lang="ar">
+ع
+</button>
+
+</div>
+
+</div>
+
+</nav>
 
 </header>
 
 
 <main id="top">
 
-    <!-- HERO -->
+<!-- HERO -->
 
-    <section class="hero container">
+<section class="hero container">
 
-        <span class="badge">
-            ✨ NameForge V2 · Gratuit
-        </span>
+<span class="badge">
+✨ NameForge V3 · Free Name Generator
+</span>
 
-        <h1>
-            Forge ton prochain
-            <span class="gradient">
-                nom légendaire
-            </span>
-        </h1>
+<h1>
 
-        <p>
-            Crée des noms uniques pour tes personnages,
-            pseudos, clans, guildes, royaumes et créatures.
-            Choisis ton univers et laisse NameForge faire le reste.
-        </p>
+<span data-i18n="hero1">
+Forge ton prochain
+</span>
 
-    </section>
+<span class="gradient" data-i18n="hero2">
+nom légendaire
+</span>
 
+</h1>
 
-    <!-- GENERATOR -->
+<p data-i18n="heroText">
 
-    <section
-        class="container"
-        id="generator"
-    >
+Crée des noms uniques pour tes personnages,
+pseudos, clans, guildes, royaumes et créatures.
+Choisis ton univers et laisse NameForge faire le reste.
 
-        <div class="panel generator">
+</p>
 
-            <div class="fields">
+</section>
 
-                <!-- TYPE -->
 
-                <div class="field">
+<!-- GENERATOR -->
 
-                    <label for="type">
-                        🎭 Type
-                    </label>
+<section
+    class="container"
+    id="generator"
+>
 
-                    <select id="type">
+<div class="generator-panel">
 
-                        <option>
-                            Personnage
-                        </option>
+<div class="fields">
 
-                        <option>
-                            Pseudo
-                        </option>
+<div class="field">
 
-                        <option>
-                            Guerrier
-                        </option>
+<label data-i18n="type">
+🎭 Type
+</label>
 
-                        <option>
-                            Mage
-                        </option>
+<select id="type">
 
-                        <option>
-                            Assassin
-                        </option>
+<option>Personnage</option>
+<option>Pseudo</option>
+<option>Guerrier</option>
+<option>Mage</option>
+<option>Assassin</option>
+<option>Créature</option>
+<option>Royaume</option>
+<option>Clan</option>
+<option>Guilde</option>
+<option>Boss</option>
+<option>Monstre</option>
+<option>Héros</option>
 
-                        <option>
-                            Créature
-                        </option>
+</select>
 
-                        <option>
-                            Royaume
-                        </option>
+</div>
 
-                        <option>
-                            Clan
-                        </option>
 
-                        <option>
-                            Guilde
-                        </option>
+<div class="field">
 
-                    </select>
+<label data-i18n="style">
+🎨 Style
+</label>
 
-                </div>
+<select id="style">
 
+<option>Fantastique</option>
+<option>Sombre</option>
+<option>Mythique</option>
+<option>Épique</option>
+<option>Mystérieux</option>
+<option>Japonais</option>
+<option>Nordique</option>
+<option>Futuriste</option>
+<option>Anime</option>
+<option>Cyberpunk</option>
+<option>Royal</option>
+<option>Ancien</option>
 
-                <!-- STYLE -->
+</select>
 
-                <div class="field">
+</div>
 
-                    <label for="style">
-                        🎨 Style
-                    </label>
 
-                    <select id="style">
+<div class="field">
 
-                        <option>
-                            Fantastique
-                        </option>
+<label data-i18n="theme">
+🔥 Thème
+</label>
 
-                        <option>
-                            Sombre
-                        </option>
+<select id="theme">
 
-                        <option>
-                            Mythique
-                        </option>
+<option>Loup</option>
+<option>Dragon</option>
+<option>Nuit</option>
+<option>Feu</option>
+<option>Glace</option>
+<option>Ombre</option>
+<option>Tonnerre</option>
+<option>Lune</option>
+<option>Démon</option>
+<option>Nature</option>
+<option>Océan</option>
+<option>Cosmos</option>
+<option>Étoile</option>
+<option>Poison</option>
+<option>Acier</option>
 
-                        <option>
-                            Épique
-                        </option>
+</select>
 
-                        <option>
-                            Mystérieux
-                        </option>
+</div>
 
-                        <option>
-                            Japonais
-                        </option>
 
-                        <option>
-                            Nordique
-                        </option>
+<div class="field">
 
-                        <option>
-                            Futuriste
-                        </option>
+<label data-i18n="length">
+📏 Longueur
+</label>
 
-                        <option>
-                            Anime
-                        </option>
+<select id="length">
 
-                    </select>
+<option>Court</option>
+<option selected>Moyen</option>
+<option>Long</option>
 
-                </div>
+</select>
 
+</div>
 
-                <!-- THEME -->
 
-                <div class="field">
+<div class="field">
 
-                    <label for="theme">
-                        🔥 Thème
-                    </label>
+<label data-i18n="count">
+🔢 Résultats
+</label>
 
-                    <select id="theme">
+<select id="count">
 
-                        <option>
-                            Loup
-                        </option>
+<option>5</option>
+<option>8</option>
+<option>10</option>
 
-                        <option>
-                            Dragon
-                        </option>
+</select>
 
-                        <option>
-                            Nuit
-                        </option>
+</div>
 
-                        <option>
-                            Feu
-                        </option>
 
-                        <option>
-                            Glace
-                        </option>
+<div class="field">
 
-                        <option>
-                            Ombre
-                        </option>
+<label data-i18n="prefix">
+🧩 Préfixe
+</label>
 
-                        <option>
-                            Tonnerre
-                        </option>
+<input
+    id="prefix"
+    maxlength="15"
+    placeholder="Ex. Ray"
+>
 
-                        <option>
-                            Lune
-                        </option>
+</div>
 
-                        <option>
-                            Démon
-                        </option>
+</div>
 
-                        <option>
-                            Nature
-                        </option>
 
-                        <option>
-                            Océan
-                        </option>
+<div class="actions">
 
-                        <option>
-                            Cosmos
-                        </option>
+<button
+    class="btn primary"
+    id="generate"
+>
+⚡ <span data-i18n="generate">
+Générer des noms
+</span>
+</button>
 
-                    </select>
+<button
+    class="btn"
+    id="random"
+>
+🎲 <span data-i18n="surprise">
+Surprendre-moi
+</span>
+</button>
 
-                </div>
+</div>
 
 
-                <!-- LENGTH -->
+<div class="stats">
 
-                <div class="field">
+<div class="stat">
 
-                    <label for="length">
-                        📏 Longueur
-                    </label>
+<span
+    class="stat-number"
+    id="generationCount"
+>
+0
+</span>
 
-                    <select id="length">
+<span
+    class="stat-label"
+    data-i18n="generated"
+>
+Noms générés
+</span>
 
-                        <option>
-                            Court
-                        </option>
+</div>
 
-                        <option selected>
-                            Moyen
-                        </option>
 
-                        <option>
-                            Long
-                        </option>
+<div class="stat">
 
-                    </select>
+<span
+    class="stat-number"
+    id="favoriteCount"
+>
+0
+</span>
 
-                </div>
+<span
+    class="stat-label"
+    data-i18n="saved"
+>
+Favoris
+</span>
 
+</div>
 
-                <!-- COUNT -->
 
-                <div class="field">
+<div class="stat">
 
-                    <label for="count">
-                        🔢 Résultats
-                    </label>
+<span class="stat-number">
+∞
+</span>
 
-                    <select id="count">
+<span
+    class="stat-label"
+    data-i18n="free"
+>
+Générations gratuites
+</span>
 
-                        <option>
-                            5
-                        </option>
+</div>
 
-                        <option>
-                            8
-                        </option>
+</div>
 
-                        <option>
-                            10
-                        </option>
+</div>
 
-                    </select>
+</section>
 
-                </div>
 
+<!-- RESULTS -->
 
-                <!-- PREFIX -->
+<section class="section container">
 
-                <div class="field">
+<div class="section-head">
 
-                    <label for="prefix">
-                        🧩 Préfixe optionnel
-                    </label>
+<div>
 
-                    <input
-                        id="prefix"
-                        maxlength="12"
-                        placeholder="Ex. Ray"
-                    >
+<h2
+    class="section-title"
+    data-i18n="resultsTitle"
+>
+✨ Résultats
+</h2>
 
-                </div>
+<div
+    class="hint"
+    data-i18n="resultsHint"
+>
+Choisis ton préféré.
+</div>
 
-            </div>
+</div>
 
+</div>
 
-            <div class="actions">
 
-                <button
-                    class="btn primary"
-                    id="generate"
-                >
-                    ⚡ Générer des noms
-                </button>
+<div
+    id="results"
+    class="results"
+></div>
 
-                <button
-                    class="btn"
-                    id="random"
-                >
-                    🎲 Surprendre-moi
-                </button>
+</section>
 
-            </div>
 
-        </div>
+<!-- FAVORITES -->
 
-    </section>
+<section
+    class="section container"
+    id="favorites"
+>
 
+<div class="section-head">
 
-    <!-- RESULTS -->
+<div>
 
-    <section class="section container">
+<h2
+    class="section-title"
+    data-i18n="favoritesTitle"
+>
+❤️ Mes favoris
+</h2>
 
-        <div class="section-head">
+<div
+    class="hint"
+    data-i18n="favoritesHint"
+>
+Tes noms sont sauvegardés dans ton navigateur.
+</div>
 
-            <div>
+</div>
 
-                <h2>
-                    ✨ Résultats
-                </h2>
 
-                <div class="hint">
-                    Copie, partage ou ajoute tes noms préférés.
-                </div>
+<div class="tools">
 
-            </div>
+<input
+    id="search"
+    class="search"
+    placeholder="🔎 Rechercher..."
+>
 
-        </div>
+<button
+    id="clear"
+    class="btn"
+    data-i18n="clear"
+>
+Effacer
+</button>
 
+</div>
 
-        <div
-            id="results"
-            class="results"
-        ></div>
+</div>
 
-    </section>
 
+<div id="favoritesList"></div>
 
-    <!-- FAVORITES -->
+</section>
 
-    <section
-        class="section container"
-        id="favorites"
-    >
 
-        <div class="section-head">
+<!-- CATEGORIES -->
 
-            <div>
+<section
+    class="section container"
+    id="categories"
+>
 
-                <h2>
-                    ❤️ Mes favoris
-                </h2>
+<div class="section-head">
 
-                <div class="hint">
-                    Ils sont conservés dans ton navigateur.
-                </div>
+<div>
 
-            </div>
+<h2
+    class="section-title"
+    data-i18n="categoryTitle"
+>
+🎮 Univers
+</h2>
 
+<div
+    class="hint"
+    data-i18n="categoryHint"
+>
+Des styles pour tous tes projets.
+</div>
 
-            <div class="tools">
+</div>
 
-                <input
-                    class="search"
-                    id="search"
-                    placeholder="🔎 Rechercher..."
-                >
+</div>
 
-                <button
-                    class="btn"
-                    id="clear"
-                >
-                    Effacer
-                </button>
 
-            </div>
+<div class="category-grid">
 
-        </div>
+<div class="category">
 
+<div class="category-icon">
+⚔️
+</div>
 
-        <div id="favoritesList"></div>
+<strong>
+RPG
+</strong>
 
-    </section>
+<span>
+Warriors, mages, kingdoms...
+</span>
 
+</div>
 
-    <!-- ABOUT -->
 
-    <section
-        class="section container"
-        id="about"
-    >
+<div class="category">
 
-        <div class="section-head">
+<div class="category-icon">
+🌑
+</div>
 
-            <div>
+<strong>
+Dark Fantasy
+</strong>
 
-                <h2>
-                    Pourquoi NameForge ?
-                </h2>
+<span>
+Dark, mysterious and powerful names.
+</span>
 
-                <div class="hint">
-                    Un générateur rapide, gratuit et sans compte.
-                </div>
+</div>
 
-            </div>
 
-        </div>
+<div class="category">
 
+<div class="category-icon">
+🔥
+</div>
 
-        <div class="features">
+<strong>
+Anime
+</strong>
 
+<span>
+Names inspired by Japanese fantasy.
+</span>
 
-            <div class="feature">
+</div>
 
-                <div class="feature-icon">
-                    ⚡
-                </div>
 
-                <strong>
-                    Rapide
-                </strong>
+<div class="category">
 
-                <span>
-                    Génère plusieurs propositions
-                    en un seul clic et recommence
-                    autant de fois que tu veux.
-                </span>
+<div class="category-icon">
+🐉
+</div>
 
-            </div>
+<strong>
+Fantasy
+</strong>
 
+<span>
+Dragons, elves, legends and magic.
+</span>
 
-            <div class="feature">
+</div>
 
-                <div class="feature-icon">
-                    ❤️
-                </div>
 
-                <strong>
-                    Tes favoris
-                </strong>
+<div class="category">
 
-                <span>
-                    Garde tes meilleurs noms directement
-                    dans ton navigateur grâce au stockage local.
-                </span>
+<div class="category-icon">
+🤖
+</div>
 
-            </div>
+<strong>
+Sci-Fi
+</strong>
 
+<span>
+Futuristic and technological names.
+</span>
 
-            <div class="feature">
+</div>
 
-                <div class="feature-icon">
-                    🌍
-                </div>
 
-                <strong>
-                    Plusieurs univers
-                </strong>
+<div class="category">
 
-                <span>
-                    Fantasy, sombre, japonais,
-                    nordique, anime, futuriste
-                    et bien plus.
-                </span>
+<div class="category-icon">
+🛡️
+</div>
 
-            </div>
+<strong>
+Viking
+</strong>
 
+<span>
+Nordic warriors and ancient clans.
+</span>
 
-        </div>
+</div>
 
-    </section>
+
+<div class="category">
+
+<div class="category-icon">
+👑
+</div>
+
+<strong>
+Royal
+</strong>
+
+<span>
+Kings, queens and legendary realms.
+</span>
+
+</div>
+
+
+<div class="category">
+
+<div class="category-icon">
+👹
+</div>
+
+<strong>
+Monsters
+</strong>
+
+<span>
+Creatures, bosses and enemies.
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="section container">
+
+<div class="section-head">
+
+<div>
+
+<h2
+    class="section-title"
+    data-i18n="why"
+>
+Pourquoi NameForge ?
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<strong data-i18n="fastTitle">
+Rapide
+</strong>
+
+<span data-i18n="fastText">
+Génère plusieurs noms en quelques secondes,
+sans inscription et sans installation.
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🌍
+</div>
+
+<strong data-i18n="multiTitle">
+International
+</strong>
+
+<span data-i18n="multiText">
+Interface disponible en français,
+anglais et arabe.
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+❤️
+</div>
+
+<strong data-i18n="favTitle">
+Favoris
+</strong>
+
+<span data-i18n="favText">
+Sauvegarde tes meilleurs noms directement
+dans ton navigateur.
+</span>
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
 
 <footer>
 
-    <div class="container">
+<div class="container">
 
-        <strong>
-            NameForge
-        </strong>
+<strong>
+⚡ NameForge
+</strong>
 
-        <br>
+<br><br>
 
-        Le nom de ton prochain héros commence ici.
+<span data-i18n="footerText">
+Le nom de ton prochain héros commence ici.
+</span>
 
-        <br><br>
+<br><br>
 
-        <small>
-            © 2026 NameForge
-        </small>
+<small>
+© 2026 NameForge
+</small>
 
-    </div>
+</div>
 
 </footer>
 
@@ -1200,432 +1479,264 @@
 <script>
 
 /* =========================================================
-   DATABASE
+   NAME DATABASE
 ========================================================= */
 
-const database = {
+const DB = {
 
-    themes: {
+themes: {
 
-        "Loup": [
-            "Fen",
-            "Varg",
-            "Lyc",
-            "Lun",
-            "Skal",
-            "Rav",
-            "Ulf",
-            "Wol",
-            "Fang",
-            "Kry"
-        ],
+"Loup":["Fen","Varg","Lyc","Lun","Skal","Rav","Ulf","Wol","Fang","Kry","Lyk","Vul"],
+"Dragon":["Drak","Zyr","Vyr","Azh","Ryu","Kyr","Dra","Drac","Ign","Ryuj","Zan","Thar"],
+"Nuit":["Nox","Nyx","Noct","Umb","Ten","Vey","Dusk","Ner","Vel","Lun","Myr","Noir"],
+"Feu":["Ign","Pyra","Sol","Fyr","Vul","Ember","Kael","Rag","Ash","Cind","Flam","Pyro"],
+"Glace":["Cry","Frost","Eir","Isk","Glac","Skadi","Niv","Hail","Rime","Frei","Ice","Ymir"],
+"Ombre":["Umbra","Shade","Morl","Vel","Dus","Obsc","Nyx","Vant","Void","Noir","Murk","Shad"],
+"Tonnerre":["Thor","Volt","Raik","Temp","Zer","Storm","Kera","Astra","Rai","Tyr","Zeus","Volt"],
+"Lune":["Lun","Sel","Cres","Artem","Nyx","Selen","Luma","Ely","Mira","Cyr","Moon","Lun"],
+"Démon":["Zar","Mal","Azr","Bel","Kha","Mor","Vez","Rav","Dae","Xar","Demon","Vaal"],
+"Nature":["Syl","Ver","Flor","Eld","Gaia","Thorn","Eryn","Moss","Oak","Ael","Leaf","Terra"],
+"Océan":["Mar","Ner","Aqua","Cor","Tide","Nami","Mare","Thal","Azul","Pearl","Wave","Ocean"],
+"Cosmos":["Astr","Nova","Cosm","Zen","Lyr","Orion","Vega","Astra","Neb","Star","Cosmo","Void"],
+"Étoile":["Star","Astr","Stel","Vega","Nova","Lyr","Sol","Siri","Lux","Astra","Cel","Zia"],
+"Poison":["Ven","Tox","Nox","Viper","Mias","Hex","Bane","Acid","Veno","Zer","Rot","Plag"],
+"Acier":["Iron","Steel","Ferr","Titan","Met","Chrome","Arg","Forge","Axel","Rex","Gear","Mech"]
 
-        "Dragon": [
-            "Drak",
-            "Zyr",
-            "Vyr",
-            "Azh",
-            "Ryu",
-            "Kyr",
-            "Dra",
-            "Drac",
-            "Ign",
-            "Ryuj"
-        ],
-
-        "Nuit": [
-            "Nox",
-            "Nyx",
-            "Noct",
-            "Umb",
-            "Ten",
-            "Vey",
-            "Dusk",
-            "Ner",
-            "Vel",
-            "Lun"
-        ],
-
-        "Feu": [
-            "Ign",
-            "Pyra",
-            "Sol",
-            "Fyr",
-            "Vul",
-            "Ember",
-            "Kael",
-            "Rag",
-            "Ash",
-            "Cind"
-        ],
-
-        "Glace": [
-            "Cry",
-            "Frost",
-            "Eir",
-            "Isk",
-            "Glac",
-            "Skadi",
-            "Niv",
-            "Hail",
-            "Rime",
-            "Frei"
-        ],
-
-        "Ombre": [
-            "Umbra",
-            "Shade",
-            "Morl",
-            "Vel",
-            "Dus",
-            "Obsc",
-            "Nyx",
-            "Vant",
-            "Void",
-            "Noir"
-        ],
-
-        "Tonnerre": [
-            "Thor",
-            "Volt",
-            "Raik",
-            "Temp",
-            "Zer",
-            "Storm",
-            "Kera",
-            "Astra",
-            "Rai",
-            "Tyr"
-        ],
-
-        "Lune": [
-            "Lun",
-            "Sel",
-            "Cres",
-            "Artem",
-            "Nyx",
-            "Selen",
-            "Luma",
-            "Ely",
-            "Mira",
-            "Cyr"
-        ],
-
-        "Démon": [
-            "Zar",
-            "Mal",
-            "Azr",
-            "Bel",
-            "Kha",
-            "Mor",
-            "Vez",
-            "Rav",
-            "Dae",
-            "Xar"
-        ],
-
-        "Nature": [
-            "Syl",
-            "Ver",
-            "Flor",
-            "Eld",
-            "Gaia",
-            "Thorn",
-            "Eryn",
-            "Moss",
-            "Oak",
-            "Ael"
-        ],
-
-        "Océan": [
-            "Mar",
-            "Ner",
-            "Aqua",
-            "Cor",
-            "Tide",
-            "Nami",
-            "Mare",
-            "Thal",
-            "Azul",
-            "Pearl"
-        ],
-
-        "Cosmos": [
-            "Astr",
-            "Nova",
-            "Cosm",
-            "Zen",
-            "Sol",
-            "Lyr",
-            "Orion",
-            "Vega",
-            "Astra",
-            "Neb"
-        ]
-
-    },
+},
 
 
-    styles: {
+styles: {
 
-        "Fantastique": [
-            "aris",
-            "ion",
-            "iel",
-            "ora",
-            "yn",
-            "ael",
-            "is",
-            "or",
-            "ia",
-            "en"
-        ],
+"Fantastique":["aris","ion","iel","ora","yn","ael","is","or","ia","en","iel","eth"],
+"Sombre":["nox","raith","vyr","mor","th","grim","vek","zar","eth","yx","ven","dark"],
+"Mythique":["eus","heon","aris","aion","theon","iel","yra","or","ion","ios","ael","is"],
+"Épique":["dor","kar","dran","ius","gard","ron","mir","thor","dan","rak","zar","ion"],
+"Mystérieux":["veil","ryn","eth","ys","en","vane","ith","el","enne","oir","yn","ess"],
+"Japonais":["hiro","kage","yuki","ra","ken","sora","tsu","mori","aki","ren","shi","to"],
+"Nordique":["ulf","rik","vald","bjorn","heim","skar","sten","grim","hild","var","thor","ulf"],
+"Futuriste":["ix","on","ex","ium","tek","vex","ora","zen","byte","xen","tron","ix"],
+"Anime":["kun","shi","rai","ya","suke","to","mi","ka","zen","chi","hiro","ruki"],
+"Cyberpunk":["ex","x","byte","tek","core","net","vex","zero","syn","cy","nex","rix"],
+"Royal":["ius","ion","ian","eus","or","is","elle","ara","mont","ric","val","dor"],
+"Ancien":["us","ius","ae","um","os","ael","eth","or","is","ian","eus","ar"]
 
-        "Sombre": [
-            "nox",
-            "raith",
-            "vyr",
-            "mor",
-            "th",
-            "grim",
-            "vek",
-            "zar",
-            "eth",
-            "yx"
-        ],
-
-        "Mythique": [
-            "eus",
-            "heon",
-            "aris",
-            "aion",
-            "theon",
-            "iel",
-            "yra",
-            "or",
-            "ion",
-            "ios"
-        ],
-
-        "Épique": [
-            "dor",
-            "kar",
-            "dran",
-            "ius",
-            "gard",
-            "ron",
-            "mir",
-            "thor",
-            "dan",
-            "rak"
-        ],
-
-        "Mystérieux": [
-            "veil",
-            "ryn",
-            "eth",
-            "ys",
-            "en",
-            "vane",
-            "ith",
-            "el",
-            "enne",
-            "oir"
-        ],
-
-        "Japonais": [
-            "hiro",
-            "kage",
-            "yuki",
-            "ra",
-            "ken",
-            "sora",
-            "tsu",
-            "mori",
-            "aki",
-            "ren"
-        ],
-
-        "Nordique": [
-            "ulf",
-            "rik",
-            "vald",
-            "bjorn",
-            "heim",
-            "skar",
-            "sten",
-            "grim",
-            "hild",
-            "var"
-        ],
-
-        "Futuriste": [
-            "ix",
-            "on",
-            "ex",
-            "ium",
-            "tek",
-            "vex",
-            "ora",
-            "zen",
-            "byte",
-            "xen"
-        ],
-
-        "Anime": [
-            "kun",
-            "shi",
-            "rai",
-            "ya",
-            "suke",
-            "to",
-            "mi",
-            "ka",
-            "zen",
-            "chi"
-        ]
-
-    },
+},
 
 
-    types: {
+types: {
 
-        "Personnage": [
-            "a",
-            "e",
-            "i",
-            "o",
-            "en",
-            "is"
-        ],
+"Personnage":["a","e","i","o","en","is","an","ia"],
+"Pseudo":["x","z","ix","y","exe","7","xx","99"],
+"Guerrier":["ar","or","ak","us","dr","gar","dan","rik"],
+"Mage":["ia","iel","ara","ora","yne","is","ael","eth"],
+"Assassin":["is","eth","yn","yx","ven","ash","rei","sil"],
+"Créature":["oth","ak","um","yr","on","og","ul","ar"],
+"Royaume":["ia","heim","ara","or","ion","ria","dor","land"],
+"Clan":["en","ar","ir","an","ai","or","ok","ul"],
+"Guilde":["a","en","ia","or","is","um","ar","eth"],
+"Boss":["on","or","ax","us","ar","oth","rex","ion"],
+"Monstre":["oth","ak","um","yr","on","og","ul","mor"],
+"Héros":["a","ion","iel","us","ar","or","en","is"]
 
-        "Pseudo": [
-            "x",
-            "z",
-            "ix",
-            "y",
-            "exe",
-            "7"
-        ],
-
-        "Guerrier": [
-            "ar",
-            "or",
-            "ak",
-            "us",
-            "dr",
-            "gar"
-        ],
-
-        "Mage": [
-            "ia",
-            "iel",
-            "ara",
-            "ora",
-            "yne",
-            "is"
-        ],
-
-        "Assassin": [
-            "is",
-            "eth",
-            "yn",
-            "yx",
-            "ven",
-            "ash"
-        ],
-
-        "Créature": [
-            "oth",
-            "ak",
-            "um",
-            "yr",
-            "on",
-            "og"
-        ],
-
-        "Royaume": [
-            "ia",
-            "heim",
-            "ara",
-            "or",
-            "ion",
-            "ria"
-        ],
-
-        "Clan": [
-            "en",
-            "ar",
-            "ir",
-            "an",
-            "ai",
-            "or"
-        ],
-
-        "Guilde": [
-            "a",
-            "en",
-            "ia",
-            "or",
-            "is",
-            "um"
-        ]
-
-    }
+}
 
 };
 
 
 /* =========================================================
-   UTILITIES
+   TRANSLATIONS
 ========================================================= */
 
-const $ = id => document.getElementById(id);
+const translations = {
 
-function randomItem(array) {
+fr:{
+generator:"Générateur",
+favorites:"Favoris",
+categories:"Catégories",
+hero1:"Forge ton prochain",
+hero2:"nom légendaire",
+heroText:"Crée des noms uniques pour tes personnages, pseudos, clans, guildes, royaumes et créatures. Choisis ton univers et laisse NameForge faire le reste.",
+type:"🎭 Type",
+style:"🎨 Style",
+theme:"🔥 Thème",
+length:"📏 Longueur",
+count:"🔢 Résultats",
+prefix:"🧩 Préfixe",
+generate:"Générer des noms",
+surprise:"Surprendre-moi",
+generated:"Noms générés",
+saved:"Favoris",
+free:"Générations gratuites",
+resultsTitle:"✨ Résultats",
+resultsHint:"Choisis ton préféré.",
+favoritesTitle:"❤️ Mes favoris",
+favoritesHint:"Tes noms sont sauvegardés dans ton navigateur.",
+clear:"Effacer",
+categoryTitle:"🎮 Univers",
+categoryHint:"Des styles pour tous tes projets.",
+why:"Pourquoi NameForge ?",
+fastTitle:"Rapide",
+fastText:"Génère plusieurs noms en quelques secondes, sans inscription et sans installation.",
+multiTitle:"International",
+multiText:"Interface disponible en français, anglais et arabe.",
+favTitle:"Favoris",
+favText:"Sauvegarde tes meilleurs noms directement dans ton navigateur.",
+footerText:"Le nom de ton prochain héros commence ici."
+},
+
+en:{
+generator:"Generator",
+favorites:"Favorites",
+categories:"Categories",
+hero1:"Forge your next",
+hero2:"legendary name",
+heroText:"Create unique names for your characters, usernames, clans, guilds, kingdoms and creatures. Choose your universe and let NameForge do the rest.",
+type:"🎭 Type",
+style:"🎨 Style",
+theme:"🔥 Theme",
+length:"📏 Length",
+count:"🔢 Results",
+prefix:"🧩 Prefix",
+generate:"Generate names",
+surprise:"Surprise me",
+generated:"Generated",
+saved:"Favorites",
+free:"Free generations",
+resultsTitle:"✨ Results",
+resultsHint:"Choose your favorite.",
+favoritesTitle:"❤️ My favorites",
+favoritesHint:"Your names are saved in your browser.",
+clear:"Clear",
+categoryTitle:"🎮 Universes",
+categoryHint:"Styles for all your projects.",
+why:"Why NameForge?",
+fastTitle:"Fast",
+fastText:"Generate multiple names in seconds, without registration or installation.",
+multiTitle:"International",
+multiText:"Available in French, English and Arabic.",
+favTitle:"Favorites",
+favText:"Save your best names directly in your browser.",
+footerText:"The name of your next hero starts here."
+},
+
+ar:{
+generator:"مولّد الأسماء",
+favorites:"المفضلة",
+categories:"التصنيفات",
+hero1:"اصنع اسمك",
+hero2:"الأسطوري القادم",
+heroText:"أنشئ أسماء مميزة لشخصياتك وألعابك وعشائرك وممالكك ومخلوقاتك.",
+type:"🎭 النوع",
+style:"🎨 الأسلوب",
+theme:"🔥 الموضوع",
+length:"📏 الطول",
+count:"🔢 النتائج",
+prefix:"🧩 بادئة",
+generate:"إنشاء الأسماء",
+surprise:"فاجئني",
+generated:"الأسماء المولدة",
+saved:"المفضلة",
+free:"توليد مجاني",
+resultsTitle:"✨ النتائج",
+resultsHint:"اختر الاسم الذي يعجبك.",
+favoritesTitle:"❤️ المفضلة",
+favoritesHint:"يتم حفظ الأسماء في متصفحك.",
+clear:"مسح",
+categoryTitle:"🎮 العوالم",
+categoryHint:"أنماط مختلفة لمشاريعك.",
+why:"لماذا NameForge؟",
+fastTitle:"سريع",
+fastText:"أنشئ عدة أسماء خلال ثوانٍ بدون تسجيل أو تثبيت.",
+multiTitle:"متعدد اللغات",
+multiText:"متوفر بالفرنسية والإنجليزية والعربية.",
+favTitle:"المفضلة",
+favText:"احفظ أفضل الأسماء مباشرة في متصفحك.",
+footerText:"اسم بطلك القادم يبدأ من هنا."
+}
+
+};
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const $ = id =>
+    document.getElementById(id);
+
+
+/* =========================================================
+   LOCAL STORAGE
+========================================================= */
+
+let favorites =
+    JSON.parse(
+        localStorage.getItem(
+            "nameforge_v3_favorites"
+        ) || "[]"
+    );
+
+
+let generationCount =
+    Number(
+        localStorage.getItem(
+            "nameforge_v3_generations"
+        ) || 0
+    );
+
+
+/* =========================================================
+   UTILS
+========================================================= */
+
+function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random() * array.length
+            Math.random()*array.length
         )
     ];
 
 }
 
 
-function cleanName(name) {
+function cleanName(name){
 
-    name = name.replace(
-        /(.)\1{2,}/g,
-        "$1$1"
-    );
+    name =
+        name.replace(
+            /(.)\1{2,}/g,
+            "$1$1"
+        );
 
     return (
-        name.charAt(0).toUpperCase() +
+        name.charAt(0).toUpperCase()+
         name.slice(1).toLowerCase()
     );
 
 }
 
 
-/* =========================================================
-   FAVORITES
-========================================================= */
+function escapeHTML(text){
 
-let favorites =
-    JSON.parse(
-        localStorage.getItem(
-            "nameforge_favorites"
-        ) || "[]"
+    return text.replace(
+        /[&<>"']/g,
+        c => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        })[c]
     );
 
+}
 
-function saveFavorites() {
 
-    localStorage.setItem(
-        "nameforge_favorites",
-        JSON.stringify(favorites)
-    );
+function escapeAttr(text){
+
+    return text
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'");
 
 }
 
@@ -1634,7 +1745,7 @@ function saveFavorites() {
    GENERATOR
 ========================================================= */
 
-function createName() {
+function createName(){
 
     const theme =
         $("theme").value;
@@ -1655,66 +1766,60 @@ function createName() {
     let name;
 
 
-    if (length === "Court") {
+    if(length==="Court"){
 
         name =
-            randomItem(
-                database.themes[theme]
-            )
-            +
-            randomItem(
-                database.types[type]
-            );
+            randomItem(DB.themes[theme])+
+            randomItem(DB.types[type]);
 
     }
 
-    else if (length === "Long") {
+    else if(length==="Long"){
 
         name =
-            randomItem(
-                database.themes[theme]
-            )
-            +
-            randomItem(
-                database.styles[style]
-            )
-            +
-            randomItem(
-                database.types[type]
-            );
+            randomItem(DB.themes[theme])+
+            randomItem(DB.styles[style])+
+            randomItem(DB.types[type]);
 
     }
 
-    else {
+    else{
 
-        name =
-            randomItem(
-                database.themes[theme]
-            )
-            +
-            (
-                Math.random() < 0.5
+        const choice =
+            Math.random();
 
-                    ?
+        if(choice < .33){
 
-                randomItem(
-                    database.styles[style]
-                )
+            name =
+                randomItem(DB.themes[theme])+
+                randomItem(DB.styles[style]);
 
-                    :
+        }
 
-                randomItem(
-                    database.types[type]
-                )
-            );
+        else if(choice < .66){
+
+            name =
+                randomItem(DB.themes[theme])+
+                randomItem(DB.types[type]);
+
+        }
+
+        else{
+
+            name =
+                randomItem(DB.themes[theme])+
+                randomItem(DB.styles[style])+
+                randomItem(DB.types[type]);
+
+        }
 
     }
 
 
-    if (prefix) {
+    if(prefix){
 
         name =
-            prefix +
+            prefix+
             name;
 
     }
@@ -1726,15 +1831,16 @@ function createName() {
 
 
 /* =========================================================
-   GENERATE
+   GENERATE NAMES
 ========================================================= */
 
-function generateNames() {
+function generateNames(){
 
     const count =
         Number(
             $("count").value
         );
+
 
     const names = [];
 
@@ -1742,19 +1848,19 @@ function generateNames() {
         new Set();
 
 
-    let attempts = 0;
+    let attempts=0;
 
 
-    while (
-        names.length < count &&
-        attempts < 500
-    ) {
+    while(
+        names.length<count &&
+        attempts<1000
+    ){
 
         const name =
             createName();
 
 
-        if (!used.has(name)) {
+        if(!used.has(name)){
 
             used.add(name);
 
@@ -1768,46 +1874,18 @@ function generateNames() {
     }
 
 
-    renderResults(names);
-
-}
+    generationCount += names.length;
 
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHTML(text) {
-
-    return text.replace(
-        /[&<>"']/g,
-
-        character => ({
-
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#039;"
-
-        })[character]
-
+    localStorage.setItem(
+        "nameforge_v3_generations",
+        generationCount
     );
 
-}
 
+    updateStats();
 
-function escapeAttribute(text) {
-
-    return text
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        );
+    renderResults(names);
 
 }
 
@@ -1816,134 +1894,177 @@ function escapeAttribute(text) {
    RESULTS
 ========================================================= */
 
-function renderResults(names) {
+function renderResults(names){
 
-    const results =
-        $("results");
-
-
-    results.innerHTML =
+    $("results").innerHTML =
         names.map(
-            (name, index) => `
+            name => `
 
-                <article
-                    class="card"
-                    style="
-                        animation-delay:
-                        ${index * 40}ms
-                    "
-                >
+            <article class="name-card">
 
-                    <div>
+                <div>
 
-                        <div class="name">
-                            ${escapeHTML(name)}
-                        </div>
+                    <div class="name-text">
+                        ${escapeHTML(name)}
+                    </div>
 
-                        <div class="meta">
+                    <div class="name-meta">
 
-                            ${escapeHTML(
-                                $("theme").value
-                            )}
+                        ${escapeHTML(
+                            $("theme").value
+                        )}
 
-                            ·
+                        ·
 
-                            ${escapeHTML(
-                                $("style").value
-                            )}
-
-                        </div>
+                        ${escapeHTML(
+                            $("style").value
+                        )}
 
                     </div>
 
-
-                    <div class="card-buttons">
-
-                        <button
-                            class="small-btn"
-                            onclick="
-                                copyName(
-                                    '${escapeAttribute(name)}'
-                                )
-                            "
-                        >
-                            📋
-                        </button>
+                </div>
 
 
-                        <button
-                            class="
-                                small-btn
-                                ${
-                                    favorites.includes(name)
-                                        ? "favorite-active"
-                                        : ""
-                                }
-                            "
-                            onclick="
-                                toggleFavorite(
-                                    '${escapeAttribute(name)}'
-                                )
-                            "
-                        >
+                <div class="card-buttons">
+
+                    <button
+                        class="small-btn"
+                        onclick="
+                            copyName(
+                                '${escapeAttr(name)}'
+                            )
+                        "
+                    >
+                        📋
+                    </button>
+
+
+                    <button
+                        class="
+                            small-btn
                             ${
                                 favorites.includes(name)
-                                    ? "♥"
-                                    : "♡"
+                                ? "favorite"
+                                : ""
                             }
-                        </button>
+                        "
+                        onclick="
+                            toggleFavorite(
+                                '${escapeAttr(name)}'
+                            )
+                        "
+                    >
+                        ${
+                            favorites.includes(name)
+                            ? "♥"
+                            : "♡"
+                        }
+                    </button>
 
 
-                        <button
-                            class="small-btn"
-                            onclick="
-                                shareName(
-                                    '${escapeAttribute(name)}'
-                                )
-                            "
-                        >
-                            ↗
-                        </button>
+                    <button
+                        class="small-btn"
+                        onclick="
+                            shareName(
+                                '${escapeAttr(name)}'
+                            )
+                        "
+                    >
+                        ↗
+                    </button>
 
-                    </div>
+                </div>
 
-                </article>
+            </article>
 
-            `
+        `
         ).join("");
 
 }
 
 
 /* =========================================================
-   FAVORITES DISPLAY
+   FAVORITES
 ========================================================= */
 
-function renderFavorites() {
+function saveFavorites(){
+
+    localStorage.setItem(
+        "nameforge_v3_favorites",
+        JSON.stringify(favorites)
+    );
+
+}
+
+
+function toggleFavorite(name){
+
+    if(
+        favorites.includes(name)
+    ){
+
+        favorites =
+            favorites.filter(
+                n => n!==name
+            );
+
+        showToast(
+            "Retiré des favoris"
+        );
+
+    }
+
+    else{
+
+        favorites.unshift(name);
+
+        showToast(
+            "Ajouté aux favoris ❤️"
+        );
+
+    }
+
+
+    saveFavorites();
+
+    updateStats();
+
+    renderFavorites();
+
+    generateNames();
+
+}
+
+
+function renderFavorites(){
 
     const query =
         $("search")
-            .value
-            .trim()
-            .toLowerCase();
+        .value
+        .trim()
+        .toLowerCase();
 
 
-    const filtered =
+    const list =
         favorites.filter(
             name =>
                 name
-                    .toLowerCase()
-                    .includes(query)
+                .toLowerCase()
+                .includes(query)
         );
 
 
-    if (!filtered.length) {
+    if(!list.length){
 
         $("favoritesList").innerHTML = `
 
             <div class="empty">
 
-                Aucun favori correspondant.
+                ${
+                    query
+                    ? "Aucun résultat."
+                    : "Aucun favori pour le moment."
+                }
 
             </div>
 
@@ -1958,64 +2079,61 @@ function renderFavorites() {
 
         <div class="results">
 
-            ${filtered.map(
+        ${
+            list.map(
                 name => `
 
-                    <article class="card">
+                <article class="name-card">
 
-                        <div class="name">
+                    <div class="name-text">
+                        ${escapeHTML(name)}
+                    </div>
 
-                            ${escapeHTML(name)}
+                    <div class="card-buttons">
 
-                        </div>
+                        <button
+                            class="small-btn"
+                            onclick="
+                                copyName(
+                                    '${escapeAttr(name)}'
+                                )
+                            "
+                        >
+                            📋
+                        </button>
 
+                        <button
+                            class="
+                                small-btn
+                                favorite
+                            "
+                            onclick="
+                                toggleFavorite(
+                                    '${escapeAttr(name)}'
+                                )
+                            "
+                        >
+                            ♥
+                        </button>
 
-                        <div class="card-buttons">
+                        <button
+                            class="small-btn"
+                            onclick="
+                                shareName(
+                                    '${escapeAttr(name)}'
+                                )
+                            "
+                        >
+                            ↗
+                        </button>
 
-                            <button
-                                class="small-btn"
-                                onclick="
-                                    copyName(
-                                        '${escapeAttribute(name)}'
-                                    )
-                                "
-                            >
-                                📋 Copier
-                            </button>
+                    </div>
 
-
-                            <button
-                                class="
-                                    small-btn
-                                    favorite-active
-                                "
-                                onclick="
-                                    toggleFavorite(
-                                        '${escapeAttribute(name)}'
-                                    )
-                                "
-                            >
-                                ♥
-                            </button>
-
-
-                            <button
-                                class="small-btn"
-                                onclick="
-                                    shareName(
-                                        '${escapeAttribute(name)}'
-                                    )
-                                "
-                            >
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </article>
+                </article>
 
                 `
-            ).join("")}
+            ).join("")
+        }
 
         </div>
 
@@ -2025,54 +2143,12 @@ function renderFavorites() {
 
 
 /* =========================================================
-   TOGGLE FAVORITE
-========================================================= */
-
-function toggleFavorite(name) {
-
-    if (
-        favorites.includes(name)
-    ) {
-
-        favorites =
-            favorites.filter(
-                item =>
-                    item !== name
-            );
-
-        showToast(
-            "Retiré des favoris"
-        );
-
-    }
-
-    else {
-
-        favorites.unshift(name);
-
-        showToast(
-            "Ajouté aux favoris ❤️"
-        );
-
-    }
-
-
-    saveFavorites();
-
-    renderFavorites();
-
-    generateNames();
-
-}
-
-
-/* =========================================================
    COPY
 ========================================================= */
 
-async function copyName(name) {
+async function copyName(name){
 
-    try {
+    try{
 
         await navigator.clipboard.writeText(
             name
@@ -2080,15 +2156,14 @@ async function copyName(name) {
 
     }
 
-    catch {
+    catch{
 
         const textarea =
             document.createElement(
                 "textarea"
             );
 
-        textarea.value =
-            name;
+        textarea.value=name;
 
         document.body.appendChild(
             textarea
@@ -2106,7 +2181,7 @@ async function copyName(name) {
 
 
     showToast(
-        "Nom copié !"
+        "Nom copié ! 📋"
     );
 
 }
@@ -2116,13 +2191,13 @@ async function copyName(name) {
    SHARE
 ========================================================= */
 
-async function shareName(name) {
+async function shareName(name){
 
-    if (
+    if(
         navigator.share
-    ) {
+    ){
 
-        try {
+        try{
 
             await navigator.share({
 
@@ -2130,7 +2205,7 @@ async function shareName(name) {
                     "NameForge",
 
                 text:
-                    "Mon nom NameForge : " +
+                    "Mon nom NameForge : "+
                     name,
 
                 url:
@@ -2140,21 +2215,13 @@ async function shareName(name) {
 
         }
 
-        catch {
-
-            // partage annulé
-
-        }
+        catch{}
 
     }
 
-    else {
+    else{
 
         await copyName(name);
-
-        showToast(
-            "Nom copié ! Tu peux maintenant le partager."
-        );
 
     }
 
@@ -2162,19 +2229,17 @@ async function shareName(name) {
 
 
 /* =========================================================
-   RANDOM SETTINGS
+   RANDOM
 ========================================================= */
 
-function randomizeSettings() {
+function surprise(){
 
-    const selects = [
-
+    const selects=[
         "type",
         "style",
         "theme",
         "length",
         "count"
-
     ];
 
 
@@ -2184,10 +2249,9 @@ function randomizeSettings() {
             const select =
                 $(id);
 
-
             select.selectedIndex =
                 Math.floor(
-                    Math.random() *
+                    Math.random()*
                     select.options.length
                 );
 
@@ -2195,31 +2259,31 @@ function randomizeSettings() {
     );
 
 
-    $("prefix").value = "";
+    $("prefix").value="";
 
 
     generateNames();
 
 
     showToast(
-        "Paramètres aléatoires 🎲"
+        "Nouveau monde généré 🎲"
     );
 
 }
 
 
 /* =========================================================
-   CLEAR FAVORITES
+   CLEAR
 ========================================================= */
 
-function clearFavorites() {
+function clearFavorites(){
 
-    if (
-        favorites.length === 0
-    ) {
+    if(
+        favorites.length===0
+    ){
 
         showToast(
-            "Aucun favori à effacer."
+            "Aucun favori."
         );
 
         return;
@@ -2227,15 +2291,15 @@ function clearFavorites() {
     }
 
 
-    favorites = [];
-
+    favorites=[];
 
     saveFavorites();
+
+    updateStats();
 
     renderFavorites();
 
     generateNames();
-
 
     showToast(
         "Favoris effacés."
@@ -2245,19 +2309,37 @@ function clearFavorites() {
 
 
 /* =========================================================
+   STATS
+========================================================= */
+
+function updateStats(){
+
+    $("generationCount")
+        .textContent =
+        generationCount.toLocaleString();
+
+
+    $("favoriteCount")
+        .textContent =
+        favorites.length;
+
+}
+
+
+/* =========================================================
    TOAST
 ========================================================= */
 
-let toastTimeout;
+let toastTimer;
 
 
-function showToast(message) {
+function showToast(message){
 
     const toast =
         $("toast");
 
 
-    toast.textContent =
+    toast.textContent=
         message;
 
 
@@ -2267,11 +2349,11 @@ function showToast(message) {
 
 
     clearTimeout(
-        toastTimeout
+        toastTimer
     );
 
 
-    toastTimeout =
+    toastTimer =
         setTimeout(
             () => {
 
@@ -2280,9 +2362,83 @@ function showToast(message) {
                 );
 
             },
-
             1800
         );
+
+}
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+function changeLanguage(lang){
+
+    const t =
+        translations[lang];
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n]"
+        )
+        .forEach(
+            element => {
+
+                const key =
+                    element.dataset.i18n;
+
+
+                if(t[key]){
+
+                    element.textContent =
+                        t[key];
+
+                }
+
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            ".lang-btn"
+        )
+        .forEach(
+            button => {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.lang===lang
+                );
+
+            }
+        );
+
+
+    document.documentElement.lang =
+        lang;
+
+
+    document.documentElement.dir =
+        lang==="ar"
+        ? "rtl"
+        : "ltr";
+
+
+    localStorage.setItem(
+        "nameforge_language",
+        lang
+    );
+
+
+    showToast(
+        lang==="fr"
+        ? "Français 🇫🇷"
+        : lang==="en"
+        ? "English 🇬🇧"
+        : "العربية 🇩🇿"
+    );
 
 }
 
@@ -2292,36 +2448,74 @@ function showToast(message) {
 ========================================================= */
 
 $("generate")
-    .addEventListener(
-        "click",
-        generateNames
-    );
+.addEventListener(
+    "click",
+    generateNames
+);
 
 
 $("random")
-    .addEventListener(
-        "click",
-        randomizeSettings
-    );
+.addEventListener(
+    "click",
+    surprise
+);
 
 
 $("search")
-    .addEventListener(
-        "input",
-        renderFavorites
-    );
+.addEventListener(
+    "input",
+    renderFavorites
+);
 
 
 $("clear")
-    .addEventListener(
-        "click",
-        clearFavorites
-    );
+.addEventListener(
+    "click",
+    clearFavorites
+);
+
+
+document
+.querySelectorAll(
+    ".lang-btn"
+)
+.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () =>
+                changeLanguage(
+                    button.dataset.lang
+                )
+        );
+
+    }
+);
 
 
 /* =========================================================
-   INITIALIZATION
+   START
 ========================================================= */
+
+const savedLanguage =
+    localStorage.getItem(
+        "nameforge_language"
+    ) || "fr";
+
+
+if(
+    savedLanguage!=="fr"
+){
+
+    changeLanguage(
+        savedLanguage
+    );
+
+}
+
+
+updateStats();
 
 generateNames();
 
