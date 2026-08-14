@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="NameForge V4 - Générateur gratuit de noms pour personnages, RPG, jeux vidéo, clans, guildes, royaumes et créatures.">
-<meta name="keywords" content="générateur de noms, name generator, pseudo, RPG, gaming, fantasy, anime, personnage, clan, guilde">
-<meta name="author" content="NameForge">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<meta property="og:title" content="NameForge - Forge ton nom légendaire">
-<meta property="og:description" content="Crée des noms uniques pour tes personnages, jeux et univers fantastiques.">
-<meta property="og:type" content="website">
+<title>NameForge — Générateur de noms Fantasy, RPG, Anime & Gaming</title>
 
-<title>NameForge V4 - Générateur de noms</title>
+<meta name="description"
+      content="NameForge est un générateur gratuit de noms pour personnages, RPG, fantasy, anime, jeux vidéo, clans, guildes, royaumes et créatures.">
+
+<meta name="keywords"
+      content="générateur de noms, générateur de noms fantasy, générateur de noms RPG, générateur de noms anime, générateur de noms personnage, fantasy name generator, RPG name generator, gaming names">
+
+<meta name="author"
+      content="NameForge">
+
+<meta name="robots"
+      content="index, follow">
+
+<link rel="canonical"
+      href="https://rayanellg.github.io/nameforge/">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="NameForge — Générateur de noms">
+
+<meta property="og:description"
+      content="Crée gratuitement des noms uniques pour tes personnages, RPG, jeux, clans et univers fantastiques.">
+
+<meta property="og:url"
+      content="https://rayanellg.github.io/nameforge/">
+
+<meta name="twitter:card"
+      content="summary">
+
+<meta name="twitter:title"
+      content="NameForge — Générateur de noms">
+
+<meta name="twitter:description"
+      content="Crée des noms uniques pour tes personnages, jeux et univers fantastiques.">
+
+
+<!-- Structured data -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"NameForge",
+  "url":"https://rayanellg.github.io/nameforge/",
+  "description":"Générateur gratuit de noms pour personnages, RPG, fantasy, anime, jeux vidéo, clans et royaumes.",
+  "applicationCategory":"EntertainmentApplication",
+  "operatingSystem":"Web Browser",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
 
 <style>
+
 :root{
     --bg:#070912;
     --bg2:#0c1120;
-    --panel:#111827;
-    --panel2:#172033;
+    --panel:#101827;
+    --panel2:#151f32;
     --border:#29354d;
+
     --text:#f5f7ff;
     --muted:#9ba7bd;
 
     --purple:#8b5cf6;
+    --purple2:#6d28d9;
+
     --blue:#06b6d4;
     --pink:#ec4899;
     --green:#34d399;
@@ -43,7 +99,9 @@ html{
 }
 
 body{
+
     min-height:100vh;
+
     color:var(--text);
 
     font-family:
@@ -60,12 +118,16 @@ body{
             rgba(139,92,246,.20),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 5%,
             rgba(6,182,212,.15),
             transparent 28%
         ),
+
         var(--bg);
+
+    line-height:1.5;
 }
 
 button,
@@ -87,16 +149,19 @@ a{
     margin:auto;
 }
 
-/* =========================
+
+/* =====================================================
 HEADER
-========================= */
+===================================================== */
 
 header{
+
     position:sticky;
     top:0;
     z-index:100;
 
-    background:rgba(7,9,18,.84);
+    background:rgba(7,9,18,.88);
+
     backdrop-filter:blur(18px);
 
     border-bottom:
@@ -104,14 +169,18 @@ header{
 }
 
 .navbar{
-    height:70px;
+
+    min-height:70px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+
+    gap:20px;
 }
 
 .brand{
+
     display:flex;
     align-items:center;
     gap:10px;
@@ -119,10 +188,11 @@ header{
     text-decoration:none;
 
     font-size:1.3rem;
-    font-weight:900;
+    font-weight:950;
 }
 
 .logo{
+
     width:40px;
     height:40px;
 
@@ -139,25 +209,30 @@ header{
         );
 
     box-shadow:
-        0 10px 35px rgba(139,92,246,.28);
+        0 10px 35px
+        rgba(139,92,246,.28);
 }
 
 .nav-right{
+
     display:flex;
     align-items:center;
     gap:20px;
 }
 
 .nav-links{
+
     display:flex;
     gap:20px;
 }
 
 .nav-links a{
+
     color:var(--muted);
+
     text-decoration:none;
 
-    font-weight:750;
+    font-weight:800;
 
     transition:.2s;
 }
@@ -167,52 +242,63 @@ header{
 }
 
 .language{
+
     display:flex;
-    gap:4px;
+    gap:3px;
 
     padding:4px;
 
     border:1px solid var(--border);
+
     border-radius:10px;
 
     background:#0b101d;
 }
 
 .lang-btn{
+
     border:0;
+
     border-radius:7px;
 
     padding:6px 8px;
 
     background:transparent;
+
     color:var(--muted);
 
-    font-size:.78rem;
-    font-weight:850;
+    font-size:.76rem;
+
+    font-weight:900;
 }
 
 .lang-btn.active{
+
     background:var(--purple);
+
     color:white;
 }
 
-/* =========================
+
+/* =====================================================
 HERO
-========================= */
+===================================================== */
 
 .hero{
+
     text-align:center;
 
     padding:80px 0 45px;
 }
 
 .badge{
+
     display:inline-flex;
-    align-items:center;
 
     padding:8px 14px;
 
     border:1px solid var(--border);
+
     border-radius:999px;
 
     background:rgba(17,24,39,.7);
@@ -220,11 +306,14 @@ HERO
     color:#dce3f5;
 
     font-size:.84rem;
+
     font-weight:850;
 }
 
 .hero h1{
-    max-width:950px;
+
+    max-width:1000px;
+
     margin:22px auto;
 
     font-size:
@@ -234,12 +323,13 @@ HERO
             5.5rem
         );
 
-    line-height:.95;
+    line-height:.96;
 
     letter-spacing:-3px;
 }
 
 .gradient{
+
     color:transparent;
 
     background:
@@ -252,27 +342,86 @@ HERO
         );
 
     background-clip:text;
+
     -webkit-background-clip:text;
 }
 
 .hero p{
-    max-width:750px;
+
+    max-width:780px;
+
     margin:auto;
 
     color:var(--muted);
 
     font-size:1.08rem;
-    line-height:1.7;
+
+    line-height:1.75;
 }
 
-/* =========================
+.hero-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+
+/* =====================================================
+BUTTONS
+===================================================== */
+
+.btn{
+
+    padding:13px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    background:#192235;
+
+    color:white;
+
+    font-weight:850;
+
+    transition:.2s;
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.12);
+}
+
+.primary{
+
+    border:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+}
+
+
+/* =====================================================
 GENERATOR
-========================= */
+===================================================== */
 
 .generator-panel{
+
     padding:26px;
 
     border:1px solid var(--border);
+
     border-radius:22px;
 
     background:
@@ -286,7 +435,25 @@ GENERATOR
         0 25px 70px rgba(0,0,0,.3);
 }
 
+.generator-heading{
+
+    margin-bottom:20px;
+}
+
+.generator-heading h2{
+
+    font-size:1.7rem;
+}
+
+.generator-heading p{
+
+    color:var(--muted);
+
+    margin-top:5px;
+}
+
 .fields{
+
     display:grid;
 
     grid-template-columns:
@@ -296,6 +463,7 @@ GENERATOR
 }
 
 .field label{
+
     display:block;
 
     margin-bottom:8px;
@@ -307,16 +475,19 @@ GENERATOR
 
 .field select,
 .field input{
+
     width:100%;
 
     padding:13px 14px;
 
     border:1px solid var(--border);
+
     border-radius:12px;
 
     outline:none;
 
     background:#090e1a;
+
     color:var(--text);
 
     transition:.2s;
@@ -324,6 +495,7 @@ GENERATOR
 
 .field select:focus,
 .field input:focus{
+
     border-color:var(--purple);
 
     box-shadow:
@@ -332,6 +504,7 @@ GENERATOR
 }
 
 .actions{
+
     display:flex;
 
     gap:10px;
@@ -339,47 +512,21 @@ GENERATOR
     margin-top:20px;
 }
 
-.btn{
-    padding:13px 18px;
-
-    border:1px solid var(--border);
-    border-radius:13px;
-
-    background:#192235;
-    color:white;
-
-    font-weight:850;
-
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.12);
-}
-
-.primary{
+.actions .primary{
     flex:1;
-
-    border:0;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            #6d28d9
-        );
 }
 
 .random-btn{
-    min-width:180px;
+    min-width:190px;
 }
 
-/* =========================
+
+/* =====================================================
 STATS
-========================= */
+===================================================== */
 
 .stats{
+
     display:grid;
 
     grid-template-columns:
@@ -391,54 +538,65 @@ STATS
 }
 
 .stat{
+
     padding:14px;
 
     text-align:center;
 
     border:1px solid var(--border);
+
     border-radius:14px;
 
     background:#0e1421;
 }
 
 .stat-number{
+
     display:block;
 
     font-size:1.25rem;
-    font-weight:900;
 
-    color:white;
+    font-weight:950;
 }
 
 .stat-label{
+
     color:var(--muted);
+
     font-size:.75rem;
 }
 
-/* =========================
+
+/* =====================================================
 SECTION
-========================= */
+===================================================== */
 
 .section{
-    padding:60px 0;
+    padding:65px 0;
 }
 
 .section-head{
+
     display:flex;
 
     align-items:end;
+
     justify-content:space-between;
 
     gap:15px;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .section-title{
-    font-size:1.8rem;
+
+    font-size:1.9rem;
+
+    letter-spacing:-.5px;
 }
 
 .hint{
+
     margin-top:5px;
 
     color:var(--muted);
@@ -446,11 +604,13 @@ SECTION
     font-size:.92rem;
 }
 
-/* =========================
+
+/* =====================================================
 RESULTS
-========================= */
+===================================================== */
 
 .results{
+
     display:grid;
 
     grid-template-columns:
@@ -460,17 +620,21 @@ RESULTS
 }
 
 .name-card{
+
     position:relative;
 
     min-height:235px;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:space-between;
 
     padding:20px;
 
     border:1px solid var(--border);
+
     border-radius:18px;
 
     background:
@@ -486,6 +650,7 @@ RESULTS
 }
 
 .name-card::before{
+
     content:"";
 
     position:absolute;
@@ -506,16 +671,19 @@ RESULTS
 }
 
 .name-card:hover{
+
     transform:translateY(-5px);
 
     border-color:
         rgba(139,92,246,.55);
 
     box-shadow:
-        0 18px 45px rgba(0,0,0,.28);
+        0 18px 45px
+        rgba(0,0,0,.28);
 }
 
 .rarity{
+
     display:inline-flex;
 
     width:max-content;
@@ -525,41 +693,57 @@ RESULTS
     border-radius:999px;
 
     font-size:.68rem;
-    font-weight:900;
+
+    font-weight:950;
 
     letter-spacing:.4px;
 }
 
 .rarity-common{
-    background:rgba(148,163,184,.12);
+
+    background:
+        rgba(148,163,184,.12);
+
     color:#cbd5e1;
 }
 
 .rarity-rare{
-    background:rgba(6,182,212,.13);
+
+    background:
+        rgba(6,182,212,.13);
+
     color:#67e8f9;
 }
 
 .rarity-epic{
-    background:rgba(139,92,246,.15);
+
+    background:
+        rgba(139,92,246,.15);
+
     color:#c4b5fd;
 }
 
 .rarity-legendary{
-    background:rgba(251,191,36,.15);
+
+    background:
+        rgba(251,191,36,.15);
+
     color:#fcd34d;
 }
 
 .name-text{
+
     margin-top:15px;
 
     font-size:1.35rem;
+
     font-weight:950;
 
     overflow-wrap:anywhere;
 }
 
 .name-type{
+
     margin-top:5px;
 
     color:var(--muted);
@@ -568,6 +752,7 @@ RESULTS
 }
 
 .description{
+
     margin-top:12px;
 
     color:#b7c1d5;
@@ -578,6 +763,7 @@ RESULTS
 }
 
 .card-buttons{
+
     display:flex;
 
     gap:7px;
@@ -586,122 +772,166 @@ RESULTS
 }
 
 .small-btn{
+
     flex:1;
 
     padding:9px 5px;
 
     border:1px solid var(--border);
+
     border-radius:9px;
 
     background:#171f32;
+
     color:#e8ecf8;
 
     font-size:.78rem;
+
     font-weight:850;
 
     transition:.2s;
 }
 
 .small-btn:hover{
+
     background:#222d45;
 }
 
 .favorite{
+
     color:#f9a8d4;
 
     border-color:
         rgba(236,72,153,.45);
 }
 
-/* =========================
-FAVORITES
-========================= */
 
-.tools{
-    display:flex;
+/* =====================================================
+SPECIALIZED SEO CARDS
+===================================================== */
 
-    gap:8px;
-}
+.seo-grid{
 
-.search{
-    width:260px;
-
-    padding:11px 13px;
-
-    border:1px solid var(--border);
-    border-radius:11px;
-
-    outline:none;
-
-    background:#090e1a;
-    color:white;
-}
-
-.empty{
-    padding:32px;
-
-    text-align:center;
-
-    border:1px dashed var(--border);
-    border-radius:16px;
-
-    color:var(--muted);
-}
-
-/* =========================
-CATEGORIES
-========================= */
-
-.category-grid{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(3,1fr);
 
-    gap:12px;
+    gap:14px;
 }
 
-.category{
-    padding:20px;
+.seo-card{
+
+    padding:24px;
 
     border:1px solid var(--border);
-    border-radius:16px;
+
+    border-radius:17px;
 
     background:#101625;
 
     transition:.2s;
 }
 
-.category:hover{
+.seo-card:hover{
+
     transform:translateY(-3px);
 
     border-color:
         rgba(6,182,212,.45);
 }
 
-.category-icon{
-    font-size:1.8rem;
+.seo-card .icon{
 
-    margin-bottom:9px;
+    font-size:2rem;
+
+    margin-bottom:10px;
 }
 
-.category strong{
-    display:block;
+.seo-card h3{
 
-    margin-bottom:5px;
+    margin-bottom:8px;
+
+    font-size:1.08rem;
 }
 
-.category span{
+.seo-card p{
+
     color:var(--muted);
 
-    font-size:.84rem;
+    font-size:.88rem;
+
+    line-height:1.6;
 }
 
-/* =========================
+.seo-card button{
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:9px;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#171f32;
+
+    color:white;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+FAVORITES
+===================================================== */
+
+.tools{
+
+    display:flex;
+
+    gap:8px;
+}
+
+.search{
+
+    width:260px;
+
+    padding:11px 13px;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    outline:none;
+
+    background:#090e1a;
+
+    color:white;
+}
+
+.empty{
+
+    padding:32px;
+
+    text-align:center;
+
+    border:1px dashed var(--border);
+
+    border-radius:16px;
+
+    color:var(--muted);
+}
+
+
+/* =====================================================
 FEATURES
-========================= */
+===================================================== */
 
 .features{
+
     display:grid;
 
     grid-template-columns:
@@ -711,27 +941,32 @@ FEATURES
 }
 
 .feature{
+
     padding:23px;
 
     border:1px solid var(--border);
+
     border-radius:17px;
 
     background:#101625aa;
 }
 
 .feature-icon{
+
     font-size:1.8rem;
 
     margin-bottom:10px;
 }
 
 .feature strong{
+
     display:block;
 
     margin-bottom:7px;
 }
 
 .feature span{
+
     color:var(--muted);
 
     line-height:1.55;
@@ -739,14 +974,92 @@ FEATURES
     font-size:.9rem;
 }
 
-/* =========================
-FOOTER
-========================= */
 
-footer{
+/* =====================================================
+FAQ
+===================================================== */
+
+.faq{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.faq details{
+
+    margin-bottom:10px;
+
+    padding:18px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:#101625;
+}
+
+.faq summary{
+
+    cursor:pointer;
+
+    font-weight:900;
+}
+
+.faq p{
+
+    margin-top:12px;
+
+    color:var(--muted);
+
+    line-height:1.65;
+}
+
+
+/* =====================================================
+CONTENT
+===================================================== */
+
+.content{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.content h2{
+
+    margin-bottom:14px;
+
+    font-size:2rem;
+}
+
+.content h3{
+
     margin-top:25px;
 
-    padding:40px 0;
+    margin-bottom:8px;
+}
+
+.content p{
+
+    color:var(--muted);
+
+    margin-bottom:15px;
+
+    line-height:1.75;
+}
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:25px;
+
+    padding:45px 0;
 
     text-align:center;
 
@@ -760,11 +1073,13 @@ footer strong{
     color:white;
 }
 
-/* =========================
+
+/* =====================================================
 TOAST
-========================= */
+===================================================== */
 
 .toast{
+
     position:fixed;
 
     right:20px;
@@ -772,19 +1087,22 @@ TOAST
 
     z-index:500;
 
-    max-width:calc(100% - 40px);
+    max-width:
+        calc(100% - 40px);
 
     padding:13px 17px;
 
     border-radius:12px;
 
     background:#eef2ff;
+
     color:#101525;
 
     font-weight:850;
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,.35);
+        0 15px 40px
+        rgba(0,0,0,.35);
 
     opacity:0;
 
@@ -796,13 +1114,16 @@ TOAST
 }
 
 .toast.show{
+
     opacity:1;
+
     transform:translateY(0);
 }
 
-/* =========================
+
+/* =====================================================
 MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:1050px){
 
@@ -816,11 +1137,10 @@ MOBILE
             repeat(2,1fr);
     }
 
-    .category-grid{
+    .seo-grid{
         grid-template-columns:
             repeat(2,1fr);
     }
-
 }
 
 @media(max-width:720px){
@@ -846,7 +1166,8 @@ MOBILE
             repeat(2,1fr);
     }
 
-    .features{
+    .features,
+    .seo-grid{
         grid-template-columns:1fr;
     }
 
@@ -875,6 +1196,9 @@ MOBILE
         padding:18px;
     }
 
+    .hero-actions{
+        flex-direction:column;
+    }
 }
 
 @media(max-width:460px){
@@ -883,62 +1207,86 @@ MOBILE
         grid-template-columns:1fr;
     }
 
-    .category-grid{
-        grid-template-columns:1fr;
-    }
-
     .stats{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .name-card{
         min-height:215px;
     }
-
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
 <nav class="container navbar">
 
-<a href="#top" class="brand">
-    <span class="logo">⚡</span>
-    NameForge
+<a
+    href="#top"
+    class="brand"
+    aria-label="NameForge"
+>
+
+<span class="logo">
+⚡
+</span>
+
+NameForge
+
 </a>
+
 
 <div class="nav-right">
 
 <div class="nav-links">
 
-<a href="#generator" data-i18n="generator">
+<a href="#generator">
 Générateur
 </a>
 
-<a href="#favorites" data-i18n="favorites">
+<a href="#specialized">
+Générateurs
+</a>
+
+<a href="#favorites">
 Favoris
 </a>
 
-<a href="#categories" data-i18n="categories">
-Catégories
+<a href="#faq">
+FAQ
 </a>
 
 </div>
 
+
 <div class="language">
 
-<button class="lang-btn active" data-lang="fr">
+<button
+    class="lang-btn active"
+    data-lang="fr"
+>
 FR
 </button>
 
-<button class="lang-btn" data-lang="en">
+<button
+    class="lang-btn"
+    data-lang="en"
+>
 EN
 </button>
 
-<button class="lang-btn" data-lang="ar">
+<button
+    class="lang-btn"
+    data-lang="ar"
+>
 ع
 </button>
 
@@ -953,49 +1301,91 @@ EN
 
 <main id="top">
 
-<!-- HERO -->
+
+<!-- ==================================================
+HERO
+================================================== -->
 
 <section class="hero container">
 
 <span class="badge">
-✨ NameForge V4 · Legendary Name Generator
+✨ NameForge V5 · Free Name Generator
 </span>
+
 
 <h1>
 
-<span data-i18n="hero1">
-Forge ton prochain
-</span>
+Crée ton prochain
 
-<span class="gradient" data-i18n="hero2">
+<span class="gradient">
 nom légendaire
 </span>
 
 </h1>
 
-<p data-i18n="heroText">
-Crée des noms uniques pour tes personnages,
-pseudos, clans, guildes, royaumes et créatures.
-Choisis ton univers, ta rareté et ton style.
+
+<p>
+
+Génère gratuitement des noms uniques pour tes
+personnages, jeux vidéo, RPG, univers fantasy,
+clans, guildes, royaumes et créatures.
+
 </p>
+
+
+<div class="hero-actions">
+
+<a
+    href="#generator"
+    class="btn primary"
+>
+⚡ Commencer à générer
+</a>
+
+<a
+    href="#specialized"
+    class="btn"
+>
+🎮 Explorer les générateurs
+</a>
+
+</div>
 
 </section>
 
 
-<!-- GENERATOR -->
+
+<!-- ==================================================
+GENERATOR
+================================================== -->
 
 <section
-class="container"
-id="generator"
+    class="container"
+    id="generator"
 >
 
 <div class="generator-panel">
 
+
+<div class="generator-heading">
+
+<h2>
+⚡ Générateur de noms
+</h2>
+
+<p>
+Personnalise ton nom puis génère plusieurs résultats.
+</p>
+
+</div>
+
+
 <div class="fields">
+
 
 <div class="field">
 
-<label data-i18n="type">
+<label>
 🎭 Type
 </label>
 
@@ -1021,7 +1411,7 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="style">
+<label>
 🎨 Style
 </label>
 
@@ -1047,7 +1437,7 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="theme">
+<label>
 🔥 Thème
 </label>
 
@@ -1076,15 +1466,23 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="gender">
+<label>
 👤 Genre
 </label>
 
 <select id="gender">
 
-<option value="neutral">Neutre</option>
-<option value="male">Masculin</option>
-<option value="female">Féminin</option>
+<option value="neutral">
+Neutre
+</option>
+
+<option value="male">
+Masculin
+</option>
+
+<option value="female">
+Féminin
+</option>
 
 </select>
 
@@ -1093,17 +1491,31 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="rarity">
+<label>
 ⭐ Rareté
 </label>
 
 <select id="rarity">
 
-<option value="any">Aléatoire</option>
-<option value="common">Commun</option>
-<option value="rare">Rare</option>
-<option value="epic">Épique</option>
-<option value="legendary">Légendaire</option>
+<option value="any">
+Aléatoire
+</option>
+
+<option value="common">
+Commun
+</option>
+
+<option value="rare">
+Rare
+</option>
+
+<option value="epic">
+Épique
+</option>
+
+<option value="legendary">
+Légendaire
+</option>
 
 </select>
 
@@ -1112,15 +1524,23 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="length">
+<label>
 📏 Longueur
 </label>
 
 <select id="length">
 
-<option>Court</option>
-<option selected>Moyen</option>
-<option>Long</option>
+<option>
+Court
+</option>
+
+<option selected>
+Moyen
+</option>
+
+<option>
+Long
+</option>
 
 </select>
 
@@ -1129,15 +1549,23 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="count">
+<label>
 🔢 Résultats
 </label>
 
 <select id="count">
 
-<option>4</option>
-<option selected>8</option>
-<option>12</option>
+<option>
+4
+</option>
+
+<option selected>
+8
+</option>
+
+<option>
+12
+</option>
 
 </select>
 
@@ -1146,30 +1574,38 @@ id="generator"
 
 <div class="field">
 
-<label data-i18n="prefix">
+<label>
 🧩 Préfixe
 </label>
 
 <input
-id="prefix"
-maxlength="15"
-placeholder="Ex. Ray"
->
+    id="prefix"
+    maxlength="15"
+    placeholder="Ex. Ray"
+/>
 
 </div>
 
 
 <div class="field">
 
-<label data-i18n="surname">
+<label>
 📜 Nom de famille
 </label>
 
 <select id="surnameMode">
 
-<option value="auto">Automatique</option>
-<option value="yes">Prénom + nom</option>
-<option value="no">Prénom seul</option>
+<option value="auto">
+Automatique
+</option>
+
+<option value="yes">
+Prénom + nom
+</option>
+
+<option value="no">
+Prénom seul
+</option>
 
 </select>
 
@@ -1181,23 +1617,18 @@ placeholder="Ex. Ray"
 <div class="actions">
 
 <button
-class="btn primary"
-id="generate"
+    class="btn primary"
+    id="generate"
 >
-⚡
-<span data-i18n="generate">
-Générer des noms
-</span>
+⚡ Générer des noms
 </button>
 
+
 <button
-class="btn random-btn"
-id="random"
+    class="btn random-btn"
+    id="random"
 >
-🎲
-<span data-i18n="surprise">
-Surprendre-moi
-</span>
+🎲 Surprendre-moi
 </button>
 
 </div>
@@ -1205,19 +1636,17 @@ Surprendre-moi
 
 <div class="stats">
 
+
 <div class="stat">
 
 <span
-class="stat-number"
-id="generationCount"
+    class="stat-number"
+    id="generationCount"
 >
 0
 </span>
 
-<span
-class="stat-label"
-data-i18n="generated"
->
+<span class="stat-label">
 Noms générés
 </span>
 
@@ -1227,16 +1656,13 @@ Noms générés
 <div class="stat">
 
 <span
-class="stat-number"
-id="favoriteCount"
+    class="stat-number"
+    id="favoriteCount"
 >
 0
 </span>
 
-<span
-class="stat-label"
-data-i18n="saved"
->
+<span class="stat-label">
 Favoris
 </span>
 
@@ -1249,11 +1675,8 @@ Favoris
 ∞
 </span>
 
-<span
-class="stat-label"
-data-i18n="free"
->
-Générations gratuites
+<span class="stat-label">
+Générations
 </span>
 
 </div>
@@ -1262,16 +1685,13 @@ Générations gratuites
 <div class="stat">
 
 <span
-class="stat-number"
-id="legendaryCount"
+    class="stat-number"
+    id="legendaryCount"
 >
 0
 </span>
 
-<span
-class="stat-label"
-data-i18n="legendaryGenerated"
->
+<span class="stat-label">
 Légendaires
 </span>
 
@@ -1284,7 +1704,10 @@ Légendaires
 </section>
 
 
-<!-- RESULTS -->
+
+<!-- ==================================================
+RESULTS
+================================================== -->
 
 <section class="section container">
 
@@ -1292,18 +1715,12 @@ Légendaires
 
 <div>
 
-<h2
-class="section-title"
-data-i18n="resultsTitle"
->
+<h2 class="section-title">
 ✨ Résultats
 </h2>
 
-<div
-class="hint"
-data-i18n="resultsHint"
->
-Chaque nom possède sa propre rareté et description.
+<div class="hint">
+Chaque résultat possède sa propre rareté et description.
 </div>
 
 </div>
@@ -1312,36 +1729,283 @@ Chaque nom possède sa propre rareté et description.
 
 
 <div
-id="results"
-class="results"
+    id="results"
+    class="results"
 ></div>
 
 </section>
 
 
-<!-- FAVORITES -->
+
+<!-- ==================================================
+SPECIALIZED GENERATORS
+================================================== -->
 
 <section
-class="section container"
-id="favorites"
+    class="section container"
+    id="specialized"
 >
 
 <div class="section-head">
 
 <div>
 
-<h2
-class="section-title"
-data-i18n="favoritesTitle"
+<h2 class="section-title">
+🎮 Générateurs de noms spécialisés
+</h2>
+
+<div class="hint">
+Trouve rapidement le style de nom adapté à ton projet.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="seo-grid">
+
+
+<article class="seo-card">
+
+<div class="icon">
+⚔️
+</div>
+
+<h3>
+Générateur de noms RPG
+</h3>
+
+<p>
+Crée des noms pour tes héros, guerriers,
+mages, aventuriers et personnages de RPG.
+</p>
+
+<button
+    onclick="preset('Personnage','Fantastique','Dragon')"
 >
+Créer un nom RPG
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+🐉
+</div>
+
+<h3>
+Générateur de noms Fantasy
+</h3>
+
+<p>
+Imagine des noms fantastiques pour des
+royaumes, héros, créatures et univers magiques.
+</p>
+
+<button
+    onclick="preset('Personnage','Fantastique','Dragon')"
+>
+Créer un nom Fantasy
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+🔥
+</div>
+
+<h3>
+Générateur de noms Anime
+</h3>
+
+<p>
+Crée des noms inspirés des univers anime,
+japonais, fantastiques et héroïques.
+</p>
+
+<button
+    onclick="preset('Personnage','Anime','Lune')"
+>
+Créer un nom Anime
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+🌑
+</div>
+
+<h3>
+Générateur de noms Dark Fantasy
+</h3>
+
+<p>
+Des noms sombres et mystérieux pour assassins,
+démons, monstres et personnages obscurs.
+</p>
+
+<button
+    onclick="preset('Assassin','Sombre','Ombre')"
+>
+Créer un nom sombre
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+🛡️
+</div>
+
+<h3>
+Générateur de noms de clans
+</h3>
+
+<p>
+Trouve un nom puissant pour ton clan,
+ta faction ou ton groupe de joueurs.
+</p>
+
+<button
+    onclick="preset('Clan','Nordique','Loup')"
+>
+Créer un clan
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+👑
+</div>
+
+<h3>
+Générateur de noms de royaumes
+</h3>
+
+<p>
+Crée le nom d'un royaume, empire ou territoire
+pour ton univers imaginaire.
+</p>
+
+<button
+    onclick="preset('Royaume','Royal','Étoile')"
+>
+Créer un royaume
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+👹
+</div>
+
+<h3>
+Générateur de noms de monstres
+</h3>
+
+<p>
+Donne un nom unique à tes créatures,
+boss et ennemis.
+</p>
+
+<button
+    onclick="preset('Monstre','Sombre','Démon')"
+>
+Créer un monstre
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+🤖
+</div>
+
+<h3>
+Générateur de noms Sci-Fi
+</h3>
+
+<p>
+Crée des noms futuristes pour personnages,
+robots, factions et univers spatiaux.
+</p>
+
+<button
+    onclick="preset('Personnage','Futuriste','Cosmos')"
+>
+Créer un nom Sci-Fi
+</button>
+
+</article>
+
+
+<article class="seo-card">
+
+<div class="icon">
+🐺
+</div>
+
+<h3>
+Générateur de pseudos gaming
+</h3>
+
+<p>
+Crée un pseudo original pour tes jeux,
+réseaux ou communautés.
+</p>
+
+<button
+    onclick="preset('Pseudo','Cyberpunk','Loup')"
+>
+Créer un pseudo
+</button>
+
+</article>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+FAVORITES
+================================================== -->
+
+<section
+    class="section container"
+    id="favorites"
+>
+
+<div class="section-head">
+
+<div>
+
+<h2 class="section-title">
 ❤️ Mes favoris
 </h2>
 
-<div
-class="hint"
-data-i18n="favoritesHint"
->
-Tes noms sont sauvegardés dans ton navigateur.
+<div class="hint">
+Tes noms sont sauvegardés localement dans ton navigateur.
 </div>
 
 </div>
@@ -1350,15 +2014,14 @@ Tes noms sont sauvegardés dans ton navigateur.
 <div class="tools">
 
 <input
-id="search"
-class="search"
-placeholder="🔎 Rechercher..."
->
+    id="search"
+    class="search"
+    placeholder="🔎 Rechercher..."
+/>
 
 <button
-id="clear"
-class="btn"
-data-i18n="clear"
+    id="clear"
+    class="btn"
 >
 Effacer
 </button>
@@ -1373,179 +2036,10 @@ Effacer
 </section>
 
 
-<!-- CATEGORIES -->
 
-<section
-class="section container"
-id="categories"
->
-
-<div class="section-head">
-
-<div>
-
-<h2
-class="section-title"
-data-i18n="categoryTitle"
->
-🎮 Univers
-</h2>
-
-<div
-class="hint"
-data-i18n="categoryHint"
->
-Choisis un univers pour inspirer tes prochaines créations.
-</div>
-
-</div>
-
-</div>
-
-
-<div class="category-grid">
-
-<div class="category">
-
-<div class="category-icon">
-⚔️
-</div>
-
-<strong>
-RPG
-</strong>
-
-<span>
-Guerriers, mages, royaumes et aventuriers.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🌑
-</div>
-
-<strong>
-Dark Fantasy
-</strong>
-
-<span>
-Noms sombres, mystérieux et puissants.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🔥
-</div>
-
-<strong>
-Anime
-</strong>
-
-<span>
-Inspirations japonaises et fantastiques.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🐉
-</div>
-
-<strong>
-Fantasy
-</strong>
-
-<span>
-Dragons, magie, elfes et légendes.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🤖
-</div>
-
-<strong>
-Sci-Fi
-</strong>
-
-<span>
-Technologie, espace et futurs lointains.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-🛡️
-</div>
-
-<strong>
-Viking
-</strong>
-
-<span>
-Clans nordiques et anciens guerriers.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-👑
-</div>
-
-<strong>
-Royal
-</strong>
-
-<span>
-Rois, reines et royaumes légendaires.
-</span>
-
-</div>
-
-
-<div class="category">
-
-<div class="category-icon">
-👹
-</div>
-
-<strong>
-Monstres
-</strong>
-
-<span>
-Créatures, boss et ennemis.
-</span>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FEATURES -->
+<!-- ==================================================
+WHY NAMEFORGE
+================================================== -->
 
 <section class="section container">
 
@@ -1553,11 +2047,8 @@ Créatures, boss et ennemis.
 
 <div>
 
-<h2
-class="section-title"
-data-i18n="why"
->
-Pourquoi NameForge ?
+<h2 class="section-title">
+✨ Pourquoi utiliser NameForge ?
 </h2>
 
 </div>
@@ -1567,19 +2058,20 @@ Pourquoi NameForge ?
 
 <div class="features">
 
+
 <div class="feature">
 
 <div class="feature-icon">
 ⚡
 </div>
 
-<strong data-i18n="fastTitle">
+<strong>
 Rapide
 </strong>
 
-<span data-i18n="fastText">
-Génère plusieurs noms en quelques secondes,
-sans inscription et sans installation.
+<span>
+Génère plusieurs propositions en quelques
+secondes directement dans ton navigateur.
 </span>
 
 </div>
@@ -1588,16 +2080,16 @@ sans inscription et sans installation.
 <div class="feature">
 
 <div class="feature-icon">
-⭐
+🎨
 </div>
 
-<strong data-i18n="rareTitle">
-Rareté
+<strong>
+Personnalisable
 </strong>
 
-<span data-i18n="rareText">
-Découvre des noms communs, rares, épiques
-et légendaires.
+<span>
+Choisis le type, le style, le thème, le genre,
+la longueur et la rareté.
 </span>
 
 </div>
@@ -1609,11 +2101,11 @@ et légendaires.
 ❤️
 </div>
 
-<strong data-i18n="favTitle">
-Favoris
+<strong>
+Favoris locaux
 </strong>
 
-<span data-i18n="favText">
+<span>
 Sauvegarde tes meilleurs noms directement
 dans ton navigateur.
 </span>
@@ -1624,8 +2116,198 @@ dans ton navigateur.
 
 </section>
 
+
+
+<!-- ==================================================
+SEO CONTENT
+================================================== -->
+
+<section class="section container">
+
+<div class="content">
+
+<h2>
+Générateur de noms gratuit
+</h2>
+
+<p>
+NameForge est un générateur de noms conçu pour
+créer rapidement des idées originales pour des
+personnages, des jeux vidéo et des univers imaginaires.
+</p>
+
+<h3>
+Générateur de noms fantasy
+</h3>
+
+<p>
+La fantasy permet de créer des mondes remplis de
+héros, de royaumes, de créatures et de magie.
+NameForge combine différents styles et thèmes afin
+de proposer des noms adaptés à ce type d'univers.
+</p>
+
+<h3>
+Générateur de noms RPG
+</h3>
+
+<p>
+Pour un RPG, un bon nom peut aider à donner une
+identité à un personnage. Tu peux utiliser le
+générateur pour créer des noms de guerriers,
+mages, assassins, héros, monstres ou royaumes.
+</p>
+
+<h3>
+Générateur de noms anime
+</h3>
+
+<p>
+Le générateur propose également des styles inspirés
+des sonorités japonaises et des univers fantastiques.
+Tu peux combiner le style Anime avec différents
+thèmes pour obtenir des résultats variés.
+</p>
+
+<h3>
+Générateur de noms de clans
+</h3>
+
+<p>
+Les noms de clans peuvent être utilisés pour les jeux
+multijoueurs, les guildes, les communautés ou les
+univers fictifs. Sélectionne le type Clan et choisis
+un thème pour commencer.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+FAQ
+================================================== -->
+
+<section
+    class="section container"
+    id="faq"
+>
+
+<div class="section-head">
+
+<div>
+
+<h2 class="section-title">
+❓ Questions fréquentes
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+NameForge est-il gratuit ?
+</summary>
+
+<p>
+Oui. La version actuelle fonctionne directement
+dans le navigateur et ne nécessite pas de compte
+pour générer des noms.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Est-ce que mes favoris sont envoyés sur un serveur ?
+</summary>
+
+<p>
+Non. Les favoris de cette version sont conservés
+dans le stockage local de ton navigateur.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Puis-je utiliser les noms dans mon jeu ?
+</summary>
+
+<p>
+NameForge sert à générer des idées de noms.
+Tu peux utiliser les résultats comme inspiration
+pour tes personnages, projets, jeux ou univers.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Quels types de noms puis-je générer ?
+</summary>
+
+<p>
+Tu peux générer des noms de personnages, pseudos,
+guerriers, mages, assassins, créatures, royaumes,
+clans, guildes, boss, monstres et héros.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+NameForge fonctionne-t-il sur téléphone ?
+</summary>
+
+<p>
+Oui. L'interface est responsive et s'adapte aux
+écrans mobiles et aux ordinateurs.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Puis-je générer plusieurs noms ?
+</summary>
+
+<p>
+Oui. Tu peux demander plusieurs résultats à chaque
+génération et recommencer autant de fois que nécessaire.
+</p>
+
+</details>
+
+</div>
+
+</section>
+
 </main>
 
+
+
+<!-- ==================================================
+FOOTER
+================================================== -->
 
 <footer>
 
@@ -1637,14 +2319,12 @@ dans ton navigateur.
 
 <br><br>
 
-<span data-i18n="footerText">
 Le nom de ton prochain héros commence ici.
-</span>
 
 <br><br>
 
 <small>
-© 2026 NameForge
+© 2026 NameForge · Générateur de noms gratuit
 </small>
 
 </div>
@@ -1653,18 +2333,19 @@ Le nom de ton prochain héros commence ici.
 
 
 <div
-id="toast"
-class="toast"
+    id="toast"
+    class="toast"
 ></div>
+
 
 
 <script>
 
-/* =========================================================
+/* =====================================================
 DATABASE
-========================================================= */
+===================================================== */
 
-const DB = {
+const DB={
 
 themes:{
 
@@ -1745,7 +2426,6 @@ themes:{
 
 },
 
-
 styles:{
 
 "Fantastique":[
@@ -1810,7 +2490,6 @@ styles:{
 
 },
 
-
 types:{
 
 "Personnage":[
@@ -1863,7 +2542,6 @@ types:{
 
 },
 
-
 male:[
 "an","or","en","us","ar","ion"
 ],
@@ -1881,153 +2559,9 @@ surname:[
 };
 
 
-/* =========================================================
-ELEMENTS
-========================================================= */
-
-const $ = id =>
-document.getElementById(id);
-
-
-/* =========================================================
-STORAGE
-========================================================= */
-
-let favorites =
-JSON.parse(
-localStorage.getItem(
-"nameforge_v4_favorites"
-)||"[]"
-);
-
-let generationCount =
-Number(
-localStorage.getItem(
-"nameforge_v4_generations"
-)||0
-);
-
-let legendaryCount =
-Number(
-localStorage.getItem(
-"nameforge_v4_legendary"
-)||0
-);
-
-
-/* =========================================================
-UTILITY
-========================================================= */
-
-function randomItem(array){
-
-return array[
-Math.floor(
-Math.random()*array.length
-)
-];
-
-}
-
-
-function cleanName(name){
-
-name =
-name.replace(
-/(.)\1{2,}/g,
-"$1$1"
-);
-
-return (
-name.charAt(0).toUpperCase()+
-name.slice(1).toLowerCase()
-);
-
-}
-
-
-function escapeHTML(text){
-
-return String(text).replace(
-/[&<>"']/g,
-c=>({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[c])
-);
-
-}
-
-
-function escapeAttr(text){
-
-return String(text)
-.replace(/\\/g,"\\\\")
-.replace(/'/g,"\\'");
-
-}
-
-
-/* =========================================================
-RARITY
-========================================================= */
-
-function getRarity(){
-
-const selected =
-$("rarity").value;
-
-if(selected!=="any")
-return selected;
-
-const r =
-Math.random();
-
-if(r<.50)
-return "common";
-
-if(r<.80)
-return "rare";
-
-if(r<.95)
-return "epic";
-
-return "legendary";
-
-}
-
-
-const rarityInfo={
-
-common:{
-label:"COMMON",
-className:"rarity-common"
-},
-
-rare:{
-label:"RARE",
-className:"rarity-rare"
-},
-
-epic:{
-label:"EPIC",
-className:"rarity-epic"
-},
-
-legendary:{
-label:"LEGENDARY",
-className:"rarity-legendary"
-}
-
-};
-
-
-/* =========================================================
-DESCRIPTION
-========================================================= */
+/* =====================================================
+DESCRIPTIONS
+===================================================== */
 
 const descriptions={
 
@@ -2139,32 +2673,168 @@ const descriptions={
 };
 
 
-/* =========================================================
+/* =====================================================
+RARITY
+===================================================== */
+
+const rarityInfo={
+
+common:{
+label:"COMMON",
+className:"rarity-common"
+},
+
+rare:{
+label:"RARE",
+className:"rarity-rare"
+},
+
+epic:{
+label:"EPIC",
+className:"rarity-epic"
+},
+
+legendary:{
+label:"LEGENDARY",
+className:"rarity-legendary"
+}
+
+};
+
+
+function getRarity(){
+
+const selected=
+document.getElementById("rarity").value;
+
+if(selected!=="any"){
+    return selected;
+}
+
+const r=Math.random();
+
+if(r<.50)
+    return "common";
+
+if(r<.80)
+    return "rare";
+
+if(r<.95)
+    return "epic";
+
+return "legendary";
+}
+
+
+/* =====================================================
+UTILITY
+===================================================== */
+
+function randomItem(array){
+
+return array[
+Math.floor(
+Math.random()*array.length
+)
+];
+
+}
+
+
+function cleanName(name){
+
+name=name.replace(
+/(.)\1{2,}/g,
+"$1$1"
+);
+
+return(
+name.charAt(0).toUpperCase()+
+name.slice(1).toLowerCase()
+);
+
+}
+
+
+function escapeHTML(text){
+
+return String(text).replace(
+/[&<>"']/g,
+c=>({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[c])
+);
+
+}
+
+
+function escapeAttr(text){
+
+return String(text)
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
+
+}
+
+
+/* =====================================================
+STORAGE
+===================================================== */
+
+let favorites=
+JSON.parse(
+localStorage.getItem(
+"nameforge_v5_favorites"
+)||"[]"
+);
+
+let generationCount=
+Number(
+localStorage.getItem(
+"nameforge_v5_generations"
+)||"0"
+);
+
+let legendaryCount=
+Number(
+localStorage.getItem(
+"nameforge_v5_legendary"
+)||"0"
+);
+
+
+/* =====================================================
 CREATE NAME
-========================================================= */
+===================================================== */
 
 function createName(){
 
-const theme =
-$("theme").value;
+const theme=
+document.getElementById("theme").value;
 
-const style =
-$("style").value;
+const style=
+document.getElementById("style").value;
 
-const type =
-$("type").value;
+const type=
+document.getElementById("type").value;
 
-const length =
-$("length").value;
+const length=
+document.getElementById("length").value;
 
-const gender =
-$("gender").value;
+const gender=
+document.getElementById("gender").value;
 
-const prefix =
-$("prefix").value.trim();
+const prefix=
+document.getElementById("prefix").value.trim();
 
-const surnameMode =
-$("surnameMode").value;
+const surnameMode=
+document.getElementById("surnameMode").value;
 
 
 let name;
@@ -2172,7 +2842,7 @@ let name;
 
 if(length==="Court"){
 
-name =
+name=
 randomItem(DB.themes[theme])+
 randomItem(DB.types[type]);
 
@@ -2180,7 +2850,7 @@ randomItem(DB.types[type]);
 
 else if(length==="Long"){
 
-name =
+name=
 randomItem(DB.themes[theme])+
 randomItem(DB.styles[style])+
 randomItem(DB.types[type]);
@@ -2189,12 +2859,11 @@ randomItem(DB.types[type]);
 
 else{
 
-const choice =
-Math.random();
+const choice=Math.random();
 
 if(choice<.34){
 
-name =
+name=
 randomItem(DB.themes[theme])+
 randomItem(DB.styles[style]);
 
@@ -2202,7 +2871,7 @@ randomItem(DB.styles[style]);
 
 else if(choice<.67){
 
-name =
+name=
 randomItem(DB.themes[theme])+
 randomItem(DB.types[type]);
 
@@ -2210,7 +2879,7 @@ randomItem(DB.types[type]);
 
 else{
 
-name =
+name=
 randomItem(DB.themes[theme])+
 randomItem(DB.styles[style])+
 randomItem(DB.types[type]);
@@ -2220,48 +2889,45 @@ randomItem(DB.types[type]);
 }
 
 
-/* Gender */
+/* Genre */
 
-if(
-gender==="male"
-){
+if(gender==="male"){
 
-name +=
+name+=
 randomItem(DB.male);
 
 }
 
-else if(
-gender==="female"
-){
+else if(gender==="female"){
 
-name +=
+name+=
 randomItem(DB.female);
 
 }
 
 
-/* Prefix */
+/* Préfixe */
 
 if(prefix){
 
-name =
+name=
 prefix+
 name;
 
 }
 
 
-name =
-cleanName(name);
+name=cleanName(name);
 
 
-/* Surname */
+/* Nom de famille */
 
 let surname="";
 
-let shouldSurname =
+const shouldSurname=
+
 surnameMode==="yes" ||
+
 (
 surnameMode==="auto" &&
 Math.random()<.45
@@ -2275,27 +2941,24 @@ type!=="Clan" &&
 type!=="Guilde"
 ){
 
-surname =
+surname=
 " "+
 cleanName(
-randomItem(
-DB.surname
-)
+randomItem(DB.surname)
 );
 
 }
 
 
-/* Rare suffix */
+/* Rareté */
 
-const rarity =
+const rarity=
 getRarity();
 
-if(
-rarity==="legendary"
-){
 
-const legendarySuffixes=[
+if(rarity==="legendary"){
+
+const suffixes=[
 "Prime",
 "Arcanum",
 "Eternal",
@@ -2304,11 +2967,9 @@ const legendarySuffixes=[
 "Infinity"
 ];
 
-name +=
+name+=
 " "+
-randomItem(
-legendarySuffixes
-);
+randomItem(suffixes);
 
 }
 
@@ -2316,9 +2977,13 @@ legendarySuffixes
 return{
 
 name:name+surname,
+
 rarity:rarity,
+
 theme:theme,
+
 type:type,
+
 description:
 randomItem(
 descriptions[theme]
@@ -2329,21 +2994,20 @@ descriptions[theme]
 }
 
 
-/* =========================================================
+/* =====================================================
 GENERATE
-========================================================= */
+===================================================== */
 
 function generateNames(){
 
-const count =
+const count=
 Number(
-$("count").value
+document.getElementById("count").value
 );
 
 const generated=[];
 
-const used=
-new Set();
+const used=new Set();
 
 let attempts=0;
 
@@ -2353,20 +3017,13 @@ generated.length<count &&
 attempts<1000
 ){
 
-const result =
-createName();
+const result=createName();
 
-if(
-!used.has(result.name)
-){
+if(!used.has(result.name)){
 
-used.add(
-result.name
-);
+used.add(result.name);
 
-generated.push(
-result
-);
+generated.push(result);
 
 }
 
@@ -2375,73 +3032,70 @@ attempts++;
 }
 
 
-generationCount +=
+generationCount+=
 generated.length;
 
-
-legendaryCount +=
+legendaryCount+=
 generated.filter(
 x=>x.rarity==="legendary"
 ).length;
 
 
 localStorage.setItem(
-"nameforge_v4_generations",
+"nameforge_v5_generations",
 generationCount
 );
 
 localStorage.setItem(
-"nameforge_v4_legendary",
+"nameforge_v5_legendary",
 legendaryCount
 );
 
 
 updateStats();
 
-renderResults(
-generated
-);
+renderResults(generated);
 
 }
 
 
-/* =========================================================
+/* =====================================================
 RESULTS
-========================================================= */
+===================================================== */
 
 function renderResults(results){
 
-$("results").innerHTML =
-results.map(
-result=>{
+document.getElementById("results").innerHTML=
 
-const info =
-rarityInfo[
-result.rarity
-];
+results.map(result=>{
 
-const favorite =
+const info=
+rarityInfo[result.rarity];
+
+const favorite=
 favorites.some(
 x=>x.name===result.name
 );
+
+
+let cardColor="var(--border)";
+
+if(result.rarity==="legendary")
+    cardColor="var(--gold)";
+
+if(result.rarity==="epic")
+    cardColor="var(--purple)";
+
+if(result.rarity==="rare")
+    cardColor="var(--blue)";
 
 
 return`
 
 <article
 class="name-card"
-style="
---card-color:
-${
-result.rarity==="legendary"
-? "var(--gold)"
-: result.rarity==="epic"
-? "var(--purple)"
-: result.rarity==="rare"
-? "var(--blue)"
-: "var(--border)"
-};
-">
+style="--card-color:${cardColor}"
+>
 
 <div>
 
@@ -2476,9 +3130,7 @@ ${escapeHTML(result.description)}
 <button
 class="small-btn"
 onclick="
-copyName(
-'${escapeAttr(result.name)}'
-)
+copyName('${escapeAttr(result.name)}')
 "
 >
 📋
@@ -2486,26 +3138,19 @@ copyName(
 
 
 <button
-class="
-small-btn
-${favorite ? "favorite":""}
-"
+class="small-btn ${favorite?"favorite":""}"
 onclick="
-toggleFavorite(
-'${escapeAttr(result.name)}'
-)
+toggleFavorite('${escapeAttr(result.name)}')
 "
 >
-${favorite ? "♥":"♡"}
+${favorite?"♥":"♡"}
 </button>
 
 
 <button
 class="small-btn"
 onclick="
-shareName(
-'${escapeAttr(result.name)}'
-)
+shareName('${escapeAttr(result.name)}')
 "
 >
 ↗
@@ -2517,23 +3162,20 @@ shareName(
 
 `;
 
-}
-).join("");
+}).join("");
 
 }
 
 
-/* =========================================================
+/* =====================================================
 FAVORITES
-========================================================= */
+===================================================== */
 
 function saveFavorites(){
 
 localStorage.setItem(
-"nameforge_v4_favorites",
-JSON.stringify(
-favorites
-)
+"nameforge_v5_favorites",
+JSON.stringify(favorites)
 );
 
 }
@@ -2541,7 +3183,7 @@ favorites
 
 function toggleFavorite(name){
 
-const existing =
+const existing=
 favorites.find(
 x=>x.name===name
 );
@@ -2549,7 +3191,7 @@ x=>x.name===name
 
 if(existing){
 
-favorites =
+favorites=
 favorites.filter(
 x=>x.name!==name
 );
@@ -2565,9 +3207,13 @@ else{
 favorites.unshift({
 
 name:name,
-rarity:"favorite",
+
+rarity:"rare",
+
 theme:"NameForge",
+
 type:"Favori",
+
 description:
 "Ton nom sauvegardé dans NameForge."
 
@@ -2586,21 +3232,23 @@ updateStats();
 
 renderFavorites();
 
-generateNames();
-
 }
 
 
+/* =====================================================
+RENDER FAVORITES
+===================================================== */
+
 function renderFavorites(){
 
-const query =
-$("search")
+const query=
+document.getElementById("search")
 .value
 .trim()
 .toLowerCase();
 
 
-const list =
+const list=
 favorites.filter(
 item=>
 item.name
@@ -2611,14 +3259,18 @@ item.name
 
 if(!list.length){
 
-$("favoritesList").innerHTML=`
+document.getElementById(
+"favoritesList"
+).innerHTML=`
 
 <div class="empty">
 
 ${
 query
-? "Aucun résultat."
-: "Aucun favori pour le moment."
+?
+"Aucun résultat."
+:
+"Aucun favori pour le moment."
 }
 
 </div>
@@ -2626,18 +3278,16 @@ query
 `;
 
 return;
-
 }
 
 
-$("favoritesList").innerHTML=`
+document.getElementById(
+"favoritesList"
+).innerHTML=`
 
 <div class="results">
 
-${
-
-list.map(
-item=>`
+${list.map(item=>`
 
 <article
 class="name-card"
@@ -2645,12 +3295,7 @@ class="name-card"
 
 <div>
 
-<span
-class="
-rarity
-rarity-rare
-"
->
+<span class="rarity rarity-rare">
 ♥ FAVORI
 </span>
 
@@ -2674,9 +3319,7 @@ ${escapeHTML(item.description)}
 <button
 class="small-btn"
 onclick="
-copyName(
-'${escapeAttr(item.name)}'
-)
+copyName('${escapeAttr(item.name)}')
 "
 >
 📋
@@ -2685,9 +3328,7 @@ copyName(
 <button
 class="small-btn favorite"
 onclick="
-toggleFavorite(
-'${escapeAttr(item.name)}'
-)
+toggleFavorite('${escapeAttr(item.name)}')
 "
 >
 ♥
@@ -2696,9 +3337,7 @@ toggleFavorite(
 <button
 class="small-btn"
 onclick="
-shareName(
-'${escapeAttr(item.name)}'
-)
+shareName('${escapeAttr(item.name)}')
 "
 >
 ↗
@@ -2708,10 +3347,7 @@ shareName(
 
 </article>
 
-`
-).join("")
-
-}
+`).join("")}
 
 </div>
 
@@ -2720,71 +3356,56 @@ shareName(
 }
 
 
-/* =========================================================
+/* =====================================================
 COPY
-========================================================= */
+===================================================== */
 
 async function copyName(name){
 
 try{
 
-await navigator.clipboard.writeText(
-name
-);
+await navigator.clipboard.writeText(name);
 
 }
 
 catch{
 
-const textarea =
-document.createElement(
-"textarea"
-);
+const textarea=
+document.createElement("textarea");
 
 textarea.value=name;
 
-document.body.appendChild(
-textarea
-);
+document.body.appendChild(textarea);
 
 textarea.select();
 
-document.execCommand(
-"copy"
-);
+document.execCommand("copy");
 
 textarea.remove();
 
 }
 
-
-showToast(
-"Nom copié ! 📋"
-);
+showToast("Nom copié ! 📋");
 
 }
 
 
-/* =========================================================
+/* =====================================================
 SHARE
-========================================================= */
+===================================================== */
 
 async function shareName(name){
 
-if(
-navigator.share
-){
+if(navigator.share){
 
 try{
 
 await navigator.share({
 
-title:
-"NameForge",
+title:"NameForge",
 
 text:
-"Mon nom NameForge : "+
-name,
+"Mon nom NameForge : "+name,
 
 url:
 window.location.href
@@ -2798,16 +3419,16 @@ catch{}
 
 else{
 
-await copyName(name);
+copyName(name);
 
 }
 
 }
 
 
-/* =========================================================
+/* =====================================================
 SURPRISE
-========================================================= */
+===================================================== */
 
 function surprise(){
 
@@ -2822,13 +3443,12 @@ const ids=[
 ];
 
 
-ids.forEach(
-id=>{
+ids.forEach(id=>{
 
-const select =
-$(id);
+const select=
+document.getElementById(id);
 
-select.selectedIndex =
+select.selectedIndex=
 Math.floor(
 Math.random()*
 select.options.length
@@ -2837,13 +3457,9 @@ select.options.length
 });
 
 
-$("prefix").value="";
-
-$("surnameMode").selectedIndex=
-Math.floor(
-Math.random()*
-$("surnameMode").options.length
-);
+document.getElementById(
+"prefix"
+).value="";
 
 
 generateNames();
@@ -2855,9 +3471,40 @@ showToast(
 }
 
 
-/* =========================================================
-CLEAR
-========================================================= */
+/* =====================================================
+PRESETS
+===================================================== */
+
+function preset(type,style,theme){
+
+document.getElementById(
+"type"
+).value=type;
+
+document.getElementById(
+"style"
+).value=style;
+
+document.getElementById(
+"theme"
+).value=theme;
+
+
+document.getElementById(
+"generator"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+
+generateNames();
+
+}
+
+
+/* =====================================================
+CLEAR FAVORITES
+===================================================== */
 
 function clearFavorites(){
 
@@ -2887,384 +3534,99 @@ showToast(
 }
 
 
-/* =========================================================
+/* =====================================================
 STATS
-========================================================= */
+===================================================== */
 
 function updateStats(){
 
-$("generationCount")
-.textContent=
+document.getElementById(
+"generationCount"
+).textContent=
 generationCount.toLocaleString();
 
 
-$("favoriteCount")
-.textContent=
+document.getElementById(
+"favoriteCount"
+).textContent=
 favorites.length;
 
 
-$("legendaryCount")
-.textContent=
+document.getElementById(
+"legendaryCount"
+).textContent=
 legendaryCount.toLocaleString();
 
 }
 
 
-/* =========================================================
+/* =====================================================
 TOAST
-========================================================= */
+===================================================== */
 
 let toastTimer;
 
 
 function showToast(message){
 
-const toast =
-$("toast");
+const toast=
+document.getElementById("toast");
 
-toast.textContent=
-message;
+toast.textContent=message;
 
-toast.classList.add(
-"show"
-);
+toast.classList.add("show");
 
-clearTimeout(
-toastTimer
-);
+clearTimeout(toastTimer);
 
 toastTimer=
-setTimeout(
-()=>{
-toast.classList.remove(
-"show"
-);
-},
-1800
-);
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},1800);
 
 }
 
 
-/* =========================================================
-LANGUAGES
-========================================================= */
-
-const translations={
-
-fr:{
-generator:"Générateur",
-favorites:"Favoris",
-categories:"Catégories",
-
-hero1:"Forge ton prochain",
-hero2:"nom légendaire",
-
-heroText:
-"Crée des noms uniques pour tes personnages, pseudos, clans, guildes, royaumes et créatures. Choisis ton univers, ta rareté et ton style.",
-
-type:"🎭 Type",
-style:"🎨 Style",
-theme:"🔥 Thème",
-gender:"👤 Genre",
-rarity:"⭐ Rareté",
-length:"📏 Longueur",
-count:"🔢 Résultats",
-prefix:"🧩 Préfixe",
-surname:"📜 Nom de famille",
-
-generate:"Générer des noms",
-surprise:"Surprendre-moi",
-
-generated:"Noms générés",
-saved:"Favoris",
-free:"Générations gratuites",
-legendaryGenerated:"Légendaires",
-
-resultsTitle:"✨ Résultats",
-resultsHint:
-"Chaque nom possède sa propre rareté et description.",
-
-favoritesTitle:"❤️ Mes favoris",
-favoritesHint:
-"Tes noms sont sauvegardés dans ton navigateur.",
-
-clear:"Effacer",
-
-categoryTitle:"🎮 Univers",
-categoryHint:
-"Choisis un univers pour inspirer tes prochaines créations.",
-
-why:"Pourquoi NameForge ?",
-
-fastTitle:"Rapide",
-fastText:
-"Génère plusieurs noms en quelques secondes, sans inscription et sans installation.",
-
-rareTitle:"Rareté",
-rareText:
-"Découvre des noms communs, rares, épiques et légendaires.",
-
-favTitle:"Favoris",
-favText:
-"Sauvegarde tes meilleurs noms directement dans ton navigateur.",
-
-footerText:
-"Le nom de ton prochain héros commence ici."
-},
-
-en:{
-generator:"Generator",
-favorites:"Favorites",
-categories:"Categories",
-
-hero1:"Forge your next",
-hero2:"legendary name",
-
-heroText:
-"Create unique names for your characters, usernames, clans, guilds, kingdoms and creatures. Choose your universe, rarity and style.",
-
-type:"🎭 Type",
-style:"🎨 Style",
-theme:"🔥 Theme",
-gender:"👤 Gender",
-rarity:"⭐ Rarity",
-length:"📏 Length",
-count:"🔢 Results",
-prefix:"🧩 Prefix",
-surname:"📜 Surname",
-
-generate:"Generate names",
-surprise:"Surprise me",
-
-generated:"Generated",
-saved:"Favorites",
-free:"Free generations",
-legendaryGenerated:"Legendary",
-
-resultsTitle:"✨ Results",
-resultsHint:
-"Every name has its own rarity and description.",
-
-favoritesTitle:"❤️ My favorites",
-favoritesHint:
-"Your names are saved in your browser.",
-
-clear:"Clear",
-
-categoryTitle:"🎮 Universes",
-categoryHint:
-"Choose an universe for your next creations.",
-
-why:"Why NameForge?",
-
-fastTitle:"Fast",
-fastText:
-"Generate multiple names in seconds, without registration or installation.",
-
-rareTitle:"Rarity",
-rareText:
-"Discover common, rare, epic and legendary names.",
-
-favTitle:"Favorites",
-favText:
-"Save your best names directly in your browser.",
-
-footerText:
-"The name of your next hero starts here."
-},
-
-ar:{
-generator:"مولد الأسماء",
-favorites:"المفضلة",
-categories:"التصنيفات",
-
-hero1:"اصنع اسمك",
-hero2:"الأسطوري القادم",
-
-heroText:
-"أنشئ أسماء مميزة لشخصياتك وألعابك وعشائرك وممالكك ومخلوقاتك. اختر عالمك وأسلوبك ودرجة الندرة.",
-
-type:"🎭 النوع",
-style:"🎨 الأسلوب",
-theme:"🔥 الموضوع",
-gender:"👤 الجنس",
-rarity:"⭐ الندرة",
-length:"📏 الطول",
-count:"🔢 النتائج",
-prefix:"🧩 بادئة",
-surname:"📜 اسم العائلة",
-
-generate:"إنشاء الأسماء",
-surprise:"فاجئني",
-
-generated:"الأسماء المولدة",
-saved:"المفضلة",
-free:"توليد مجاني",
-legendaryGenerated:"أسطورية",
-
-resultsTitle:"✨ النتائج",
-resultsHint:
-"كل اسم لديه درجة ندرة ووصف خاص.",
-
-favoritesTitle:"❤️ المفضلة",
-favoritesHint:
-"يتم حفظ الأسماء في متصفحك.",
-
-clear:"مسح",
-
-categoryTitle:"🎮 العوالم",
-categoryHint:
-"اختر عالماً لإلهام إبداعاتك القادمة.",
-
-why:"لماذا NameForge؟",
-
-fastTitle:"سريع",
-fastText:
-"أنشئ عدة أسماء خلال ثوانٍ بدون تسجيل أو تثبيت.",
-
-rareTitle:"الندرة",
-rareText:
-"اكتشف أسماء عادية ونادرة وملحمية وأسطورية.",
-
-favTitle:"المفضلة",
-favText:
-"احفظ أفضل الأسماء مباشرة في متصفحك.",
-
-footerText:
-"اسم بطلك القادم يبدأ من هنا."
-}
-
-};
-
-
-function changeLanguage(lang){
-
-const t =
-translations[lang];
-
-
-document
-.querySelectorAll(
-"[data-i18n]"
-)
-.forEach(
-element=>{
-
-const key =
-element.dataset.i18n;
-
-if(t[key])
-element.textContent=
-t[key];
-
-}
-);
-
-
-document
-.querySelectorAll(
-".lang-btn"
-)
-.forEach(
-button=>{
-
-button.classList.toggle(
-"active",
-button.dataset.lang===lang
-);
-
-}
-);
-
-
-document.documentElement.lang=
-lang;
-
-document.documentElement.dir=
-lang==="ar"
-? "rtl"
-: "ltr";
-
-
-localStorage.setItem(
-"nameforge_language",
-lang
-);
-
-}
-
-
-/* =========================================================
+/* =====================================================
 EVENTS
-========================================================= */
+===================================================== */
 
-$("generate")
-.addEventListener(
+document.getElementById(
+"generate"
+).addEventListener(
 "click",
 generateNames
 );
 
 
-$("random")
-.addEventListener(
+document.getElementById(
+"random"
+).addEventListener(
 "click",
 surprise
 );
 
 
-$("search")
-.addEventListener(
+document.getElementById(
+"search"
+).addEventListener(
 "input",
 renderFavorites
 );
 
 
-$("clear")
-.addEventListener(
+document.getElementById(
+"clear"
+).addEventListener(
 "click",
 clearFavorites
 );
 
 
-document
-.querySelectorAll(
-".lang-btn"
-)
-.forEach(
-button=>{
-
-button.addEventListener(
-"click",
-()=>changeLanguage(
-button.dataset.lang
-)
-);
-
-}
-);
-
-
-/* =========================================================
+/* =====================================================
 START
-========================================================= */
-
-const savedLanguage =
-localStorage.getItem(
-"nameforge_language"
-) || "fr";
-
-
-if(
-savedLanguage!=="fr"
-){
-
-changeLanguage(
-savedLanguage
-);
-
-}
-
+===================================================== */
 
 updateStats();
 
@@ -3273,6 +3635,7 @@ generateNames();
 renderFavorites();
 
 </script>
+
 
 </body>
 </html>
