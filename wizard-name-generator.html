@@ -921,22 +921,367 @@ stories, games, RPGs and fictional worlds.
 
 
 
-```css
 .result-description{
-
     margin-top:8px;
-
     color:var(--muted);
-
     font-size:.88rem;
-
     line-height:1.45;
-
     min-height:58px;
+}
+   <script>
+
+const nameParts = {
+
+arcane: {
+    first: [
+        "Astra","Eldor","Arcan","Valen","Zyra","Elion","Cael","Orin",
+        "Auren","Velar","Lorien","Sylas","Neris","Alaric","Eryndor",
+        "Vaelis","Theron","Aelion","Mirel","Cyran","Elandor","Oryn"
+    ],
+    second: [
+        "ion","ius","ar","iel","or","en","is","ael","eth","or",
+        "wyn","aris","ion","eus","an","iel","os","ir"
+    ]
+},
+
+dark: {
+    first: [
+        "Mor","Mal","Varyn","Nox","Zar","Vor","Draven","Nyx","Kael",
+        "Rav","Vhal","Darth","Noct","Zareth","Malric","Veyr","Grim",
+        "Abyss","Velkor","Draz","Korv","Neroth"
+    ],
+    second: [
+        "ath","or","is","ak","eth","ar","on","yr","us","ek",
+        "oth","ael","en","ir","ax","os","ul","an"
+    ]
+},
+
+elemental: {
+    first: [
+        "Ignis","Pyra","Frost","Storm","Ember","Volt","Terra","Aqua",
+        "Zephyr","Flare","Blaze","Thund","Ash","Crystal","Tempest",
+        "Infer","Glacius","Solar","Lumen","Torr","Cinder","Aeris"
+    ],
+    second: [
+        "ion","ar","is","os","ael","or","en","ius","eth","an",
+        "on","iel","aris","eus","or","ax","ir","um"
+    ]
+},
+
+ancient: {
+    first: [
+        "Eldar","Aethel","Thal","Ozym","Amon","Eldrin","Vaelor","Arkan",
+        "Seraph","Orphe","Myth","Aurel","Tharos","Erevan","Solon",
+        "Eldros","Calder","Valdor","Eryx","Aether","Thalion","Orren"
+    ],
+    second: [
+        "ius","or","ion","iel","an","eth","eus","ar","is","os",
+        "ael","on","ir","wyn","en","oth","aris","iel"
+    ]
+},
+
+royal: {
+    first: [
+        "Aurel","Valerian","Alaric","Cassian","Lucian","Elias","Leander",
+        "Aldren","Cedric","Theron","Evander","Darian","Caelan","Adrian",
+        "Orlan","Magnus","Arion","Edrin","Valen","Lorian","Aeron","Cyril"
+    ],
+    second: [
+        "ius","ian","or","iel","en","ar","eus","ion","ael","is",
+        "an","wyn","eth","on","aris","el","or","ian"
+    ]
+},
+
+mystic: {
+    first: [
+        "Luna","Myst","Eira","Nym","Seren","Mira","Elara","Nyra",
+        "Astra","Selene","Runa","Veya","Isolde","Elys","Mora","Lyra",
+        "Aeris","Neris","Sylva","Elaria","Vesper","Oria"
+    ],
+    second: [
+        "ia","iel","ara","is","yn","ora","ael","ira","eth","ia",
+        "elle","aris","una","iel","ora","en","a","is"
+    ]
+}
+
+};
+
+
+/* -------------------------------- */
+/* DESCRIPTION DES STYLES */
+/* -------------------------------- */
+
+const styleInfo = {
+
+arcane: {
+    descriptions: [
+        "A scholarly wizard name filled with the atmosphere of ancient arcane knowledge.",
+        "A powerful magical name suited to a master of spells and forbidden knowledge.",
+        "A refined wizard name with the feeling of an experienced arcane scholar.",
+        "A mystical name that sounds like it belongs to a legendary spellcaster."
+    ],
+    bestFor: "Fantasy RPGs • Magic academies • Spellcasters"
+},
+
+dark: {
+    descriptions: [
+        "A sinister wizard name suited to a mysterious master of forbidden magic.",
+        "A dark magical name with an ominous and powerful atmosphere.",
+        "A mysterious name for a spellcaster who walks the path of shadow magic.",
+        "A threatening wizard name with the feeling of ancient forbidden power."
+    ],
+    bestFor: "Dark fantasy • Villains • Forbidden magic"
+},
+
+elemental: {
+    descriptions: [
+        "A powerful mage name inspired by elemental forces such as fire, ice and storms.",
+        "A magical name suited to a spellcaster who commands the forces of nature.",
+        "An energetic name with the feeling of elemental power and raw magic.",
+        "A fantasy mage name inspired by fire, storms, earth and other elements."
+    ],
+    bestFor: "Elemental magic • RPGs • Fantasy adventures"
+},
+
+ancient: {
+    descriptions: [
+        "An ancient-sounding wizard name that feels connected to forgotten magical civilizations.",
+        "A legendary name suited to an immortal sage or forgotten master of magic.",
+        "A mysterious name with the atmosphere of an old and powerful magical tradition.",
+        "A grand wizard name that sounds as though it belongs to an ancient legend."
+    ],
+    bestFor: "Ancient lore • Sages • Legendary wizards"
+},
+
+royal: {
+    descriptions: [
+        "An elegant wizard name suited to a powerful mage serving a royal court.",
+        "A noble magical name with the atmosphere of royalty and high fantasy.",
+        "A refined name for a wizard born into nobility or serving a magical kingdom.",
+        "A prestigious wizard name that combines magical power with royal elegance."
+    ],
+    bestFor: "Royal courts • High fantasy • Noble characters"
+},
+
+mystic: {
+    descriptions: [
+        "A mysterious magical name suited to a seer, mystic or wandering sorcerer.",
+        "An enigmatic name with an otherworldly and mystical atmosphere.",
+        "A magical name for a character connected to visions, spirits and hidden knowledge.",
+        "A mysterious sorcerer name that feels connected to ancient supernatural forces."
+    ],
+    bestFor: "Mystics • Sorcerers • Magical mysteries"
+}
+
+};
+
+
+/* -------------------------------- */
+/* RANDOM ITEM */
+/* -------------------------------- */
+
+function randomItem(array){
+
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
 
 }
-   </script>   
-```
+
+
+/* -------------------------------- */
+/* GENERATE NAME */
+/* -------------------------------- */
+
+function makeName(style, length){
+
+    const parts = nameParts[style];
+
+    let first = randomItem(parts.first);
+    let second = randomItem(parts.second);
+
+    let name;
+
+
+    /* SHORT */
+
+    if(length === "short"){
+
+        if(Math.random() < 0.5){
+
+            name = first;
+
+        }else{
+
+            name =
+                first.slice(
+                    0,
+                    Math.max(
+                        3,
+                        Math.ceil(first.length / 2)
+                    )
+                ) +
+                second.slice(0,2);
+
+        }
+
+    }
+
+
+    /* MEDIUM */
+
+    else if(length === "medium"){
+
+        name =
+            first +
+            second;
+
+    }
+
+
+    /* LONG */
+
+    else{
+
+        const third =
+            randomItem(parts.second);
+
+        name =
+            first +
+            second +
+            third;
+
+    }
+
+
+    return name;
+
+}
+
+
+/* -------------------------------- */
+/* GENERATE 9 RESULTS */
+/* -------------------------------- */
+
+function generate(){
+
+    const style =
+        document.getElementById("style").value;
+
+    const length =
+        document.getElementById("length").value;
+
+    const names = [];
+
+    let attempts = 0;
+
+
+    while(
+        names.length < 9 &&
+        attempts < 500
+    ){
+
+        const name =
+            makeName(
+                style,
+                length
+            );
+
+        attempts++;
+
+
+        if(
+            !names.includes(name)
+        ){
+
+            names.push(name);
+
+        }
+
+    }
+
+
+    const info =
+        styleInfo[style];
+
+
+    document.getElementById("results").innerHTML =
+
+        names.map(name => `
+
+            <div class="result">
+
+                <div class="result-name">
+                    ${name}
+                </div>
+
+                <p
+                    class="result-description"
+                >
+                    ${randomItem(info.descriptions)}
+                </p>
+
+                <div
+                    style="
+                        margin-top:10px;
+                        color:#a78bfa;
+                        font-size:.78rem;
+                        font-weight:800;
+                    "
+                >
+                    Best for: ${info.bestFor}
+                </div>
+
+                <button
+                    class="copy"
+                    onclick="copyName('${name.replace(/'/g,"\\'")}')"
+                >
+                    📋 Copy name
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* -------------------------------- */
+/* COPY */
+/* -------------------------------- */
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard.writeText(name);
+
+        alert(
+            "Name copied: " + name
+        );
+
+    }
+
+    catch{
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+/* -------------------------------- */
+/* INITIAL GENERATION */
+/* -------------------------------- */
+
+generate();
+
+</script>
 
 
 </body>
