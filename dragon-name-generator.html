@@ -1229,334 +1229,191 @@ games, RPGs and fictional worlds.
 
 
 
+```html
 <script>
 
 const prefixes = {
 
-fire:[
-"Pyra",
-"Ign",
-"Drak",
-"Vul",
-"Ember",
-"Blaz",
-"Rag",
-"Fyr",
-"Kael",
-"Zar"
-],
-
-ice:[
-"Frost",
-"Glac",
-"Cryo",
-"Isk",
-"Winter",
-"Skal",
-"Frel",
-"Hyem",
-"Snow",
-"Vey"
-],
-
-storm:[
-"Thund",
-"Storm",
-"Volt",
-"Temp",
-"Zeph",
-"Raij",
-"Strat",
-"Typh",
-"Gal",
-"Tor"
-],
-
-dark:[
-"Mor",
-"Nyx",
-"Shadow",
-"Dread",
-"Vhar",
-"Grim",
-"Umbra",
-"Ruin",
-"Mal",
-"Vor"
-],
-
-light:[
-"Lumi",
-"Sol",
-"Aur",
-"Cel",
-"Radi",
-"Lux",
-"Ser",
-"Astra",
-"Heli",
-"El"
-],
-
-nature:[
-"Thorn",
-"Verd",
-"Flor",
-"Gaia",
-"Oak",
-"Terra",
-"Leaf",
-"Syl",
-"Root",
-"Vine"
-],
-
-water:[
-"Mar",
-"Hydr",
-"Aqua",
-"Tide",
-"Wave",
-"Ocean",
-"Coral",
-"Rain",
-"Pearl",
-"Riv"
-],
-
-ancient:[
-"Azar",
-"Arkan",
-"Thal",
-"Ur",
-"Zor",
-"Kael",
-"Drav",
-"Vara",
-"Orun",
-"Xal"
-]
+fire:["Pyra","Ign","Drak","Vul","Ember","Blaz","Rag","Fyr","Kael","Zar"],
+ice:["Frost","Glac","Cryo","Isk","Winter","Skal","Frel","Hyem","Snow","Vey"],
+storm:["Thund","Storm","Volt","Temp","Zeph","Raij","Strat","Typh","Gal","Tor"],
+dark:["Mor","Nyx","Shadow","Dread","Vhar","Grim","Umbra","Ruin","Mal","Vor"],
+light:["Lumi","Sol","Aur","Cel","Radi","Lux","Ser","Astra","Heli","El"],
+nature:["Thorn","Verd","Flor","Gaia","Oak","Terra","Leaf","Syl","Root","Vine"],
+water:["Mar","Hydr","Aqua","Tide","Wave","Ocean","Coral","Rain","Pearl","Riv"],
+ancient:["Azar","Arkan","Thal","Ur","Zor","Kael","Drav","Vara","Orun","Xal"]
 
 };
 
 
 const middles = {
 
-fire:[
-"ag",
-"ar",
-"on",
-"yr",
-"ath",
-"or",
-"az",
-"ek",
-"ir",
-"ul"
-],
-
-ice:[
-"ir",
-"yn",
-"el",
-"ar",
-"eth",
-"or",
-"is",
-"en",
-"yr",
-"un"
-],
-
-storm:[
-"or",
-"an",
-"yr",
-"eth",
-"ar",
-"on",
-"ek",
-"us",
-"ir",
-"al"
-],
-
-dark:[
-"or",
-"ath",
-"yr",
-"an",
-"ek",
-"ul",
-"eth",
-"ar",
-"on",
-"ir"
-],
-
-light:[
-"el",
-"ar",
-"iel",
-"or",
-"yn",
-"eth",
-"ion",
-"ia",
-"an",
-"ir"
-],
-
-nature:[
-"ar",
-"en",
-"ia",
-"or",
-"eth",
-"yn",
-"al",
-"on",
-"ir",
-"el"
-],
-
-water:[
-"ia",
-"or",
-"en",
-"ar",
-"un",
-"el",
-"on",
-"ir",
-"eth",
-"ay"
-],
-
-ancient:[
-"ar",
-"on",
-"eth",
-"ur",
-"an",
-"or",
-"ak",
-"ia",
-"um",
-"ir"
-]
+fire:["ag","ar","on","yr","ath","or","az","ek","ir","ul"],
+ice:["ir","yn","el","ar","eth","or","is","en","yr","un"],
+storm:["or","an","yr","eth","ar","on","ek","us","ir","al"],
+dark:["or","ath","yr","an","ek","ul","eth","ar","on","ir"],
+light:["el","ar","iel","or","yn","eth","ion","ia","an","ir"],
+nature:["ar","en","ia","or","eth","yn","al","on","ir","el"],
+water:["ia","or","en","ar","un","el","on","ir","eth","ay"],
+ancient:["ar","on","eth","ur","an","or","ak","ia","um","ir"]
 
 };
 
 
 const endings = {
 
+fire:["ax","on","ar","ath","or","ius","zar","ek","orn","oth"],
+ice:["ia","or","en","iel","yr","eth","wyn","ar","une","ir"],
+storm:["on","ar","us","eth","or","ion","ak","yr","ax","an"],
+dark:["oth","or","ax","ar","eth","ul","on","yr","ek","an"],
+light:["iel","ion","ia","or","eth","iel","wyn","ar","en","el"],
+nature:["ia","on","el","ar","eth","wyn","or","en","iel","ir"],
+water:["ia","on","ar","el","eth","or","une","ay","ir","en"],
+ancient:["or","on","um","ar","eth","ius","an","ax","ir","oth"]
+
+};
+
+
+/* --------------------------------
+   DRAGON DESCRIPTIONS
+-------------------------------- */
+
+const descriptions = {
+
 fire:[
-"ax",
-"on",
-"ar",
-"ath",
-"or",
-"ius",
-"zar",
-"ek",
-"orn",
-"oth"
+
+"A fierce fire dragon known for its blazing breath and volcanic power.",
+
+"An aggressive dragon whose scales glow like burning embers.",
+
+"A legendary flame dragon that dwells among ancient volcanoes.",
+
+"A powerful creature surrounded by intense heat and roaring flames.",
+
+"A battle-hardened dragon said to command destructive fire.",
+
+"An enormous dragon whose fiery presence can scorch the battlefield."
+
 ],
 
 ice:[
-"ia",
-"or",
-"en",
-"iel",
-"yr",
-"eth",
-"wyn",
-"ar",
-"une",
-"ir"
+
+"An ancient ice dragon that rules frozen mountains and endless glaciers.",
+
+"A silent dragon covered in frost with breath cold enough to freeze stone.",
+
+"A mysterious creature that sleeps beneath an eternal layer of ice.",
+
+"A powerful winter dragon feared by travelers crossing frozen lands.",
+
+"A majestic dragon whose scales shimmer like frozen crystals.",
+
+"A legendary guardian of the northern glaciers."
+
 ],
 
 storm:[
-"on",
-"ar",
-"us",
-"eth",
-"or",
-"ion",
-"ak",
-"yr",
-"ax",
-"an"
+
+"A mighty storm dragon capable of commanding thunder and lightning.",
+
+"A swift dragon that rides through violent skies and endless storms.",
+
+"A legendary creature whose roar echoes like thunder across the mountains.",
+
+"A powerful sky dragon surrounded by crackling lightning.",
+
+"A feared storm bringer said to control the winds themselves.",
+
+"An ancient dragon that appears whenever great storms approach."
+
 ],
 
 dark:[
-"oth",
-"or",
-"ax",
-"ar",
-"eth",
-"ul",
-"on",
-"yr",
-"ek",
-"an"
+
+"A mysterious shadow dragon that hides beyond the edge of the known world.",
+
+"A feared creature associated with darkness, silence and ancient ruins.",
+
+"A powerful dark dragon whose presence inspires fear in its enemies.",
+
+"An ancient beast that moves unseen beneath moonless skies.",
+
+"A sinister dragon said to possess forgotten powers.",
+
+"A legendary creature that guards secrets buried in eternal darkness."
+
 ],
 
 light:[
-"iel",
-"ion",
-"ia",
-"or",
-"eth",
-"iel",
-"wyn",
-"ar",
-"en",
-"el"
+
+"A majestic celestial dragon associated with light and ancient stars.",
+
+"A noble guardian dragon said to protect sacred kingdoms.",
+
+"A radiant creature whose scales shine like sunlight.",
+
+"An ancient dragon believed to carry the power of the heavens.",
+
+"A legendary guardian that appears when darkness threatens the world.",
+
+"A graceful celestial dragon surrounded by a brilliant aura."
+
 ],
 
 nature:[
-"ia",
-"on",
-"el",
-"ar",
-"eth",
-"wyn",
-"or",
-"en",
-"iel",
-"ir"
+
+"An ancient forest dragon deeply connected to the power of nature.",
+
+"A peaceful guardian of forests, mountains and hidden valleys.",
+
+"A powerful creature whose scales resemble ancient tree bark.",
+
+"A legendary nature dragon said to protect sacred forests.",
+
+"An elusive dragon that lives among enormous trees and ancient ruins.",
+
+"A mysterious guardian whose power comes from the earth itself."
+
 ],
 
 water:[
-"ia",
-"on",
-"ar",
-"el",
-"eth",
-"or",
-"une",
-"ay",
-"ir",
-"en"
+
+"A majestic water dragon that rules deep oceans and ancient rivers.",
+
+"A mysterious creature capable of disappearing beneath the waves.",
+
+"An ancient sea dragon feared by sailors and explorers.",
+
+"A powerful guardian of underwater kingdoms and forgotten ruins.",
+
+"A graceful dragon whose movements resemble the flow of the ocean.",
+
+"A legendary creature said to command powerful tides."
+
 ],
 
 ancient:[
-"or",
-"on",
-"um",
-"ar",
-"eth",
-"ius",
-"an",
-"ax",
-"ir",
-"oth"
+
+"An extremely old dragon carrying the knowledge of forgotten civilizations.",
+
+"A legendary elder dragon that has witnessed countless ages.",
+
+"An ancient creature whose origins are lost to history.",
+
+"A powerful dragon believed to have existed before modern kingdoms.",
+
+"A mysterious elder whose wisdom surpasses generations of kings.",
+
+"A legendary dragon connected to forgotten myths and primordial powers."
+
 ]
 
 };
 
+
+/* --------------------------------
+   RANDOM HELPERS
+-------------------------------- */
 
 function randomItem(array){
 
@@ -1576,6 +1433,10 @@ function capitalize(name){
 
 }
 
+
+/* --------------------------------
+   CREATE NAME
+-------------------------------- */
 
 function makeName(style,length){
 
@@ -1617,6 +1478,10 @@ function makeName(style,length){
 }
 
 
+/* --------------------------------
+   GENERATE RESULTS
+-------------------------------- */
+
 function generate(){
 
     const style =
@@ -1632,6 +1497,8 @@ function generate(){
 
 
     const names=[];
+
+    const usedDescriptions=[];
 
 
     while(names.length<9){
@@ -1652,16 +1519,45 @@ function generate(){
     }
 
 
-    document.getElementById(
-        "results"
-    ).innerHTML =
+    const results =
+        document.getElementById(
+            "results"
+        );
 
-        names.map(name => `
+
+    results.innerHTML = names.map(name => {
+
+        let description;
+
+        do{
+
+            description =
+                randomItem(
+                    descriptions[style]
+                );
+
+        }
+
+        while(
+            usedDescriptions.includes(description) &&
+            usedDescriptions.length <
+            descriptions[style].length
+        );
+
+
+        usedDescriptions.push(description);
+
+
+        return `
 
             <div class="result">
 
                 <div class="result-name">
                     ${name}
+                </div>
+
+                <div class="result-description">
+                    ${description}
                 </div>
 
                 <button
@@ -1675,10 +1571,16 @@ function generate(){
 
             </div>
 
-        `).join("");
+        `;
+
+    }).join("");
 
 }
 
+
+/* --------------------------------
+   COPY NAME
+-------------------------------- */
 
 async function copyName(name){
 
@@ -1693,6 +1595,7 @@ async function copyName(name){
         );
 
     }
+
     catch{
 
         alert(
@@ -1707,6 +1610,8 @@ async function copyName(name){
 generate();
 
 </script>
+```
+
 
 
 </body>
