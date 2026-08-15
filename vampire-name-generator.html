@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,12 @@
 <link rel="canonical"
       href="https://rayanellg.github.io/nameforge/vampire-name-generator.html">
 
+
 <style>
+
+/* -------------------------------- */
+/* VARIABLES */
+/* -------------------------------- */
 
 :root{
     --bg:#070609;
@@ -31,77 +37,110 @@
     --purple:#9333ea;
 }
 
+
+/* -------------------------------- */
+/* RESET */
+/* -------------------------------- */
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
     min-height:100vh;
+
     font-family:
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
     color:var(--text);
+
     background:
         radial-gradient(
             circle at 10% 0%,
             rgba(220,38,38,.16),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 5%,
             rgba(147,51,234,.14),
             transparent 30%
         ),
+
         var(--bg);
+
     line-height:1.6;
 }
+
 
 .container{
     width:min(1100px,92%);
     margin:auto;
 }
 
+
+/* -------------------------------- */
+/* HEADER */
+/* -------------------------------- */
+
 header{
     position:sticky;
     top:0;
     z-index:10;
+
     background:rgba(7,6,9,.92);
+
     backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
 }
+
 
 nav{
     min-height:68px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
+
 .logo{
     display:flex;
     align-items:center;
+
     gap:10px;
+
     color:white;
     text-decoration:none;
+
     font-size:1.2rem;
     font-weight:950;
 }
 
+
 .logo-icon{
     width:38px;
     height:38px;
+
     display:grid;
     place-items:center;
+
     border-radius:11px;
+
     background:
         linear-gradient(
             135deg,
@@ -110,10 +149,12 @@ nav{
         );
 }
 
+
 .nav-links{
     display:flex;
     gap:18px;
 }
+
 
 .nav-links a{
     color:var(--muted);
@@ -121,36 +162,62 @@ nav{
     font-weight:800;
 }
 
+
 .nav-links a:hover{
     color:white;
 }
+
+
+/* -------------------------------- */
+/* HERO */
+/* -------------------------------- */
 
 .hero{
     text-align:center;
     padding:75px 0 45px;
 }
 
+
 .badge{
     display:inline-block;
+
     padding:7px 13px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:999px;
+
     background:#110c14;
+
     color:#eadfea;
+
     font-size:.82rem;
     font-weight:850;
 }
 
+
 h1{
     max-width:900px;
+
     margin:20px auto;
-    font-size:clamp(2.5rem,6vw,5rem);
+
+    font-size:
+        clamp(
+            2.5rem,
+            6vw,
+            5rem
+        );
+
     line-height:1;
+
     letter-spacing:-2px;
 }
 
+
 .gradient{
     color:transparent;
+
     background:
         linear-gradient(
             90deg,
@@ -158,79 +225,119 @@ h1{
             #fca5a5,
             #d8b4fe
         );
+
     background-clip:text;
     -webkit-background-clip:text;
 }
 
+
 .hero p{
     max-width:760px;
+
     margin:auto;
+
     color:var(--muted);
+
     font-size:1.05rem;
 }
 
+
 .btn{
     display:inline-block;
+
     margin-top:22px;
+
     padding:13px 19px;
+
     border-radius:12px;
+
     background:
         linear-gradient(
             135deg,
             var(--red),
             var(--purple)
         );
+
     color:white;
+
     text-decoration:none;
+
     font-weight:900;
 }
 
+
+/* -------------------------------- */
+/* GENERATOR */
+/* -------------------------------- */
+
 .generator{
     padding:25px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:20px;
+
     background:
         linear-gradient(
             160deg,
             rgba(28,20,31,.97),
             rgba(13,10,17,.97)
         );
+
     box-shadow:
         0 25px 60px rgba(0,0,0,.4);
 }
+
 
 .generator h2{
     margin-bottom:6px;
 }
 
+
 .generator p{
     color:var(--muted);
 }
 
+
 .controls{
     display:flex;
+
     gap:10px;
+
     margin-top:20px;
 }
+
 
 select,
 button{
     padding:12px 14px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:10px;
+
     background:#0d0910;
+
     color:white;
+
     font:inherit;
 }
 
+
 button{
     cursor:pointer;
+
     font-weight:850;
 }
 
+
 .generate{
     flex:1;
+
     border:0;
+
     background:
         linear-gradient(
             135deg,
@@ -239,109 +346,219 @@ button{
         );
 }
 
+
+/* -------------------------------- */
+/* RESULTS */
+/* -------------------------------- */
+
 .results{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
     margin-top:18px;
 }
 
+
 .result{
     padding:20px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:15px;
+
     background:#151019;
+
     text-align:center;
+
     transition:.2s;
 }
 
+
 .result:hover{
     transform:translateY(-3px);
-    border-color:rgba(220,38,38,.55);
+
+    border-color:
+        rgba(220,38,38,.55);
 }
+
 
 .result-name{
     font-size:1.15rem;
+
     font-weight:950;
+
     word-break:break-word;
 }
 
+
+/* -------------------------------- */
+/* DESCRIPTION DES NOMS */
+/* -------------------------------- */
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+/* -------------------------------- */
+/* COPY BUTTON */
+/* -------------------------------- */
+
 .copy{
     margin-top:12px;
+
     width:100%;
+
     background:#211724;
 }
+
+
+.copy:hover{
+    background:#2b1d30;
+}
+
+
+/* -------------------------------- */
+/* SECTIONS */
+/* -------------------------------- */
 
 .section{
     padding:65px 0;
 }
 
+
 .content{
     max-width:850px;
+
     margin:auto;
 }
 
+
 .content h2{
     margin-bottom:14px;
+
     font-size:2rem;
 }
 
+
 .content h3{
     margin-top:27px;
+
     margin-bottom:8px;
 }
 
+
 .content p{
     color:var(--muted);
+
     margin-bottom:15px;
 }
 
+
+/* -------------------------------- */
+/* CARDS */
+/* -------------------------------- */
+
 .cards{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
 }
 
+
 .card{
     padding:22px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:15px;
+
     background:#151019;
 }
+
 
 .card h3{
     margin-bottom:7px;
 }
 
+
 .card p{
     color:var(--muted);
+
     font-size:.9rem;
 }
 
+
+/* -------------------------------- */
+/* FAQ */
+/* -------------------------------- */
+
 .faq details{
     margin-bottom:10px;
+
     padding:17px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:12px;
+
     background:#151019;
 }
 
+
 .faq summary{
     cursor:pointer;
+
     font-weight:900;
 }
 
+
 .faq p{
     margin-top:10px;
+
     color:var(--muted);
 }
 
+
+/* -------------------------------- */
+/* FOOTER */
+/* -------------------------------- */
+
 footer{
     padding:40px 0;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
     text-align:center;
+
     color:var(--muted);
 }
+
+
+/* -------------------------------- */
+/* MOBILE */
+/* -------------------------------- */
 
 @media(max-width:700px){
 
@@ -349,14 +566,17 @@ footer{
         display:none;
     }
 
+
     .controls{
         flex-direction:column;
     }
+
 
     .results,
     .cards{
         grid-template-columns:1fr;
     }
+
 
     .hero{
         padding-top:50px;
@@ -418,6 +638,10 @@ FAQ
 <main>
 
 
+<!-- ================================= -->
+<!-- HERO -->
+<!-- ================================= -->
+
 <section class="hero container">
 
 <span class="badge">
@@ -457,6 +681,10 @@ and supernatural characters.
 </section>
 
 
+
+<!-- ================================= -->
+<!-- GENERATOR -->
+<!-- ================================= -->
 
 <section
     class="container"
@@ -548,6 +776,10 @@ Long
 
 
 
+<!-- ================================= -->
+<!-- INFORMATION -->
+<!-- ================================= -->
+
 <section class="section">
 
 <div class="content">
@@ -626,6 +858,10 @@ moonlight and the supernatural.
 </section>
 
 
+
+<!-- ================================= -->
+<!-- POPULAR STYLES -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -731,6 +967,10 @@ moonlight and creatures of the night.
 
 
 
+<!-- ================================= -->
+<!-- FAQ -->
+<!-- ================================= -->
+
 <section
     class="section container"
     id="faq"
@@ -810,6 +1050,10 @@ mystic, royal and night-themed names.
 </section>
 
 
+
+<!-- ================================= -->
+<!-- MORE GENERATORS -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -928,6 +1172,10 @@ Explore more NameForge generators
 
 
 
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
+
 <footer>
 
 <div class="container">
@@ -953,265 +1201,294 @@ stories, games, RPGs and fictional worlds.
 
 <script>
 
-const prefixes = {
+/* -------------------------------- */
+/* NAME PARTS */
+/* -------------------------------- */
 
-noble:[
-"Al",
-"Val",
-"Luc",
-"Ad",
-"Vlad",
-"Cas",
-"Dam",
-"Ser",
-"Ar",
-"Victor"
+const nameParts = {
+
+noble: {
+
+first: [
+
+"Al","Val","Luc","Ad","Vlad","Cas","Dam",
+"Ser","Ar","Victor","Aurel","Cedric",
+"Leon","Marcus","Roderic","Alaric",
+"Edmund","Constant","Dorian","Evander"
+
 ],
 
-ancient:[
-"Vor",
-"Drak",
-"Mal",
-"Val",
-"Az",
-"Mor",
-"Than",
-"Vel",
-"Kael",
-"Ar"
-],
+second: [
 
-dark:[
-"Mor",
-"Nyx",
-"Vhar",
-"Drav",
-"Zar",
-"Mal",
-"Rav",
-"Vor",
-"Ner",
-"Kor"
-],
+"eri","ian","avi","adr","el","orian",
+"ev","ar","ius","ain","ric","ald",
+"or","ian","en","iel","eus","an"
 
-mystic:[
-"Vel",
-"Sel",
-"Az",
-"Ely",
-"Nyra",
-"Ser",
-"Vey",
-"Al",
-"Is",
-"Vael"
-],
-
-royal:[
-"Val",
-"Vlad",
-"Luc",
-"Alar",
-"Cas",
-"Ad",
-"Drac",
-"Ser",
-"Oct",
-"Rav"
-],
-
-night:[
-"Nyx",
-"Mor",
-"Vel",
-"Rav",
-"Vey",
-"Zar",
-"Nox",
-"Umb",
-"Vor",
-"Sel"
 ]
+
+},
+
+
+ancient: {
+
+first: [
+
+"Vor","Drak","Mal","Val","Az","Mor",
+"Than","Vel","Kael","Ar","Eld","Vhar",
+"Thal","Zareth","Neroth","Ozym",
+"Vaelor","Draven","Malric","Amon"
+
+],
+
+second: [
+
+"ath","or","ian","eth","ar","ul",
+"ion","ev","oth","ir","ius","ael",
+"on","iel","us","en","aris","or"
+
+]
+
+},
+
+
+dark: {
+
+first: [
+
+"Mor","Nyx","Vhar","Drav","Zar","Mal",
+"Rav","Vor","Ner","Kor","Noct","Draz",
+"Veyr","Grim","Nox","Vel","Thorn",
+"Shade","Darth","Raven"
+
+],
+
+second: [
+
+"ath","or","yr","an","ek","ul",
+"eth","ar","on","ir","oth","ax",
+"en","os","iel","us","ael","or"
+
+]
+
+},
+
+
+mystic: {
+
+first: [
+
+"Vel","Sel","Az","Ely","Nyra","Ser",
+"Vey","Al","Is","Vael","Luna","Mira",
+"Elara","Eira","Sylva","Neris","Lyra",
+"Vesper","Astra","Oria"
+
+],
+
+second: [
+
+"el","ia","or","iel","yn","eth",
+"ar","is","en","il","ael","ora",
+"ira","elle","aris","una","ion","eus"
+
+]
+
+},
+
+
+royal: {
+
+first: [
+
+"Val","Vlad","Luc","Alar","Cas","Ad",
+"Drac","Ser","Oct","Rav","Aurel",
+"Magnus","Leopold","Cassian","Dorian",
+"Victor","Alaric","Constant","Evander",
+"Maximilian"
+
+],
+
+second: [
+
+"eri","ian","avi","or","el","orian",
+"ev","ar","ius","ain","ric","ald",
+"eus","ion","ael","en","aris","ian"
+
+]
+
+},
+
+
+night: {
+
+first: [
+
+"Nyx","Mor","Vel","Rav","Vey","Zar",
+"Nox","Umb","Vor","Sel","Noct",
+"Shade","Ebon","Dusk","Lunar",
+"Vesper","Shadow","Midnight","Raven",
+"Eclipse"
+
+],
+
+second: [
+
+"or","ath","yn","el","ar","eth",
+"ir","on","ul","is","oth","iel",
+"en","ael","yr","os","an","ius"
+
+]
+
+}
 
 };
 
 
-const middles = {
+/* -------------------------------- */
+/* DESCRIPTION DES STYLES */
+/* -------------------------------- */
 
-noble:[
-"eri",
-"ian",
-"avi",
-"adr",
-"el",
-"orian",
-"ev",
-"ar",
-"ius",
-"ain"
+const styleInfo = {
+
+noble: {
+
+descriptions: [
+
+"An elegant vampire name suited to an aristocratic immortal from an ancient bloodline.",
+
+"A refined gothic name with the atmosphere of vampire nobility and old-world elegance.",
+
+"A sophisticated name for a vampire lord or lady belonging to a powerful ancient family.",
+
+"A noble supernatural name combining aristocratic elegance with a dark immortal presence."
+
 ],
 
-ancient:[
-"ath",
-"or",
-"ian",
-"eth",
-"ar",
-"ul",
-"ion",
-"ev",
-"oth",
-"ir"
+bestFor:
+"Gothic fantasy • Vampire nobles • Ancient families"
+
+},
+
+
+ancient: {
+
+descriptions: [
+
+"An ancient vampire name that feels connected to forgotten kingdoms and centuries of history.",
+
+"A powerful name suited to an immortal vampire who has survived for countless generations.",
+
+"An old-world name with the atmosphere of forgotten civilizations and ancient bloodlines.",
+
+"A legendary vampire name that sounds as though it belongs to an immortal from another age."
+
 ],
 
-dark:[
-"ath",
-"or",
-"yr",
-"an",
-"ek",
-"ul",
-"eth",
-"ar",
-"on",
-"ir"
+bestFor:
+"Ancient lore • Immortal characters • Dark fantasy"
+
+},
+
+
+dark: {
+
+descriptions: [
+
+"A sinister vampire name suited to a mysterious creature who embraces the darkness.",
+
+"A threatening gothic name with an ominous and powerful supernatural atmosphere.",
+
+"A dark name for a vampire character associated with shadows, fear and forbidden power.",
+
+"A mysterious and intimidating name designed for a dangerous gothic character."
+
 ],
 
-mystic:[
-"el",
-"ia",
-"or",
-"iel",
-"yn",
-"eth",
-"ar",
-"is",
-"en",
-"il"
+bestFor:
+"Dark fantasy • Villains • Gothic characters"
+
+},
+
+
+mystic: {
+
+descriptions: [
+
+"A mysterious vampire name with an otherworldly atmosphere and supernatural elegance.",
+
+"An enigmatic name suited to a vampire connected to magic, visions and ancient mysteries.",
+
+"A mystical gothic name for a supernatural character surrounded by secrets and legends.",
+
+"An elegant and mysterious name that feels connected to hidden magical forces."
+
 ],
 
-royal:[
-"eri",
-"ian",
-"avi",
-"or",
-"el",
-"orian",
-"ev",
-"ar",
-"ius",
-"ain"
+bestFor:
+"Supernatural fantasy • Mystics • Magical vampires"
+
+},
+
+
+royal: {
+
+descriptions: [
+
+"A regal vampire name suited to a powerful immortal ruler and ancient royal bloodline.",
+
+"An imposing name with the atmosphere of vampire kings, queens and dark royal courts.",
+
+"A prestigious gothic name combining supernatural power with royal elegance.",
+
+"A commanding name for a vampire monarch ruling over an ancient immortal dynasty."
+
 ],
 
-night:[
-"or",
-"ath",
-"yn",
-"el",
-"ar",
-"eth",
-"ir",
-"on",
-"ul",
-"is"
-]
+bestFor:
+"Vampire royalty • Dark kingdoms • High fantasy"
+
+},
+
+
+night: {
+
+descriptions: [
+
+"A mysterious name inspired by moonlight, darkness and creatures that wander through the night.",
+
+"A shadowy vampire name with the atmosphere of midnight and forgotten streets.",
+
+"An enigmatic name suited to a vampire who moves silently beneath the night sky.",
+
+"A dark and atmospheric name inspired by moonlight, shadows and eternal night."
+
+],
+
+bestFor:
+"Night creatures • Gothic worlds • Dark fantasy"
+
+}
 
 };
 
 
-const endings = {
-
-noble:[
-"us",
-"ian",
-"ius",
-"iel",
-"or",
-"en",
-"ar",
-"ev",
-"ian",
-"el"
-],
-
-ancient:[
-"oth",
-"ar",
-"ion",
-"ius",
-"or",
-"eth",
-"an",
-"iel",
-"ir",
-"us"
-],
-
-dark:[
-"oth",
-"or",
-"ax",
-"ar",
-"eth",
-"ul",
-"on",
-"yr",
-"ek",
-"an"
-],
-
-mystic:[
-"ia",
-"iel",
-"or",
-"en",
-"eth",
-"yn",
-"ar",
-"is",
-"el",
-"ion"
-],
-
-royal:[
-"ius",
-"ian",
-"or",
-"iel",
-"us",
-"eth",
-"ar",
-"en",
-"el",
-"ion"
-],
-
-night:[
-"oth",
-"or",
-"ax",
-"ar",
-"eth",
-"ul",
-"on",
-"yr",
-"en",
-"ir"
-]
-
-};
-
+/* -------------------------------- */
+/* RANDOM ITEM */
+/* -------------------------------- */
 
 function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random()*array.length
+            Math.random() * array.length
         )
     ];
 
 }
 
+
+/* -------------------------------- */
+/* CAPITALIZE */
+/* -------------------------------- */
 
 function capitalize(name){
 
@@ -1221,35 +1498,87 @@ function capitalize(name){
 }
 
 
-function makeName(style,length){
+/* -------------------------------- */
+/* GENERATE NAME */
+/* -------------------------------- */
+
+function makeName(style, length){
+
+    const parts =
+        nameParts[style];
+
+
+    let first =
+        randomItem(parts.first);
+
+
+    let second =
+        randomItem(parts.second);
+
 
     let name;
 
 
-    if(length==="short"){
+    /* -------------------------------- */
+    /* SHORT */
+    /* -------------------------------- */
 
-        name =
-            randomItem(prefixes[style]) +
-            randomItem(endings[style]);
+    if(length === "short"){
+
+        if(Math.random() < 0.5){
+
+            name =
+                first;
+
+        }
+
+        else{
+
+            name =
+                first.slice(
+                    0,
+                    Math.max(
+                        3,
+                        Math.ceil(
+                            first.length / 2
+                        )
+                    )
+                )
+                +
+                second.slice(0,2);
+
+        }
 
     }
 
-    else if(length==="medium"){
+
+    /* -------------------------------- */
+    /* MEDIUM */
+    /* -------------------------------- */
+
+    else if(length === "medium"){
 
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            first +
+            second;
 
     }
+
+
+    /* -------------------------------- */
+    /* LONG */
+    /* -------------------------------- */
 
     else{
 
+        const third =
+            randomItem(parts.second);
+
+
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            first +
+            second +
+            third;
 
     }
 
@@ -1258,6 +1587,10 @@ function makeName(style,length){
 
 }
 
+
+/* -------------------------------- */
+/* GENERATE 9 RESULTS */
+/* -------------------------------- */
 
 function generate(){
 
@@ -1273,10 +1606,16 @@ function generate(){
         ).value;
 
 
-    const names=[];
+    const names = [];
 
 
-    while(names.length<9){
+    let attempts = 0;
+
+
+    while(
+        names.length < 9 &&
+        attempts < 500
+    ){
 
         const name =
             makeName(
@@ -1285,13 +1624,22 @@ function generate(){
             );
 
 
-        if(!names.includes(name)){
+        attempts++;
+
+
+        if(
+            !names.includes(name)
+        ){
 
             names.push(name);
 
         }
 
     }
+
+
+    const info =
+        styleInfo[style];
 
 
     document.getElementById(
@@ -1305,6 +1653,31 @@ function generate(){
                 <div class="result-name">
                     ${name}
                 </div>
+
+
+                <p class="result-description">
+
+                    ${randomItem(
+                        info.descriptions
+                    )}
+
+                </p>
+
+
+                <div
+                    style="
+                        margin-top:10px;
+                        color:#fca5a5;
+                        font-size:.78rem;
+                        font-weight:800;
+                    "
+                >
+
+                    Best for:
+                    ${info.bestFor}
+
+                </div>
+
 
                 <button
                     class="copy"
@@ -1322,6 +1695,10 @@ function generate(){
 }
 
 
+/* -------------------------------- */
+/* COPY */
+/* -------------------------------- */
+
 async function copyName(name){
 
     try{
@@ -1329,6 +1706,7 @@ async function copyName(name){
         await navigator.clipboard.writeText(
             name
         );
+
 
         alert(
             "Name copied: " + name
@@ -1347,6 +1725,10 @@ async function copyName(name){
 }
 
 
+/* -------------------------------- */
+/* INITIAL GENERATION */
+/* -------------------------------- */
+
 generate();
 
 </script>
@@ -1355,3 +1737,4 @@ generate();
 </body>
 
 </html>
+```
