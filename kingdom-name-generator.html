@@ -1212,112 +1212,41 @@ for stories, games and fictional worlds.
 
 
 
+```html
 <script>
 
 const prefixes = {
 
 royal:[
-"Val",
-"Ar",
-"Eld",
-"Aur",
-"Cal",
-"Vel",
-"Al",
-"Ser",
-"Mar",
-"Raven"
+"Val","Ar","Eld","Aur","Cal","Vel","Al","Ser","Mar","Raven"
 ],
 
 ancient:[
-"Arka",
-"Thal",
-"Ur",
-"Zar",
-"Kael",
-"Az",
-"Vara",
-"Kor",
-"Mer",
-"Sol"
+"Arka","Thal","Ur","Zar","Kael","Az","Vara","Kor","Mer","Sol"
 ],
 
 dark:[
-"Dark",
-"Mor",
-"Grim",
-"Black",
-"Night",
-"Shadow",
-"Dread",
-"Vhar",
-"Mal",
-"Ruin"
+"Dark","Mor","Grim","Black","Night","Shadow","Dread","Vhar","Mal","Ruin"
 ],
 
 magical:[
-"Arc",
-"Ely",
-"Fae",
-"Cel",
-"Aether",
-"Lumi",
-"Ether",
-"Star",
-"Moon",
-"Crystal"
+"Arc","Ely","Fae","Cel","Aether","Lumi","Ether","Star","Moon","Crystal"
 ],
 
 northern:[
-"Frost",
-"Nord",
-"Ice",
-"Storm",
-"Skal",
-"Winter",
-"Valk",
-"Stone",
-"Snow",
-"Thorn"
+"Frost","Nord","Ice","Storm","Skal","Winter","Valk","Stone","Snow","Thorn"
 ],
 
 desert:[
-"Zan",
-"Al",
-"Kas",
-"Raq",
-"Sah",
-"Azar",
-"Qad",
-"Mir",
-"Zah",
-"Sol"
+"Zan","Al","Kas","Raq","Sah","Azar","Qad","Mir","Zah","Sol"
 ],
 
 island:[
-"Coral",
-"Azure",
-"Isla",
-"Mar",
-"Ocean",
-"Tide",
-"Pearl",
-"Storm",
-"Sea",
-"Wave"
+"Coral","Azure","Isla","Mar","Ocean","Tide","Pearl","Storm","Sea","Wave"
 ],
 
 elven:[
-"Elar",
-"El",
-"Sil",
-"Fael",
-"Aer",
-"Thal",
-"Calad",
-"Loth",
-"Aran",
-"Galad"
+"Elar","El","Sil","Fael","Aer","Thal","Calad","Loth","Aran","Galad"
 ]
 
 };
@@ -1326,107 +1255,35 @@ elven:[
 const middles = {
 
 royal:[
-"ia",
-"oria",
-"and",
-"ara",
-"enia",
-"eron",
-"oria",
-"eth",
-"ion",
-"ara"
+"ia","oria","and","ara","enia","eron","oria","eth","ion","ara"
 ],
 
 ancient:[
-"on",
-"ar",
-"um",
-"eth",
-"or",
-"an",
-"ia",
-"us",
-"ak",
-"en"
+"on","ar","um","eth","or","an","ia","us","ak","en"
 ],
 
 dark:[
-"mor",
-"gar",
-"vyr",
-"rak",
-"dan",
-"gorn",
-"reth",
-"zar",
-"vor",
-"kan"
+"mor","gar","vyr","rak","dan","gorn","reth","zar","vor","kan"
 ],
 
 magical:[
-"el",
-"ia",
-"ara",
-"eth",
-"iel",
-"ora",
-"wyn",
-"alis",
-"ion",
-"une"
+"el","ia","ara","eth","iel","ora","wyn","alis","ion","une"
 ],
 
 northern:[
-"gard",
-"heim",
-"land",
-"mark",
-"holm",
-"rak",
-"var",
-"fjord",
-"gard",
-"heim"
+"gard","heim","land","mark","holm","rak","var","fjord","gard","heim"
 ],
 
 desert:[
-"ara",
-"ir",
-"an",
-"ash",
-"ad",
-"im",
-"ar",
-"ah",
-"un",
-"ez"
+"ara","ir","an","ash","ad","im","ar","ah","un","ez"
 ],
 
 island:[
-"ara",
-"ia",
-"ora",
-"ea",
-"on",
-"ay",
-"ira",
-"une",
-"ora",
-"is"
+"ara","ia","ora","ea","on","ay","ira","une","ora","is"
 ],
 
 elven:[
-"iel",
-"ion",
-"wen",
-"eth",
-"iel",
-"ara",
-"or",
-"wyn",
-"alas",
-"ir"
+"iel","ion","wen","eth","iel","ara","or","wyn","alas","ir"
 ]
 
 };
@@ -1435,111 +1292,164 @@ elven:[
 const endings = {
 
 royal:[
-"ia",
-"ion",
-"ara",
-"oria",
-"en",
-"eth",
-"land",
-"ria",
-"dor",
-"ell"
+"ia","ion","ara","oria","en","eth","land","ria","dor","ell"
 ],
 
 ancient:[
-"ia",
-"on",
-"um",
-"or",
-"us",
-"ar",
-"eth",
-"an",
-"on",
-"ra"
+"ia","on","um","or","us","ar","eth","an","on","ra"
 ],
 
 dark:[
-"ia",
-"or",
-"oth",
-"ar",
-"en",
-"ath",
-"or",
-"um",
-"ek",
-"zar"
+"ia","or","oth","ar","en","ath","or","um","ek","zar"
 ],
 
 magical:[
-"ia",
-"iel",
-"ora",
-"eth",
-"wyn",
-"alis",
-"ara",
-"ion",
-"elle",
-"une"
+"ia","iel","ora","eth","wyn","alis","ara","ion","elle","une"
 ],
 
 northern:[
-"heim",
-"gard",
-"land",
-"mark",
-"holm",
-"fell",
-"fjord",
-"reach",
-"vale",
-"hold"
+"heim","gard","land","mark","holm","fell","fjord","reach","vale","hold"
 ],
 
 desert:[
-"an",
-"ar",
-"ah",
-"im",
-"un",
-"at",
-"ir",
-"ash",
-"ara",
-"ad"
+"an","ar","ah","im","un","at","ir","ash","ara","ad"
 ],
 
 island:[
-"ia",
-"ora",
-"ea",
-"ara",
-"on",
-"ay",
-"is",
-"une",
-"ora",
-"ell"
+"ia","ora","ea","ara","on","ay","is","une","ora","ell"
 ],
 
 elven:[
-"iel",
-"ion",
-"wen",
-"eth",
-"ara",
-"iel",
-"wyn",
-"alas",
-"or",
-"ir"
+"iel","ion","wen","eth","ara","iel","wyn","alas","or","ir"
 ]
 
 };
 
+
+/* =========================
+   DESCRIPTIONS
+========================= */
+
+const descriptions = {
+
+royal:[
+
+"A noble kingdom ruled by a powerful royal dynasty.",
+"A prosperous realm known for its magnificent castles and loyal knights.",
+"An ancient royal land where tradition and honor shape the kingdom.",
+"A wealthy kingdom famous for its grand capital and elegant court.",
+"A powerful realm protected by generations of legendary rulers.",
+"A peaceful kingdom surrounded by fertile lands and majestic fortresses.",
+"A prestigious realm where noble houses compete for influence.",
+"A flourishing kingdom known for its banners, knights and royal ceremonies.",
+"A legendary realm where the crown holds immense power."
+
+],
+
+ancient:[
+
+"An ancient empire built upon the ruins of forgotten civilizations.",
+"A mysterious realm whose monuments predate recorded history.",
+"A vast empire remembered for its legendary rulers and lost knowledge.",
+"An old civilization whose ruins still hide powerful secrets.",
+"A forgotten empire that once dominated entire continents.",
+"An ancient land filled with temples, relics and mysterious traditions.",
+"A legendary civilization whose influence survived for thousands of years.",
+"A powerful empire whose history is written in stone.",
+"An enigmatic realm surrounded by myths and forgotten legends."
+
+],
+
+dark:[
+
+"A cursed kingdom where darkness has consumed the royal lands.",
+"A mysterious realm ruled from a fortress hidden beneath black skies.",
+"A dangerous kingdom feared by neighboring nations.",
+"A shadowy land filled with ruined castles and forbidden secrets.",
+"A cursed realm where ancient evil still watches from the shadows.",
+"A grim kingdom surrounded by dark forests and abandoned fortresses.",
+"A sinister land where few travelers dare to venture.",
+"A forgotten kingdom whose rulers vanished under mysterious circumstances.",
+"A haunting realm shaped by war, curses and ancient darkness."
+
+],
+
+magical:[
+
+"An enchanted realm where ancient magic flows through the land.",
+"A mystical kingdom filled with magical forests and hidden wonders.",
+"A legendary realm where wizards and mythical creatures live together.",
+"An enchanted land protected by powerful magical forces.",
+"A mysterious kingdom where the stars are said to possess magical power.",
+"A realm filled with floating castles, ancient spells and magical rivers.",
+"An extraordinary kingdom where reality and magic intertwine.",
+"A mystical land ruled by powerful guardians and ancient sorcery.",
+"A legendary realm where forgotten magic still lives."
+
+],
+
+northern:[
+
+"A cold northern kingdom protected by powerful warriors.",
+"A frozen realm surrounded by mountains, glaciers and endless snow.",
+"A warrior kingdom where courage and strength define its people.",
+"A harsh northern land ruled from a fortress of stone and ice.",
+"A legendary realm where ancient clans defend their homeland.",
+"A frozen kingdom famous for its warriors and enormous fortresses.",
+"A remote land where long winters shape a resilient civilization.",
+"A mountainous realm where warriors follow ancient traditions.",
+"A powerful northern kingdom standing against the frozen wilderness."
+
+],
+
+desert:[
+
+"A vast desert kingdom built around a prosperous oasis.",
+"A sun-scorched realm ruled by ancient royal dynasties.",
+"A mysterious desert land hiding forgotten cities beneath the sands.",
+"A wealthy kingdom controlling important trade routes across the desert.",
+"An ancient realm surrounded by endless dunes and golden sands.",
+"A desert civilization famous for its temples, markets and caravans.",
+"A powerful kingdom whose capital rises from the middle of the desert.",
+"A mysterious land where buried ruins conceal forgotten secrets.",
+"A prosperous desert realm protected by massive sandstone fortresses."
+
+],
+
+island:[
+
+"A beautiful island kingdom surrounded by crystal-clear seas.",
+"A maritime realm whose ships dominate the surrounding waters.",
+"A tropical kingdom built across several enchanted islands.",
+"A mysterious island nation hidden beyond distant oceans.",
+"A prosperous coastal kingdom famous for its sailors and merchants.",
+"A legendary island realm surrounded by dangerous waters.",
+"A peaceful kingdom where colorful ports connect the islands.",
+"A powerful maritime nation protected by a vast navy.",
+"A remote island kingdom filled with hidden beaches and ancient ruins."
+
+],
+
+elven:[
+
+"An elegant elven realm hidden deep within an ancient forest.",
+"A mystical kingdom where elves live among enormous magical trees.",
+"A peaceful elven land protected by ancient forest guardians.",
+"An enchanted realm where elven cities rise among the treetops.",
+"A graceful kingdom known for its ancient magic and immortal rulers.",
+"A secretive elven realm concealed from the outside world.",
+"A beautiful forest kingdom filled with ancient ruins and magical rivers.",
+"An ancient elven civilization connected deeply to nature and magic.",
+"A legendary woodland realm where ancient elven traditions survive."
+
+]
+
+};
+
+
+/* =========================
+   RANDOM FUNCTIONS
+========================= */
 
 function randomItem(array){
 
@@ -1560,12 +1470,13 @@ function capitalize(name){
 }
 
 
+/* =========================
+   NAME GENERATION
+========================= */
+
 function makeName(style,length){
 
-    let name =
-        randomItem(prefixes[style]) +
-        randomItem(middles[style]) +
-        randomItem(endings[style]);
+    let name;
 
 
     if(length==="short"){
@@ -1603,6 +1514,10 @@ function makeName(style,length){
 }
 
 
+/* =========================
+   GENERATE
+========================= */
+
 function generate(){
 
     const style =
@@ -1620,7 +1535,7 @@ function generate(){
     const names=[];
 
 
-    while(names.length<9){
+    while(names.length < 9){
 
         const name =
             makeName(
@@ -1638,17 +1553,34 @@ function generate(){
     }
 
 
+    const styleDescriptions =
+        descriptions[style];
+
+
     document.getElementById(
         "results"
     ).innerHTML =
 
-        names.map(name => `
+
+        names.map((name,index) => `
 
             <div class="result">
 
                 <div class="result-name">
                     ${name}
                 </div>
+
+                <p
+                    class="result-description"
+                    style="
+                        margin-top:8px;
+                        color:#9ba7bd;
+                        font-size:.88rem;
+                        line-height:1.5;
+                    "
+                >
+                    ${styleDescriptions[index]}
+                </p>
 
                 <button
                     class="copy"
@@ -1665,6 +1597,10 @@ function generate(){
 
 }
 
+
+/* =========================
+   COPY
+========================= */
 
 async function copyName(name){
 
@@ -1690,9 +1626,14 @@ async function copyName(name){
 }
 
 
+/* =========================
+   INITIAL GENERATION
+========================= */
+
 generate();
 
 </script>
+```
 
 
 </body>
