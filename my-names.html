@@ -1,0 +1,2394 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>My Names — Saved Names | NameForge</title>
+
+<meta name="description"
+      content="View, search and manage your saved NameForge fantasy names, likes and personal notes.">
+
+<meta name="robots"
+      content="index, follow">
+
+<link rel="canonical"
+      href="https://rayanellg.github.io/nameforge/my-names.html">
+
+
+<style>
+
+/* =========================================
+   ROOT
+========================================= */
+
+:root{
+
+    --bg:#070912;
+    --panel:#101827;
+    --panel2:#0d1422;
+    --border:#29354d;
+    --text:#f5f7ff;
+    --muted:#9ba7bd;
+
+    --purple:#8b5cf6;
+    --blue:#06b6d4;
+    --red:#ef4444;
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(239,68,68,.13),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(139,92,246,.18),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container{
+
+    width:min(1100px,92%);
+
+    margin:auto;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+        rgba(7,9,18,.9);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+
+}
+
+
+nav{
+
+    min-height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:1.2rem;
+
+    font-weight:950;
+
+}
+
+
+.logo-icon{
+
+    width:38px;
+
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--purple)
+        );
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav-links{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+
+.nav-links a{
+
+    color:var(--muted);
+
+    text-decoration:none;
+
+    font-weight:800;
+
+}
+
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+
+.nav-links a.active{
+
+    color:white;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+
+    text-align:center;
+
+    padding:75px 0 45px;
+
+}
+
+
+.badge{
+
+    display:inline-block;
+
+    padding:7px 13px;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    background:#0e1421;
+
+    color:#dce3f5;
+
+    font-size:.82rem;
+
+    font-weight:850;
+
+}
+
+
+h1{
+
+    margin:20px auto 14px;
+
+    font-size:
+        clamp(2.5rem,6vw,4.5rem);
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+}
+
+
+.gradient{
+
+    color:transparent;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #fff,
+            #f87171,
+            #c084fc
+        );
+
+    background-clip:text;
+
+    -webkit-background-clip:text;
+
+}
+
+
+.hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:1.05rem;
+
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard{
+
+    padding-bottom:60px;
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:13px;
+
+    margin-bottom:18px;
+
+}
+
+
+.stat{
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(20,29,47,.97),
+            rgba(12,17,29,.97)
+        );
+
+    text-align:center;
+
+}
+
+
+.stat-number{
+
+    display:block;
+
+    font-size:1.8rem;
+
+    font-weight:950;
+
+}
+
+
+.stat-label{
+
+    color:var(--muted);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.toolbar{
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:#101625;
+
+    margin-bottom:18px;
+
+}
+
+
+.toolbar-row{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+
+.search{
+
+    flex:1;
+
+    padding:12px 14px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#090e1a;
+
+    color:white;
+
+    font:inherit;
+
+}
+
+
+.search::placeholder{
+
+    color:#69758b;
+
+}
+
+
+.search:focus{
+
+    outline:none;
+
+    border-color:
+        rgba(139,92,246,.7);
+
+}
+
+
+.filter{
+
+    padding:12px 14px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#090e1a;
+
+    color:white;
+
+    font:inherit;
+
+}
+
+
+.filter:focus{
+
+    outline:none;
+
+    border-color:
+        rgba(139,92,246,.7);
+
+}
+
+
+/* =========================================
+   FILTER BUTTONS
+========================================= */
+
+.filter-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.filter-button{
+
+    padding:9px 13px;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    background:#090e1a;
+
+    color:var(--muted);
+
+    font:inherit;
+
+    font-size:.82rem;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.filter-button:hover{
+
+    color:white;
+
+    border-color:#475675;
+
+}
+
+
+.filter-button.active{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239,68,68,.2),
+            rgba(139,92,246,.2)
+        );
+
+    border-color:
+        rgba(139,92,246,.65);
+
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.saved-results{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:13px;
+
+}
+
+
+/* =========================================
+   NAME CARD
+========================================= */
+
+.name-card{
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:#101625;
+
+    transition:.2s;
+
+}
+
+
+.name-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(139,92,246,.55);
+
+}
+
+
+.name-top{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.name-title{
+
+    font-size:1.25rem;
+
+    font-weight:950;
+
+    word-break:break-word;
+
+}
+
+
+.name-generator{
+
+    display:inline-block;
+
+    margin-top:7px;
+
+    padding:4px 8px;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    color:#c4b5fd;
+
+    background:#0d1422;
+
+    font-size:.72rem;
+
+    font-weight:800;
+
+}
+
+
+.name-style{
+
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:.78rem;
+
+}
+
+
+.name-date{
+
+    margin-top:5px;
+
+    color:#68758c;
+
+    font-size:.72rem;
+
+}
+
+
+/* =========================================
+   NOTE
+========================================= */
+
+.note-display{
+
+    margin-top:14px;
+
+    padding:11px;
+
+    border-left:
+        3px solid var(--purple);
+
+    border-radius:8px;
+
+    background:#0b1120;
+
+    color:#cbd5e1;
+
+    font-size:.84rem;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+
+}
+
+
+.no-note{
+
+    color:#657187;
+
+    font-style:italic;
+
+}
+
+
+/* =========================================
+   CARD ACTIONS
+========================================= */
+
+.card-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:8px;
+
+    margin-top:14px;
+
+}
+
+
+.card-button{
+
+    padding:9px 10px;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#182236;
+
+    color:white;
+
+    font:inherit;
+
+    font-size:.8rem;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.card-button:hover{
+
+    background:#202d45;
+
+}
+
+
+.card-button.liked{
+
+    color:#f87171;
+
+    border-color:
+        rgba(239,68,68,.5);
+
+    background:
+        rgba(239,68,68,.12);
+
+}
+
+
+.card-button.saved{
+
+    color:#c4b5fd;
+
+    border-color:
+        rgba(139,92,246,.5);
+
+    background:
+        rgba(139,92,246,.12);
+
+}
+
+
+.card-button.danger:hover{
+
+    color:#f87171;
+
+    border-color:
+        rgba(239,68,68,.5);
+
+}
+
+
+/* =========================================
+   EDIT NOTE
+========================================= */
+
+.edit-note{
+
+    display:none;
+
+    margin-top:10px;
+
+}
+
+
+.edit-note.active{
+
+    display:block;
+
+}
+
+
+.note-input{
+
+    width:100%;
+
+    min-height:80px;
+
+    padding:10px;
+
+    resize:vertical;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#090e1a;
+
+    color:white;
+
+    font:inherit;
+
+    font-size:.82rem;
+
+}
+
+
+.note-input:focus{
+
+    outline:none;
+
+    border-color:
+        rgba(139,92,246,.7);
+
+}
+
+
+.save-note{
+
+    width:100%;
+
+    margin-top:7px;
+
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty{
+
+    display:none;
+
+    padding:55px 20px;
+
+    border:1px dashed var(--border);
+
+    border-radius:16px;
+
+    background:#0d1422;
+
+    text-align:center;
+
+}
+
+
+.empty-icon{
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+
+.empty h2{
+
+    margin-bottom:7px;
+
+}
+
+
+.empty p{
+
+    max-width:550px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+}
+
+
+.empty-link{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:11px 16px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--purple)
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================
+   CLEAR BUTTON
+========================================= */
+
+.clear-area{
+
+    margin-top:20px;
+
+    text-align:right;
+
+}
+
+
+.clear-button{
+
+    padding:9px 13px;
+
+    border:1px solid
+        rgba(239,68,68,.3);
+
+    border-radius:9px;
+
+    background:
+        rgba(239,68,68,.08);
+
+    color:#fca5a5;
+
+    font:inherit;
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.clear-button:hover{
+
+    background:
+        rgba(239,68,68,.16);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+
+    padding:40px 0;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
+    text-align:center;
+
+    color:var(--muted);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:800px){
+
+    .saved-results{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+
+    .hero{
+
+        padding-top:50px;
+
+    }
+
+
+    .stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .toolbar-row{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+
+    .saved-results{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .filter{
+
+        width:100%;
+
+    }
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+<nav class="container">
+
+
+<a
+    href="index.html"
+    class="logo"
+>
+
+<span class="logo-icon">
+⚒️
+</span>
+
+NameForge
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="all-name-generators.html">
+Generators
+</a>
+
+<a
+    href="my-names.html"
+    class="active"
+>
+My Names
+</a>
+
+</div>
+
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero container">
+
+
+<span class="badge">
+⭐ YOUR NAME COLLECTION
+</span>
+
+
+<h1>
+
+Your
+
+<span class="gradient">
+Name Collection
+</span>
+
+</h1>
+
+
+<p>
+
+View and manage the names you have
+liked, saved and annotated across
+NameForge generators.
+
+</p>
+
+
+</section>
+
+
+
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<section class="dashboard container">
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<span
+    class="stat-number"
+    id="total-count"
+>
+0
+</span>
+
+<span class="stat-label">
+Total Saved
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+    class="stat-number"
+    id="liked-count"
+>
+0
+</span>
+
+<span class="stat-label">
+❤️ Liked
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+    class="stat-number"
+    id="notes-count"
+>
+0
+</span>
+
+<span class="stat-label">
+📝 With Notes
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- TOOLBAR -->
+
+<div class="toolbar">
+
+
+<div class="toolbar-row">
+
+
+<input
+    type="search"
+    id="search"
+    class="search"
+    placeholder="Search your names..."
+    autocomplete="off"
+>
+
+
+<select
+    id="generator-filter"
+    class="filter"
+>
+
+<option value="all">
+All Generators
+</option>
+
+</select>
+
+
+</div>
+
+
+<div class="filter-buttons">
+
+
+<button
+    class="filter-button active"
+    data-filter="all"
+>
+All
+</button>
+
+
+<button
+    class="filter-button"
+    data-filter="liked"
+>
+❤️ Liked
+</button>
+
+
+<button
+    class="filter-button"
+    data-filter="saved"
+>
+⭐ Saved
+</button>
+
+
+<button
+    class="filter-button"
+    data-filter="notes"
+>
+📝 Notes
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- RESULTS -->
+
+<div
+    id="saved-results"
+    class="saved-results"
+></div>
+
+
+
+<!-- EMPTY STATE -->
+
+<div
+    id="empty"
+    class="empty"
+>
+
+<div class="empty-icon">
+✨
+</div>
+
+
+<h2 id="empty-title">
+No saved names yet
+</h2>
+
+
+<p id="empty-text">
+
+Generate some names and save your
+favorites. They will appear here
+automatically.
+
+</p>
+
+
+<a
+    href="all-name-generators.html"
+    class="empty-link"
+>
+Explore Generators
+</a>
+
+</div>
+
+
+
+<!-- CLEAR -->
+
+<div
+    id="clear-area"
+    class="clear-area"
+>
+
+<button
+    class="clear-button"
+    onclick="clearAllNames()"
+>
+
+🗑️ Clear All Local Names
+
+</button>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+<div class="container">
+
+<strong>
+⚒️ NameForge
+</strong>
+
+<br><br>
+
+Your personal collection of
+NameForge generated names.
+
+<br><br>
+
+© 2026 NameForge
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================================
+     NAMEFORGE STORAGE
+========================================= -->
+
+<script src="js/nameforge-storage.js"></script>
+
+
+<script>
+
+/* =========================================
+   STATE
+========================================= */
+
+let currentFilter = "all";
+
+
+/* =========================================
+   FORMAT GENERATOR NAME
+========================================= */
+
+function formatGenerator(generator){
+
+    if(!generator){
+
+        return "Unknown Generator";
+
+    }
+
+
+    const names = {
+
+        dragon:
+            "🐲 Dragon",
+
+        wizard:
+            "🧙 Wizard",
+
+        fantasy:
+            "🐉 Fantasy",
+
+        rpg:
+            "🎲 RPG",
+
+        anime:
+            "✨ Anime",
+
+        gaming:
+            "🎮 Gaming",
+
+        kingdom:
+            "🏰 Kingdom"
+
+    };
+
+
+    return names[generator]
+        || (
+            generator.charAt(0).toUpperCase()
+            + generator.slice(1)
+        );
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(date){
+
+    if(!date){
+
+        return "";
+
+    }
+
+
+    const parsed =
+        new Date(date);
+
+
+    if(
+        Number.isNaN(
+            parsed.getTime()
+        )
+    ){
+
+        return "";
+
+    }
+
+
+    return parsed.toLocaleDateString(
+        undefined,
+        {
+            year:"numeric",
+            month:"short",
+            day:"numeric"
+        }
+    );
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================
+   GET FILTERED NAMES
+========================================= */
+
+function getFilteredNames(){
+
+    let names =
+        getSavedNames();
+
+
+    /* GENERATOR FILTER */
+
+    const generator =
+        document.getElementById(
+            "generator-filter"
+        ).value;
+
+
+    if(generator !== "all"){
+
+        names =
+            names.filter(
+                item =>
+                    item.generator === generator
+            );
+
+    }
+
+
+    /* MAIN FILTER */
+
+    if(currentFilter === "liked"){
+
+        names =
+            names.filter(
+                item =>
+                    item.liked === true
+            );
+
+    }
+
+
+    if(currentFilter === "notes"){
+
+        names =
+            names.filter(
+                item =>
+                    item.note &&
+                    item.note.trim() !== ""
+            );
+
+    }
+
+
+    /*
+       "saved" means names that exist
+       in the local collection.
+       All stored names are saved.
+    */
+
+
+    /* SEARCH */
+
+    const search =
+        document.getElementById(
+            "search"
+        ).value
+            .trim()
+            .toLowerCase();
+
+
+    if(search){
+
+        names =
+            names.filter(item => {
+
+                return (
+
+                    item.name
+                        .toLowerCase()
+                        .includes(search)
+
+                    ||
+
+                    String(
+                        item.note || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                    ||
+
+                    String(
+                        item.style || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                    ||
+
+                    String(
+                        item.generator || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                );
+
+            });
+
+    }
+
+
+    return names;
+
+}
+
+
+/* =========================================
+   UPDATE STATS
+========================================= */
+
+function updateStats(){
+
+    const names =
+        getSavedNames();
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        names.length;
+
+
+    document.getElementById(
+        "liked-count"
+    ).textContent =
+        names.filter(
+            item => item.liked === true
+        ).length;
+
+
+    document.getElementById(
+        "notes-count"
+    ).textContent =
+        names.filter(
+            item =>
+                item.note &&
+                item.note.trim() !== ""
+        ).length;
+
+}
+
+
+/* =========================================
+   UPDATE GENERATOR FILTER
+========================================= */
+
+function updateGeneratorFilter(){
+
+    const select =
+        document.getElementById(
+            "generator-filter"
+        );
+
+
+    const currentValue =
+        select.value;
+
+
+    const names =
+        getSavedNames();
+
+
+    const generators =
+        [
+            ...new Set(
+                names
+                    .map(
+                        item => item.generator
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort();
+
+
+    select.innerHTML = `
+
+        <option value="all">
+            All Generators
+        </option>
+
+    `;
+
+
+    generators.forEach(generator => {
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.value =
+            generator;
+
+
+        option.textContent =
+            formatGenerator(
+                generator
+            );
+
+
+        select.appendChild(
+            option
+        );
+
+    });
+
+
+    if(
+        generators.includes(
+            currentValue
+        )
+    ){
+
+        select.value =
+            currentValue;
+
+    }
+
+}
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function renderNames(){
+
+    updateStats();
+
+    updateGeneratorFilter();
+
+
+    const names =
+        getFilteredNames();
+
+
+    const container =
+        document.getElementById(
+            "saved-results"
+        );
+
+
+    const empty =
+        document.getElementById(
+            "empty"
+        );
+
+
+    const clearArea =
+        document.getElementById(
+            "clear-area"
+        );
+
+
+    if(names.length === 0){
+
+        container.innerHTML = "";
+
+        empty.style.display =
+            "block";
+
+        clearArea.style.display =
+            getSavedNames().length
+                ? "block"
+                : "none";
+
+
+        updateEmptyMessage();
+
+        return;
+
+    }
+
+
+    empty.style.display =
+        "none";
+
+
+    clearArea.style.display =
+        "block";
+
+
+    container.innerHTML =
+        names.map(
+            renderCard
+        ).join("");
+
+}
+
+
+/* =========================================
+   EMPTY MESSAGE
+========================================= */
+
+function updateEmptyMessage(){
+
+    const allNames =
+        getSavedNames();
+
+
+    const title =
+        document.getElementById(
+            "empty-title"
+        );
+
+
+    const text =
+        document.getElementById(
+            "empty-text"
+        );
+
+
+    if(allNames.length === 0){
+
+        title.textContent =
+            "No saved names yet";
+
+
+        text.textContent =
+            "Generate some names and save your favorites. They will appear here automatically.";
+
+        return;
+
+    }
+
+
+    if(currentFilter === "liked"){
+
+        title.textContent =
+            "No liked names";
+
+
+        text.textContent =
+            "You have not liked any saved names yet.";
+
+        return;
+
+    }
+
+
+    if(currentFilter === "notes"){
+
+        title.textContent =
+            "No names with notes";
+
+
+        text.textContent =
+            "Add a personal note to one of your saved names.";
+
+        return;
+
+    }
+
+
+    title.textContent =
+        "No names found";
+
+
+    text.textContent =
+        "Try another search or change your filters.";
+
+}
+
+
+/* =========================================
+   RENDER CARD
+========================================= */
+
+function renderCard(item){
+
+    const name =
+        escapeHTML(
+            item.name
+        );
+
+
+    const generator =
+        formatGenerator(
+            item.generator
+        );
+
+
+    const style =
+        escapeHTML(
+            item.style
+        );
+
+
+    const note =
+        item.note &&
+        item.note.trim() !== "";
+
+
+    const safeId =
+        encodeURIComponent(
+            item.name
+        );
+
+
+    return `
+
+        <article
+            class="name-card"
+        >
+
+
+            <div class="name-top">
+
+
+                <div>
+
+
+                    <div
+                        class="name-title"
+                    >
+                        ${name}
+                    </div>
+
+
+                    <span
+                        class="name-generator"
+                    >
+                        ${escapeHTML(generator)}
+                    </span>
+
+
+                    ${
+                        style
+                        ?
+                        `
+                        <div
+                            class="name-style"
+                        >
+                            Style:
+                            ${style}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        item.createdAt
+                        ?
+                        `
+                        <div
+                            class="name-date"
+                        >
+                            Saved:
+                            ${formatDate(
+                                item.createdAt
+                            )}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div
+                class="note-display"
+            >
+
+                ${
+                    note
+                    ?
+                    escapeHTML(
+                        item.note
+                    )
+                    :
+                    `<span class="no-note">
+                        No note added yet.
+                    </span>`
+                }
+
+            </div>
+
+
+
+            <div
+                class="card-actions"
+            >
+
+
+                <button
+                    class="card-button ${
+                        item.liked
+                            ? "liked"
+                            : ""
+                    }"
+                    onclick="toggleLikedFromLibrary('${escapeJS(item.name)}')"
+                >
+
+                    ${
+                        item.liked
+                            ? "❤️ Liked"
+                            : "♡ Like"
+                    }
+
+                </button>
+
+
+                <button
+                    class="card-button saved"
+                    onclick="copyFromLibrary('${escapeJS(item.name)}')"
+                >
+
+                    📋 Copy
+
+                </button>
+
+
+                <button
+                    class="card-button"
+                    onclick="toggleEditNote('${safeId}')"
+                >
+
+                    📝 Edit Note
+
+                </button>
+
+
+                <button
+                    class="card-button danger"
+                    onclick="removeFromLibrary('${escapeJS(item.name)}')"
+                >
+
+                    🗑️ Remove
+
+                </button>
+
+
+            </div>
+
+
+
+            <div
+                class="edit-note"
+                id="edit-${safeId}"
+            >
+
+
+                <textarea
+                    class="note-input"
+                    id="input-${safeId}"
+                    placeholder="Write a note about this name..."
+                >${escapeHTML(
+                    item.note || ""
+                )}</textarea>
+
+
+                <button
+                    class="card-button save-note"
+                    onclick="saveLibraryNote('${escapeJS(item.name)}')"
+                >
+
+                    💾 Save Note
+
+                </button>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================
+   ESCAPE JAVASCRIPT STRING
+========================================= */
+
+function escapeJS(value){
+
+    return String(value || "")
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/\r/g,"\\r")
+        .replace(/\n/g,"\\n");
+
+}
+
+
+/* =========================================
+   TOGGLE LIKE
+========================================= */
+
+function toggleLikedFromLibrary(name){
+
+    const item =
+        findSavedName(name);
+
+
+    if(!item){
+
+        return;
+
+    }
+
+
+    likeName(
+        name,
+        item.generator,
+        item.style
+    );
+
+
+    renderNames();
+
+}
+
+
+/* =========================================
+   COPY
+========================================= */
+
+async function copyFromLibrary(name){
+
+    try{
+
+        await navigator.clipboard
+            .writeText(name);
+
+
+        alert(
+            "Name copied: " + name
+        );
+
+    }
+
+    catch{
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   TOGGLE NOTE EDITOR
+========================================= */
+
+function toggleEditNote(id){
+
+    const box =
+        document.getElementById(
+            "edit-" + id
+        );
+
+
+    if(!box){
+
+        return;
+
+    }
+
+
+    box.classList.toggle(
+        "active"
+    );
+
+
+    if(
+        box.classList.contains(
+            "active"
+        )
+    ){
+
+        const input =
+            document.getElementById(
+                "input-" + id
+            );
+
+
+        if(input){
+
+            input.focus();
+
+        }
+
+    }
+
+}
+
+
+/* =========================================
+   SAVE LIBRARY NOTE
+========================================= */
+
+function saveLibraryNote(name){
+
+    const id =
+        encodeURIComponent(
+            name
+        );
+
+
+    const input =
+        document.getElementById(
+            "input-" + id
+        );
+
+
+    if(!input){
+
+        return;
+
+    }
+
+
+    updateNameNote(
+        name,
+        input.value
+    );
+
+
+    renderNames();
+
+}
+
+
+/* =========================================
+   REMOVE
+========================================= */
+
+function removeFromLibrary(name){
+
+    const confirmed =
+        confirm(
+            `Remove "${name}" from your saved names?`
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    removeSavedName(name);
+
+    renderNames();
+
+}
+
+
+/* =========================================
+   CLEAR EVERYTHING
+========================================= */
+
+function clearAllNames(){
+
+    const names =
+        getSavedNames();
+
+
+    if(names.length === 0){
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Delete all your locally saved NameForge names and notes?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    clearNameForgeStorage();
+
+    renderNames();
+
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        renderNames
+    );
+
+
+/* =========================================
+   GENERATOR FILTER
+========================================= */
+
+document
+    .getElementById(
+        "generator-filter"
+    )
+    .addEventListener(
+        "change",
+        renderNames
+    );
+
+
+/* =========================================
+   MAIN FILTER BUTTONS
+========================================= */
+
+document
+    .querySelectorAll(
+        ".filter-button"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".filter-button"
+                    )
+                    .forEach(
+                        item =>
+                            item.classList
+                                .remove("active")
+                    );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentFilter =
+                    button.dataset.filter;
+
+
+                renderNames();
+
+            }
+        );
+
+    });
+
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
+
+renderNames();
+
+</script>
+
+
+</body>
+
+</html>
+```
