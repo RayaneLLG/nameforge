@@ -709,6 +709,168 @@ footer{
 
 }
 
+/* ================================= */
+/* NAME ACTIONS */
+/* ================================= */
+
+.name-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:8px;
+
+    margin-top:12px;
+
+}
+
+
+.name-action{
+
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#182236;
+
+    color:white;
+
+    font-size:.85rem;
+
+    font-weight:800;
+
+    transition:.2s;
+
+}
+
+
+.name-action:hover{
+
+    background:#202d45;
+
+    border-color:#475675;
+
+}
+
+
+.name-action.liked{
+
+    background:
+        rgba(239,68,68,.15);
+
+    border-color:
+        rgba(239,68,68,.55);
+
+    color:#f87171;
+
+}
+
+
+.name-action.saved{
+
+    background:
+        rgba(139,92,246,.15);
+
+    border-color:
+        rgba(139,92,246,.55);
+
+    color:#c4b5fd;
+
+}
+
+
+/* ================================= */
+/* NOTE */
+/* ================================= */
+
+.note-box{
+
+    display:none;
+
+    margin-top:10px;
+
+}
+
+
+.note-box.active{
+
+    display:block;
+
+}
+
+
+.note-input{
+
+    width:100%;
+
+    min-height:75px;
+
+    resize:vertical;
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#090e1a;
+
+    color:white;
+
+    font:inherit;
+
+    font-size:.85rem;
+
+}
+
+
+.note-input:focus{
+
+    outline:none;
+
+    border-color:
+        rgba(139,92,246,.7);
+
+}
+
+
+.note-save{
+
+    margin-top:7px;
+
+    width:100%;
+
+    background:#182236;
+
+}
+
+
+.note-status{
+
+    margin-top:5px;
+
+    color:#9ba7bd;
+
+    font-size:.75rem;
+
+}
+
+
+@media(max-width:700px){
+
+    .name-actions{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}      
 
 /* ================================= */
 /* MOBILE */
@@ -2000,51 +2162,429 @@ function generate(){
         "results"
     ).innerHTML =
 
-        names.map(name => `
+        names.map(name => {
 
-            <div class="result">
+            const liked =
+                isNameLiked(name);
 
 
-                <div class="result-name">
+            const saved =
+                !!findSavedName(name);
 
-                    ${name}
+
+            return `
+
+                <div class="result">
+
+                    <div class="result-name">
+                        ${name}
+                    </div>
+
+
+                    <p class="result-description">
+
+                        ${randomItem(
+                            info.descriptions
+                        )}
+
+                    </p>
+
+
+                    <div class="best-for">
+
+                        Best for:
+                        ${info.bestFor}
+
+                    </div>
+
+
+                    <div class="name-actions">
+
+
+                        <button
+                            class="name-action ${liked ? "liked" : ""}"
+                            onclick="toggleLike('${escapeAttribute(name)}', '${style}')"
+                        >
+
+                            ${liked
+                                ? "❤️ Liked"
+                                : "♡ Like"}
+
+                        </button>
+
+
+                        <button
+                            class="name-action ${saved ? "saved" : ""}"
+                            onclick="toggleSave('${escapeAttribute(name)}', '${style}')"
+                        >
+
+                            ${saved
+                                ? "⭐ Saved"
+                                : "☆ Save"}
+
+                        </button>
+
+
+                        <button
+                            class="name-action"
+                            onclick="toggleNote('${escapeAttribute(name)}')"
+                        >
+
+                            📝 Note
+
+                        </button>
+
+
+                        <button
+                            class="name-action"
+                            onclick="copyName('${escapeAttribute(name)}')"
+                        >
+
+                            📋 Copy
+
+                        </button>
+
+
+                    </div>
+
+
+                    <div
+                        class="note-box"
+                        id="note-${encodeURIComponent(name)}"
+                    >
+
+                        <textarea
+                            class="note-input"
+                            id="note-input-${encodeURIComponent(name)}"
+                            placeholder="Write a note about this name..."
+                        ></textarea>
+
+
+                        <button
+                            class="note-save"
+                            onclick="saveNote('${escapeAttribute(name)}')"
+                        >
+
+                            💾 Save Note
+
+                        </button>
+
+
+                        <div
+                            class="note-status"
+                            id="note-status-${encodeURIComponent(name)}"
+                        ></div>
+
+                    </div>
+
 
                 </div>
 
+            `;
 
-                <p class="result-description">
-
-                    ${randomItem(
-                        info.descriptions
-                    )}
-
-                </p>
-
-
-                <div class="best-for">
-
-                    Best for:
-                    ${info.bestFor}
-
-                </div>
-
-
-                <button
-                    class="copy"
-                    onclick="copyName('${name.replace(/'/g,"\\'")}')"
-                >
-
-                    📋 Copy name
-
-                </button>
-
-
-            </div>
-
-        `).join("");
+        }).join("");
 
 }
 
+/* ================================= */
+/* ESCAPE ATTRIBUTE */
+/* ================================= */
+
+function escapeAttribute(value){
+
+    return value
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+
+}
+
+
+/* ================================= */
+/* TOGGLE LIKE */
+/* ================================= */
+
+function toggleLike(name, style){
+
+    const result =
+        likeName(
+            name,
+            "dragon",
+            style
+        );
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".result"
+        );
+
+
+    buttons.forEach(card => {
+
+        const nameElement =
+            card.querySelector(
+                ".result-name"
+            );
+
+
+        if(
+            nameElement &&
+            nameElement.textContent.trim()
+                === name
+        ){
+
+            const button =
+                card.querySelector(
+                    ".name-action"
+                );
+
+
+            if(result.liked){
+
+                button.classList.add(
+                    "liked"
+                );
+
+                button.textContent =
+                    "❤️ Liked";
+
+            }else{
+
+                button.classList.remove(
+                    "liked"
+                );
+
+                button.textContent =
+                    "♡ Like";
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/* ================================= */
+/* TOGGLE SAVE */
+/* ================================= */
+
+function toggleSave(name, style){
+
+    const existing =
+        findSavedName(name);
+
+
+    if(existing){
+
+        if(existing.liked){
+
+            existing.note =
+                existing.note || "";
+
+            saveAllNames(
+                getSavedNames()
+            );
+
+        }else{
+
+            removeSavedName(name);
+
+        }
+
+    }else{
+
+        saveName(
+            name,
+            "dragon",
+            style
+        );
+
+    }
+
+
+    const savedNow =
+        !!findSavedName(name);
+
+
+    document
+        .querySelectorAll(".result")
+        .forEach(card => {
+
+            const nameElement =
+                card.querySelector(
+                    ".result-name"
+                );
+
+
+            if(
+                nameElement &&
+                nameElement.textContent.trim()
+                    === name
+            ){
+
+                const buttons =
+                    card.querySelectorAll(
+                        ".name-action"
+                    );
+
+
+                const saveButton =
+                    buttons[1];
+
+
+                if(savedNow){
+
+                    saveButton
+                        .classList
+                        .add("saved");
+
+                    saveButton.textContent =
+                        "⭐ Saved";
+
+                }else{
+
+                    saveButton
+                        .classList
+                        .remove("saved");
+
+                    saveButton.textContent =
+                        "☆ Save";
+
+                }
+
+            }
+
+        });
+
+}
+
+
+/* ================================= */
+/* TOGGLE NOTE */
+/* ================================= */
+
+function toggleNote(name){
+
+    const box =
+        document.getElementById(
+            "note-" +
+            encodeURIComponent(name)
+        );
+
+
+    if(!box){
+
+        return;
+
+    }
+
+
+    box.classList.toggle(
+        "active"
+    );
+
+
+    const saved =
+        findSavedName(name);
+
+
+    const input =
+        document.getElementById(
+            "note-input-" +
+            encodeURIComponent(name)
+        );
+
+
+    if(
+        saved &&
+        input
+    ){
+
+        input.value =
+            saved.note || "";
+
+    }
+
+}
+
+
+/* ================================= */
+/* SAVE NOTE */
+/* ================================= */
+
+function saveNote(name){
+
+    const input =
+        document.getElementById(
+            "note-input-" +
+            encodeURIComponent(name)
+        );
+
+
+    const status =
+        document.getElementById(
+            "note-status-" +
+            encodeURIComponent(name)
+        );
+
+
+    if(!input){
+
+        return;
+
+    }
+
+
+    let saved =
+        findSavedName(name);
+
+
+    /*
+       A note automatically saves
+       the name if it wasn't saved yet.
+    */
+
+    if(!saved){
+
+        saved =
+            saveName(
+                name,
+                "dragon",
+                document.getElementById(
+                    "style"
+                ).value
+            );
+
+    }
+
+
+    updateNameNote(
+        name,
+        input.value
+    );
+
+
+    if(status){
+
+        status.textContent =
+            "✓ Note saved locally";
+
+    }
+
+
+    setTimeout(() => {
+
+        if(status){
+
+            status.textContent = "";
+
+        }
+
+    },2000);
+
+}      
 
 /* ================================= */
 /* COPY NAME */
