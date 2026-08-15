@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,41 +38,43 @@
 
 <style>
 
+/* ================================= */
+/* VARIABLES */
+/* ================================= */
+
 :root{
 
     --bg:#070912;
-
     --panel:#101827;
-
     --border:#29354d;
-
     --text:#f5f7ff;
-
     --muted:#9ba7bd;
-
     --purple:#8b5cf6;
-
     --blue:#06b6d4;
-
     --pink:#ec4899;
 
 }
 
+
+/* ================================= */
+/* RESET */
+/* ================================= */
+
 *{
 
     box-sizing:border-box;
-
     margin:0;
-
     padding:0;
 
 }
+
 
 html{
 
     scroll-behavior:smooth;
 
 }
+
 
 body{
 
@@ -106,20 +109,27 @@ body{
 
 }
 
+
+/* ================================= */
+/* CONTAINER */
+/* ================================= */
+
 .container{
 
     width:min(1100px,92%);
-
     margin:auto;
 
 }
 
+
+/* ================================= */
+/* HEADER */
+/* ================================= */
+
 header{
 
     position:sticky;
-
     top:0;
-
     z-index:10;
 
     background:
@@ -132,6 +142,7 @@ header{
 
 }
 
+
 nav{
 
     min-height:68px;
@@ -143,6 +154,7 @@ nav{
     justify-content:space-between;
 
 }
+
 
 .logo{
 
@@ -162,10 +174,10 @@ nav{
 
 }
 
+
 .logo-icon{
 
     width:38px;
-
     height:38px;
 
     display:grid;
@@ -184,13 +196,14 @@ nav{
 
 }
 
+
 .nav-links{
 
     display:flex;
-
     gap:18px;
 
 }
+
 
 .nav-links a{
 
@@ -202,11 +215,17 @@ nav{
 
 }
 
+
 .nav-links a:hover{
 
     color:white;
 
 }
+
+
+/* ================================= */
+/* HERO */
+/* ================================= */
 
 .hero{
 
@@ -215,6 +234,7 @@ nav{
     padding:75px 0 45px;
 
 }
+
 
 .badge{
 
@@ -236,6 +256,7 @@ nav{
 
 }
 
+
 h1{
 
     max-width:900px;
@@ -250,6 +271,7 @@ h1{
     letter-spacing:-2px;
 
 }
+
 
 .gradient{
 
@@ -270,6 +292,7 @@ h1{
 
 }
 
+
 .hero p{
 
     max-width:760px;
@@ -281,6 +304,7 @@ h1{
     font-size:1.05rem;
 
 }
+
 
 .btn{
 
@@ -308,6 +332,11 @@ h1{
 
 }
 
+
+/* ================================= */
+/* GENERATOR */
+/* ================================= */
+
 .generator{
 
     padding:25px;
@@ -329,17 +358,24 @@ h1{
 
 }
 
+
 .generator h2{
 
     margin-bottom:6px;
 
 }
 
+
 .generator p{
 
     color:var(--muted);
 
 }
+
+
+/* ================================= */
+/* CONTROLS */
+/* ================================= */
 
 .controls{
 
@@ -350,6 +386,7 @@ h1{
     margin-top:20px;
 
 }
+
 
 select,
 button{
@@ -368,6 +405,7 @@ button{
 
 }
 
+
 button{
 
     cursor:pointer;
@@ -375,6 +413,7 @@ button{
     font-weight:850;
 
 }
+
 
 .generate{
 
@@ -392,6 +431,11 @@ button{
 
 }
 
+
+/* ================================= */
+/* RESULTS */
+/* ================================= */
+
 .results{
 
     display:grid;
@@ -404,6 +448,7 @@ button{
     margin-top:18px;
 
 }
+
 
 .result{
 
@@ -421,6 +466,7 @@ button{
 
 }
 
+
 .result:hover{
 
     transform:translateY(-3px);
@@ -429,6 +475,7 @@ button{
         rgba(6,182,212,.55);
 
 }
+
 
 .result-name{
 
@@ -440,6 +487,47 @@ button{
 
 }
 
+
+/* ================================= */
+/* RESULT DESCRIPTION */
+/* ================================= */
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+/* ================================= */
+/* BEST FOR */
+/* ================================= */
+
+.best-for{
+
+    margin-top:10px;
+
+    color:#a78bfa;
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+}
+
+
+/* ================================= */
+/* COPY BUTTON */
+/* ================================= */
+
 .copy{
 
     margin-top:12px;
@@ -450,11 +538,24 @@ button{
 
 }
 
+
+.copy:hover{
+
+    background:#202d46;
+
+}
+
+
+/* ================================= */
+/* SECTIONS */
+/* ================================= */
+
 .section{
 
     padding:65px 0;
 
 }
+
 
 .content{
 
@@ -464,6 +565,7 @@ button{
 
 }
 
+
 .content h2{
 
     margin-bottom:14px;
@@ -471,6 +573,7 @@ button{
     font-size:2rem;
 
 }
+
 
 .content h3{
 
@@ -480,6 +583,7 @@ button{
 
 }
 
+
 .content p{
 
     color:var(--muted);
@@ -487,6 +591,11 @@ button{
     margin-bottom:15px;
 
 }
+
+
+/* ================================= */
+/* CARDS */
+/* ================================= */
 
 .cards{
 
@@ -498,6 +607,7 @@ button{
     gap:13px;
 
 }
+
 
 .card{
 
@@ -511,11 +621,13 @@ button{
 
 }
 
+
 .card h3{
 
     margin-bottom:7px;
 
 }
+
 
 .card p{
 
@@ -524,6 +636,11 @@ button{
     font-size:.9rem;
 
 }
+
+
+/* ================================= */
+/* FAQ */
+/* ================================= */
 
 .faq details{
 
@@ -539,6 +656,7 @@ button{
 
 }
 
+
 .faq summary{
 
     cursor:pointer;
@@ -547,6 +665,7 @@ button{
 
 }
 
+
 .faq p{
 
     margin-top:10px;
@@ -554,6 +673,33 @@ button{
     color:var(--muted);
 
 }
+
+
+/* ================================= */
+/* LINKS */
+/* ================================= */
+
+.generator-link{
+
+    color:#a78bfa;
+
+    font-weight:900;
+
+    text-decoration:none;
+
+}
+
+
+.generator-link:hover{
+
+    color:#c4b5fd;
+
+}
+
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
 
 footer{
 
@@ -568,6 +714,11 @@ footer{
 
 }
 
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
 @media(max-width:700px){
 
     .nav-links{
@@ -576,11 +727,13 @@ footer{
 
     }
 
+
     .controls{
 
         flex-direction:column;
 
     }
+
 
     .results,
     .cards{
@@ -589,9 +742,17 @@ footer{
 
     }
 
+
     .hero{
 
         padding-top:50px;
+
+    }
+
+
+    .generator{
+
+        padding:18px;
 
     }
 
@@ -605,9 +766,14 @@ footer{
 <body>
 
 
+<!-- ================================= -->
+<!-- HEADER -->
+<!-- ================================= -->
+
 <header>
 
 <nav class="container">
+
 
 <a
     href="index.html"
@@ -643,14 +809,18 @@ FAQ
 
 </div>
 
+
 </nav>
 
 </header>
 
 
-
 <main>
 
+
+<!-- ================================= -->
+<!-- HERO -->
+<!-- ================================= -->
 
 <section class="hero container">
 
@@ -693,6 +863,9 @@ or online identity.
 </section>
 
 
+<!-- ================================= -->
+<!-- GENERATOR -->
+<!-- ================================= -->
 
 <section
     class="container"
@@ -722,31 +895,31 @@ names instantly.
 <select id="style">
 
 <option value="pro">
-Pro Gamer
+🎯 Pro Gamer
 </option>
 
 <option value="dark">
-Dark
+🌑 Dark
 </option>
 
 <option value="cool">
-Cool
+❄️ Cool
 </option>
 
 <option value="fantasy">
-Fantasy
+🐉 Fantasy
 </option>
 
 <option value="funny">
-Funny
+😂 Funny
 </option>
 
 <option value="cyber">
-Cyber
+🤖 Cyber
 </option>
 
 <option value="stealth">
-Stealth
+🥷 Stealth
 </option>
 
 </select>
@@ -771,6 +944,7 @@ Long
 
 <button
     class="generate"
+    type="button"
     onclick="generate()"
 >
 
@@ -794,6 +968,9 @@ Long
 </section>
 
 
+<!-- ================================= -->
+<!-- INFORMATION -->
+<!-- ================================= -->
 
 <section class="section">
 
@@ -882,6 +1059,9 @@ ninjas and tactical gameplay.
 </section>
 
 
+<!-- ================================= -->
+<!-- POPULAR STYLES -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -990,6 +1170,9 @@ name ideas.
 </section>
 
 
+<!-- ================================= -->
+<!-- FAQ -->
+<!-- ================================= -->
 
 <section
     class="section container"
@@ -1082,6 +1265,9 @@ on smartphones, tablets and desktop browsers.
 </section>
 
 
+<!-- ================================= -->
+<!-- MORE GENERATORS -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -1098,7 +1284,7 @@ Explore more NameForge generators
 
 <a
     href="all-name-generators.html"
-    style="color:#a78bfa;font-weight:900;"
+    class="generator-link"
 >
 
 ← All Name Generators
@@ -1112,7 +1298,7 @@ Explore more NameForge generators
 
 <a
     href="fantasy-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
+    class="generator-link"
 >
 
 🐉 Fantasy Name Generator
@@ -1126,7 +1312,7 @@ Explore more NameForge generators
 
 <a
     href="rpg-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
+    class="generator-link"
 >
 
 🎲 RPG Name Generator
@@ -1140,7 +1326,7 @@ Explore more NameForge generators
 
 <a
     href="anime-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
+    class="generator-link"
 >
 
 ✨ Anime Name Generator
@@ -1159,6 +1345,9 @@ Explore more NameForge generators
 </main>
 
 
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
 
 <footer>
 
@@ -1182,184 +1371,327 @@ usernames and online profiles.
 </footer>
 
 
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
 
-```html
 <script>
+
+
+/* ================================= */
+/* NAME DATABASE */
+/* ================================= */
 
 const nameParts = {
 
 pro: {
+
     first: [
-        "Vex","Rex","Zen","Kai","Nova","Ax","Ry","Zy","Neo","Xen",
-        "Volt","Fury","Ace","Flux","Nex","Rift","Blitz","Clutch",
-        "Prime","Titan","Ghost","Rogue","Frost","Drift","Dash","Onyx"
+
+        "Vex","Rex","Zen","Kai","Nova","Ax","Ry","Zy",
+        "Neo","Xen","Volt","Fury","Ace","Flux","Nex",
+        "Rift","Blitz","Clutch","Prime","Titan","Ghost",
+        "Rogue","Frost","Drift","Dash","Onyx"
+
     ],
+
     second: [
+
         "X","Z","RX","V","FX","Pro","One","GG","EX","IX",
-        "Core","Rush","Strike","Force","Elite","Prime","Legend","Max"
+        "Core","Rush","Strike","Force","Elite","Prime",
+        "Legend","Max"
+
     ]
+
 },
+
 
 dark: {
+
     first: [
-        "Dark","Shadow","Night","Void","Grim","Black","Dread","Raven",
-        "Ghost","Phantom","Abyss","Doom","Death","Eclipse","Blood",
-        "Sin","Hollow","Wraith","Obsidian","Nightmare","Fallen"
+
+        "Dark","Shadow","Night","Void","Grim","Black",
+        "Dread","Raven","Ghost","Phantom","Abyss","Doom",
+        "Death","Eclipse","Blood","Sin","Hollow","Wraith",
+        "Obsidian","Nightmare","Fallen"
+
     ],
+
     second: [
-        "X","Void","Fang","Reaper","Lord","Born","Eye","Fall","King",
-        "Blade","Soul","Walker","Shade","Hunter","Claw","Demon","Bane"
+
+        "X","Void","Fang","Reaper","Lord","Born","Eye",
+        "Fall","King","Blade","Soul","Walker","Shade",
+        "Hunter","Claw","Demon","Bane"
+
     ]
+
 },
+
 
 cool: {
+
     first: [
-        "Frost","Blaze","Storm","Drift","Volt","Phantom","Rush","Zero",
-        "Flash","Wave","Flare","Ice","Thunder","Nova","Rift","Vortex",
-        "Pulse","Shadow","Glare","Fire","Chrome","Ace","Orbit"
+
+        "Frost","Blaze","Storm","Drift","Volt","Phantom",
+        "Rush","Zero","Flash","Wave","Flare","Ice",
+        "Thunder","Nova","Rift","Vortex","Pulse","Shadow",
+        "Glare","Fire","Chrome","Ace","Orbit"
+
     ],
+
     second: [
-        "X","Z","Rush","Fire","Storm","Wave","Flux","Core","Edge",
-        "Force","Strike","Drive","Dash","Peak","Zone","Mode","Vibe"
+
+        "X","Z","Rush","Fire","Storm","Wave","Flux",
+        "Core","Edge","Force","Strike","Drive","Dash",
+        "Peak","Zone","Mode","Vibe"
+
     ]
+
 },
+
 
 fantasy: {
+
     first: [
-        "Dragon","Arcane","Rune","Storm","Fae","Shadow","Moon","Star",
-        "Raven","Ember","Mystic","Silver","Iron","Crystal","Flame",
-        "Thunder","Frost","Dawn","Night","Elder","Astral","Wolf"
+
+        "Dragon","Arcane","Rune","Storm","Fae","Shadow",
+        "Moon","Star","Raven","Ember","Mystic","Silver",
+        "Iron","Crystal","Flame","Thunder","Frost","Dawn",
+        "Night","Elder","Astral","Wolf"
+
     ],
+
     second: [
-        "born","bane","blade","heart","fang","lord","wing","fire",
-        "shade","guard","walker","song","keeper","hunter","weaver",
-        "rider","stone","fall","crown"
+
+        "born","bane","blade","heart","fang","lord","wing",
+        "fire","shade","guard","walker","song","keeper",
+        "hunter","weaver","rider","stone","fall","crown"
+
     ]
+
 },
+
 
 funny: {
+
     first: [
-        "Potato","Chicken","Toast","Pickle","Noodle","Waffle","Banana",
-        "Cookie","Goose","Penguin","Taco","Donut","Muffin","Cheese",
-        "Bacon","Pancake","Coconut","Potato","Hamster","Duck","Panda"
+
+        "Potato","Chicken","Toast","Pickle","Noodle","Waffle",
+        "Banana","Cookie","Goose","Penguin","Taco","Donut",
+        "Muffin","Cheese","Bacon","Pancake","Coconut",
+        "Potato","Hamster","Duck","Panda"
+
     ],
+
     second: [
-        "Master","King","Boss","Lord","Guy","Bro","Destroyer","Sniper",
-        "Legend","Pro","Ninja","Warrior","Gamer","God","Hunter",
-        "Slayer","Captain","Wizard"
+
+        "Master","King","Boss","Lord","Guy","Bro",
+        "Destroyer","Sniper","Legend","Pro","Ninja",
+        "Warrior","Gamer","God","Hunter","Slayer",
+        "Captain","Wizard"
+
     ]
+
 },
+
 
 cyber: {
+
     first: [
-        "Cyber","Neon","Byte","Glitch","Pixel","Quantum","Data","Chrome",
-        "Code","Vector","Nexus","Circuit","Digital","Matrix","Hyper",
-        "Nano","System","Tech","Zero","Binary","Crypto","Synth"
+
+        "Cyber","Neon","Byte","Glitch","Pixel","Quantum",
+        "Data","Chrome","Code","Vector","Nexus","Circuit",
+        "Digital","Matrix","Hyper","Nano","System","Tech",
+        "Zero","Binary","Crypto","Synth"
+
     ],
+
     second: [
-        "X","404","Core","Byte","Prime","Zero",".exe","Net","Tech","AI",
-        "Protocol","System","Node","Link","Drive","Grid","Pulse","Wave"
+
+        "X","404","Core","Byte","Prime","Zero",".exe",
+        "Net","Tech","AI","Protocol","System","Node",
+        "Link","Drive","Grid","Pulse","Wave"
+
     ]
+
 },
 
+
 stealth: {
+
     first: [
-        "Silent","Shadow","Ghost","Night","Phantom","Hidden","Zero",
-        "Smoke","Dark","Shade","Whisper","Raven","Specter","Cloak",
-        "Mist","Hush","Vanish","Eclipse","Stealth","Obscure"
+
+        "Silent","Shadow","Ghost","Night","Phantom","Hidden",
+        "Zero","Smoke","Dark","Shade","Whisper","Raven",
+        "Specter","Cloak","Mist","Hush","Vanish","Eclipse",
+        "Stealth","Obscure"
+
     ],
+
     second: [
-        "X","Shade","Ghost","Strike","Step","Blade","Shadow","Fang",
-        "Zero","Night","Walker","Hunter","Claw","Whisper","Silent",
-        "Stalker","Mist","Phantom"
+
+        "X","Shade","Ghost","Strike","Step","Blade",
+        "Shadow","Fang","Zero","Night","Walker","Hunter",
+        "Claw","Whisper","Silent","Stalker","Mist","Phantom"
+
     ]
+
 }
 
 };
 
 
-/* -------------------------------- */
-/* DESCRIPTION DES STYLES */
-/* -------------------------------- */
+/* ================================= */
+/* STYLE INFORMATION */
+/* ================================= */
 
 const styleInfo = {
 
 pro: {
+
     descriptions: [
+
         "A sharp and competitive name built for a serious gamer.",
+
         "A clean and powerful gamer tag with a competitive feel.",
+
         "A short, confident name made to stand out in competitive games.",
+
         "A professional-style gamer tag with a fast and aggressive tone."
+
     ],
-    bestFor: "Competitive gaming • FPS • Ranked matches"
+
+    bestFor:
+        "Competitive gaming • FPS • Ranked matches"
+
 },
+
 
 dark: {
+
     descriptions: [
+
         "A dark and intimidating name for a mysterious player.",
+
         "A sinister gamer tag with a shadowy and powerful atmosphere.",
+
         "A mysterious name suited to players who prefer a darker identity.",
+
         "A threatening and dramatic name with a dark gaming style."
+
     ],
-    bestFor: "Horror games • PvP • Dark-themed games"
+
+    bestFor:
+        "Horror games • PvP • Dark-themed games"
+
 },
+
 
 cool: {
+
     descriptions: [
+
         "A stylish gamer tag designed to sound modern and memorable.",
+
         "A smooth and energetic name with a confident gaming vibe.",
+
         "A modern gamer name made to stand out without being too complex.",
+
         "A sleek and powerful name with a futuristic edge."
+
     ],
-    bestFor: "Any game • Profiles • Multiplayer"
+
+    bestFor:
+        "Any game • Profiles • Multiplayer"
+
 },
+
 
 fantasy: {
+
     descriptions: [
+
         "An epic fantasy-style name inspired by legendary warriors and magical worlds.",
+
         "A mystical gamer tag with the feeling of an ancient legend.",
+
         "A powerful fantasy name suited to heroes, warriors and adventurers.",
+
         "A magical name that fits an epic fictional world."
+
     ],
-    bestFor: "RPGs • Fantasy games • MMORPGs"
+
+    bestFor:
+        "RPGs • Fantasy games • MMORPGs"
+
 },
+
 
 funny: {
+
     descriptions: [
+
         "A playful gamer tag designed to make other players smile.",
+
         "A ridiculous and memorable name with a humorous personality.",
+
         "A lighthearted gaming name perfect for a fun online identity.",
+
         "A funny name that can make your profile instantly memorable."
+
     ],
-    bestFor: "Casual games • Multiplayer • Fun profiles"
+
+    bestFor:
+        "Casual games • Multiplayer • Fun profiles"
+
 },
+
 
 cyber: {
+
     descriptions: [
+
         "A futuristic gamer tag inspired by computers, technology and cyberpunk worlds.",
+
         "A digital-style name with a futuristic technological atmosphere.",
+
         "A high-tech gamer name designed for a cyberpunk identity.",
+
         "A futuristic alias inspired by digital systems and advanced technology."
+
     ],
-    bestFor: "Cyberpunk • Sci-fi • FPS games"
+
+    bestFor:
+        "Cyberpunk • Sci-fi • FPS games"
+
 },
 
+
 stealth: {
+
     descriptions: [
+
         "A quiet and mysterious name inspired by shadows and tactical gameplay.",
+
         "A stealthy gamer tag for a player who prefers to stay unseen.",
+
         "A tactical name with a silent and elusive personality.",
+
         "A mysterious alias inspired by stealth, precision and shadows."
+
     ],
-    bestFor: "Stealth games • Tactical games • FPS"
+
+    bestFor:
+        "Stealth games • Tactical games • FPS"
+
 }
 
 };
 
 
-/* -------------------------------- */
+/* ================================= */
 /* RANDOM ITEM */
-/* -------------------------------- */
+/* ================================= */
 
 function randomItem(array){
 
@@ -1372,16 +1704,26 @@ function randomItem(array){
 }
 
 
-/* -------------------------------- */
+/* ================================= */
 /* GENERATE NAME */
-/* -------------------------------- */
+/* ================================= */
 
 function makeName(style, length){
 
     const parts = nameParts[style];
 
-    let first = randomItem(parts.first);
-    let second = randomItem(parts.second);
+    if(!parts){
+
+        return "GamerX";
+
+    }
+
+
+    const first =
+        randomItem(parts.first);
+
+    const second =
+        randomItem(parts.second);
 
     let name;
 
@@ -1397,8 +1739,14 @@ function makeName(style, length){
         }else{
 
             name =
-                first.slice(0, Math.max(3, Math.ceil(first.length / 2))) +
-                second.slice(0, 2);
+                first.slice(
+                    0,
+                    Math.max(
+                        3,
+                        Math.ceil(first.length / 2)
+                    )
+                ) +
+                second.slice(0,2);
 
         }
 
@@ -1409,7 +1757,9 @@ function makeName(style, length){
 
     else if(length === "medium"){
 
-        name = first + second;
+        name =
+            first +
+            second;
 
     }
 
@@ -1437,7 +1787,9 @@ function makeName(style, length){
     ){
 
         const number =
-            Math.floor(Math.random() * 99) + 1;
+            Math.floor(
+                Math.random() * 99
+            ) + 1;
 
         name += number;
 
@@ -1449,17 +1801,39 @@ function makeName(style, length){
 }
 
 
-/* -------------------------------- */
+/* ================================= */
 /* GENERATE 9 RESULTS */
-/* -------------------------------- */
+/* ================================= */
 
 function generate(){
 
+    const styleElement =
+        document.getElementById("style");
+
+    const lengthElement =
+        document.getElementById("length");
+
+    const resultsElement =
+        document.getElementById("results");
+
+
+    if(
+        !styleElement ||
+        !lengthElement ||
+        !resultsElement
+    ){
+
+        return;
+
+    }
+
+
     const style =
-        document.getElementById("style").value;
+        styleElement.value;
 
     const length =
-        document.getElementById("length").value;
+        lengthElement.value;
+
 
     const names = [];
 
@@ -1472,12 +1846,16 @@ function generate(){
     ){
 
         const name =
-            makeName(style, length);
+            makeName(
+                style,
+                length
+            );
 
         attempts++;
 
 
         if(
+            name &&
             !names.includes(name)
         ){
 
@@ -1492,56 +1870,59 @@ function generate(){
         styleInfo[style];
 
 
-    document.getElementById("results").innerHTML =
+    if(!info){
 
-        names.map(name => `
+        return;
 
-            <div class="result">
+    }
 
-                <div class="result-name">
-                    ${name}
+
+    resultsElement.innerHTML =
+
+        names.map(name => {
+
+            const description =
+                randomItem(
+                    info.descriptions
+                );
+
+
+            return `
+
+                <div class="result">
+
+                    <div class="result-name">
+                        ${name}
+                    </div>
+
+                    <p class="result-description">
+                        ${description}
+                    </p>
+
+                    <div class="best-for">
+                        Best for: ${info.bestFor}
+                    </div>
+
+                    <button
+                        class="copy"
+                        type="button"
+                        onclick="copyName(${JSON.stringify(name)})"
+                    >
+                        📋 Copy name
+                    </button>
+
                 </div>
 
-                <p
-                    class="name-description"
-                    style="
-                        margin-top:8px;
-                        color:#9ba7bd;
-                        font-size:.88rem;
-                        line-height:1.45;
-                    "
-                >
-                    ${randomItem(info.descriptions)}
-                </p>
+            `;
 
-                <div
-                    style="
-                        margin-top:10px;
-                        color:#a78bfa;
-                        font-size:.78rem;
-                        font-weight:800;
-                    "
-                >
-                    Best for: ${info.bestFor}
-                </div>
-
-                <button
-                    class="copy"
-                    onclick="copyName('${name.replace(/'/g,"\\'")}')"
-                >
-                    📋 Copy name
-                </button>
-
-            </div>
-
-        `).join("");
+        }).join("");
 
 }
 
 
-/* -------------------------------- */
-/* COPY */
-/* -------------------------------- */
+/* ================================= */
+/* COPY NAME */
+/* ================================= */
 
 async function copyName(name){
 
@@ -1555,7 +1936,7 @@ async function copyName(name){
 
     }
 
-    catch{
+    catch(error){
 
         alert(
             "Name: " + name
@@ -1566,16 +1947,16 @@ async function copyName(name){
 }
 
 
-/* -------------------------------- */
+/* ================================= */
 /* INITIAL GENERATION */
-/* -------------------------------- */
+/* ================================= */
 
 generate();
 
 </script>
-```
 
 
 </body>
 
 </html>
+```
