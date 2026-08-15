@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +38,10 @@
 
 <style>
 
+/* ================================= */
+/* ROOT */
+/* ================================= */
+
 :root{
 
     --bg:#070912;
@@ -50,6 +55,11 @@
 
 }
 
+
+/* ================================= */
+/* RESET */
+/* ================================= */
+
 *{
 
     box-sizing:border-box;
@@ -58,11 +68,13 @@
 
 }
 
+
 html{
 
     scroll-behavior:smooth;
 
 }
+
 
 body{
 
@@ -97,6 +109,11 @@ body{
 
 }
 
+
+/* ================================= */
+/* CONTAINER */
+/* ================================= */
+
 .container{
 
     width:min(1100px,92%);
@@ -104,6 +121,11 @@ body{
     margin:auto;
 
 }
+
+
+/* ================================= */
+/* HEADER */
+/* ================================= */
 
 header{
 
@@ -123,6 +145,7 @@ header{
 
 }
 
+
 nav{
 
     min-height:68px;
@@ -134,6 +157,11 @@ nav{
     justify-content:space-between;
 
 }
+
+
+/* ================================= */
+/* LOGO */
+/* ================================= */
 
 .logo{
 
@@ -152,6 +180,7 @@ nav{
     font-weight:950;
 
 }
+
 
 .logo-icon{
 
@@ -175,6 +204,11 @@ nav{
 
 }
 
+
+/* ================================= */
+/* NAVIGATION */
+/* ================================= */
+
 .nav-links{
 
     display:flex;
@@ -182,6 +216,7 @@ nav{
     gap:18px;
 
 }
+
 
 .nav-links a{
 
@@ -193,11 +228,17 @@ nav{
 
 }
 
+
 .nav-links a:hover{
 
     color:white;
 
 }
+
+
+/* ================================= */
+/* HERO */
+/* ================================= */
 
 .hero{
 
@@ -206,6 +247,7 @@ nav{
     padding:75px 0 45px;
 
 }
+
 
 .badge{
 
@@ -227,6 +269,7 @@ nav{
 
 }
 
+
 h1{
 
     max-width:900px;
@@ -241,6 +284,7 @@ h1{
     letter-spacing:-2px;
 
 }
+
 
 .gradient{
 
@@ -261,6 +305,7 @@ h1{
 
 }
 
+
 .hero p{
 
     max-width:760px;
@@ -272,6 +317,11 @@ h1{
     font-size:1.05rem;
 
 }
+
+
+/* ================================= */
+/* HERO BUTTON */
+/* ================================= */
 
 .btn{
 
@@ -299,6 +349,11 @@ h1{
 
 }
 
+
+/* ================================= */
+/* GENERATOR */
+/* ================================= */
+
 .generator{
 
     padding:25px;
@@ -320,17 +375,24 @@ h1{
 
 }
 
+
 .generator h2{
 
     margin-bottom:6px;
 
 }
 
+
 .generator p{
 
     color:var(--muted);
 
 }
+
+
+/* ================================= */
+/* CONTROLS */
+/* ================================= */
 
 .controls{
 
@@ -341,6 +403,7 @@ h1{
     margin-top:20px;
 
 }
+
 
 select,
 button{
@@ -359,6 +422,7 @@ button{
 
 }
 
+
 button{
 
     cursor:pointer;
@@ -366,6 +430,7 @@ button{
     font-weight:850;
 
 }
+
 
 .generate{
 
@@ -383,6 +448,11 @@ button{
 
 }
 
+
+/* ================================= */
+/* RESULTS */
+/* ================================= */
+
 .results{
 
     display:grid;
@@ -395,6 +465,7 @@ button{
     margin-top:18px;
 
 }
+
 
 .result{
 
@@ -412,6 +483,7 @@ button{
 
 }
 
+
 .result:hover{
 
     transform:translateY(-3px);
@@ -420,6 +492,7 @@ button{
         rgba(239,68,68,.55);
 
 }
+
 
 .result-name{
 
@@ -431,6 +504,47 @@ button{
 
 }
 
+
+/* ================================= */
+/* RESULT DESCRIPTION */
+/* ================================= */
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+/* ================================= */
+/* BEST FOR */
+/* ================================= */
+
+.best-for{
+
+    margin-top:10px;
+
+    color:#a78bfa;
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+}
+
+
+/* ================================= */
+/* COPY BUTTON */
+/* ================================= */
+
 .copy{
 
     margin-top:12px;
@@ -441,11 +555,24 @@ button{
 
 }
 
+
+.copy:hover{
+
+    background:#202d45;
+
+}
+
+
+/* ================================= */
+/* CONTENT SECTIONS */
+/* ================================= */
+
 .section{
 
     padding:65px 0;
 
 }
+
 
 .content{
 
@@ -455,6 +582,7 @@ button{
 
 }
 
+
 .content h2{
 
     margin-bottom:14px;
@@ -462,6 +590,7 @@ button{
     font-size:2rem;
 
 }
+
 
 .content h3{
 
@@ -471,6 +600,7 @@ button{
 
 }
 
+
 .content p{
 
     color:var(--muted);
@@ -478,6 +608,11 @@ button{
     margin-bottom:15px;
 
 }
+
+
+/* ================================= */
+/* CARDS */
+/* ================================= */
 
 .cards{
 
@@ -489,6 +624,7 @@ button{
     gap:13px;
 
 }
+
 
 .card{
 
@@ -502,11 +638,13 @@ button{
 
 }
 
+
 .card h3{
 
     margin-bottom:7px;
 
 }
+
 
 .card p{
 
@@ -515,6 +653,11 @@ button{
     font-size:.9rem;
 
 }
+
+
+/* ================================= */
+/* FAQ */
+/* ================================= */
 
 .faq details{
 
@@ -530,6 +673,7 @@ button{
 
 }
 
+
 .faq summary{
 
     cursor:pointer;
@@ -538,6 +682,7 @@ button{
 
 }
 
+
 .faq p{
 
     margin-top:10px;
@@ -545,6 +690,11 @@ button{
     color:var(--muted);
 
 }
+
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
 
 footer{
 
@@ -559,6 +709,11 @@ footer{
 
 }
 
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
 @media(max-width:700px){
 
     .nav-links{
@@ -567,11 +722,13 @@ footer{
 
     }
 
+
     .controls{
 
         flex-direction:column;
 
     }
+
 
     .results,
     .cards{
@@ -579,6 +736,7 @@ footer{
         grid-template-columns:1fr;
 
     }
+
 
     .hero{
 
@@ -595,6 +753,10 @@ footer{
 
 <body>
 
+
+<!-- ================================= -->
+<!-- HEADER -->
+<!-- ================================= -->
 
 <header>
 
@@ -645,6 +807,10 @@ FAQ
 <main>
 
 
+<!-- ================================= -->
+<!-- HERO -->
+<!-- ================================= -->
+
 <section class="hero container">
 
 
@@ -686,6 +852,10 @@ imaginary worlds.
 </section>
 
 
+
+<!-- ================================= -->
+<!-- GENERATOR -->
+<!-- ================================= -->
 
 <section
     class="container"
@@ -792,6 +962,10 @@ Long
 
 
 
+<!-- ================================= -->
+<!-- INFORMATION -->
+<!-- ================================= -->
+
 <section class="section">
 
 
@@ -892,6 +1066,10 @@ celestial power and legendary guardians.
 </section>
 
 
+
+<!-- ================================= -->
+<!-- POPULAR TYPES -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -1001,6 +1179,10 @@ and ancient nature.
 
 
 
+<!-- ================================= -->
+<!-- FAQ -->
+<!-- ================================= -->
+
 <section
     class="section container"
     id="faq"
@@ -1092,6 +1274,10 @@ more compact names.
 </section>
 
 
+
+<!-- ================================= -->
+<!-- MORE GENERATORS -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -1188,6 +1374,20 @@ Explore more NameForge generators
 </p>
 
 
+<p>
+
+<a
+    href="wizard-name-generator.html"
+    style="color:#a78bfa;font-weight:900;"
+>
+
+🧙 Wizard Name Generator
+
+</a>
+
+</p>
+
+
 </div>
 
 
@@ -1197,6 +1397,10 @@ Explore more NameForge generators
 </main>
 
 
+
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
 
 <footer>
 
@@ -1229,58 +1433,224 @@ games, RPGs and fictional worlds.
 
 
 
-```html
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
+
 <script>
 
-const prefixes = {
 
-fire:["Pyra","Ign","Drak","Vul","Ember","Blaz","Rag","Fyr","Kael","Zar"],
-ice:["Frost","Glac","Cryo","Isk","Winter","Skal","Frel","Hyem","Snow","Vey"],
-storm:["Thund","Storm","Volt","Temp","Zeph","Raij","Strat","Typh","Gal","Tor"],
-dark:["Mor","Nyx","Shadow","Dread","Vhar","Grim","Umbra","Ruin","Mal","Vor"],
-light:["Lumi","Sol","Aur","Cel","Radi","Lux","Ser","Astra","Heli","El"],
-nature:["Thorn","Verd","Flor","Gaia","Oak","Terra","Leaf","Syl","Root","Vine"],
-water:["Mar","Hydr","Aqua","Tide","Wave","Ocean","Coral","Rain","Pearl","Riv"],
-ancient:["Azar","Arkan","Thal","Ur","Zor","Kael","Drav","Vara","Orun","Xal"]
+/* ================================= */
+/* DRAGON NAME PARTS */
+/* ================================= */
+
+const nameParts = {
+
+
+fire: {
+
+first: [
+
+"Pyra","Ignis","Drak","Vul","Ember",
+"Blaz","Rag","Fyr","Kael","Zar",
+"Cinder","Flame","Ash","Infer","Scorch",
+"Magmar","Volcan","Rhaz","Sear","Calder",
+"Burn","Solkar"
+
+],
+
+second: [
+
+"ag","ar","on","yr","ath",
+"or","az","ek","ir","ul",
+"an","eth","ak","or","is",
+"ar","ion","us"
+
+]
+
+},
+
+
+ice: {
+
+first: [
+
+"Frost","Glac","Cryo","Isk","Winter",
+"Skal","Frel","Hyem","Snow","Vey",
+"Crystal","Glace","Rime","Boreal","Frost",
+"Shiver","Auror","Nival","Hail","Veyr",
+"Icer","Glacius"
+
+],
+
+second: [
+
+"ir","yn","el","ar","eth",
+"or","is","en","yr","un",
+"ael","ion","iel","aris","or",
+"eth","ius","en"
+
+]
+
+},
+
+
+storm: {
+
+first: [
+
+"Thund","Storm","Volt","Temp","Zeph",
+"Raij","Strat","Typh","Gal","Tor",
+"Thunder","Cycl","Aero","Tempest","Bolt",
+"Vort","Sky","Nimbus","Rai","Zephyr",
+"Storm","Gale"
+
+],
+
+second: [
+
+"or","an","yr","eth","ar",
+"on","ek","us","ir","al",
+"ion","ax","iel","oth","en",
+"aris","or","ak"
+
+]
+
+},
+
+
+dark: {
+
+first: [
+
+"Mor","Nyx","Shadow","Dread","Vhar",
+"Grim","Umbra","Ruin","Mal","Vor",
+"Night","Abyss","Void","Obsid","Noct",
+"Raven","Doom","Wraith","Gloom","Neroth",
+"Zar","Velkor"
+
+],
+
+second: [
+
+"or","ath","yr","an","ek",
+"ul","eth","ar","on","ir",
+"oth","ax","iel","us","en",
+"ak","or","is","ael"
+
+]
+
+},
+
+
+light: {
+
+first: [
+
+"Lumi","Sol","Aur","Cel","Radi",
+"Lux","Ser","Astra","Heli","El",
+"Dawn","Star","Glor","Seraph","Lumen",
+"Solar","Ely","Aurel","Halo","Cael",
+"Alba","Elios"
+
+],
+
+second: [
+
+"el","ar","iel","or","yn",
+"eth","ion","ia","an","ir",
+"ael","ius","en","iel","aris",
+"or","eth","on"
+
+]
+
+},
+
+
+nature: {
+
+first: [
+
+"Thorn","Verd","Flor","Gaia","Oak",
+"Terra","Leaf","Syl","Root","Vine",
+"Forest","Moss","Briar","Willow","Cedar",
+"Fern","Grove","Bloom","Ivy","Earth",
+"Wild","Sylvan"
+
+],
+
+second: [
+
+"ar","en","ia","or","eth",
+"yn","al","on","ir","el",
+"ael","ian","is","ora","eth",
+"wyn","ar","iel"
+
+]
+
+},
+
+
+water: {
+
+first: [
+
+"Mar","Hydr","Aqua","Tide","Wave",
+"Ocean","Coral","Rain","Pearl","Riv",
+"Sea","Abyss","Mist","River","Azure",
+"Torrent","Deep","Nere","Tidal","Lagoon",
+"Storm","Aqua"
+
+],
+
+second: [
+
+"ia","or","en","ar","un",
+"el","on","ir","eth","ay",
+"iel","is","ora","ius","an",
+"aris","or","en"
+
+]
+
+},
+
+
+ancient: {
+
+first: [
+
+"Azar","Arkan","Thal","Ur","Zor",
+"Kael","Drav","Vara","Orun","Xal",
+"Elder","Aether","Ozym","Tharos","Eldar",
+"Valdor","Amon","Eryx","Orphe","Myth",
+"Thalion","Drakon"
+
+],
+
+second: [
+
+"ar","on","eth","ur","an",
+"or","ak","ia","um","ir",
+"ius","iel","oth","aris","ael",
+"en","os","ax"
+
+]
+
+}
 
 };
 
 
-const middles = {
+/* ================================= */
+/* STYLE INFORMATION */
+/* ================================= */
 
-fire:["ag","ar","on","yr","ath","or","az","ek","ir","ul"],
-ice:["ir","yn","el","ar","eth","or","is","en","yr","un"],
-storm:["or","an","yr","eth","ar","on","ek","us","ir","al"],
-dark:["or","ath","yr","an","ek","ul","eth","ar","on","ir"],
-light:["el","ar","iel","or","yn","eth","ion","ia","an","ir"],
-nature:["ar","en","ia","or","eth","yn","al","on","ir","el"],
-water:["ia","or","en","ar","un","el","on","ir","eth","ay"],
-ancient:["ar","on","eth","ur","an","or","ak","ia","um","ir"]
-
-};
+const styleInfo = {
 
 
-const endings = {
+fire: {
 
-fire:["ax","on","ar","ath","or","ius","zar","ek","orn","oth"],
-ice:["ia","or","en","iel","yr","eth","wyn","ar","une","ir"],
-storm:["on","ar","us","eth","or","ion","ak","yr","ax","an"],
-dark:["oth","or","ax","ar","eth","ul","on","yr","ek","an"],
-light:["iel","ion","ia","or","eth","iel","wyn","ar","en","el"],
-nature:["ia","on","el","ar","eth","wyn","or","en","iel","ir"],
-water:["ia","on","ar","el","eth","or","une","ay","ir","en"],
-ancient:["or","on","um","ar","eth","ius","an","ax","ir","oth"]
-
-};
-
-
-/* --------------------------------
-   DRAGON DESCRIPTIONS
--------------------------------- */
-
-const descriptions = {
-
-fire:[
+descriptions: [
 
 "A fierce fire dragon known for its blazing breath and volcanic power.",
 
@@ -1296,7 +1666,15 @@ fire:[
 
 ],
 
-ice:[
+bestFor:
+"Fire magic • Fantasy RPGs • Legendary beasts"
+
+},
+
+
+ice: {
+
+descriptions: [
 
 "An ancient ice dragon that rules frozen mountains and endless glaciers.",
 
@@ -1312,7 +1690,15 @@ ice:[
 
 ],
 
-storm:[
+bestFor:
+"Ice kingdoms • Winter fantasy • RPGs"
+
+},
+
+
+storm: {
+
+descriptions: [
 
 "A mighty storm dragon capable of commanding thunder and lightning.",
 
@@ -1328,7 +1714,15 @@ storm:[
 
 ],
 
-dark:[
+bestFor:
+"Sky dragons • Storm magic • Fantasy adventures"
+
+},
+
+
+dark: {
+
+descriptions: [
 
 "A mysterious shadow dragon that hides beyond the edge of the known world.",
 
@@ -1344,7 +1738,15 @@ dark:[
 
 ],
 
-light:[
+bestFor:
+"Dark fantasy • Villains • Shadow realms"
+
+},
+
+
+light: {
+
+descriptions: [
 
 "A majestic celestial dragon associated with light and ancient stars.",
 
@@ -1360,7 +1762,15 @@ light:[
 
 ],
 
-nature:[
+bestFor:
+"Celestial fantasy • Guardians • Legendary heroes"
+
+},
+
+
+nature: {
+
+descriptions: [
 
 "An ancient forest dragon deeply connected to the power of nature.",
 
@@ -1376,7 +1786,15 @@ nature:[
 
 ],
 
-water:[
+bestFor:
+"Forest fantasy • Nature magic • Ancient worlds"
+
+},
+
+
+water: {
+
+descriptions: [
 
 "A majestic water dragon that rules deep oceans and ancient rivers.",
 
@@ -1392,7 +1810,15 @@ water:[
 
 ],
 
-ancient:[
+bestFor:
+"Ocean fantasy • Sea kingdoms • Water magic"
+
+},
+
+
+ancient: {
+
+descriptions: [
 
 "An extremely old dragon carrying the knowledge of forgotten civilizations.",
 
@@ -1406,25 +1832,34 @@ ancient:[
 
 "A legendary dragon connected to forgotten myths and primordial powers."
 
-]
+],
+
+bestFor:
+"Ancient lore • Legendary dragons • Epic fantasy"
+
+}
 
 };
 
 
-/* --------------------------------
-   RANDOM HELPERS
--------------------------------- */
+/* ================================= */
+/* RANDOM ITEM */
+/* ================================= */
 
 function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random()*array.length
+            Math.random() * array.length
         )
     ];
 
 }
 
+
+/* ================================= */
+/* CAPITALIZE */
+/* ================================= */
 
 function capitalize(name){
 
@@ -1434,41 +1869,71 @@ function capitalize(name){
 }
 
 
-/* --------------------------------
-   CREATE NAME
--------------------------------- */
+/* ================================= */
+/* CREATE NAME */
+/* ================================= */
 
 function makeName(style,length){
+
+    const parts =
+        nameParts[style];
+
+    let first =
+        randomItem(parts.first);
+
+    let second =
+        randomItem(parts.second);
 
     let name;
 
 
-    if(length==="short"){
+    /* SHORT */
 
-        name =
-            randomItem(prefixes[style]) +
-            randomItem(endings[style]);
+    if(length === "short"){
+
+        if(Math.random() < 0.5){
+
+            name = first;
+
+        }else{
+
+            name =
+                first.slice(
+                    0,
+                    Math.max(
+                        3,
+                        Math.ceil(first.length / 2)
+                    )
+                ) +
+                second.slice(0,2);
+
+        }
 
     }
 
 
-    else if(length==="medium"){
+    /* MEDIUM */
+
+    else if(length === "medium"){
 
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            first +
+            second;
 
     }
 
+
+    /* LONG */
 
     else{
 
+        const third =
+            randomItem(parts.second);
+
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            first +
+            second +
+            third;
 
     }
 
@@ -1478,9 +1943,9 @@ function makeName(style,length){
 }
 
 
-/* --------------------------------
-   GENERATE RESULTS
--------------------------------- */
+/* ================================= */
+/* GENERATE 9 RESULTS */
+/* ================================= */
 
 function generate(){
 
@@ -1496,12 +1961,15 @@ function generate(){
         ).value;
 
 
-    const names=[];
+    const names = [];
 
-    const usedDescriptions=[];
+    let attempts = 0;
 
 
-    while(names.length<9){
+    while(
+        names.length < 9 &&
+        attempts < 1000
+    ){
 
         const name =
             makeName(
@@ -1510,7 +1978,12 @@ function generate(){
             );
 
 
-        if(!names.includes(name)){
+        attempts++;
+
+
+        if(
+            !names.includes(name)
+        ){
 
             names.push(name);
 
@@ -1519,46 +1992,42 @@ function generate(){
     }
 
 
-    const results =
-        document.getElementById(
-            "results"
-        );
+    const info =
+        styleInfo[style];
 
 
-    results.innerHTML = names.map(name => {
+    document.getElementById(
+        "results"
+    ).innerHTML =
 
-        let description;
-
-        do{
-
-            description =
-                randomItem(
-                    descriptions[style]
-                );
-
-        }
-
-        while(
-            usedDescriptions.includes(description) &&
-            usedDescriptions.length <
-            descriptions[style].length
-        );
-
-
-        usedDescriptions.push(description);
-
-
-        return `
+        names.map(name => `
 
             <div class="result">
 
+
                 <div class="result-name">
+
                     ${name}
+
                 </div>
 
-                <div class="result-description">
-                    ${description}
+
+                <p class="result-description">
+
+                    ${randomItem(
+                        info.descriptions
+                    )}
+
+                </p>
+
+
+                <div class="best-for">
+
+                    Best for:
+                    ${info.bestFor}
+
                 </div>
+
 
                 <button
                     class="copy"
@@ -1569,18 +2038,17 @@ function generate(){
 
                 </button>
 
+
             </div>
 
-        `;
-
-    }).join("");
+        `).join("");
 
 }
 
 
-/* --------------------------------
-   COPY NAME
--------------------------------- */
+/* ================================= */
+/* COPY NAME */
+/* ================================= */
 
 async function copyName(name){
 
@@ -1589,6 +2057,7 @@ async function copyName(name){
         await navigator.clipboard.writeText(
             name
         );
+
 
         alert(
             "Name copied: " + name
@@ -1607,13 +2076,17 @@ async function copyName(name){
 }
 
 
+/* ================================= */
+/* INITIAL GENERATION */
+/* ================================= */
+
 generate();
 
-</script>
-```
 
+</script>
 
 
 </body>
 
 </html>
+```
