@@ -110,10 +110,6 @@ body{
 }
 
 
-/* ================================= */
-/* CONTAINER */
-/* ================================= */
-
 .container{
 
     width:min(1100px,92%);
@@ -159,10 +155,6 @@ nav{
 }
 
 
-/* ================================= */
-/* LOGO */
-/* ================================= */
-
 .logo{
 
     display:flex;
@@ -204,10 +196,6 @@ nav{
 
 }
 
-
-/* ================================= */
-/* NAVIGATION */
-/* ================================= */
 
 .nav-links{
 
@@ -318,10 +306,6 @@ h1{
 
 }
 
-
-/* ================================= */
-/* HERO BUTTON */
-/* ================================= */
 
 .btn{
 
@@ -542,29 +526,121 @@ button{
 
 
 /* ================================= */
-/* COPY BUTTON */
+/* ACTIONS */
 /* ================================= */
 
-.copy{
+.result-actions{
 
-    margin-top:12px;
+    display:grid;
 
-    width:100%;
+    grid-template-columns:
+        1fr 1fr;
 
-    background:#182236;
+    gap:8px;
+
+    margin-top:14px;
 
 }
 
 
-.copy:hover{
+.action-button{
+
+    width:100%;
+
+    margin:0;
+
+    background:#182236;
+
+    transition:.2s;
+
+}
+
+
+.action-button:hover{
 
     background:#202d45;
 
 }
 
 
+.like-button.liked{
+
+    border-color:#ef4444;
+
+    background:rgba(239,68,68,.15);
+
+    color:#fca5a5;
+
+}
+
+
+.save-button.saved{
+
+    border-color:#8b5cf6;
+
+    background:rgba(139,92,246,.15);
+
+    color:#c4b5fd;
+
+}
+
+
 /* ================================= */
-/* CONTENT SECTIONS */
+/* NOTE */
+/* ================================= */
+
+.note-area{
+
+    margin-top:10px;
+
+}
+
+
+.note-input{
+
+    width:100%;
+
+    min-height:70px;
+
+    resize:vertical;
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#090e1a;
+
+    color:white;
+
+    font:inherit;
+
+}
+
+
+.note-input::placeholder{
+
+    color:#69758b;
+
+}
+
+
+.note-save{
+
+    margin-top:7px;
+
+    width:100%;
+
+    background:#121b2d;
+
+    font-size:.85rem;
+
+}
+
+
+/* ================================= */
+/* CONTENT */
 /* ================================= */
 
 .section{
@@ -709,168 +785,6 @@ footer{
 
 }
 
-/* ================================= */
-/* NAME ACTIONS */
-/* ================================= */
-
-.name-actions{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:8px;
-
-    margin-top:12px;
-
-}
-
-
-.name-action{
-
-    width:100%;
-
-    padding:10px;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
-    background:#182236;
-
-    color:white;
-
-    font-size:.85rem;
-
-    font-weight:800;
-
-    transition:.2s;
-
-}
-
-
-.name-action:hover{
-
-    background:#202d45;
-
-    border-color:#475675;
-
-}
-
-
-.name-action.liked{
-
-    background:
-        rgba(239,68,68,.15);
-
-    border-color:
-        rgba(239,68,68,.55);
-
-    color:#f87171;
-
-}
-
-
-.name-action.saved{
-
-    background:
-        rgba(139,92,246,.15);
-
-    border-color:
-        rgba(139,92,246,.55);
-
-    color:#c4b5fd;
-
-}
-
-
-/* ================================= */
-/* NOTE */
-/* ================================= */
-
-.note-box{
-
-    display:none;
-
-    margin-top:10px;
-
-}
-
-
-.note-box.active{
-
-    display:block;
-
-}
-
-
-.note-input{
-
-    width:100%;
-
-    min-height:75px;
-
-    resize:vertical;
-
-    padding:10px;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
-    background:#090e1a;
-
-    color:white;
-
-    font:inherit;
-
-    font-size:.85rem;
-
-}
-
-
-.note-input:focus{
-
-    outline:none;
-
-    border-color:
-        rgba(139,92,246,.7);
-
-}
-
-
-.note-save{
-
-    margin-top:7px;
-
-    width:100%;
-
-    background:#182236;
-
-}
-
-
-.note-status{
-
-    margin-top:5px;
-
-    color:#9ba7bd;
-
-    font-size:.75rem;
-
-}
-
-
-@media(max-width:700px){
-
-    .name-actions{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-}      
 
 /* ================================= */
 /* MOBILE */
@@ -900,6 +814,13 @@ footer{
     }
 
 
+    .result-actions{
+
+        grid-template-columns:1fr;
+
+    }
+
+
     .hero{
 
         padding-top:50px;
@@ -915,10 +836,6 @@ footer{
 
 <body>
 
-
-<!-- ================================= -->
-<!-- HEADER -->
-<!-- ================================= -->
 
 <header>
 
@@ -953,6 +870,10 @@ Generators
 Generator
 </a>
 
+<a href="my-names.html">
+❤️ My Names
+</a>
+
 <a href="#faq">
 FAQ
 </a>
@@ -965,13 +886,8 @@ FAQ
 </header>
 
 
-
 <main>
 
-
-<!-- ================================= -->
-<!-- HERO -->
-<!-- ================================= -->
 
 <section class="hero container">
 
@@ -1014,10 +930,6 @@ imaginary worlds.
 </section>
 
 
-
-<!-- ================================= -->
-<!-- GENERATOR -->
-<!-- ================================= -->
 
 <section
     class="container"
@@ -1124,10 +1036,6 @@ Long
 
 
 
-<!-- ================================= -->
-<!-- INFORMATION -->
-<!-- ================================= -->
-
 <section class="section">
 
 
@@ -1229,10 +1137,6 @@ celestial power and legendary guardians.
 
 
 
-<!-- ================================= -->
-<!-- POPULAR TYPES -->
-<!-- ================================= -->
-
 <section class="section container">
 
 
@@ -1252,13 +1156,10 @@ Popular dragon types
 
 <div class="card">
 
-<h3>
-🔥 Fire
-</h3>
+<h3>🔥 Fire</h3>
 
 <p>
-Names for powerful flame-breathing
-dragons.
+Names for powerful flame-breathing dragons.
 </p>
 
 </div>
@@ -1266,13 +1167,10 @@ dragons.
 
 <div class="card">
 
-<h3>
-❄️ Ice
-</h3>
+<h3>❄️ Ice</h3>
 
 <p>
-Names inspired by frost, snow
-and frozen lands.
+Names inspired by frost, snow and frozen lands.
 </p>
 
 </div>
@@ -1280,13 +1178,10 @@ and frozen lands.
 
 <div class="card">
 
-<h3>
-⚡ Storm
-</h3>
+<h3>⚡ Storm</h3>
 
 <p>
-Names inspired by thunder,
-lightning and storms.
+Names inspired by thunder, lightning and storms.
 </p>
 
 </div>
@@ -1294,13 +1189,10 @@ lightning and storms.
 
 <div class="card">
 
-<h3>
-🌑 Dark
-</h3>
+<h3>🌑 Dark</h3>
 
 <p>
-Names for shadowy and mysterious
-dragons.
+Names for shadowy and mysterious dragons.
 </p>
 
 </div>
@@ -1308,13 +1200,10 @@ dragons.
 
 <div class="card">
 
-<h3>
-✨ Light
-</h3>
+<h3>✨ Light</h3>
 
 <p>
-Names for celestial and legendary
-guardian dragons.
+Names for celestial and legendary guardian dragons.
 </p>
 
 </div>
@@ -1322,13 +1211,10 @@ guardian dragons.
 
 <div class="card">
 
-<h3>
-🌿 Nature
-</h3>
+<h3>🌿 Nature</h3>
 
 <p>
-Names inspired by forests, earth
-and ancient nature.
+Names inspired by forests, earth and ancient nature.
 </p>
 
 </div>
@@ -1340,10 +1226,6 @@ and ancient nature.
 </section>
 
 
-
-<!-- ================================= -->
-<!-- FAQ -->
-<!-- ================================= -->
 
 <section
     class="section container"
@@ -1437,10 +1319,6 @@ more compact names.
 
 
 
-<!-- ================================= -->
-<!-- MORE GENERATORS -->
-<!-- ================================= -->
-
 <section class="section container">
 
 
@@ -1453,100 +1331,58 @@ Explore more NameForge generators
 
 
 <p>
-
-<a
-    href="all-name-generators.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="all-name-generators.html"
+   style="color:#a78bfa;font-weight:900;">
 ← All Name Generators
-
 </a>
-
 </p>
 
 
 <p>
-
-<a
-    href="fantasy-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="fantasy-name-generator.html"
+   style="color:#a78bfa;font-weight:900;">
 🐉 Fantasy Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
-<a
-    href="rpg-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="rpg-name-generator.html"
+   style="color:#a78bfa;font-weight:900;">
 🎲 RPG Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
-<a
-    href="anime-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="anime-name-generator.html"
+   style="color:#a78bfa;font-weight:900;">
 ✨ Anime Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
-<a
-    href="gaming-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="gaming-name-generator.html"
+   style="color:#a78bfa;font-weight:900;">
 🎮 Gaming Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
-<a
-    href="kingdom-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="kingdom-name-generator.html"
+   style="color:#a78bfa;font-weight:900;">
 🏰 Kingdom Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
-<a
-    href="wizard-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-
+<a href="wizard-name-generator.html"
+   style="color:#a78bfa;font-weight:900;">
 🧙 Wizard Name Generator
-
 </a>
-
 </p>
 
 
@@ -1559,48 +1395,38 @@ Explore more NameForge generators
 </main>
 
 
-
-<!-- ================================= -->
-<!-- FOOTER -->
-<!-- ================================= -->
-
 <footer>
 
-
 <div class="container">
-
 
 <strong>
 🐲 NameForge
 </strong>
 
-
 <br><br>
-
 
 Free dragon name generator for stories,
 games, RPGs and fictional worlds.
 
-
 <br><br>
-
 
 © 2026 NameForge
 
-
 </div>
-
 
 </footer>
 
 
 
 <!-- ================================= -->
-<!-- JAVASCRIPT -->
+<!-- NAMEFORGE STORAGE -->
 <!-- ================================= -->
-<script src="js/nameforge-storage.js"></script>
-<script>
 
+<script src="js/nameforge-storage.js"></script>
+
+
+
+<script>
 
 /* ================================= */
 /* DRAGON NAME PARTS */
@@ -1608,196 +1434,100 @@ games, RPGs and fictional worlds.
 
 const nameParts = {
 
-
-fire: {
-
-first: [
-
-"Pyra","Ignis","Drak","Vul","Ember",
-"Blaz","Rag","Fyr","Kael","Zar",
-"Cinder","Flame","Ash","Infer","Scorch",
-"Magmar","Volcan","Rhaz","Sear","Calder",
-"Burn","Solkar"
-
+fire:{
+first:[
+"Pyra","Ignis","Drak","Vul","Ember","Blaz","Rag","Fyr","Kael","Zar",
+"Cinder","Flame","Ash","Infer","Scorch","Magmar","Volcan","Rhaz",
+"Sear","Calder","Burn","Solkar"
 ],
-
-second: [
-
-"ag","ar","on","yr","ath",
-"or","az","ek","ir","ul",
-"an","eth","ak","or","is",
-"ar","ion","us"
-
+second:[
+"ag","ar","on","yr","ath","or","az","ek","ir","ul","an","eth",
+"ak","or","is","ar","ion","us"
 ]
-
 },
 
-
-ice: {
-
-first: [
-
-"Frost","Glac","Cryo","Isk","Winter",
-"Skal","Frel","Hyem","Snow","Vey",
-"Crystal","Glace","Rime","Boreal","Frost",
-"Shiver","Auror","Nival","Hail","Veyr",
-"Icer","Glacius"
-
+ice:{
+first:[
+"Frost","Glac","Cryo","Isk","Winter","Skal","Frel","Hyem","Snow","Vey",
+"Crystal","Glace","Rime","Boreal","Shiver","Auror","Nival","Hail",
+"Veyr","Icer","Glacius"
 ],
-
-second: [
-
-"ir","yn","el","ar","eth",
-"or","is","en","yr","un",
-"ael","ion","iel","aris","or",
-"eth","ius","en"
-
+second:[
+"ir","yn","el","ar","eth","or","is","en","yr","un","ael","ion",
+"iel","aris","ius"
 ]
-
 },
 
-
-storm: {
-
-first: [
-
-"Thund","Storm","Volt","Temp","Zeph",
-"Raij","Strat","Typh","Gal","Tor",
-"Thunder","Cycl","Aero","Tempest","Bolt",
-"Vort","Sky","Nimbus","Rai","Zephyr",
-"Storm","Gale"
-
+storm:{
+first:[
+"Thund","Storm","Volt","Temp","Zeph","Raij","Strat","Typh","Gal","Tor",
+"Thunder","Cycl","Aero","Tempest","Bolt","Vort","Sky","Nimbus",
+"Rai","Zephyr","Gale"
 ],
-
-second: [
-
-"or","an","yr","eth","ar",
-"on","ek","us","ir","al",
-"ion","ax","iel","oth","en",
-"aris","or","ak"
-
+second:[
+"or","an","yr","eth","ar","on","ek","us","ir","al","ion","ax",
+"iel","oth","en","aris","ak"
 ]
-
 },
 
-
-dark: {
-
-first: [
-
-"Mor","Nyx","Shadow","Dread","Vhar",
-"Grim","Umbra","Ruin","Mal","Vor",
-"Night","Abyss","Void","Obsid","Noct",
-"Raven","Doom","Wraith","Gloom","Neroth",
-"Zar","Velkor"
-
+dark:{
+first:[
+"Mor","Nyx","Shadow","Dread","Vhar","Grim","Umbra","Ruin","Mal","Vor",
+"Night","Abyss","Void","Obsid","Noct","Raven","Doom","Wraith",
+"Gloom","Neroth","Zar","Velkor"
 ],
-
-second: [
-
-"or","ath","yr","an","ek",
-"ul","eth","ar","on","ir",
-"oth","ax","iel","us","en",
-"ak","or","is","ael"
-
+second:[
+"or","ath","yr","an","ek","ul","eth","ar","on","ir","oth","ax",
+"iel","us","en","ak","is","ael"
 ]
-
 },
 
-
-light: {
-
-first: [
-
-"Lumi","Sol","Aur","Cel","Radi",
-"Lux","Ser","Astra","Heli","El",
-"Dawn","Star","Glor","Seraph","Lumen",
-"Solar","Ely","Aurel","Halo","Cael",
-"Alba","Elios"
-
+light:{
+first:[
+"Lumi","Sol","Aur","Cel","Radi","Lux","Ser","Astra","Heli","El",
+"Dawn","Star","Glor","Seraph","Lumen","Solar","Ely","Aurel",
+"Halo","Cael","Alba","Elios"
 ],
-
-second: [
-
-"el","ar","iel","or","yn",
-"eth","ion","ia","an","ir",
-"ael","ius","en","iel","aris",
-"or","eth","on"
-
+second:[
+"el","ar","iel","or","yn","eth","ion","ia","an","ir","ael","ius",
+"en","aris","on"
 ]
-
 },
 
-
-nature: {
-
-first: [
-
-"Thorn","Verd","Flor","Gaia","Oak",
-"Terra","Leaf","Syl","Root","Vine",
-"Forest","Moss","Briar","Willow","Cedar",
-"Fern","Grove","Bloom","Ivy","Earth",
-"Wild","Sylvan"
-
+nature:{
+first:[
+"Thorn","Verd","Flor","Gaia","Oak","Terra","Leaf","Syl","Root","Vine",
+"Forest","Moss","Briar","Willow","Cedar","Fern","Grove","Bloom",
+"Ivy","Earth","Wild","Sylvan"
 ],
-
-second: [
-
-"ar","en","ia","or","eth",
-"yn","al","on","ir","el",
-"ael","ian","is","ora","eth",
-"wyn","ar","iel"
-
+second:[
+"ar","en","ia","or","eth","yn","al","on","ir","el","ael","ian",
+"is","ora","wyn","iel"
 ]
-
 },
 
-
-water: {
-
-first: [
-
-"Mar","Hydr","Aqua","Tide","Wave",
-"Ocean","Coral","Rain","Pearl","Riv",
-"Sea","Abyss","Mist","River","Azure",
-"Torrent","Deep","Nere","Tidal","Lagoon",
-"Storm","Aqua"
-
+water:{
+first:[
+"Mar","Hydr","Aqua","Tide","Wave","Ocean","Coral","Rain","Pearl","Riv",
+"Sea","Abyss","Mist","River","Azure","Torrent","Deep","Nere",
+"Tidal","Lagoon"
 ],
-
-second: [
-
-"ia","or","en","ar","un",
-"el","on","ir","eth","ay",
-"iel","is","ora","ius","an",
-"aris","or","en"
-
+second:[
+"ia","or","en","ar","un","el","on","ir","eth","ay","iel","is",
+"ora","ius","an","aris"
 ]
-
 },
 
-
-ancient: {
-
-first: [
-
-"Azar","Arkan","Thal","Ur","Zor",
-"Kael","Drav","Vara","Orun","Xal",
-"Elder","Aether","Ozym","Tharos","Eldar",
-"Valdor","Amon","Eryx","Orphe","Myth",
-"Thalion","Drakon"
-
+ancient:{
+first:[
+"Azar","Arkan","Thal","Ur","Zor","Kael","Drav","Vara","Orun","Xal",
+"Elder","Aether","Ozym","Tharos","Eldar","Valdor","Amon","Eryx",
+"Orphe","Myth","Thalion","Drakon"
 ],
-
-second: [
-
-"ar","on","eth","ur","an",
-"or","ak","ia","um","ir",
-"ius","iel","oth","aris","ael",
-"en","os","ax"
-
+second:[
+"ar","on","eth","ur","an","or","ak","ia","um","ir","ius","iel",
+"oth","aris","ael","en","os","ax"
 ]
-
 }
 
 };
@@ -1809,196 +1539,100 @@ second: [
 
 const styleInfo = {
 
-
-fire: {
-
-descriptions: [
-
+fire:{
+descriptions:[
 "A fierce fire dragon known for its blazing breath and volcanic power.",
-
 "An aggressive dragon whose scales glow like burning embers.",
-
 "A legendary flame dragon that dwells among ancient volcanoes.",
-
 "A powerful creature surrounded by intense heat and roaring flames.",
-
 "A battle-hardened dragon said to command destructive fire.",
-
 "An enormous dragon whose fiery presence can scorch the battlefield."
-
 ],
-
-bestFor:
-"Fire magic • Fantasy RPGs • Legendary beasts"
-
+bestFor:"Fire magic • Fantasy RPGs • Legendary beasts"
 },
 
-
-ice: {
-
-descriptions: [
-
+ice:{
+descriptions:[
 "An ancient ice dragon that rules frozen mountains and endless glaciers.",
-
 "A silent dragon covered in frost with breath cold enough to freeze stone.",
-
 "A mysterious creature that sleeps beneath an eternal layer of ice.",
-
 "A powerful winter dragon feared by travelers crossing frozen lands.",
-
 "A majestic dragon whose scales shimmer like frozen crystals.",
-
 "A legendary guardian of the northern glaciers."
-
 ],
-
-bestFor:
-"Ice kingdoms • Winter fantasy • RPGs"
-
+bestFor:"Ice kingdoms • Winter fantasy • RPGs"
 },
 
-
-storm: {
-
-descriptions: [
-
+storm:{
+descriptions:[
 "A mighty storm dragon capable of commanding thunder and lightning.",
-
 "A swift dragon that rides through violent skies and endless storms.",
-
 "A legendary creature whose roar echoes like thunder across the mountains.",
-
 "A powerful sky dragon surrounded by crackling lightning.",
-
 "A feared storm bringer said to control the winds themselves.",
-
 "An ancient dragon that appears whenever great storms approach."
-
 ],
-
-bestFor:
-"Sky dragons • Storm magic • Fantasy adventures"
-
+bestFor:"Sky dragons • Storm magic • Fantasy adventures"
 },
 
-
-dark: {
-
-descriptions: [
-
+dark:{
+descriptions:[
 "A mysterious shadow dragon that hides beyond the edge of the known world.",
-
 "A feared creature associated with darkness, silence and ancient ruins.",
-
 "A powerful dark dragon whose presence inspires fear in its enemies.",
-
 "An ancient beast that moves unseen beneath moonless skies.",
-
 "A sinister dragon said to possess forgotten powers.",
-
 "A legendary creature that guards secrets buried in eternal darkness."
-
 ],
-
-bestFor:
-"Dark fantasy • Villains • Shadow realms"
-
+bestFor:"Dark fantasy • Villains • Shadow realms"
 },
 
-
-light: {
-
-descriptions: [
-
+light:{
+descriptions:[
 "A majestic celestial dragon associated with light and ancient stars.",
-
 "A noble guardian dragon said to protect sacred kingdoms.",
-
 "A radiant creature whose scales shine like sunlight.",
-
 "An ancient dragon believed to carry the power of the heavens.",
-
 "A legendary guardian that appears when darkness threatens the world.",
-
 "A graceful celestial dragon surrounded by a brilliant aura."
-
 ],
-
-bestFor:
-"Celestial fantasy • Guardians • Legendary heroes"
-
+bestFor:"Celestial fantasy • Guardians • Legendary heroes"
 },
 
-
-nature: {
-
-descriptions: [
-
+nature:{
+descriptions:[
 "An ancient forest dragon deeply connected to the power of nature.",
-
 "A peaceful guardian of forests, mountains and hidden valleys.",
-
 "A powerful creature whose scales resemble ancient tree bark.",
-
 "A legendary nature dragon said to protect sacred forests.",
-
 "An elusive dragon that lives among enormous trees and ancient ruins.",
-
 "A mysterious guardian whose power comes from the earth itself."
-
 ],
-
-bestFor:
-"Forest fantasy • Nature magic • Ancient worlds"
-
+bestFor:"Forest fantasy • Nature magic • Ancient worlds"
 },
 
-
-water: {
-
-descriptions: [
-
+water:{
+descriptions:[
 "A majestic water dragon that rules deep oceans and ancient rivers.",
-
 "A mysterious creature capable of disappearing beneath the waves.",
-
 "An ancient sea dragon feared by sailors and explorers.",
-
 "A powerful guardian of underwater kingdoms and forgotten ruins.",
-
 "A graceful dragon whose movements resemble the flow of the ocean.",
-
 "A legendary creature said to command powerful tides."
-
 ],
-
-bestFor:
-"Ocean fantasy • Sea kingdoms • Water magic"
-
+bestFor:"Ocean fantasy • Sea kingdoms • Water magic"
 },
 
-
-ancient: {
-
-descriptions: [
-
+ancient:{
+descriptions:[
 "An extremely old dragon carrying the knowledge of forgotten civilizations.",
-
 "A legendary elder dragon that has witnessed countless ages.",
-
 "An ancient creature whose origins are lost to history.",
-
 "A powerful dragon believed to have existed before modern kingdoms.",
-
 "A mysterious elder whose wisdom surpasses generations of kings.",
-
 "A legendary dragon connected to forgotten myths and primordial powers."
-
 ],
-
-bestFor:
-"Ancient lore • Legendary dragons • Epic fantasy"
-
+bestFor:"Ancient lore • Legendary dragons • Epic fantasy"
 }
 
 };
@@ -2040,16 +1674,14 @@ function makeName(style,length){
     const parts =
         nameParts[style];
 
-    let first =
+    const first =
         randomItem(parts.first);
 
-    let second =
+    const second =
         randomItem(parts.second);
 
     let name;
 
-
-    /* SHORT */
 
     if(length === "short"){
 
@@ -2073,9 +1705,6 @@ function makeName(style,length){
 
     }
 
-
-    /* MEDIUM */
-
     else if(length === "medium"){
 
         name =
@@ -2083,9 +1712,6 @@ function makeName(style,length){
             second;
 
     }
-
-
-    /* LONG */
 
     else{
 
@@ -2106,22 +1732,16 @@ function makeName(style,length){
 
 
 /* ================================= */
-/* GENERATE 9 RESULTS */
+/* GENERATE */
 /* ================================= */
 
 function generate(){
 
     const style =
-        document.getElementById(
-            "style"
-        ).value;
-
+        document.getElementById("style").value;
 
     const length =
-        document.getElementById(
-            "length"
-        ).value;
-
+        document.getElementById("length").value;
 
     const names = [];
 
@@ -2139,13 +1759,10 @@ function generate(){
                 length
             );
 
-
         attempts++;
 
 
-        if(
-            !names.includes(name)
-        ){
+        if(!names.includes(name)){
 
             names.push(name);
 
@@ -2158,33 +1775,38 @@ function generate(){
         styleInfo[style];
 
 
-    document.getElementById(
-        "results"
-    ).innerHTML =
+    document.getElementById("results").innerHTML =
 
         names.map(name => {
 
-            const liked =
-                isNameLiked(name);
-
-
             const saved =
-                !!findSavedName(name);
+                findSavedName(name);
 
+            const liked =
+                saved && saved.liked === true;
+
+            const note =
+                saved
+                    ? saved.note || ""
+                    : "";
 
             return `
 
-                <div class="result">
+                <div class="result"
+                     data-name="${escapeHtml(name)}">
+
 
                     <div class="result-name">
-                        ${name}
+                        ${escapeHtml(name)}
                     </div>
 
 
                     <p class="result-description">
 
-                        ${randomItem(
-                            info.descriptions
+                        ${escapeHtml(
+                            randomItem(
+                                info.descriptions
+                            )
                         )}
 
                     </p>
@@ -2193,54 +1815,36 @@ function generate(){
                     <div class="best-for">
 
                         Best for:
-                        ${info.bestFor}
+                        ${escapeHtml(
+                            info.bestFor
+                        )}
 
                     </div>
 
 
-                    <div class="name-actions">
+                    <div class="result-actions">
 
 
                         <button
-                            class="name-action ${liked ? "liked" : ""}"
-                            onclick="toggleLike('${escapeAttribute(name)}', '${style}')"
+                            class="action-button like-button ${liked ? "liked" : ""}"
+                            onclick="toggleLike('${escapeJs(name)}', '${style}')"
                         >
 
                             ${liked
                                 ? "❤️ Liked"
-                                : "♡ Like"}
+                                : "🤍 Like"}
 
                         </button>
 
 
                         <button
-                            class="name-action ${saved ? "saved" : ""}"
-                            onclick="toggleSave('${escapeAttribute(name)}', '${style}')"
+                            class="action-button save-button ${saved ? "saved" : ""}"
+                            onclick="toggleSave('${escapeJs(name)}', '${style}')"
                         >
 
                             ${saved
-                                ? "⭐ Saved"
-                                : "☆ Save"}
-
-                        </button>
-
-
-                        <button
-                            class="name-action"
-                            onclick="toggleNote('${escapeAttribute(name)}')"
-                        >
-
-                            📝 Note
-
-                        </button>
-
-
-                        <button
-                            class="name-action"
-                            onclick="copyName('${escapeAttribute(name)}')"
-                        >
-
-                            📋 Copy
+                                ? "💾 Saved"
+                                : "💾 Save"}
 
                         </button>
 
@@ -2248,32 +1852,25 @@ function generate(){
                     </div>
 
 
-                    <div
-                        class="note-box"
-                        id="note-${encodeURIComponent(name)}"
-                    >
+                    <div class="note-area">
+
 
                         <textarea
                             class="note-input"
-                            id="note-input-${encodeURIComponent(name)}"
-                            placeholder="Write a note about this name..."
-                        ></textarea>
+                            id="note-${safeId(name)}"
+                            placeholder="Add a private note..."
+                        >${escapeHtml(note)}</textarea>
 
 
                         <button
                             class="note-save"
-                            onclick="saveNote('${escapeAttribute(name)}')"
+                            onclick="saveNote('${escapeJs(name)}')"
                         >
 
-                            💾 Save Note
+                            📝 Save note
 
                         </button>
 
-
-                        <div
-                            class="note-status"
-                            id="note-status-${encodeURIComponent(name)}"
-                        ></div>
 
                     </div>
 
@@ -2286,18 +1883,6 @@ function generate(){
 
 }
 
-/* ================================= */
-/* ESCAPE ATTRIBUTE */
-/* ================================= */
-
-function escapeAttribute(value){
-
-    return value
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
-
-}
-
 
 /* ================================= */
 /* TOGGLE LIKE */
@@ -2305,7 +1890,7 @@ function escapeAttribute(value){
 
 function toggleLike(name, style){
 
-    const result =
+    const item =
         likeName(
             name,
             "dragon",
@@ -2313,55 +1898,10 @@ function toggleLike(name, style){
         );
 
 
-    const buttons =
-        document.querySelectorAll(
-            ".result"
-        );
-
-
-    buttons.forEach(card => {
-
-        const nameElement =
-            card.querySelector(
-                ".result-name"
-            );
-
-
-        if(
-            nameElement &&
-            nameElement.textContent.trim()
-                === name
-        ){
-
-            const button =
-                card.querySelector(
-                    ".name-action"
-                );
-
-
-            if(result.liked){
-
-                button.classList.add(
-                    "liked"
-                );
-
-                button.textContent =
-                    "❤️ Liked";
-
-            }else{
-
-                button.classList.remove(
-                    "liked"
-                );
-
-                button.textContent =
-                    "♡ Like";
-
-            }
-
-        }
-
-    });
+    updateResultButtons(
+        name,
+        item
+    );
 
 }
 
@@ -2380,20 +1920,27 @@ function toggleSave(name, style){
 
         if(existing.liked){
 
-            existing.note =
-                existing.note || "";
+            /*
+             * Keep the item because it is liked.
+             */
+
+            existing.liked = true;
 
             saveAllNames(
                 getSavedNames()
             );
 
-        }else{
+        }
+
+        else{
 
             removeSavedName(name);
 
         }
 
-    }else{
+    }
+
+    else{
 
         saveName(
             name,
@@ -2404,108 +1951,14 @@ function toggleSave(name, style){
     }
 
 
-    const savedNow =
-        !!findSavedName(name);
-
-
-    document
-        .querySelectorAll(".result")
-        .forEach(card => {
-
-            const nameElement =
-                card.querySelector(
-                    ".result-name"
-                );
-
-
-            if(
-                nameElement &&
-                nameElement.textContent.trim()
-                    === name
-            ){
-
-                const buttons =
-                    card.querySelectorAll(
-                        ".name-action"
-                    );
-
-
-                const saveButton =
-                    buttons[1];
-
-
-                if(savedNow){
-
-                    saveButton
-                        .classList
-                        .add("saved");
-
-                    saveButton.textContent =
-                        "⭐ Saved";
-
-                }else{
-
-                    saveButton
-                        .classList
-                        .remove("saved");
-
-                    saveButton.textContent =
-                        "☆ Save";
-
-                }
-
-            }
-
-        });
-
-}
-
-
-/* ================================= */
-/* TOGGLE NOTE */
-/* ================================= */
-
-function toggleNote(name){
-
-    const box =
-        document.getElementById(
-            "note-" +
-            encodeURIComponent(name)
-        );
-
-
-    if(!box){
-
-        return;
-
-    }
-
-
-    box.classList.toggle(
-        "active"
-    );
-
-
-    const saved =
+    const updated =
         findSavedName(name);
 
 
-    const input =
-        document.getElementById(
-            "note-input-" +
-            encodeURIComponent(name)
-        );
-
-
-    if(
-        saved &&
-        input
-    ){
-
-        input.value =
-            saved.note || "";
-
-    }
+    updateResultButtons(
+        name,
+        updated
+    );
 
 }
 
@@ -2516,102 +1969,202 @@ function toggleNote(name){
 
 function saveNote(name){
 
-    const input =
+    const textarea =
         document.getElementById(
-            "note-input-" +
-            encodeURIComponent(name)
+            "note-" + safeId(name)
         );
 
 
-    const status =
-        document.getElementById(
-            "note-status-" +
-            encodeURIComponent(name)
-        );
-
-
-    if(!input){
+    if(!textarea){
 
         return;
 
     }
 
 
-    let saved =
+    const note =
+        textarea.value.trim();
+
+
+    const existing =
         findSavedName(name);
 
 
-    /*
-       A note automatically saves
-       the name if it wasn't saved yet.
-    */
+    if(!existing){
 
-    if(!saved){
-
-        saved =
-            saveName(
-                name,
-                "dragon",
-                document.getElementById(
-                    "style"
-                ).value
-            );
+        saveName(
+            name,
+            "dragon",
+            document.getElementById("style").value
+        );
 
     }
 
 
     updateNameNote(
         name,
-        input.value
+        note
     );
 
 
-    if(status){
-
-        status.textContent =
-            "✓ Note saved locally";
-
-    }
+    const updated =
+        findSavedName(name);
 
 
-    setTimeout(() => {
+    textarea.value =
+        updated
+            ? updated.note
+            : "";
 
-        if(status){
 
-            status.textContent = "";
+    alert(
+        note
+            ? "📝 Note saved!"
+            : "📝 Note removed!"
+    );
+
+}
+
+
+/* ================================= */
+/* UPDATE BUTTONS */
+/* ================================= */
+
+function updateResultButtons(name,item){
+
+    const cards =
+        document.querySelectorAll(
+            ".result"
+        );
+
+
+    cards.forEach(card => {
+
+        const nameElement =
+            card.querySelector(
+                ".result-name"
+            );
+
+
+        if(!nameElement){
+
+            return;
 
         }
 
-    },2000);
 
-}      
+        if(
+            nameElement.textContent.trim()
+            !== name
+        ){
+
+            return;
+
+        }
+
+
+        const likeButton =
+            card.querySelector(
+                ".like-button"
+            );
+
+
+        const saveButton =
+            card.querySelector(
+                ".save-button"
+            );
+
+
+        if(likeButton){
+
+            if(item && item.liked){
+
+                likeButton.classList.add("liked");
+
+                likeButton.textContent =
+                    "❤️ Liked";
+
+            }
+
+            else{
+
+                likeButton.classList.remove("liked");
+
+                likeButton.textContent =
+                    "🤍 Like";
+
+            }
+
+        }
+
+
+        if(saveButton){
+
+            if(item){
+
+                saveButton.classList.add("saved");
+
+                saveButton.textContent =
+                    "💾 Saved";
+
+            }
+
+            else{
+
+                saveButton.classList.remove("saved");
+
+                saveButton.textContent =
+                    "💾 Save";
+
+            }
+
+        }
+
+    });
+
+}
+
 
 /* ================================= */
-/* COPY NAME */
+/* SAFE HTML */
 /* ================================= */
 
-async function copyName(name){
+function escapeHtml(value){
 
-    try{
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
-        await navigator.clipboard.writeText(
-            name
-        );
+}
 
 
-        alert(
-            "Name copied: " + name
-        );
+/* ================================= */
+/* SAFE JAVASCRIPT STRING */
+/* ================================= */
 
-    }
+function escapeJs(value){
 
-    catch{
+    return String(value)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,'\\"')
+        .replace(/\n/g,"\\n")
+        .replace(/\r/g,"\\r");
 
-        alert(
-            "Name: " + name
-        );
+}
 
-    }
+
+/* ================================= */
+/* SAFE ID */
+/* ================================= */
+
+function safeId(value){
+
+    return String(value)
+        .replace(/[^a-zA-Z0-9_-]/g,"-");
 
 }
 
@@ -2621,7 +2174,6 @@ async function copyName(name){
 /* ================================= */
 
 generate();
-
 
 </script>
 
