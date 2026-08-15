@@ -961,238 +961,741 @@ games and fictional worlds.
 </footer>
 
 
+```html
 <script>
 
-const prefixes = {
+/* =========================================================
+   NAMEFORGE — ANIME NAME GENERATOR V2
+   ========================================================= */
 
-hero:[
-"Ka","Yu","Ren","Ak","Har","Ryu",
-"Sora","Kai","Tak","Hik"
-],
 
-ninja:[
-"Shin","Kage","Rai","Kuro","Yami",
-"Hay","Ren","Sae","Kira","Zen"
-],
+/* =========================================================
+   NAME PARTS
+   ========================================================= */
 
-demon:[
-"Aku","Moru","Zan","Kuro","Rai",
-"Vey","Dra","Naru","Zai","Kha"
-],
+const nameParts = {
 
-warrior:[
-"Ken","Ryu","Tak","Ra","Da",
-"Kael","Jin","Haru","Gai","Tora"
-],
+    hero:{
+        start:[
+            "Ka","Yu","Ren","Har","Ryu","Sora","Kai","Tak",
+            "Hik","Ak","Ra","Shin","Aki","Kyo","Yori"
+        ],
+        middle:[
+            "a","ai","e","i","o","u","ka","ki","ra","ri",
+            "to","ya","shi","ro"
+        ],
+        end:[
+            "to","ki","ro","ya","shi","zen","rai","hiro",
+            "ken","nari","ka","sora","ren","yuki"
+        ]
+    },
 
-villain:[
-"Kuro","Zai","Moru","Vex","Rai",
-"Akuma","Zan","Yoru","Dai","Ren"
-],
 
-royal:[
-"Aki","Hana","Yuki","Sora","Rei",
-"Kaori","Mika","Ari","Luna","Aya"
-],
+    ninja:{
+        start:[
+            "Shin","Kage","Rai","Kuro","Yami","Hay","Ren",
+            "Sae","Kira","Zen","Nagi","Kaze","Rin","Sora","Kai"
+        ],
+        middle:[
+            "a","e","i","o","u","ka","ki","ra","ri",
+            "shi","to","ya","zen"
+        ],
+        end:[
+            "ka","shi","to","ren","ya","ro","zen","rai",
+            "kage","maru","jin","raku","sai","hiro"
+        ]
+    },
 
-magic:[
-"Yume","Hoshi","Mira","Aki","Lumi",
-"Sora","Eli","Rin","Nami","Saya"
-]
+
+    demon:{
+        start:[
+            "Aku","Moru","Zan","Kuro","Rai","Vey","Dra",
+            "Naru","Zai","Kha","Yoru","Maku","Raku","Vara","Oni"
+        ],
+        middle:[
+            "a","e","i","o","u","ra","ri","ro","ka",
+            "ku","za","ya","no"
+        ],
+        end:[
+            "ra","ku","zen","to","shi","ya","kai","ro",
+            "nox","maru","rei","ga","zai","aku"
+        ]
+    },
+
+
+    warrior:{
+        start:[
+            "Ken","Ryu","Tak","Ra","Da","Kael","Jin","Haru",
+            "Gai","Tora","Ren","Kaito","Raiden","Akio","Hayato"
+        ],
+        middle:[
+            "a","e","i","o","u","ka","ki","ra","to",
+            "ya","ken","shi","ro"
+        ],
+        end:[
+            "to","ken","ra","shi","ya","ro","jin","kai",
+            "tora","zen","maru","hiro","ryu","dan"
+        ]
+    },
+
+
+    villain:{
+        start:[
+            "Kuro","Zai","Moru","Vex","Rai","Akuma","Zan",
+            "Yoru","Dai","Ren","Kage","Vara","Makai","Zeru","Rai"
+        ],
+        middle:[
+            "a","e","i","o","u","ra","ro","ku","za",
+            "ve","ya","ri"
+        ],
+        end:[
+            "ra","ku","zen","to","shi","ya","ro","kai",
+            "nox","ren","zai","aku","rei","maru"
+        ]
+    },
+
+
+    royal:{
+        start:[
+            "Aki","Hana","Yuki","Sora","Rei","Kaori","Mika",
+            "Ari","Luna","Aya","Miyu","Akira","Rika","Hikari","Sayo"
+        ],
+        middle:[
+            "a","e","i","o","u","ka","ki","mi","ri",
+            "ya","na","shi","ko"
+        ],
+        end:[
+            "mi","na","ri","ka","ya","ko","shi","ra",
+            "mei","hana","yuki","hime","sora","kira"
+        ]
+    },
+
+
+    magic:{
+        start:[
+            "Yume","Hoshi","Mira","Aki","Lumi","Sora","Eli",
+            "Rin","Nami","Saya","Mizu","Tsuki","Kira","Aoi","Yuna"
+        ],
+        middle:[
+            "a","ae","e","i","ia","ie","io","yu",
+            "mi","ri","na","lu","shi"
+        ],
+        end:[
+            "mi","ra","na","ri","ya","ko","lune","sei",
+            "hime","ael","yume","sora","mira","hana"
+        ]
+    }
 
 };
 
 
-const endings = {
+/* =========================================================
+   STYLE INFORMATION
+   ========================================================= */
 
-hero:[
-"to","ki","ro","ya","shi","zen",
-"rai","hiro","ken","nari"
-],
+const styleInfo = {
 
-ninja:[
-"ka","shi","to","ren","ya","ro",
-"zen","rai","kage","maru"
-],
+    hero:{
+        label:"Hero",
+        icon:"⚔️",
+        bestFor:"Protagonists, adventurers and legendary fighters",
+        descriptions:[
+            "A bright and memorable name suited to a courageous anime protagonist.",
+            "A heroic-sounding name for a fighter destined to protect others.",
+            "An energetic name that fits a determined protagonist on a great adventure.",
+            "A memorable name for a young hero who grows into a legendary warrior."
+        ]
+    },
 
-demon:[
-"ra","ku","zen","to","shi","ya",
-"kai","ro","nox","maru"
-],
 
-warrior:[
-"to","ken","ra","shi","ya","ro",
-"jin","kai","tora","zen"
-],
+    ninja:{
+        label:"Ninja",
+        icon:"🥷",
+        bestFor:"Ninjas, shinobi, assassins and stealth characters",
+        descriptions:[
+            "A mysterious name suited to a fast and disciplined shinobi.",
+            "A stealthy-sounding name for a ninja who moves unseen through the shadows.",
+            "A sharp name that fits an assassin, scout or highly skilled shinobi.",
+            "A traditional-inspired fantasy name for a character devoted to stealth and precision."
+        ]
+    },
 
-villain:[
-"ra","ku","zen","to","shi","ya",
-"ro","kai","nox","ren"
-],
 
-royal:[
-"mi","na","ri","ka","ya","ko",
-"shi","ra","mei","hana"
-],
+    demon:{
+        label:"Demon",
+        icon:"👹",
+        bestFor:"Demons, supernatural beings and dark fantasy characters",
+        descriptions:[
+            "A dark supernatural name suited to a powerful demon or cursed being.",
+            "An intimidating name for an ancient demon with mysterious origins.",
+            "A sinister name that fits a supernatural enemy or powerful dark entity.",
+            "A mysterious demon name suited to a character with immense hidden power."
+        ]
+    },
 
-magic:[
-"mi","ra","na","ri","ya","ko",
-"lune","sei","hime","ael"
-]
+
+    warrior:{
+        label:"Warrior",
+        icon:"⚡",
+        bestFor:"Swordsmen, martial artists and battle-hardened fighters",
+        descriptions:[
+            "A powerful name suited to a skilled swordsman or martial artist.",
+            "A battle-ready name for a warrior who lives by strength and determination.",
+            "A fierce name that fits a legendary fighter or master of combat.",
+            "An energetic warrior name suited to an anime character who seeks greater strength."
+        ]
+    },
+
+
+    villain:{
+        label:"Villain",
+        icon:"🌑",
+        bestFor:"Antagonists, rivals and dangerous enemies",
+        descriptions:[
+            "A dark name suited to a dangerous anime antagonist.",
+            "A mysterious name for a calculating villain or powerful rival.",
+            "An intimidating name that fits an enemy with hidden motives and great ambition.",
+            "A sinister-sounding name for a feared antagonist or recurring rival."
+        ]
+    },
+
+
+    royal:{
+        label:"Royal",
+        icon:"👑",
+        bestFor:"Princes, princesses, kings, queens and noble characters",
+        descriptions:[
+            "An elegant name suited to an anime prince or princess.",
+            "A graceful royal name for a noble heir or powerful ruler.",
+            "A refined name that fits a member of an ancient royal family.",
+            "A sophisticated name for a character born into wealth, tradition and responsibility."
+        ]
+    },
+
+
+    magic:{
+        label:"Magical",
+        icon:"✨",
+        bestFor:"Magicians, magical girls, spellcasters and fantasy characters",
+        descriptions:[
+            "A magical and melodic name suited to a powerful spellcaster.",
+            "An enchanting name for a magical girl, witch or fantasy hero.",
+            "A mystical name that fits a character connected to spirits, stars or ancient magic.",
+            "A soft but memorable name for a character with mysterious supernatural abilities."
+        ]
+    }
 
 };
 
+
+/* =========================================================
+   OPTIONAL TITLES
+   ========================================================= */
 
 const titles = [
 
-"the Brave",
-"the Silent",
-"the Fallen",
-"the Shadow",
-"the Storm",
-"the Eternal",
-"the Wanderer",
-"the Cursed",
-"the Legendary",
-"the Mysterious"
+    "the Brave",
+    "the Silent",
+    "the Fallen",
+    "the Shadow",
+    "the Storm",
+    "the Eternal",
+    "the Wanderer",
+    "the Cursed",
+    "the Legendary",
+    "the Mysterious",
+    "the Unbroken",
+    "the Exiled",
+    "the Last",
+    "the Nameless"
 
 ];
 
+
+/* =========================================================
+   RANDOM HELPER
+   ========================================================= */
 
 function randomItem(array){
 
-return array[
-Math.floor(
-Math.random()*array.length
-)
-];
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
 
 }
 
 
-function makeName(style,length){
+/* =========================================================
+   SESSION MEMORY
+   ========================================================= */
 
-let name =
-randomItem(prefixes[style]) +
-randomItem(endings[style]);
-
-
-if(length==="short"){
-
-name =
-randomItem(prefixes[style]) +
-randomItem(endings[style]).slice(0,2);
-
-}
-
-
-if(length==="long"){
-
-name +=
-randomItem(endings[style]);
-
-}
-
-
-if(
-Math.random()<0.20 &&
-length!=="short"
-){
-
-name +=
-" " +
-randomItem(titles);
-
-}
-
-
-return name;
-
-}
-
-
-function generate(){
-
-const style =
-document.getElementById(
-"style"
-).value;
-
-const length =
-document.getElementById(
-"length"
-).value;
-
-
-const names=[];
-
-
-while(names.length<9){
-
-const name =
-makeName(style,length);
-
-
-if(!names.includes(name)){
-
-names.push(name);
-
-}
-
-}
-
-
-document.getElementById(
-"results"
-).innerHTML =
-
-names.map(name => `
-
-<div class="result">
-
-<div class="result-name">
-${name}
-</div>
-
-<button
-class="copy"
-onclick="copyName('${name.replace(/'/g,"\\'")}')"
->
-📋 Copy name
-</button>
-
-</div>
-
-`).join("");
-
-}
-
-
-async function copyName(name){
+let usedNames = [];
 
 try{
 
-await navigator.clipboard.writeText(name);
+    usedNames =
+        JSON.parse(
+            sessionStorage.getItem(
+                "nameforgeAnimeUsed"
+            ) || "[]"
+        );
 
-alert(
-"Name copied: " + name
-);
+}catch(error){
 
-}
-catch{
-
-alert(
-"Name: " + name
-);
+    usedNames = [];
 
 }
 
+
+/* =========================================================
+   REMEMBER NAME
+   ========================================================= */
+
+function rememberName(name){
+
+    if(!usedNames.includes(name)){
+
+        usedNames.push(name);
+
+        try{
+
+            sessionStorage.setItem(
+                "nameforgeAnimeUsed",
+                JSON.stringify(usedNames)
+            );
+
+        }catch(error){}
+
+    }
+
 }
 
+
+/* =========================================================
+   CLEAR MEMORY
+   ========================================================= */
+
+function clearUsedNames(){
+
+    usedNames = [];
+
+    try{
+
+        sessionStorage.removeItem(
+            "nameforgeAnimeUsed"
+        );
+
+    }catch(error){}
+
+}
+
+
+/* =========================================================
+   CREATE BASE NAME
+   ========================================================= */
+
+function createBaseName(style){
+
+    const parts =
+        nameParts[style];
+
+    const structure =
+        Math.floor(
+            Math.random() * 5
+        );
+
+
+    /* START + END */
+
+    if(structure === 0){
+
+        return (
+            randomItem(parts.start) +
+            randomItem(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + END */
+
+    if(structure === 1){
+
+        return (
+            randomItem(parts.start) +
+            randomItem(parts.middle) +
+            randomItem(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + MIDDLE + END */
+
+    if(structure === 2){
+
+        return (
+            randomItem(parts.start) +
+            randomItem(parts.middle) +
+            randomItem(parts.middle) +
+            randomItem(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + END + END */
+
+    if(structure === 3){
+
+        return (
+            randomItem(parts.start) +
+            randomItem(parts.middle) +
+            randomItem(parts.end) +
+            randomItem(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + MIDDLE + END */
+
+    return (
+        randomItem(parts.start) +
+        randomItem(parts.middle) +
+        randomItem(parts.middle) +
+        randomItem(parts.end)
+    );
+
+}
+
+
+/* =========================================================
+   CLEAN NAME
+   ========================================================= */
+
+function cleanName(name){
+
+    /* Remove excessive repeated vowels */
+
+    name =
+        name.replace(
+            /([aeiou])\1{2,}/gi,
+            "$1"
+        );
+
+
+    /* Prevent repeated endings */
+
+    name =
+        name.replace(
+            /(zen|maru|hiro|sora|mira|hana)\1+/gi,
+            "$1"
+        );
+
+
+    /* Capitalize */
+
+    return (
+        name.charAt(0).toUpperCase() +
+        name.slice(1)
+    );
+
+}
+
+
+/* =========================================================
+   MAKE NAME
+   ========================================================= */
+
+function makeName(style,length){
+
+    let name =
+        cleanName(
+            createBaseName(style)
+        );
+
+
+    /* SHORT */
+
+    if(length === "short"){
+
+        const parts =
+            nameParts[style];
+
+        name =
+            cleanName(
+                randomItem(parts.start) +
+                randomItem(parts.end).slice(0,2)
+            );
+
+    }
+
+
+    /* LONG */
+
+    if(length === "long"){
+
+        const parts =
+            nameParts[style];
+
+        name =
+            cleanName(
+                randomItem(parts.start) +
+                randomItem(parts.middle) +
+                randomItem(parts.end) +
+                randomItem(parts.end)
+            );
+
+    }
+
+
+    /* OCCASIONAL TITLE */
+
+    if(
+        Math.random() < 0.16 &&
+        length !== "short"
+    ){
+
+        name +=
+            " " +
+            randomItem(titles);
+
+    }
+
+
+    return name;
+
+}
+
+
+/* =========================================================
+   GENERATE
+   ========================================================= */
+
+function generate(){
+
+    const style =
+        document.getElementById(
+            "style"
+        ).value;
+
+    const length =
+        document.getElementById(
+            "length"
+        ).value;
+
+
+    const results = [];
+
+    let attempts = 0;
+
+
+    while(
+        results.length < 9 &&
+        attempts < 1000
+    ){
+
+        attempts++;
+
+
+        const name =
+            makeName(
+                style,
+                length
+            );
+
+
+        /*
+         * Prevent duplicates inside
+         * the current generation
+         * and previous generations.
+         */
+
+        if(
+
+            !results.some(
+                result =>
+                    result.name === name
+            )
+
+            &&
+
+            !usedNames.includes(name)
+
+        ){
+
+            results.push({
+
+                name:name,
+
+                description:
+                    randomItem(
+                        styleInfo[
+                            style
+                        ].descriptions
+                    ),
+
+                style:
+                    styleInfo[
+                        style
+                    ].label,
+
+                icon:
+                    styleInfo[
+                        style
+                    ].icon,
+
+                bestFor:
+                    styleInfo[
+                        style
+                    ].bestFor
+
+            });
+
+
+            rememberName(name);
+
+        }
+
+    }
+
+
+    /*
+     * If the available combinations
+     * are temporarily exhausted,
+     * clear the session memory.
+     */
+
+    if(results.length < 9){
+
+        clearUsedNames();
+
+        generate();
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       DISPLAY RESULTS
+       ===================================================== */
+
+    document.getElementById(
+        "results"
+    ).innerHTML =
+
+        results.map(result => `
+
+            <div class="result">
+
+                <div
+                    class="result-name"
+                    style="
+                        font-size:1.35rem;
+                        font-weight:950;
+                        margin-bottom:8px;
+                    "
+                >
+                    ${result.name}
+                </div>
+
+
+                <div
+                    style="
+                        color:#ec4899;
+                        font-size:.85rem;
+                        font-weight:850;
+                        margin-bottom:8px;
+                    "
+                >
+                    ${result.icon}
+                    ${result.style}
+                </div>
+
+
+                <p
+                    style="
+                        color:#9ba7bd;
+                        line-height:1.55;
+                        margin-bottom:12px;
+                    "
+                >
+                    ${result.description}
+                </p>
+
+
+                <div
+                    style="
+                        font-size:.82rem;
+                        color:#7f8ba3;
+                        margin-bottom:14px;
+                    "
+                >
+
+                    <strong>
+                        Best for:
+                    </strong>
+
+                    ${result.bestFor}
+
+                </div>
+
+
+                <button
+                    class="copy"
+                    onclick="copyName('${result.name.replace(/'/g,"\\'")}')"
+                >
+                    📋 Copy name
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   COPY NAME
+   ========================================================= */
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            name
+        );
+
+        alert(
+            "Name copied: " + name
+        );
+
+    }
+
+    catch(error){
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIAL GENERATION
+   ========================================================= */
 
 generate();
 
 </script>
+```
 
 </body>
 </html>
