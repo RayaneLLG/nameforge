@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,16 +12,17 @@
 <title>RPG Name Generator — Free RPG Character Names | NameForge</title>
 
 <meta name="description"
-      content="Generate unique RPG character names for warriors, mages, rogues, paladins, villains and heroes with NameForge. Free RPG name generator.">
+      content="Generate unique RPG character names for warriors, mages, rogues, paladins, villains and heroes with the free NameForge RPG Name Generator.">
 
 <meta name="keywords"
-      content="RPG name generator, RPG character names, RPG names, D&D names, role playing game names, fantasy RPG names, warrior names, mage names, rogue names">
+      content="RPG name generator, RPG character names, RPG names, D&D names, fantasy RPG names, warrior names, mage names, rogue names">
 
 <meta name="robots"
       content="index, follow">
 
 <link rel="canonical"
       href="https://rayanellg.github.io/nameforge/rpg-name-generator.html">
+
 
 <meta property="og:type"
       content="website">
@@ -33,47 +36,76 @@
 <meta property="og:url"
       content="https://rayanellg.github.io/nameforge/rpg-name-generator.html">
 
+
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"NameForge RPG Name Generator",
-  "url":"https://rayanellg.github.io/nameforge/rpg-name-generator.html",
-  "description":"Free RPG character name generator for heroes, warriors, mages, rogues and fantasy characters.",
-  "applicationCategory":"EntertainmentApplication",
-  "operatingSystem":"Web Browser",
-  "offers":{
-    "@type":"Offer",
-    "price":"0",
-    "priceCurrency":"USD"
-  }
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"NameForge RPG Name Generator",
+    "url":"https://rayanellg.github.io/nameforge/rpg-name-generator.html",
+    "description":"Free RPG character name generator for heroes, warriors, mages, rogues and fantasy characters.",
+    "applicationCategory":"EntertainmentApplication",
+    "operatingSystem":"Web Browser",
+    "offers":{
+        "@type":"Offer",
+        "price":"0",
+        "priceCurrency":"USD"
+    }
 }
 </script>
 
+
 <style>
 
+/* ========================================= */
+/* ROOT */
+/* ========================================= */
+
 :root{
+
     --bg:#070912;
+
     --panel:#101827;
+
     --panel2:#151f32;
+
     --border:#29354d;
+
     --text:#f5f7ff;
+
     --muted:#9ba7bd;
+
     --purple:#8b5cf6;
+
     --blue:#06b6d4;
+
 }
+
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
 
 *{
+
     box-sizing:border-box;
+
     margin:0;
+
     padding:0;
+
 }
+
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
+
 body{
+
     min-height:100vh;
 
     font-family:
@@ -86,6 +118,7 @@ body{
     color:var(--text);
 
     background:
+
         radial-gradient(
             circle at 10% 0%,
             rgba(139,92,246,.20),
@@ -101,51 +134,87 @@ body{
         var(--bg);
 
     line-height:1.6;
+
 }
+
+
+/* ========================================= */
+/* CONTAINER */
+/* ========================================= */
 
 .container{
+
     width:min(1100px,92%);
+
     margin:auto;
+
 }
 
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:10;
 
-    background:rgba(7,9,18,.9);
+    background:
+        rgba(7,9,18,.9);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(15px);
 
     border-bottom:
         1px solid rgba(255,255,255,.06);
+
 }
 
+
 nav{
+
     min-height:68px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
 
+
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 
     color:white;
+
     text-decoration:none;
 
-    font-weight:950;
     font-size:1.2rem;
+
+    font-weight:950;
+
 }
 
+
 .logo-icon{
+
     width:38px;
+
     height:38px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:11px;
@@ -156,34 +225,58 @@ nav{
             var(--purple),
             var(--blue)
         );
+
 }
+
 
 .nav-links{
+
     display:flex;
+
     gap:18px;
+
 }
+
 
 .nav-links a{
+
     color:var(--muted);
+
     text-decoration:none;
+
     font-weight:800;
+
 }
+
 
 .nav-links a:hover{
+
     color:white;
+
 }
+
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
 
 .hero{
+
     text-align:center;
+
     padding:75px 0 45px;
+
 }
 
+
 .badge{
+
     display:inline-block;
 
     padding:7px 13px;
 
     border:1px solid var(--border);
+
     border-radius:999px;
 
     background:#0e1421;
@@ -191,10 +284,14 @@ nav{
     color:#dce3f5;
 
     font-size:.82rem;
+
     font-weight:850;
+
 }
 
+
 h1{
+
     max-width:900px;
 
     margin:20px auto;
@@ -205,24 +302,31 @@ h1{
     line-height:1;
 
     letter-spacing:-2px;
+
 }
 
+
 .gradient{
+
     color:transparent;
 
     background:
         linear-gradient(
             90deg,
-            white,
-            var(--blue),
+            #fff,
+            #67e8f9,
             #c084fc
         );
 
     background-clip:text;
+
     -webkit-background-clip:text;
+
 }
 
+
 .hero p{
+
     max-width:760px;
 
     margin:auto;
@@ -230,9 +334,12 @@ h1{
     color:var(--muted);
 
     font-size:1.05rem;
+
 }
 
+
 .btn{
+
     display:inline-block;
 
     margin-top:22px;
@@ -245,7 +352,7 @@ h1{
         linear-gradient(
             135deg,
             var(--purple),
-            #6d28d9
+            var(--blue)
         );
 
     color:white;
@@ -253,12 +360,20 @@ h1{
     text-decoration:none;
 
     font-weight:900;
+
 }
 
+
+/* ========================================= */
+/* GENERATOR */
+/* ========================================= */
+
 .generator{
+
     padding:25px;
 
     border:1px solid var(--border);
+
     border-radius:20px;
 
     background:
@@ -270,41 +385,75 @@ h1{
 
     box-shadow:
         0 25px 60px rgba(0,0,0,.3);
+
 }
+
 
 .generator h2{
+
     margin-bottom:6px;
+
 }
 
-.generator p{
+
+.generator > p{
+
     color:var(--muted);
+
 }
+
+
+/* ========================================= */
+/* CONTROLS */
+/* ========================================= */
 
 .controls{
+
     display:flex;
+
     gap:10px;
+
     margin-top:20px;
+
 }
+
 
 select,
 button{
+
     padding:12px 14px;
 
     border:1px solid var(--border);
+
     border-radius:10px;
 
     background:#090e1a;
+
     color:white;
 
     font:inherit;
+
 }
+
+
+select{
+
+    min-width:170px;
+
+}
+
 
 button{
+
     cursor:pointer;
+
     font-weight:850;
+
 }
 
+
 .generate{
+
     flex:1;
 
     border:0;
@@ -313,11 +462,25 @@ button{
         linear-gradient(
             135deg,
             var(--purple),
-            #6d28d9
+            var(--blue)
         );
+
 }
 
+
+.generate:hover{
+
+    opacity:.92;
+
+}
+
+
+/* ========================================= */
+/* RESULTS */
+/* ========================================= */
+
 .results{
+
     display:grid;
 
     grid-template-columns:
@@ -326,12 +489,16 @@ button{
     gap:13px;
 
     margin-top:18px;
+
 }
 
+
 .result{
+
     padding:20px;
 
     border:1px solid var(--border);
+
     border-radius:15px;
 
     background:#101625;
@@ -339,99 +506,254 @@ button{
     text-align:center;
 
     transition:.2s;
+
 }
 
+
 .result:hover{
+
     transform:translateY(-3px);
 
     border-color:
-        rgba(139,92,246,.5);
+        rgba(139,92,246,.55);
+
 }
+
 
 .result-name{
+
     font-size:1.25rem;
+
     font-weight:950;
+
+    word-break:break-word;
+
 }
+
+
+.result-class{
+
+    margin-top:6px;
+
+    color:#a78bfa;
+
+    font-size:.82rem;
+
+    font-weight:850;
+
+}
+
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+.result-best{
+
+    margin-top:10px;
+
+    color:#7f8ba3;
+
+    font-size:.78rem;
+
+    line-height:1.4;
+
+}
+
+
+.result-best strong{
+
+    color:#a78bfa;
+
+}
+
 
 .copy{
+
     margin-top:12px;
+
     width:100%;
+
     background:#182236;
+
 }
+
+
+.copy:hover{
+
+    background:#202d46;
+
+}
+
+
+/* ========================================= */
+/* CONTENT */
+/* ========================================= */
 
 .section{
+
     padding:65px 0;
+
 }
+
 
 .content{
+
     max-width:850px;
+
     margin:auto;
+
 }
+
 
 .content h2{
+
     margin-bottom:14px;
+
     font-size:2rem;
+
 }
+
 
 .content h3{
+
     margin-top:27px;
+
     margin-bottom:8px;
+
 }
+
 
 .content p{
+
     color:var(--muted);
+
     margin-bottom:15px;
+
 }
 
+
+/* ========================================= */
+/* CARDS */
+/* ========================================= */
+
 .cards{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
     gap:13px;
+
 }
 
+
 .card{
+
     padding:22px;
 
     border:1px solid var(--border);
+
     border-radius:15px;
 
     background:#101625;
+
 }
+
 
 .card h3{
+
     margin-bottom:7px;
+
 }
+
 
 .card p{
+
     color:var(--muted);
+
     font-size:.9rem;
+
 }
 
+
+/* ========================================= */
+/* FAQ */
+/* ========================================= */
+
 .faq details{
+
     margin-bottom:10px;
 
     padding:17px;
 
     border:1px solid var(--border);
+
     border-radius:12px;
 
     background:#101625;
+
 }
+
 
 .faq summary{
+
     cursor:pointer;
+
     font-weight:900;
+
 }
+
 
 .faq p{
+
     margin-top:10px;
+
     color:var(--muted);
+
 }
 
+
+/* ========================================= */
+/* LINKS */
+/* ========================================= */
+
+.content a{
+
+    color:#a78bfa;
+
+    font-weight:900;
+
+    text-decoration:none;
+
+}
+
+
+.content a:hover{
+
+    color:#c4b5fd;
+
+}
+
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
 footer{
+
     padding:40px 0;
 
     border-top:
@@ -440,25 +762,56 @@ footer{
     text-align:center;
 
     color:var(--muted);
+
 }
+
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
 
 @media(max-width:700px){
 
     .nav-links{
+
         display:none;
+
     }
 
+
     .controls{
+
         flex-direction:column;
+
     }
+
+
+    select{
+
+        width:100%;
+
+    }
+
 
     .results,
     .cards{
+
         grid-template-columns:1fr;
+
     }
 
+
     .hero{
+
         padding-top:50px;
+
+    }
+
+
+    h1{
+
+        letter-spacing:-1px;
+
     }
 
 }
@@ -467,11 +820,14 @@ footer{
 
 </head>
 
+
 <body>
+
 
 <header>
 
 <nav class="container">
+
 
 <a
     href="index.html"
@@ -485,6 +841,7 @@ footer{
 NameForge
 
 </a>
+
 
 <div class="nav-links">
 
@@ -513,11 +870,18 @@ FAQ
 
 <main>
 
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+
 <section class="hero container">
+
 
 <span class="badge">
 🎲 FREE RPG NAME GENERATOR
 </span>
+
 
 <h1>
 
@@ -529,6 +893,7 @@ RPG character
 
 </h1>
 
+
 <p>
 
 Generate unique names for RPG characters,
@@ -537,83 +902,109 @@ villains and adventurers.
 
 </p>
 
+
 <a
     href="#generator"
     class="btn"
 >
+
 ⚡ Generate RPG Names
+
 </a>
 
 </section>
 
+
+<!-- ========================================= -->
+<!-- GENERATOR -->
+<!-- ========================================= -->
 
 <section
     class="container"
     id="generator"
 >
 
+
 <div class="generator">
+
 
 <h2>
 🎲 RPG Character Name Generator
 </h2>
 
+
 <p>
-Choose a character class and generate unique RPG names.
+Choose a character class and generate nine
+unique RPG names instantly.
 </p>
+
 
 <div class="controls">
 
+
 <select id="classType">
 
+
 <option value="warrior">
-Warrior
+⚔️ Warrior
 </option>
+
 
 <option value="mage">
-Mage
+🔮 Mage
 </option>
+
 
 <option value="rogue">
-Rogue
+🗡️ Rogue
 </option>
+
 
 <option value="paladin">
-Paladin
+🛡️ Paladin
 </option>
+
 
 <option value="ranger">
-Ranger
+🏹 Ranger
 </option>
+
 
 <option value="villain">
-Villain
+💀 Villain
 </option>
+
 
 <option value="hero">
-Hero
+🦸 Hero
 </option>
 
+
 <option value="necromancer">
-Necromancer
+☠️ Necromancer
 </option>
+
 
 </select>
 
 
 <select id="length">
 
+
 <option value="short">
 Short
 </option>
+
 
 <option value="medium" selected>
 Medium
 </option>
 
+
 <option value="long">
 Long
 </option>
+
 
 </select>
 
@@ -622,8 +1013,11 @@ Long
     class="generate"
     onclick="generate()"
 >
+
 ⚡ Generate Names
+
 </button>
+
 
 </div>
 
@@ -633,107 +1027,144 @@ Long
     class="results"
 ></div>
 
+
 </div>
 
 </section>
 
+
+<!-- ========================================= -->
+<!-- GUIDE -->
+<!-- ========================================= -->
 
 <section
     class="section"
     id="guide"
 >
 
+
 <div class="content">
+
 
 <h2>
 What is an RPG name generator?
 </h2>
 
-<p>
-An RPG name generator is a tool that helps players,
-writers and game creators quickly find names for
-role-playing game characters.
-</p>
 
 <p>
+
+An RPG name generator is a tool that helps
+players, writers and game creators quickly
+find names for role-playing game characters.
+
+</p>
+
+
+<p>
+
 Whether you are creating a powerful warrior,
-a mysterious mage, a sneaky rogue or a legendary
-paladin, finding the right name can make your
-character feel more memorable.
+a mysterious mage, a sneaky rogue or a
+legendary paladin, finding the right name can
+make your character feel more memorable.
+
 </p>
 
 
 <h3>
-RPG warrior names
+⚔️ RPG Warrior Names
 </h3>
 
+
 <p>
+
 Warriors are powerful frontline characters.
 Their names can suggest strength, courage,
 honor and determination.
+
 </p>
 
 
 <h3>
-RPG mage names
+🔮 RPG Mage Names
 </h3>
 
+
 <p>
+
 Mages and spellcasters often need names with
-a mysterious or magical feeling. Generate names
-for wizards, sorcerers and other magic users.
+a mysterious or magical feeling. Generate
+names for wizards, sorcerers and other
+magic users.
+
 </p>
 
 
 <h3>
-RPG rogue names
+🗡️ RPG Rogue Names
 </h3>
 
+
 <p>
+
 Rogues are commonly associated with stealth,
 agility and cunning. Use the rogue style for
 names suited to assassins, thieves and scouts.
+
 </p>
 
 
 <h3>
-RPG paladin names
+🛡️ RPG Paladin Names
 </h3>
 
+
 <p>
-Paladins are heroic characters associated with
-honor, justice and powerful abilities. Generate
-names for noble fantasy warriors and holy knights.
+
+Paladins are heroic characters associated
+with honor, justice and powerful abilities.
+Generate names for noble fantasy warriors
+and holy knights.
+
 </p>
 
 
 <h3>
-RPG villain names
+💀 RPG Villain Names
 </h3>
 
+
 <p>
+
 Every great RPG needs memorable antagonists.
 Generate darker names for villains, warlords,
 dark lords and dangerous enemies.
+
 </p>
+
 
 </div>
 
 </section>
 
 
+<!-- ========================================= -->
+<!-- CATEGORIES -->
+<!-- ========================================= -->
+
 <section class="section container">
+
 
 <div class="content">
 
 <h2>
-Popular RPG character categories
+Popular RPG Character Categories
 </h2>
 
 </div>
 
 
 <div class="cards">
+
 
 <div class="card">
 
@@ -798,8 +1229,8 @@ and heroic champions.
 </h3>
 
 <p>
-Adventure-inspired names for
-hunters, scouts and wilderness heroes.
+Adventure-inspired names for hunters,
+scouts and wilderness heroes.
 </p>
 
 </div>
@@ -818,23 +1249,32 @@ warlords and powerful enemies.
 
 </div>
 
+
 </div>
 
 </section>
 
+
+<!-- ========================================= -->
+<!-- FAQ -->
+<!-- ========================================= -->
 
 <section
     class="section container"
     id="faq"
 >
 
+
 <div class="content">
+
 
 <h2>
 RPG Name Generator FAQ
 </h2>
 
+
 <div class="faq">
+
 
 <details>
 
@@ -844,7 +1284,7 @@ Is the RPG name generator free?
 
 <p>
 Yes. NameForge's RPG name generator is
-free to use in your browser.
+free to use directly in your browser.
 </p>
 
 </details>
@@ -873,8 +1313,8 @@ Can I generate names for different RPG classes?
 
 <p>
 Yes. You can generate names for warriors,
-mages, rogues, paladins, rangers, villains
-and other fantasy characters.
+mages, rogues, paladins, rangers, villains,
+heroes and necromancers.
 </p>
 
 </details>
@@ -908,6 +1348,7 @@ smartphones, tablets and desktop browsers.
 
 </details>
 
+
 </div>
 
 </div>
@@ -915,13 +1356,20 @@ smartphones, tablets and desktop browsers.
 </section>
 
 
+<!-- ========================================= -->
+<!-- MORE GENERATORS -->
+<!-- ========================================= -->
+
 <section class="section container">
 
+
 <div class="content">
+
 
 <h2>
 Explore more NameForge generators
 </h2>
+
 
 <p>
 
@@ -931,6 +1379,7 @@ Explore more NameForge generators
 
 </p>
 
+
 <p>
 
 <a href="fantasy-name-generator.html">
@@ -939,110 +1388,285 @@ Explore more NameForge generators
 
 </p>
 
+
+<p>
+
+<a href="wizard-name-generator.html">
+🧙 Wizard Name Generator
+</a>
+
+</p>
+
+
+<p>
+
+<a href="anime-name-generator.html">
+✨ Anime Name Generator
+</a>
+
+</p>
+
+
+<p>
+
+<a href="gaming-name-generator.html">
+🎮 Gaming Name Generator
+</a>
+
+</p>
+
+
+<p>
+
+<a href="kingdom-name-generator.html">
+🏰 Kingdom Name Generator
+</a>
+
+</p>
+
+
+<p>
+
+<a href="dragon-name-generator.html">
+🐲 Dragon Name Generator
+</a>
+
+</p>
+
+
 </div>
 
 </section>
 
+
 </main>
 
 
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
 <footer>
 
+
 <div class="container">
+
 
 <strong>
 ⚡ NameForge
 </strong>
 
+
 <br><br>
+
 
 Free RPG name generator for characters,
 games and fictional worlds.
 
+
 <br><br>
 
+
 © 2026 NameForge
+
 
 </div>
 
 </footer>
 
 
-```html
 <script>
 
-/* =========================================================
-   NAMEFORGE — RPG NAME GENERATOR V2
-   ========================================================= */
+/* ========================================= */
+/* NAMEFORGE RPG NAME GENERATOR */
+/* ========================================= */
 
 
-/* =========================================================
-   NAME PARTS
-   ========================================================= */
+/* ========================================= */
+/* NAME PARTS */
+/* ========================================= */
 
 const nameParts = {
 
     warrior:{
-        start:["Thar","Gar","Drak","Kor","Rag","Tor","Khar","Bran","Dun","Val","Gor","Keld","Ror","Varn","Drax"],
-        middle:["a","ar","e","o","u","ak","an","or","ur","er","on"],
-        end:["gar","dor","rik","dan","orn","vald","ak","ron","dur","kar","thor","var"]
+        start:[
+            "Thar","Gar","Drak","Kor","Rag",
+            "Tor","Khar","Bran","Dun","Val",
+            "Gor","Keld","Ror","Varn","Drax"
+        ],
+
+        middle:[
+            "a","ar","e","o","u",
+            "ak","an","or","ur","er","on"
+        ],
+
+        end:[
+            "gar","dor","rik","dan","orn",
+            "vald","ak","ron","dur","kar",
+            "thor","var"
+        ]
     },
+
 
     mage:{
-        start:["Ar","Ely","Zel","Syl","Vael","My","Nym","Ser","Ari","Eli","Aeth","Oryn","Vey","Ily","Thael"],
-        middle:["a","ae","ai","e","ei","ia","ie","io","y","el","er","il","ir","or","yn"],
-        end:["iel","ara","is","yne","ora","eth","ia","ael","eris","ion","aris","ine","aeth"]
+        start:[
+            "Ar","Ely","Zel","Syl","Vael",
+            "My","Nym","Ser","Ari","Eli",
+            "Aeth","Oryn","Vey","Ily","Thael"
+        ],
+
+        middle:[
+            "a","ae","ai","e","ei",
+            "ia","ie","io","y","el",
+            "er","il","ir","or","yn"
+        ],
+
+        end:[
+            "iel","ara","is","yne","ora",
+            "eth","ia","ael","eris","ion",
+            "aris","ine","aeth"
+        ]
     },
+
 
     rogue:{
-        start:["Ka","Rav","Zan","Nyx","Vel","Sha","Vex","Cor","Dra","Ren","Sil","Kyn","Var","Zev","Ner"],
-        middle:["a","e","i","o","y","ar","el","en","ir","or","yn","is"],
-        end:["en","is","ar","yn","ix","or","an","el","eth","ir","vek","ren"]
+        start:[
+            "Ka","Rav","Zan","Nyx","Vel",
+            "Sha","Vex","Cor","Dra","Ren",
+            "Sil","Kyn","Var","Zev","Ner"
+        ],
+
+        middle:[
+            "a","e","i","o","y",
+            "ar","el","en","ir","or",
+            "yn","is"
+        ],
+
+        end:[
+            "en","is","ar","yn","ix",
+            "or","an","el","eth","ir",
+            "vek","ren"
+        ]
     },
+
 
     paladin:{
-        start:["Ael","Val","Ari","Cael","Eld","Ser","Al","Lor","Ed","The","Cyr","Riel","Aure","Edr","Cal"],
-        middle:["a","ae","e","ia","io","el","er","or","an","en","ian"],
-        end:["ius","ian","or","elle","ara","is","ion","eus","ael","aris","iel"]
+        start:[
+            "Ael","Val","Ari","Cael","Eld",
+            "Ser","Al","Lor","Ed","The",
+            "Cyr","Riel","Aure","Edr","Cal"
+        ],
+
+        middle:[
+            "a","ae","e","ia","io",
+            "el","er","or","an","en","ian"
+        ],
+
+        end:[
+            "ius","ian","or","elle","ara",
+            "is","ion","eus","ael","aris",
+            "iel"
+        ]
     },
+
 
     ranger:{
-        start:["Ryn","Ery","Fal","Syl","Ari","Kael","Thal","Eld","Rae","Fen","Aren","Fael","Lyr","Eryn","Cael"],
-        middle:["a","e","i","o","ae","el","en","er","il","or","yn"],
-        end:["an","en","iel","or","is","ar","yn","eth","on","ael","ren","iel"]
+        start:[
+            "Ryn","Ery","Fal","Syl","Ari",
+            "Kael","Thal","Eld","Rae","Fen",
+            "Aren","Fael","Lyr","Eryn","Cael"
+        ],
+
+        middle:[
+            "a","e","i","o","ae",
+            "el","en","er","il","or","yn"
+        ],
+
+        end:[
+            "an","en","iel","or","is",
+            "ar","yn","eth","on","ael","ren"
+        ]
     },
+
 
     villain:{
-        start:["Mor","Nox","Vyr","Dra","Mal","Zar","Rav","Vor","Vel","Kha","Ner","Xar","Drel","Vhal","Roth"],
-        middle:["a","e","o","u","y","ar","or","ur","av","ev","ir","yr","ax","ex"],
-        end:["oth","yx","eth","mor","vyr","is","ain","ar","iel","en","or","ven","aen"]
+        start:[
+            "Mor","Nox","Vyr","Dra","Mal",
+            "Zar","Rav","Vor","Vel","Kha",
+            "Ner","Xar","Drel","Vhal","Roth"
+        ],
+
+        middle:[
+            "a","e","o","u","y",
+            "ar","or","ur","av","ev",
+            "ir","yr","ax","ex"
+        ],
+
+        end:[
+            "oth","yx","eth","mor","vyr",
+            "is","ain","ar","iel","en",
+            "or","ven","aen"
+        ]
     },
+
 
     hero:{
-        start:["Al","Ael","Ar","Cael","Eld","Val","Rae","Kael","El","Ari","Aren","Eryn","Ther","Syl","Lio"],
-        middle:["a","ae","ai","e","ei","ia","io","o","el","er","ir","is","an","en"],
-        end:["ion","iel","ar","en","is","or","ian","eus","ael","yr","eth","rin","el"]
+        start:[
+            "Al","Ael","Ar","Cael","Eld",
+            "Val","Rae","Kael","El","Ari",
+            "Aren","Eryn","Ther","Syl","Lio"
+        ],
+
+        middle:[
+            "a","ae","ai","e","ei",
+            "ia","io","o","el","er",
+            "ir","is","an","en"
+        ],
+
+        end:[
+            "ion","iel","ar","en","is",
+            "or","ian","eus","ael","yr",
+            "eth","rin","el"
+        ]
     },
 
+
     necromancer:{
-        start:["Nec","Mor","Zar","Vey","Mal","Vor","Nox","Ere","Dra","Xal","Vyr","Kha","Roth","Ner","Zeth"],
-        middle:["a","e","o","u","y","ar","or","ur","el","er","ir","on","um"],
-        end:["oth","us","or","ax","eth","iel","on","ar","um","yx","aen","mor","vyr"]
+        start:[
+            "Nec","Mor","Zar","Vey","Mal",
+            "Vor","Nox","Ere","Dra","Xal",
+            "Vyr","Kha","Roth","Ner","Zeth"
+        ],
+
+        middle:[
+            "a","e","o","u","y",
+            "ar","or","ur","el","er",
+            "ir","on","um"
+        ],
+
+        end:[
+            "oth","us","or","ax","eth",
+            "iel","on","ar","um","yx",
+            "aen","mor","vyr"
+        ]
     }
 
 };
 
 
-/* =========================================================
-   CLASS INFORMATION
-   ========================================================= */
+/* ========================================= */
+/* CLASS INFORMATION */
+/* ========================================= */
 
 const classInfo = {
 
     warrior:{
         label:"Warrior",
         icon:"⚔️",
-        bestFor:"Warriors, knights, barbarians and frontline fighters",
+
+        bestFor:
+            "Warriors, knights, barbarians and frontline fighters",
+
         descriptions:[
             "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
             "A rugged name for a knight, mercenary or legendary swordsman.",
@@ -1050,10 +1674,14 @@ const classInfo = {
         ]
     },
 
+
     mage:{
         label:"Mage",
         icon:"🔮",
-        bestFor:"Wizards, sorcerers, scholars and spellcasters",
+
+        bestFor:
+            "Wizards, sorcerers, scholars and spellcasters",
+
         descriptions:[
             "A mystical name suited to a powerful mage or master of arcane magic.",
             "An elegant magical name for a wizard, sorcerer or keeper of forbidden knowledge.",
@@ -1061,10 +1689,14 @@ const classInfo = {
         ]
     },
 
+
     rogue:{
         label:"Rogue",
         icon:"🗡️",
-        bestFor:"Rogues, assassins, thieves and scouts",
+
+        bestFor:
+            "Rogues, assassins, thieves and scouts",
+
         descriptions:[
             "A sharp and agile name suited to a stealthy rogue or skilled assassin.",
             "A mysterious name for a thief, scout or character who prefers to stay in the shadows.",
@@ -1072,10 +1704,14 @@ const classInfo = {
         ]
     },
 
+
     paladin:{
         label:"Paladin",
         icon:"🛡️",
-        bestFor:"Paladins, holy knights and noble champions",
+
+        bestFor:
+            "Paladins, holy knights and noble champions",
+
         descriptions:[
             "A noble name suited to a holy knight, protector or champion of justice.",
             "A regal name that fits a paladin devoted to honor, courage and righteousness.",
@@ -1083,10 +1719,14 @@ const classInfo = {
         ]
     },
 
+
     ranger:{
         label:"Ranger",
         icon:"🏹",
-        bestFor:"Rangers, hunters, scouts and wilderness adventurers",
+
+        bestFor:
+            "Rangers, hunters, scouts and wilderness adventurers",
+
         descriptions:[
             "A nature-inspired name suited to a skilled ranger, hunter or wilderness scout.",
             "An adventurous name for a solitary tracker who knows the wilds better than any city.",
@@ -1094,10 +1734,14 @@ const classInfo = {
         ]
     },
 
+
     villain:{
         label:"Villain",
         icon:"💀",
-        bestFor:"Villains, warlords, dark lords and antagonists",
+
+        bestFor:
+            "Villains, warlords, dark lords and antagonists",
+
         descriptions:[
             "A dark and intimidating name suited to a dangerous antagonist or ruthless warlord.",
             "A sinister name for a mysterious villain, dark lord or feared enemy.",
@@ -1105,10 +1749,14 @@ const classInfo = {
         ]
     },
 
+
     hero:{
         label:"Hero",
         icon:"🦸",
-        bestFor:"Heroes, protagonists and legendary adventurers",
+
+        bestFor:
+            "Heroes, protagonists and legendary adventurers",
+
         descriptions:[
             "A heroic name suited to a brave protagonist or legendary adventurer.",
             "A memorable name for a character destined to overcome impossible odds.",
@@ -1116,10 +1764,14 @@ const classInfo = {
         ]
     },
 
+
     necromancer:{
         label:"Necromancer",
         icon:"☠️",
-        bestFor:"Necromancers, dark mages and masters of forbidden magic",
+
+        bestFor:
+            "Necromancers, dark mages and masters of forbidden magic",
+
         descriptions:[
             "A sinister name suited to a necromancer who studies forbidden magic and ancient secrets.",
             "A dark mystical name for a spellcaster obsessed with death, spirits and lost knowledge.",
@@ -1130,9 +1782,9 @@ const classInfo = {
 };
 
 
-/* =========================================================
-   TITLES
-   ========================================================= */
+/* ========================================= */
+/* TITLES */
+/* ========================================= */
 
 const titles = [
 
@@ -1155,9 +1807,9 @@ const titles = [
 ];
 
 
-/* =========================================================
-   RANDOM
-   ========================================================= */
+/* ========================================= */
+/* RANDOM ITEM */
+/* ========================================= */
 
 function randomItem(array){
 
@@ -1170,19 +1822,31 @@ function randomItem(array){
 }
 
 
-/* =========================================================
-   SESSION MEMORY
-   ========================================================= */
+/* ========================================= */
+/* USED NAMES */
+/* ========================================= */
 
 let usedNames = [];
 
 try{
 
-    usedNames = JSON.parse(
+    const saved =
         sessionStorage.getItem(
             "nameforgeRPGUsed"
-        ) || "[]"
-    );
+        );
+
+    if(saved){
+
+        const parsed =
+            JSON.parse(saved);
+
+        if(Array.isArray(parsed)){
+
+            usedNames = parsed;
+
+        }
+
+    }
 
 }catch(error){
 
@@ -1191,9 +1855,9 @@ try{
 }
 
 
-/* =========================================================
-   REMEMBER NAME
-   ========================================================= */
+/* ========================================= */
+/* REMEMBER NAME */
+/* ========================================= */
 
 function rememberName(name){
 
@@ -1208,16 +1872,20 @@ function rememberName(name){
                 JSON.stringify(usedNames)
             );
 
-        }catch(error){}
+        }catch(error){
+
+            /* Storage unavailable */
+
+        }
 
     }
 
 }
 
 
-/* =========================================================
-   CLEAR MEMORY
-   ========================================================= */
+/* ========================================= */
+/* CLEAR USED NAMES */
+/* ========================================= */
 
 function clearUsedNames(){
 
@@ -1229,18 +1897,23 @@ function clearUsedNames(){
             "nameforgeRPGUsed"
         );
 
-    }catch(error){}
+    }catch(error){
+
+        /* Storage unavailable */
+
+    }
 
 }
 
 
-/* =========================================================
-   CREATE BASE NAME
-   ========================================================= */
+/* ========================================= */
+/* CREATE BASE NAME */
+/* ========================================= */
 
 function createBaseName(type){
 
-    const parts = nameParts[type];
+    const parts =
+        nameParts[type];
 
     const structure =
         Math.floor(
@@ -1291,21 +1964,25 @@ function createBaseName(type){
 }
 
 
-/* =========================================================
-   CLEAN NAME
-   ========================================================= */
+/* ========================================= */
+/* CLEAN NAME */
+/* ========================================= */
 
 function cleanName(name){
 
-    name = name.replace(
-        /([aeiou])\1{2,}/gi,
-        "$1"
-    );
+    name =
+        name.replace(
+            /([aeiou])\1{2,}/gi,
+            "$1"
+        );
 
-    name = name.replace(
-        /(ion|iel|ian|eth|ael)\1+/gi,
-        "$1"
-    );
+
+    name =
+        name.replace(
+            /(ion|iel|ian|eth|ael)\1+/gi,
+            "$1"
+        );
+
 
     return (
         name.charAt(0).toUpperCase() +
@@ -1315,22 +1992,21 @@ function cleanName(name){
 }
 
 
-/* =========================================================
-   MAKE NAME
-   ========================================================= */
+/* ========================================= */
+/* MAKE NAME */
+/* ========================================= */
 
 function makeName(type,length){
 
-    let name =
-        cleanName(
-            createBaseName(type)
-        );
+    const parts =
+        nameParts[type];
 
+    let name;
+
+
+    /* SHORT */
 
     if(length === "short"){
-
-        const parts =
-            nameParts[type];
 
         name =
             cleanName(
@@ -1341,10 +2017,21 @@ function makeName(type,length){
     }
 
 
-    if(length === "long"){
+    /* MEDIUM */
 
-        const parts =
-            nameParts[type];
+    else if(length === "medium"){
+
+        name =
+            cleanName(
+                createBaseName(type)
+            );
+
+    }
+
+
+    /* LONG */
+
+    else{
 
         name =
             cleanName(
@@ -1356,6 +2043,8 @@ function makeName(type,length){
 
     }
 
+
+    /* OCCASIONAL TITLE */
 
     if(
         Math.random() < 0.18 &&
@@ -1374,9 +2063,9 @@ function makeName(type,length){
 }
 
 
-/* =========================================================
-   GENERATE
-   ========================================================= */
+/* ========================================= */
+/* GENERATE 9 NAMES */
+/* ========================================= */
 
 function generate(){
 
@@ -1384,6 +2073,7 @@ function generate(){
         document.getElementById(
             "classType"
         ).value;
+
 
     const length =
         document.getElementById(
@@ -1405,20 +2095,26 @@ function generate(){
 
 
         const name =
-            makeName(type,length);
+            makeName(
+                type,
+                length
+            );
+
+
+        const alreadyInResults =
+            results.some(
+                result =>
+                    result.name === name
+            );
+
+
+        const alreadyUsed =
+            usedNames.includes(name);
 
 
         if(
-
-            !results.some(
-                result =>
-                    result.name === name
-            )
-
-            &&
-
-            !usedNames.includes(name)
-
+            !alreadyInResults &&
+            !alreadyUsed
         ){
 
             results.push({
@@ -1427,17 +2123,21 @@ function generate(){
 
                 description:
                     randomItem(
-                        classInfo[type].descriptions
+                        classInfo[type]
+                            .descriptions
                     ),
 
                 style:
-                    classInfo[type].label,
+                    classInfo[type]
+                        .label,
 
                 icon:
-                    classInfo[type].icon,
+                    classInfo[type]
+                        .icon,
 
                 bestFor:
-                    classInfo[type].bestFor
+                    classInfo[type]
+                        .bestFor
 
             });
 
@@ -1450,8 +2150,9 @@ function generate(){
 
 
     /*
-     * If enough new names cannot be produced,
-     * reset the session memory and generate again.
+     * If the current session has used
+     * too many names, clear the memory
+     * and try again.
      */
 
     if(results.length < 9){
@@ -1465,72 +2166,65 @@ function generate(){
     }
 
 
-    /* =====================================================
-       DISPLAY
-       ===================================================== */
+    /* ========================================= */
+    /* DISPLAY RESULTS */
+    /* ========================================= */
 
-    document.getElementById(
-        "results"
-    ).innerHTML =
+    const resultsContainer =
+        document.getElementById(
+            "results"
+        );
+
+
+    resultsContainer.innerHTML =
 
         results.map(result => `
 
             <div class="result">
 
-                <div
-                    class="result-name"
-                    style="
-                        font-size:1.35rem;
-                        font-weight:950;
-                        margin-bottom:8px;
-                    "
-                >
+
+                <div class="result-name">
+
                     ${result.name}
+
                 </div>
 
 
-                <div
-                    style="
-                        color:#a78bfa;
-                        font-size:.85rem;
-                        font-weight:850;
-                        margin-bottom:8px;
-                    "
-                >
+                <div class="result-class">
+
                     ${result.icon}
                     ${result.style}
+
                 </div>
 
 
-                <p
-                    style="
-                        color:#9ba7bd;
-                        line-height:1.55;
-                        margin-bottom:12px;
-                    "
-                >
+                <p class="result-description">
+
                     ${result.description}
+
                 </p>
 
 
-                <div
-                    style="
-                        font-size:.82rem;
-                        color:#7f8ba3;
-                        margin-bottom:14px;
-                    "
-                >
-                    <strong>Best for:</strong>
+                <div class="result-best">
+
+                    <strong>
+                        Best for:
+                    </strong>
+
                     ${result.bestFor}
+
                 </div>
 
 
                 <button
                     class="copy"
-                    onclick="copyName('${result.name.replace(/'/g,"\\'")}')"
+                    onclick="copyName(${JSON.stringify(result.name)})"
                 >
+
                     📋 Copy name
+
                 </button>
+
 
             </div>
 
@@ -1539,9 +2233,9 @@ function generate(){
 }
 
 
-/* =========================================================
-   COPY
-   ========================================================= */
+/* ========================================= */
+/* COPY NAME */
+/* ========================================= */
 
 async function copyName(name){
 
@@ -1551,9 +2245,11 @@ async function copyName(name){
             name
         );
 
+
         alert(
             "Name copied: " + name
         );
+
 
     }catch(error){
 
@@ -1566,14 +2262,16 @@ async function copyName(name){
 }
 
 
-/* =========================================================
-   INITIAL GENERATION
-   ========================================================= */
+/* ========================================= */
+/* INITIAL GENERATION */
+/* ========================================= */
 
 generate();
 
 </script>
-```
+
 
 </body>
+
 </html>
+```
