@@ -1025,222 +1025,567 @@ RPGs and fictional worlds.
 
 
 
+```html
 <script>
 
-const prefixes={
-
-hero:[
-"Al","Ael","Ar","Cael","Eld","Val",
-"Rae","Kael","El","Ari"
-],
-
-warrior:[
-"Thar","Gar","Drak","Kor","Rag","Val",
-"Bran","Tor","Dun","Khar"
-],
-
-mage:[
-"Ar","Ely","My","Zel","Ari","Syl",
-"Vael","Nym","Eli","Ser"
-],
-
-dark:[
-"Mor","Nox","Vel","Vyr","Dra","Mal",
-"Zar","Rav","Nyx","Vor"
-],
-
-royal:[
-"Aur","Val","Ely","Cal","Lor","Ari",
-"Ed","El","Ser","Ael"
-],
-
-ancient:[
-"Az","Eon","Thal","Ery","Ur","Aen",
-"Vael","Or","Eld","Ith"
-]
-
-};
+/* =========================
+   NAMEFORGE FANTASY GENERATOR
+   ========================= */
 
 
-const endings={
+/* =========================
+   NAME PARTS
+   ========================= */
 
-hero:[
-"ion","iel","ar","en","is","or",
-"ian","eus","ael","yr"
-],
+const prefixes = {
 
-warrior:[
-"gar","dor","rik","dan","ar","orn",
-"vald","ak","us","ron"
-],
+    hero:[
+        "Al","Ael","Ar","Cael","Eld","Val",
+        "Rae","Kael","El","Ari","Aer","Lio",
+        "Ery","Ther","Vael","Eryn","Cal","Ryn",
+        "Aren","Syl"
+    ],
 
-mage:[
-"iel","ara","is","yne","ora","eth",
-"ia","ael","eris","ion"
-],
+    warrior:[
+        "Thar","Gar","Drak","Kor","Rag","Val",
+        "Bran","Tor","Dun","Khar","Grim","Ror",
+        "Dra","Var","Karn","Thorn","Bor","Ragor",
+        "Keld","Dran"
+    ],
 
-dark:[
-"oth","yx","eth","mor","vyr","is",
-"ain","ar","iel","en"
-],
+    mage:[
+        "Ar","Ely","My","Zel","Ari","Syl",
+        "Vael","Nym","Eli","Ser","Aen","Lun",
+        "Elar","Vey","Ily","Oryn","Thael","Elyr",
+        "Aeth","Myr"
+    ],
 
-royal:[
-"ius","ian","or","elle","ara","is",
-"ion","eus","ael","ia"
-],
+    dark:[
+        "Mor","Nox","Vel","Vyr","Dra","Mal",
+        "Zar","Rav","Nyx","Vor","Kha","Zer",
+        "Vex","Drel","Morth","Ner","Vhal","Xar",
+        "Dym","Roth"
+    ],
 
-ancient:[
-"us","ae","on","os","iel","eth",
-"ar","is","um","ael"
-]
+    royal:[
+        "Aur","Val","Ely","Cal","Lor","Ari",
+        "Ed","El","Ser","Ael","Cyr","Alar",
+        "Edr","Valen","Aure","Cael","Riel","Ther",
+        "Eron","Aris"
+    ],
+
+    ancient:[
+        "Az","Eon","Thal","Ery","Ur","Aen",
+        "Vael","Or","Eld","Ith","Azh","Eon",
+        "Thar","Eru","Vael","Oryn","Eldor","Aeth",
+        "Urien","Ithar"
+    ]
 
 };
 
 
-const extra=[
+/* =========================
+   NAME ENDINGS
+   ========================= */
 
-"the Wise",
-"the Brave",
-"the Fallen",
-"the Eternal",
-"the Ancient",
-"the Wanderer",
-"the Shadow",
-"the Stormborn",
-"the Forgotten",
-"the Immortal"
+const endings = {
+
+    hero:[
+        "ion","iel","ar","en","is","or",
+        "ian","eus","ael","yr","ion","iel",
+        "ar","en","is","or","eth","rin",
+        "ian","el"
+    ],
+
+    warrior:[
+        "gar","dor","rik","dan","ar","orn",
+        "vald","ak","us","ron","dar","rik",
+        "gor","dan","orn","rak","var","dur",
+        "kar","thor"
+    ],
+
+    mage:[
+        "iel","ara","is","yne","ora","eth",
+        "ia","ael","eris","ion","iel","ara",
+        "is","yne","ora","eth","ion","aris",
+        "iel","ora"
+    ],
+
+    dark:[
+        "oth","yx","eth","mor","vyr","is",
+        "ain","ar","iel","en","oth","yx",
+        "eth","vyr","is","ar","or","eth",
+        "ain","iel"
+    ],
+
+    royal:[
+        "ius","ian","or","elle","ara","is",
+        "ion","eus","ael","ia","ius","ian",
+        "or","elle","ara","is","ion","eus",
+        "ael","en"
+    ],
+
+    ancient:[
+        "us","ae","on","os","iel","eth",
+        "ar","is","um","ael","on","os",
+        "iel","eth","ar","is","um","ael",
+        "ion","or"
+    ]
+
+};
+
+
+/* =========================
+   TITLES
+   ========================= */
+
+const extra = [
+
+    "the Wise",
+    "the Brave",
+    "the Fallen",
+    "the Eternal",
+    "the Ancient",
+    "the Wanderer",
+    "the Shadow",
+    "the Stormborn",
+    "the Forgotten",
+    "the Immortal",
+    "the Silent",
+    "the Exiled",
+    "the Unbroken",
+    "the Mystic",
+    "the Nameless"
 
 ];
 
+
+/* =========================
+   STYLE INFORMATION
+   ========================= */
+
+const styleInfo = {
+
+    hero:{
+        label:"Heroic",
+        icon:"⚔️",
+        bestFor:"Heroes, adventurers and legendary champions",
+        descriptions:[
+            "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
+            "A noble name that fits a courageous hero destined for an important quest.",
+            "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
+            "A classic heroic name suited to a character who inspires others through courage."
+        ]
+    },
+
+    warrior:{
+        label:"Warrior",
+        icon:"⚔️",
+        bestFor:"Warriors, knights and battle commanders",
+        descriptions:[
+            "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
+            "A powerful name for a knight, mercenary or commander known for strength and determination.",
+            "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
+            "A fierce name suited to a battle-hardened champion or military leader."
+        ]
+    },
+
+    mage:{
+        label:"Mystical",
+        icon:"🔮",
+        bestFor:"Mages, wizards and spellcasters",
+        descriptions:[
+            "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
+            "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
+            "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
+            "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
+        ]
+    },
+
+    dark:{
+        label:"Dark",
+        icon:"🌑",
+        bestFor:"Villains, assassins and mysterious characters",
+        descriptions:[
+            "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
+            "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
+            "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
+            "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
+        ]
+    },
+
+    royal:{
+        label:"Royal",
+        icon:"👑",
+        bestFor:"Kings, queens, princes and noble characters",
+        descriptions:[
+            "A noble and elegant name suited to a king, queen or powerful ruler.",
+            "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
+            "A sophisticated name for a monarch, noble heir or influential ruler.",
+            "An elegant royal name suited to a character born into power and tradition."
+        ]
+    },
+
+    ancient:{
+        label:"Ancient",
+        icon:"🏛️",
+        bestFor:"Ancient beings, sages and legendary characters",
+        descriptions:[
+            "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
+            "A mysterious archaic name that fits an ancient guardian or legendary figure.",
+            "A timeless name suited to a character connected to forgotten civilizations and old magic.",
+            "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
+        ]
+    }
+
+};
+
+
+/* =========================
+   RANDOM ITEM
+   ========================= */
 
 function item(array){
 
-return array[
-Math.floor(
-Math.random()*array.length
-)
-];
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
 
 }
 
 
-function makeName(style,length){
+/* =========================
+   SESSION MEMORY
+   ========================= */
 
-let name=
-item(prefixes[style])+
-item(endings[style]);
-
-
-if(length==="short"){
-
-name=
-item(prefixes[style])+
-item(
-endings[style]
-).slice(0,2);
-
-}
-
-
-if(length==="long"){
-
-name+=
-item(endings[style]);
-
-}
-
-
-if(
-Math.random()<.20 &&
-length!=="short"
-){
-
-name+=" "+item(extra);
-
-}
-
-
-return name;
-
-}
-
-
-function generate(){
-
-const style=
-document.getElementById("style").value;
-
-const length=
-document.getElementById("length").value;
-
-
-const names=[];
-
-while(names.length<9){
-
-const name=
-makeName(style,length);
-
-if(!names.includes(name)){
-
-names.push(name);
-
-}
-
-}
-
-
-document.getElementById(
-"results"
-).innerHTML=
-
-names.map(name=>`
-
-<div class="result">
-
-<div class="result-name">
-${name}
-</div>
-
-<button
-class="copy"
-onclick="copyName('${name.replace(/'/g,"\\'")}')"
->
-📋 Copy name
-</button>
-
-</div>
-
-`).join("");
-
-}
-
-
-async function copyName(name){
+let usedNames = [];
 
 try{
 
-await navigator.clipboard.writeText(name);
+    usedNames =
+        JSON.parse(
+            sessionStorage.getItem("nameforgeFantasyUsed") || "[]"
+        );
 
-alert(
-"Name copied: "+name
-);
+}catch(error){
 
-}
-catch{
-
-alert(
-"Name: "+name
-);
+    usedNames = [];
 
 }
 
+
+/* =========================
+   SAVE USED NAME
+   ========================= */
+
+function rememberName(name){
+
+    if(!usedNames.includes(name)){
+
+        usedNames.push(name);
+
+        try{
+
+            sessionStorage.setItem(
+                "nameforgeFantasyUsed",
+                JSON.stringify(usedNames)
+            );
+
+        }catch(error){
+
+            /* Storage unavailable */
+
+        }
+
+    }
+
 }
 
+
+/* =========================
+   CLEAR USED NAMES
+   ========================= */
+
+function clearUsedNames(){
+
+    usedNames = [];
+
+    try{
+
+        sessionStorage.removeItem(
+            "nameforgeFantasyUsed"
+        );
+
+    }catch(error){
+
+        /* Storage unavailable */
+
+    }
+
+}
+
+
+/* =========================
+   CREATE NAME
+   ========================= */
+
+function makeName(style,length){
+
+    let name =
+        item(prefixes[style]) +
+        item(endings[style]);
+
+
+    /* SHORT */
+
+    if(length === "short"){
+
+        name =
+            item(prefixes[style]) +
+            item(endings[style]).slice(0,2);
+
+    }
+
+
+    /* LONG */
+
+    if(length === "long"){
+
+        name +=
+            item(endings[style]);
+
+    }
+
+
+    /* TITLE */
+
+    if(
+        Math.random() < .20 &&
+        length !== "short"
+    ){
+
+        name +=
+            " " +
+            item(extra);
+
+    }
+
+
+    return name;
+
+}
+
+
+/* =========================
+   CREATE DESCRIPTION
+   ========================= */
+
+function makeDescription(style){
+
+    return item(
+        styleInfo[style].descriptions
+    );
+
+}
+
+
+/* =========================
+   GENERATE
+   ========================= */
+
+function generate(){
+
+    const style =
+        document.getElementById("style").value;
+
+    const length =
+        document.getElementById("length").value;
+
+
+    const results = [];
+
+    let attempts = 0;
+
+
+    while(
+        results.length < 9 &&
+        attempts < 500
+    ){
+
+        attempts++;
+
+
+        const name =
+            makeName(style,length);
+
+
+        /*
+         * Prevent duplicates inside
+         * the current generation AND
+         * previous generations.
+         */
+
+        if(
+            !results.some(
+                result => result.name === name
+            ) &&
+            !usedNames.includes(name)
+        ){
+
+            const result = {
+
+                name:name,
+
+                description:
+                    makeDescription(style),
+
+                style:
+                    styleInfo[style].label,
+
+                icon:
+                    styleInfo[style].icon,
+
+                bestFor:
+                    styleInfo[style].bestFor
+
+            };
+
+
+            results.push(result);
+
+            rememberName(name);
+
+        }
+
+    }
+
+
+    /*
+     * If the current combination pool
+     * becomes too small, reset the
+     * session memory automatically.
+     */
+
+    if(results.length < 9){
+
+        clearUsedNames();
+
+        generate();
+
+        return;
+
+    }
+
+
+    /* =========================
+       DISPLAY
+       ========================= */
+
+    document.getElementById("results").innerHTML =
+
+        results.map(result => `
+
+            <div class="result">
+
+                <div
+                    class="result-name"
+                    style="
+                        font-size:1.35rem;
+                        font-weight:900;
+                        margin-bottom:8px;
+                    "
+                >
+                    ${result.name}
+                </div>
+
+
+                <div
+                    style="
+                        color:#a78bfa;
+                        font-size:.85rem;
+                        font-weight:800;
+                        margin-bottom:8px;
+                    "
+                >
+                    ${result.icon}
+                    ${result.style}
+                </div>
+
+
+                <p
+                    style="
+                        color:#9ba7bd;
+                        line-height:1.55;
+                        margin-bottom:12px;
+                    "
+                >
+                    ${result.description}
+                </p>
+
+
+                <div
+                    style="
+                        font-size:.82rem;
+                        color:#7f8ba3;
+                        margin-bottom:14px;
+                    "
+                >
+                    <strong>Best for:</strong>
+                    ${result.bestFor}
+                </div>
+
+
+                <button
+                    class="copy"
+                    onclick="copyName('${result.name.replace(/'/g,"\\'")}')"
+                >
+                    📋 Copy name
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================
+   COPY NAME
+   ========================= */
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard.writeText(name);
+
+        alert(
+            "Name copied: " + name
+        );
+
+    }
+
+    catch(error){
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+/* =========================
+   INITIAL GENERATION
+   ========================= */
 
 generate();
 
 </script>
+```
 
 
 </body>
