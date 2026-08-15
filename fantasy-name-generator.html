@@ -1026,118 +1026,156 @@ RPGs and fictional worlds.
 
 
 ```html
+```html
 <script>
 
-/* =========================
-   NAMEFORGE FANTASY GENERATOR
-   ========================= */
+/* =========================================================
+   NAMEFORGE — FANTASY NAME GENERATOR V2
+   ========================================================= */
 
 
-/* =========================
-   NAME PARTS
-   ========================= */
+/* =========================================================
+   NAME BUILDING BLOCKS
+   ========================================================= */
 
-const prefixes = {
+const nameParts = {
 
-    hero:[
-        "Al","Ael","Ar","Cael","Eld","Val",
-        "Rae","Kael","El","Ari","Aer","Lio",
-        "Ery","Ther","Vael","Eryn","Cal","Ryn",
-        "Aren","Syl"
-    ],
+    hero: {
 
-    warrior:[
-        "Thar","Gar","Drak","Kor","Rag","Val",
-        "Bran","Tor","Dun","Khar","Grim","Ror",
-        "Dra","Var","Karn","Thorn","Bor","Ragor",
-        "Keld","Dran"
-    ],
+        start: [
+            "Al","Ael","Aer","Ari","Cael","Cal","Eld","Ely",
+            "Kael","Rae","Val","Syl","Aren","Eryn","Lio",
+            "Ther","Vael","Cyr","El","Ar"
+        ],
 
-    mage:[
-        "Ar","Ely","My","Zel","Ari","Syl",
-        "Vael","Nym","Eli","Ser","Aen","Lun",
-        "Elar","Vey","Ily","Oryn","Thael","Elyr",
-        "Aeth","Myr"
-    ],
+        middle: [
+            "a","ae","ai","e","ei","ia","io","o","or",
+            "el","er","ir","is","an","en","in","on"
+        ],
 
-    dark:[
-        "Mor","Nox","Vel","Vyr","Dra","Mal",
-        "Zar","Rav","Nyx","Vor","Kha","Zer",
-        "Vex","Drel","Morth","Ner","Vhal","Xar",
-        "Dym","Roth"
-    ],
+        end: [
+            "ion","iel","ian","or","en","is","eus","ael",
+            "ar","yr","eth","rin","iel","on","el","ian"
+        ]
 
-    royal:[
-        "Aur","Val","Ely","Cal","Lor","Ari",
-        "Ed","El","Ser","Ael","Cyr","Alar",
-        "Edr","Valen","Aure","Cael","Riel","Ther",
-        "Eron","Aris"
-    ],
+    },
 
-    ancient:[
-        "Az","Eon","Thal","Ery","Ur","Aen",
-        "Vael","Or","Eld","Ith","Azh","Eon",
-        "Thar","Eru","Vael","Oryn","Eldor","Aeth",
-        "Urien","Ithar"
-    ]
+
+    warrior: {
+
+        start: [
+            "Br","Dr","Gar","Gor","Kar","Khar","Kor","Rag",
+            "Ror","Thar","Tor","Var","Dun","Grim","Keld",
+            "Bor","Drak","Rag","Varn","Thorn"
+        ],
+
+        middle: [
+            "a","ar","e","o","u","ak","an","or",
+            "ur","ar","er","on","un"
+        ],
+
+        end: [
+            "gar","gor","dor","dar","rik","rak","ron",
+            "orn","vald","var","dur","dan","kar","thor",
+            "ak","us","ar"
+        ]
+
+    },
+
+
+    mage: {
+
+        start: [
+            "Ae","Ael","Aen","Ar","Ely","Eli","Elar","Ily",
+            "Lun","Myr","Nym","Oryn","Ser","Syl","Thael",
+            "Vael","Vey","Zel","Aeth","Eryn"
+        ],
+
+        middle: [
+            "a","ae","ai","e","ei","ia","ie","io",
+            "y","el","er","il","ir","or","yn"
+        ],
+
+        end: [
+            "iel","ia","ara","ora","eris","yne","eth",
+            "ael","ion","is","iel","aris","ora","eus",
+            "ine","aeth"
+        ]
+
+    },
+
+
+    dark: {
+
+        start: [
+            "Mor","Nox","Nyx","Mal","Vel","Vyr","Vor","Rav",
+            "Zar","Zer","Kha","Vex","Dra","Drel","Morth",
+            "Ner","Vhal","Xar","Roth","Dym"
+        ],
+
+        middle: [
+            "a","e","o","u","y","ar","or","ur",
+            "av","ev","ir","yr","ax","ex"
+        ],
+
+        end: [
+            "oth","yx","eth","mor","vyr","ain","ar",
+            "iel","en","or","is","eth","aen","yr",
+            "ax","ven"
+        ]
+
+    },
+
+
+    royal: {
+
+        start: [
+            "Aur","Aure","Cal","Cyr","Edr","Ely","El",
+            "Lor","Val","Valen","Ari","Aris","Ser",
+            "Riel","Cael","Ther","Alar","Eron","Ed","Ael"
+        ],
+
+        middle: [
+            "a","ae","e","ia","io","el","er","or",
+            "an","en","ian","elle"
+        ],
+
+        end: [
+            "ius","ian","or","elle","ara","is","ion",
+            "eus","ael","ia","en","iel","or","ian",
+            "elle","aris"
+        ]
+
+    },
+
+
+    ancient: {
+
+        start: [
+            "Az","Azh","Aen","Eon","Eld","Eldor","Ery",
+            "Ith","Ithar","Or","Oryn","Thal","Ur","Urien",
+            "Vael","Aeth","Eru","Thae","Zor","Ael"
+        ],
+
+        middle: [
+            "a","ae","e","ia","io","u","or","ur",
+            "el","er","an","en","on","um"
+        ],
+
+        end: [
+            "us","ae","on","os","iel","eth","ar","is",
+            "um","ael","ion","or","eus","ian","ith",
+            "aen"
+        ]
+
+    }
 
 };
 
 
-/* =========================
-   NAME ENDINGS
-   ========================= */
-
-const endings = {
-
-    hero:[
-        "ion","iel","ar","en","is","or",
-        "ian","eus","ael","yr","ion","iel",
-        "ar","en","is","or","eth","rin",
-        "ian","el"
-    ],
-
-    warrior:[
-        "gar","dor","rik","dan","ar","orn",
-        "vald","ak","us","ron","dar","rik",
-        "gor","dan","orn","rak","var","dur",
-        "kar","thor"
-    ],
-
-    mage:[
-        "iel","ara","is","yne","ora","eth",
-        "ia","ael","eris","ion","iel","ara",
-        "is","yne","ora","eth","ion","aris",
-        "iel","ora"
-    ],
-
-    dark:[
-        "oth","yx","eth","mor","vyr","is",
-        "ain","ar","iel","en","oth","yx",
-        "eth","vyr","is","ar","or","eth",
-        "ain","iel"
-    ],
-
-    royal:[
-        "ius","ian","or","elle","ara","is",
-        "ion","eus","ael","ia","ius","ian",
-        "or","elle","ara","is","ion","eus",
-        "ael","en"
-    ],
-
-    ancient:[
-        "us","ae","on","os","iel","eth",
-        "ar","is","um","ael","on","os",
-        "iel","eth","ar","is","um","ael",
-        "ion","or"
-    ]
-
-};
-
-
-/* =========================
+/* =========================================================
    TITLES
-   ========================= */
+   ========================================================= */
 
 const extra = [
 
@@ -1155,95 +1193,165 @@ const extra = [
     "the Exiled",
     "the Unbroken",
     "the Mystic",
-    "the Nameless"
+    "the Nameless",
+    "the Oathbound",
+    "the Unyielding",
+    "the Last",
+    "the Arcane",
+    "the Guardian"
 
 ];
 
 
-/* =========================
+/* =========================================================
    STYLE INFORMATION
-   ========================= */
+   ========================================================= */
 
 const styleInfo = {
 
-    hero:{
+    hero: {
+
         label:"Heroic",
         icon:"⚔️",
-        bestFor:"Heroes, adventurers and legendary champions",
-        descriptions:[
+
+        bestFor:
+            "Heroes, adventurers and legendary champions",
+
+        descriptions: [
+
             "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
+
             "A noble name that fits a courageous hero destined for an important quest.",
+
             "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
+
             "A classic heroic name suited to a character who inspires others through courage."
+
         ]
+
     },
 
-    warrior:{
+
+    warrior: {
+
         label:"Warrior",
         icon:"⚔️",
-        bestFor:"Warriors, knights and battle commanders",
-        descriptions:[
+
+        bestFor:
+            "Warriors, knights and battle commanders",
+
+        descriptions: [
+
             "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
+
             "A powerful name for a knight, mercenary or commander known for strength and determination.",
+
             "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
+
             "A fierce name suited to a battle-hardened champion or military leader."
+
         ]
+
     },
 
-    mage:{
+
+    mage: {
+
         label:"Mystical",
         icon:"🔮",
-        bestFor:"Mages, wizards and spellcasters",
-        descriptions:[
+
+        bestFor:
+            "Mages, wizards and spellcasters",
+
+        descriptions: [
+
             "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
+
             "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
+
             "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
+
             "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
+
         ]
+
     },
 
-    dark:{
+
+    dark: {
+
         label:"Dark",
         icon:"🌑",
-        bestFor:"Villains, assassins and mysterious characters",
-        descriptions:[
+
+        bestFor:
+            "Villains, assassins and mysterious characters",
+
+        descriptions: [
+
             "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
+
             "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
+
             "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
+
             "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
+
         ]
+
     },
 
-    royal:{
+
+    royal: {
+
         label:"Royal",
         icon:"👑",
-        bestFor:"Kings, queens, princes and noble characters",
-        descriptions:[
+
+        bestFor:
+            "Kings, queens, princes and noble characters",
+
+        descriptions: [
+
             "A noble and elegant name suited to a king, queen or powerful ruler.",
+
             "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
+
             "A sophisticated name for a monarch, noble heir or influential ruler.",
+
             "An elegant royal name suited to a character born into power and tradition."
+
         ]
+
     },
 
-    ancient:{
+
+    ancient: {
+
         label:"Ancient",
         icon:"🏛️",
-        bestFor:"Ancient beings, sages and legendary characters",
-        descriptions:[
+
+        bestFor:
+            "Ancient beings, sages and legendary characters",
+
+        descriptions: [
+
             "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
+
             "A mysterious archaic name that fits an ancient guardian or legendary figure.",
+
             "A timeless name suited to a character connected to forgotten civilizations and old magic.",
+
             "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
+
         ]
+
     }
 
 };
 
 
-/* =========================
-   RANDOM ITEM
-   ========================= */
+/* =========================================================
+   RANDOM HELPER
+   ========================================================= */
 
 function item(array){
 
@@ -1256,29 +1364,31 @@ function item(array){
 }
 
 
-/* =========================
+/* =========================================================
    SESSION MEMORY
-   ========================= */
+   ========================================================= */
 
 let usedNames = [];
 
-try{
+try {
 
     usedNames =
         JSON.parse(
-            sessionStorage.getItem("nameforgeFantasyUsed") || "[]"
+            sessionStorage.getItem(
+                "nameforgeFantasyUsed"
+            ) || "[]"
         );
 
-}catch(error){
+} catch(error) {
 
     usedNames = [];
 
 }
 
 
-/* =========================
-   SAVE USED NAME
-   ========================= */
+/* =========================================================
+   REMEMBER NAME
+   ========================================================= */
 
 function rememberName(name){
 
@@ -1286,65 +1396,168 @@ function rememberName(name){
 
         usedNames.push(name);
 
-        try{
+        try {
 
             sessionStorage.setItem(
                 "nameforgeFantasyUsed",
                 JSON.stringify(usedNames)
             );
 
-        }catch(error){
-
-            /* Storage unavailable */
-
-        }
+        } catch(error) {}
 
     }
 
 }
 
 
-/* =========================
-   CLEAR USED NAMES
-   ========================= */
+/* =========================================================
+   CLEAR MEMORY
+   ========================================================= */
 
 function clearUsedNames(){
 
     usedNames = [];
 
-    try{
+    try {
 
         sessionStorage.removeItem(
             "nameforgeFantasyUsed"
         );
 
-    }catch(error){
-
-        /* Storage unavailable */
-
-    }
+    } catch(error) {}
 
 }
 
 
-/* =========================
+/* =========================================================
+   CREATE BASE NAME
+   ========================================================= */
+
+function createBaseName(style){
+
+    const parts = nameParts[style];
+
+    const structure =
+        Math.floor(
+            Math.random() * 4
+        );
+
+
+    /* START + END */
+
+    if(structure === 0){
+
+        return (
+            item(parts.start) +
+            item(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + END */
+
+    if(structure === 1){
+
+        return (
+            item(parts.start) +
+            item(parts.middle) +
+            item(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + MIDDLE + END */
+
+    if(structure === 2){
+
+        return (
+            item(parts.start) +
+            item(parts.middle) +
+            item(parts.middle) +
+            item(parts.end)
+        );
+
+    }
+
+
+    /* START + MIDDLE + END + END */
+
+    return (
+        item(parts.start) +
+        item(parts.middle) +
+        item(parts.end) +
+        item(parts.end)
+    );
+
+}
+
+
+/* =========================================================
+   CLEAN NAME
+   ========================================================= */
+
+function cleanName(name){
+
+    /*
+     * Remove accidental repeated vowels.
+     */
+
+    name =
+        name.replace(
+            /([aeiou])\1{2,}/gi,
+            "$1"
+        );
+
+
+    /*
+     * Prevent excessive repeated endings.
+     */
+
+    name =
+        name.replace(
+            /(ion|iel|ian|eth|ael)\1+/gi,
+            "$1"
+        );
+
+
+    /*
+     * Capitalize first letter.
+     */
+
+    return (
+        name.charAt(0).toUpperCase() +
+        name.slice(1)
+    );
+
+}
+
+
+/* =========================================================
    CREATE NAME
-   ========================= */
+   ========================================================= */
 
 function makeName(style,length){
 
     let name =
-        item(prefixes[style]) +
-        item(endings[style]);
+        cleanName(
+            createBaseName(style)
+        );
 
 
     /* SHORT */
 
     if(length === "short"){
 
+        const parts =
+            nameParts[style];
+
         name =
-            item(prefixes[style]) +
-            item(endings[style]).slice(0,2);
+            cleanName(
+                item(parts.start) +
+                item(parts.end).slice(0,2)
+            );
 
     }
 
@@ -1353,16 +1566,24 @@ function makeName(style,length){
 
     if(length === "long"){
 
-        name +=
-            item(endings[style]);
+        const parts =
+            nameParts[style];
+
+        name =
+            cleanName(
+                item(parts.start) +
+                item(parts.middle) +
+                item(parts.end) +
+                item(parts.end)
+            );
 
     }
 
 
-    /* TITLE */
+    /* OPTIONAL TITLE */
 
     if(
-        Math.random() < .20 &&
+        Math.random() < 0.18 &&
         length !== "short"
     ){
 
@@ -1378,9 +1599,9 @@ function makeName(style,length){
 }
 
 
-/* =========================
-   CREATE DESCRIPTION
-   ========================= */
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
 function makeDescription(style){
 
@@ -1391,9 +1612,9 @@ function makeDescription(style){
 }
 
 
-/* =========================
+/* =========================================================
    GENERATE
-   ========================= */
+   ========================================================= */
 
 function generate(){
 
@@ -1411,7 +1632,7 @@ function generate(){
 
     while(
         results.length < 9 &&
-        attempts < 500
+        attempts < 1000
     ){
 
         attempts++;
@@ -1422,16 +1643,23 @@ function generate(){
 
 
         /*
-         * Prevent duplicates inside
-         * the current generation AND
-         * previous generations.
+         * Prevent duplicates in:
+         *
+         * 1. Current generation
+         * 2. Previous generations
          */
 
         if(
+
             !results.some(
-                result => result.name === name
-            ) &&
+                result =>
+                    result.name === name
+            )
+
+            &&
+
             !usedNames.includes(name)
+
         ){
 
             const result = {
@@ -1464,8 +1692,7 @@ function generate(){
 
     /*
      * If the current combination pool
-     * becomes too small, reset the
-     * session memory automatically.
+     * becomes exhausted, reset memory.
      */
 
     if(results.length < 9){
@@ -1479,9 +1706,9 @@ function generate(){
     }
 
 
-    /* =========================
-       DISPLAY
-       ========================= */
+    /* =====================================================
+       DISPLAY RESULTS
+       ===================================================== */
 
     document.getElementById("results").innerHTML =
 
@@ -1532,8 +1759,13 @@ function generate(){
                         margin-bottom:14px;
                     "
                 >
-                    <strong>Best for:</strong>
+
+                    <strong>
+                        Best for:
+                    </strong>
+
                     ${result.bestFor}
+
                 </div>
 
 
@@ -1551,15 +1783,17 @@ function generate(){
 }
 
 
-/* =========================
+/* =========================================================
    COPY NAME
-   ========================= */
+   ========================================================= */
 
 async function copyName(name){
 
-    try{
+    try {
 
-        await navigator.clipboard.writeText(name);
+        await navigator.clipboard.writeText(
+            name
+        );
 
         alert(
             "Name copied: " + name
@@ -1578,13 +1812,15 @@ async function copyName(name){
 }
 
 
-/* =========================
-   INITIAL GENERATION
-   ========================= */
+/* =========================================================
+   FIRST GENERATION
+   ========================================================= */
 
 generate();
 
 </script>
+```
+
 ```
 
 
