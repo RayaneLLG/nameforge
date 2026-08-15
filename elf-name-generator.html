@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,347 +20,723 @@
 <link rel="canonical"
       href="https://rayanellg.github.io/nameforge/elf-name-generator.html">
 
+
 <style>
 
+/* ================================= */
+/* ROOT */
+/* ================================= */
+
 :root{
+
     --bg:#070912;
+
     --panel:#101827;
+
     --border:#29354d;
+
     --text:#f5f7ff;
+
     --muted:#9ba7bd;
+
     --green:#22c55e;
+
     --cyan:#06b6d4;
+
 }
+
+
+/* ================================= */
+/* RESET */
+/* ================================= */
 
 *{
+
     box-sizing:border-box;
+
     margin:0;
+
     padding:0;
+
 }
+
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
+
 body{
+
     min-height:100vh;
+
     font-family:
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
     color:var(--text);
+
     background:
+
         radial-gradient(
             circle at 10% 0%,
             rgba(34,197,94,.15),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 5%,
             rgba(6,182,212,.12),
             transparent 30%
         ),
+
         var(--bg);
+
     line-height:1.6;
+
 }
+
+
+/* ================================= */
+/* CONTAINER */
+/* ================================= */
 
 .container{
+
     width:min(1100px,92%);
+
     margin:auto;
+
 }
+
+
+/* ================================= */
+/* HEADER */
+/* ================================= */
 
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:10;
+
     background:rgba(7,9,18,.9);
+
     backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+
 }
+
 
 nav{
+
     min-height:68px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
+
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     color:white;
+
     text-decoration:none;
+
     font-size:1.2rem;
+
     font-weight:950;
+
 }
 
+
 .logo-icon{
+
     width:38px;
+
     height:38px;
+
     display:grid;
+
     place-items:center;
+
     border-radius:11px;
+
     background:
+
         linear-gradient(
             135deg,
             var(--green),
             var(--cyan)
         );
+
 }
+
 
 .nav-links{
+
     display:flex;
+
     gap:18px;
+
 }
+
 
 .nav-links a{
+
     color:var(--muted);
+
     text-decoration:none;
+
     font-weight:800;
+
 }
+
 
 .nav-links a:hover{
+
     color:white;
+
 }
+
+
+/* ================================= */
+/* HERO */
+/* ================================= */
 
 .hero{
+
     text-align:center;
+
     padding:75px 0 45px;
+
 }
+
 
 .badge{
+
     display:inline-block;
+
     padding:7px 13px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
+
     border-radius:999px;
+
     background:#0e1421;
+
     color:#dce3f5;
+
     font-size:.82rem;
+
     font-weight:850;
+
 }
+
 
 h1{
+
     max-width:900px;
+
     margin:20px auto;
-    font-size:clamp(2.5rem,6vw,5rem);
+
+    font-size:
+        clamp(2.5rem,6vw,5rem);
+
     line-height:1;
+
     letter-spacing:-2px;
+
 }
 
+
 .gradient{
+
     color:transparent;
+
     background:
+
         linear-gradient(
             90deg,
             #fff,
             #86efac,
             #67e8f9
         );
+
     background-clip:text;
+
     -webkit-background-clip:text;
+
 }
+
 
 .hero p{
+
     max-width:760px;
+
     margin:auto;
+
     color:var(--muted);
+
     font-size:1.05rem;
+
 }
 
+
 .btn{
+
     display:inline-block;
+
     margin-top:22px;
+
     padding:13px 19px;
+
     border-radius:12px;
+
     background:
+
         linear-gradient(
             135deg,
             var(--green),
             var(--cyan)
         );
+
     color:white;
+
     text-decoration:none;
+
     font-weight:900;
+
 }
 
+
+/* ================================= */
+/* GENERATOR */
+/* ================================= */
+
 .generator{
+
     padding:25px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
+
     border-radius:20px;
+
     background:
+
         linear-gradient(
             160deg,
             rgba(20,29,47,.97),
             rgba(12,17,29,.97)
         );
+
     box-shadow:
-        0 25px 60px rgba(0,0,0,.3);
+
+        0 25px 60px
+        rgba(0,0,0,.3);
+
 }
+
 
 .generator h2{
+
     margin-bottom:6px;
+
 }
+
 
 .generator p{
+
     color:var(--muted);
+
 }
 
+
+/* ================================= */
+/* CONTROLS */
+/* ================================= */
+
 .controls{
+
     display:flex;
+
     gap:10px;
+
     margin-top:20px;
+
 }
+
 
 select,
 button{
+
     padding:12px 14px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
+
     border-radius:10px;
+
     background:#090e1a;
+
     color:white;
+
     font:inherit;
+
 }
+
 
 button{
+
     cursor:pointer;
+
     font-weight:850;
+
 }
 
+
 .generate{
+
     flex:1;
+
     border:0;
+
     background:
+
         linear-gradient(
             135deg,
             var(--green),
             var(--cyan)
         );
+
 }
+
+
+/* ================================= */
+/* RESULTS */
+/* ================================= */
 
 .results{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
     margin-top:18px;
+
 }
+
 
 .result{
+
     padding:20px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
+
     border-radius:15px;
+
     background:#101625;
+
     text-align:center;
+
     transition:.2s;
+
 }
+
 
 .result:hover{
+
     transform:translateY(-3px);
-    border-color:rgba(34,197,94,.55);
+
+    border-color:
+        rgba(34,197,94,.55);
+
 }
+
 
 .result-name{
+
     font-size:1.15rem;
+
     font-weight:950;
+
     word-break:break-word;
+
 }
+
+
+/* ================================= */
+/* DESCRIPTION */
+/* ================================= */
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+/* ================================= */
+/* BEST FOR */
+/* ================================= */
+
+.result-best-for{
+
+    margin-top:10px;
+
+    color:#86efac;
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+}
+
+
+/* ================================= */
+/* COPY BUTTON */
+/* ================================= */
 
 .copy{
+
     margin-top:12px;
+
     width:100%;
+
     background:#182236;
+
 }
+
+
+.copy:hover{
+
+    background:#202d45;
+
+}
+
+
+/* ================================= */
+/* SECTIONS */
+/* ================================= */
 
 .section{
+
     padding:65px 0;
+
 }
+
 
 .content{
+
     max-width:850px;
+
     margin:auto;
+
 }
+
 
 .content h2{
+
     margin-bottom:14px;
+
     font-size:2rem;
+
 }
+
 
 .content h3{
+
     margin-top:27px;
+
     margin-bottom:8px;
+
 }
+
 
 .content p{
+
     color:var(--muted);
+
     margin-bottom:15px;
+
 }
+
+
+/* ================================= */
+/* CARDS */
+/* ================================= */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
 }
+
 
 .card{
+
     padding:22px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
+
     border-radius:15px;
+
     background:#101625;
+
 }
+
 
 .card h3{
+
     margin-bottom:7px;
+
 }
+
 
 .card p{
+
     color:var(--muted);
+
     font-size:.9rem;
+
 }
+
+
+/* ================================= */
+/* FAQ */
+/* ================================= */
 
 .faq details{
+
     margin-bottom:10px;
+
     padding:17px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
+
     border-radius:12px;
+
     background:#101625;
+
 }
+
 
 .faq summary{
+
     cursor:pointer;
+
     font-weight:900;
+
 }
+
 
 .faq p{
+
     margin-top:10px;
+
     color:var(--muted);
+
 }
 
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
+
 footer{
+
     padding:40px 0;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
     text-align:center;
+
     color:var(--muted);
+
 }
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
 
 @media(max-width:700px){
 
     .nav-links{
+
         display:none;
+
     }
 
+
     .controls{
+
         flex-direction:column;
+
     }
+
 
     .results,
     .cards{
+
         grid-template-columns:1fr;
+
     }
 
+
     .hero{
+
         padding-top:50px;
+
     }
 
 }
@@ -418,6 +795,10 @@ FAQ
 <main>
 
 
+<!-- ================================= -->
+<!-- HERO -->
+<!-- ================================= -->
+
 <section class="hero container">
 
 <span class="badge">
@@ -457,6 +838,9 @@ princes, princesses and magical worlds.
 </section>
 
 
+<!-- ================================= -->
+<!-- GENERATOR -->
+<!-- ================================= -->
 
 <section
     class="container"
@@ -547,6 +931,9 @@ Long
 </section>
 
 
+<!-- ================================= -->
+<!-- INFORMATION -->
+<!-- ================================= -->
 
 <section class="section">
 
@@ -625,6 +1012,9 @@ rangers and legendary fighters.
 </section>
 
 
+<!-- ================================= -->
+<!-- POPULAR STYLES -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -729,6 +1119,9 @@ spellcasting elves.
 </section>
 
 
+<!-- ================================= -->
+<!-- FAQ -->
+<!-- ================================= -->
 
 <section
     class="section container"
@@ -809,6 +1202,9 @@ ancient, warrior and mystic names.
 </section>
 
 
+<!-- ================================= -->
+<!-- MORE GENERATORS -->
+<!-- ================================= -->
 
 <section class="section container">
 
@@ -906,6 +1302,9 @@ Explore more NameForge generators
 </main>
 
 
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
 
 <footer>
 
@@ -929,24 +1328,555 @@ stories, games, RPGs and fictional worlds.
 </footer>
 
 
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
 
-```css
-.result-description{
+<script>
 
-    margin-top:8px;
 
-    color:var(--muted);
+/* ================================= */
+/* NAME DATA */
+/* ================================= */
 
-    font-size:.88rem;
+const nameParts = {
 
-    line-height:1.45;
 
-    min-height:58px;
+forest: {
+
+first: [
+
+"Elar","Lorien","Thalion","Syl","Aer",
+"Elan","Fael","Aelin","Leth","Nym",
+"Cael","Eryn","Aeris","Lira","Sylas",
+"Theren","Eland","Vael","Rian","Aelar",
+"Elorin","Faeron"
+
+],
+
+second: [
+
+"iel","ion","wyn","eth","ael",
+"or","en","is","ir","an",
+"iel","ith","ar","ion","iel",
+"wen","or","eth","is"
+
+]
+
+},
+
+
+royal: {
+
+first: [
+
+"Aelar","Eldrin","Caelion","Thalion","Erevan",
+"Valerian","Aelorian","Elrion","Lorien",
+"Theron","Aerandir","Elarion","Faelion",
+"Alarion","Caelian","Elandor","Aurelion",
+"Elendor","Vaelorian","Sylvaris","Eryndor",
+"Calad"
+
+],
+
+second: [
+
+"ion","iel","ar","ius","or",
+"eth","ael","wyn","ian","is",
+"iel","en","or","aris","ael",
+"ion","iel","an","eth"
+
+]
+
+},
+
+
+dark: {
+
+first: [
+
+"Nyx","Vael","Draen","Mor","Zareth",
+"Varyn","Nerith","Kael","Rav",
+"Thar","Vel","Nox","Drael","Mal",
+"Zyra","Vor","Ner","Kor","Veyr",
+"Draven","Sylth","Abyr"
+
+],
+
+second: [
+
+"eth","is","ar","ion","or",
+"ael","en","yr","ith","ak",
+"oth","iel","an","ir","os",
+"aen","or","eth","is"
+
+]
+
+},
+
+
+ancient: {
+
+first: [
+
+"Aethel","Eldar","Thalion","Aelthas","Oropher",
+"Elandor","Aureth","Calad","Erevan",
+"Vaelor","Thalor","Eldros","Aether",
+"Aranthir","Eryndor","Valandil","Orophin",
+"Elendil","Amdir","Celeborn","Aenar",
+"Galador"
+
+],
+
+second: [
+
+"ion","iel","or","eth","ael",
+"ius","ar","wyn","en","is",
+"oth","an","iel","aris","or",
+"ael","eth","ion","ir"
+
+]
+
+},
+
+
+warrior: {
+
+first: [
+
+"Kael","Thar","Aeron","Rian","Fael",
+"Theren","Cael","Eryx","Vael",
+"Aran","Elric","Sylas","Darian",
+"Valen","Aelor","Riven","Eland",
+"Theron","Calen","Faeron","Aren",
+"Galad"
+
+],
+
+second: [
+
+"ion","ar","or","eth","en",
+"is","iel","ael","an","wyn",
+"ir","os","ath","on","iel",
+"ar","eth","or","is"
+
+]
+
+},
+
+
+mystic: {
+
+first: [
+
+"Elara","Luna","Aeris","Seren","Nyra",
+"Eira","Sylva","Lyra","Neris","Mira",
+"Veya","Elaria","Runa","Isolde","Astra",
+"Selene","Oria","Elyra","Nym","Vaela",
+"Alira","Selyra"
+
+],
+
+second: [
+
+"ia","iel","ara","is","yn",
+"ora","ael","ira","eth","elle",
+"aris","una","iel","ora","en",
+"a","is","ia","iel"
+
+]
 
 }
-```
+
+};
+
+
+/* ================================= */
+/* STYLE INFORMATION */
+/* ================================= */
+
+const styleInfo = {
+
+
+forest: {
+
+descriptions: [
+
+"A graceful elven name inspired by ancient forests and the harmony of nature.",
+
+"A peaceful fantasy name suited to an elf connected to woodland magic.",
+
+"A natural-sounding elven name with the atmosphere of an ancient forest.",
+
+"A gentle and elegant name perfect for a woodland elf or forest guardian."
+
+],
+
+bestFor:
+"Forest realms • Rangers • Nature magic"
+
+},
+
+
+royal: {
+
+descriptions: [
+
+"An elegant elven name suited to noble bloodlines and ancient royal families.",
+
+"A refined fantasy name with the atmosphere of elven royalty and high society.",
+
+"A prestigious name perfect for a prince, princess or noble elf.",
+
+"A graceful royal name inspired by ancient elven kingdoms."
+
+],
+
+bestFor:
+"High Elves • Royal characters • Noble families"
+
+},
+
+
+dark: {
+
+descriptions: [
+
+"A mysterious elven name suited to a character from a shadowy underground realm.",
+
+"A dark fantasy name with an ominous and secretive atmosphere.",
+
+"A powerful name perfect for a mysterious dark elf.",
+
+"A sinister elven name inspired by shadows, secrets and forbidden realms."
+
+],
+
+bestFor:
+"Dark fantasy • Underground realms • Assassins"
+
+},
+
+
+ancient: {
+
+descriptions: [
+
+"An ancient-sounding elven name connected to forgotten kingdoms and legendary ancestors.",
+
+"A legendary name suited to an elf from an ancient magical civilization.",
+
+"A grand fantasy name with the atmosphere of forgotten elven history.",
+
+"A timeless elven name that feels thousands of years old."
+
+],
+
+bestFor:
+"Ancient lore • Legends • Immortal elves"
+
+},
+
+
+warrior: {
+
+descriptions: [
+
+"A strong elven name suited to a skilled warrior, ranger or guardian.",
+
+"A battle-ready name with the spirit of an experienced elven fighter.",
+
+"A powerful name perfect for an elven champion or protector.",
+
+"A heroic elven name inspired by warriors and legendary battles."
+
+],
+
+bestFor:
+"Warriors • Rangers • Guardians"
+
+},
+
+
+mystic: {
+
+descriptions: [
+
+"A mysterious elven name suited to a magical seer or mystical spellcaster.",
+
+"An enchanting name with an otherworldly and magical atmosphere.",
+
+"A mystical name perfect for an elf connected to visions and ancient magic.",
+
+"A magical elven name inspired by spirits, stars and hidden knowledge."
+
+],
+
+bestFor:
+"Mystics • Spellcasters • Magical worlds"
+
+}
+
+};
+
+
+/* ================================= */
+/* RANDOM ITEM */
+/* ================================= */
+
+function randomItem(array){
+
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
+
+}
+
+
+/* ================================= */
+/* GENERATE NAME */
+/* ================================= */
+
+function makeName(style,length){
+
+    const parts =
+        nameParts[style];
+
+    let first =
+        randomItem(parts.first);
+
+    let second =
+        randomItem(parts.second);
+
+    let name;
+
+
+    /* SHORT */
+
+    if(length === "short"){
+
+        if(Math.random() < 0.5){
+
+            name = first;
+
+        }
+
+        else{
+
+            name =
+
+                first.slice(
+                    0,
+                    Math.max(
+                        3,
+                        Math.ceil(
+                            first.length / 2
+                        )
+                    )
+                )
+
+                +
+
+                second.slice(0,2);
+
+        }
+
+    }
+
+
+    /* MEDIUM */
+
+    else if(length === "medium"){
+
+        name =
+            first +
+            second;
+
+    }
+
+
+    /* LONG */
+
+    else{
+
+        const third =
+            randomItem(
+                parts.second
+            );
+
+        name =
+
+            first +
+            second +
+            third;
+
+    }
+
+
+    return name;
+
+}
+
+
+/* ================================= */
+/* GENERATE 9 RESULTS */
+/* ================================= */
+
+function generate(){
+
+    const style =
+        document.getElementById(
+            "style"
+        ).value;
+
+
+    const length =
+        document.getElementById(
+            "length"
+        ).value;
+
+
+    const names = [];
+
+
+    let attempts = 0;
+
+
+    while(
+
+        names.length < 9 &&
+
+        attempts < 500
+
+    ){
+
+        const name =
+            makeName(
+                style,
+                length
+            );
+
+
+        attempts++;
+
+
+        if(
+            !names.includes(name)
+        ){
+
+            names.push(name);
+
+        }
+
+    }
+
+
+    const info =
+        styleInfo[style];
+
+
+    document.getElementById(
+        "results"
+    ).innerHTML =
+
+
+        names.map(name => `
+
+
+            <div class="result">
+
+
+                <div class="result-name">
+
+                    ${name}
+
+                </div>
+
+
+                <p class="result-description">
+
+                    ${randomItem(
+                        info.descriptions
+                    )}
+
+                </p>
+
+
+                <div class="result-best-for">
+
+                    Best for:
+                    ${info.bestFor}
+
+                </div>
+
+
+                <button
+
+                    class="copy"
+
+                    onclick=
+                        "copyName('${name.replace(/'/g,"\\'")}')"
+
+                >
+
+                    📋 Copy name
+
+                </button>
+
+
+            </div>
+
+
+        `).join("");
+
+}
+
+
+/* ================================= */
+/* COPY NAME */
+/* ================================= */
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard
+            .writeText(name);
+
+
+        alert(
+            "Name copied: " +
+            name
+        );
+
+    }
+
+
+    catch{
+
+        alert(
+            "Name: " +
+            name
+        );
+
+    }
+
+}
+
+
+/* ================================= */
+/* INITIAL GENERATION */
+/* ================================= */
+
+generate();
+
+
+</script>
 
 
 </body>
 
 </html>
+```
