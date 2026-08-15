@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,345 +23,709 @@
 
 <style>
 
+/* ================================= */
+/* ROOT */
+/* ================================= */
+
 :root{
+
     --bg:#070912;
     --panel:#101827;
     --border:#29354d;
     --text:#f5f7ff;
     --muted:#9ba7bd;
+
     --red:#ef4444;
     --orange:#f97316;
+
 }
 
+
+/* ================================= */
+/* RESET */
+/* ================================= */
+
 *{
+
     box-sizing:border-box;
     margin:0;
     padding:0;
+
 }
+
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
+
 body{
+
     min-height:100vh;
+
     font-family:
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
     color:var(--text);
+
     background:
+
         radial-gradient(
             circle at 10% 0%,
             rgba(239,68,68,.16),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 5%,
             rgba(249,115,22,.12),
             transparent 30%
         ),
+
         var(--bg);
+
     line-height:1.6;
+
 }
+
+
+/* ================================= */
+/* CONTAINER */
+/* ================================= */
 
 .container{
+
     width:min(1100px,92%);
     margin:auto;
+
 }
 
+
+/* ================================= */
+/* HEADER */
+/* ================================= */
+
 header{
+
     position:sticky;
     top:0;
     z-index:10;
+
     background:rgba(7,9,18,.9);
+
     backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+
 }
+
 
 nav{
+
     min-height:68px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
+
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     color:white;
+
     text-decoration:none;
+
     font-size:1.2rem;
+
     font-weight:950;
+
 }
 
+
 .logo-icon{
+
     width:38px;
     height:38px;
+
     display:grid;
+
     place-items:center;
+
     border-radius:11px;
+
     background:
+
         linear-gradient(
             135deg,
             var(--red),
             var(--orange)
         );
+
 }
+
 
 .nav-links{
+
     display:flex;
     gap:18px;
+
 }
+
 
 .nav-links a{
+
     color:var(--muted);
+
     text-decoration:none;
+
     font-weight:800;
+
 }
+
 
 .nav-links a:hover{
+
     color:white;
+
 }
+
+
+/* ================================= */
+/* HERO */
+/* ================================= */
 
 .hero{
+
     text-align:center;
-    padding:75px 0 45px;
+
+    padding:
+        75px 0
+        45px;
+
 }
+
 
 .badge{
+
     display:inline-block;
-    padding:7px 13px;
-    border:1px solid var(--border);
+
+    padding:
+        7px 13px;
+
+    border:
+        1px solid var(--border);
+
     border-radius:999px;
+
     background:#0e1421;
+
     color:#dce3f5;
+
     font-size:.82rem;
+
     font-weight:850;
+
 }
+
 
 h1{
+
     max-width:900px;
-    margin:20px auto;
-    font-size:clamp(2.5rem,6vw,5rem);
+
+    margin:
+        20px auto;
+
+    font-size:
+        clamp(
+            2.5rem,
+            6vw,
+            5rem
+        );
+
     line-height:1;
+
     letter-spacing:-2px;
+
 }
 
+
 .gradient{
+
     color:transparent;
+
     background:
+
         linear-gradient(
             90deg,
             #fff,
             #fca5a5,
             #fdba74
         );
+
     background-clip:text;
+
     -webkit-background-clip:text;
+
 }
+
 
 .hero p{
+
     max-width:760px;
+
     margin:auto;
+
     color:var(--muted);
+
     font-size:1.05rem;
+
 }
 
+
 .btn{
+
     display:inline-block;
+
     margin-top:22px;
-    padding:13px 19px;
+
+    padding:
+        13px 19px;
+
     border-radius:12px;
+
     background:
+
         linear-gradient(
             135deg,
             var(--red),
             var(--orange)
         );
+
     color:white;
+
     text-decoration:none;
+
     font-weight:900;
+
 }
 
+
+/* ================================= */
+/* GENERATOR */
+/* ================================= */
+
 .generator{
+
     padding:25px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:20px;
+
     background:
+
         linear-gradient(
             160deg,
             rgba(20,29,47,.97),
             rgba(12,17,29,.97)
         );
+
     box-shadow:
         0 25px 60px rgba(0,0,0,.3);
+
 }
+
 
 .generator h2{
+
     margin-bottom:6px;
+
 }
+
 
 .generator p{
+
     color:var(--muted);
+
 }
 
+
+/* ================================= */
+/* CONTROLS */
+/* ================================= */
+
 .controls{
+
     display:flex;
+
     gap:10px;
+
     margin-top:20px;
+
 }
+
 
 select,
 button{
-    padding:12px 14px;
-    border:1px solid var(--border);
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid var(--border);
+
     border-radius:10px;
+
     background:#090e1a;
+
     color:white;
+
     font:inherit;
+
 }
+
 
 button{
+
     cursor:pointer;
+
     font-weight:850;
+
 }
 
+
 .generate{
+
     flex:1;
+
     border:0;
+
     background:
+
         linear-gradient(
             135deg,
             var(--red),
             var(--orange)
         );
+
 }
+
+
+/* ================================= */
+/* RESULTS */
+/* ================================= */
 
 .results{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
     margin-top:18px;
+
 }
+
 
 .result{
+
     padding:20px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:15px;
+
     background:#101625;
+
     text-align:center;
+
     transition:.2s;
+
 }
+
 
 .result:hover{
-    transform:translateY(-3px);
-    border-color:rgba(239,68,68,.55);
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(239,68,68,.55);
+
 }
+
 
 .result-name{
+
     font-size:1.15rem;
+
     font-weight:950;
+
     word-break:break-word;
+
 }
+
+
+/* ================================= */
+/* RESULT DESCRIPTION */
+/* ================================= */
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+/* ================================= */
+/* BEST FOR */
+/* ================================= */
+
+.best-for{
+
+    margin-top:10px;
+
+    color:#fca5a5;
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+}
+
+
+/* ================================= */
+/* COPY BUTTON */
+/* ================================= */
 
 .copy{
+
     margin-top:12px;
+
     width:100%;
+
     background:#182236;
+
 }
+
+
+.copy:hover{
+
+    background:#202d46;
+
+}
+
+
+/* ================================= */
+/* SECTIONS */
+/* ================================= */
 
 .section{
+
     padding:65px 0;
+
 }
+
 
 .content{
+
     max-width:850px;
+
     margin:auto;
+
 }
+
 
 .content h2{
+
     margin-bottom:14px;
+
     font-size:2rem;
+
 }
+
 
 .content h3{
+
     margin-top:27px;
+
     margin-bottom:8px;
+
 }
+
 
 .content p{
+
     color:var(--muted);
+
     margin-bottom:15px;
+
 }
+
+
+/* ================================= */
+/* CARDS */
+/* ================================= */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
 }
+
 
 .card{
+
     padding:22px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:15px;
+
     background:#101625;
+
 }
+
 
 .card h3{
+
     margin-bottom:7px;
+
 }
+
 
 .card p{
+
     color:var(--muted);
+
     font-size:.9rem;
+
 }
+
+
+/* ================================= */
+/* FAQ */
+/* ================================= */
 
 .faq details{
+
     margin-bottom:10px;
+
     padding:17px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:12px;
+
     background:#101625;
+
 }
+
 
 .faq summary{
+
     cursor:pointer;
+
     font-weight:900;
+
 }
+
 
 .faq p{
+
     margin-top:10px;
+
     color:var(--muted);
+
 }
 
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
+
 footer{
+
     padding:40px 0;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
     text-align:center;
+
     color:var(--muted);
+
 }
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
 
 @media(max-width:700px){
 
     .nav-links{
+
         display:none;
+
     }
 
+
     .controls{
+
         flex-direction:column;
+
     }
+
 
     .results,
     .cards{
+
         grid-template-columns:1fr;
+
     }
 
+
     .hero{
+
         padding-top:50px;
+
     }
 
 }
@@ -373,9 +738,14 @@ footer{
 <body>
 
 
+<!-- ================================= -->
+<!-- HEADER -->
+<!-- ================================= -->
+
 <header>
 
 <nav class="container">
+
 
 <a
     href="index.html"
@@ -411,15 +781,25 @@ FAQ
 
 </div>
 
+
 </nav>
 
 </header>
 
 
+<!-- ================================= -->
+<!-- MAIN -->
+<!-- ================================= -->
+
 <main>
 
 
+<!-- ================================= -->
+<!-- HERO -->
+<!-- ================================= -->
+
 <section class="hero container">
+
 
 <span class="badge">
 ⚔️ FREE WARRIOR NAME GENERATOR
@@ -455,20 +835,27 @@ and legendary heroes.
 
 </a>
 
+
 </section>
 
 
+<!-- ================================= -->
+<!-- GENERATOR -->
+<!-- ================================= -->
 
 <section
     class="container"
     id="generator"
 >
 
+
 <div class="generator">
+
 
 <h2>
 ⚔️ Warrior Name Generator
 </h2>
+
 
 <p>
 Choose a warrior style and generate nine
@@ -534,6 +921,7 @@ Long
 
 </button>
 
+
 </div>
 
 
@@ -548,14 +936,20 @@ Long
 </section>
 
 
+<!-- ================================= -->
+<!-- INFORMATION -->
+<!-- ================================= -->
 
 <section class="section">
 
+
 <div class="content">
+
 
 <h2>
 What is a warrior name generator?
 </h2>
+
 
 <p>
 
@@ -564,6 +958,7 @@ names for fighters, knights, champions,
 soldiers and legendary warriors.
 
 </p>
+
 
 <p>
 
@@ -621,13 +1016,18 @@ shield-bearers and northern heroes.
 
 </p>
 
+
 </div>
 
 </section>
 
 
+<!-- ================================= -->
+<!-- POPULAR STYLES -->
+<!-- ================================= -->
 
 <section class="section container">
+
 
 <div class="content">
 
@@ -730,13 +1130,18 @@ fighters and shadow warriors.
 </section>
 
 
+<!-- ================================= -->
+<!-- FAQ -->
+<!-- ================================= -->
 
 <section
     class="section container"
     id="faq"
 >
 
+
 <div class="content">
+
 
 <h2>
 Warrior Name Generator FAQ
@@ -753,8 +1158,10 @@ Is the warrior name generator free?
 </summary>
 
 <p>
+
 Yes. The NameForge Warrior Name Generator
 is free to use in your browser.
+
 </p>
 
 </details>
@@ -767,9 +1174,11 @@ What can I use these warrior names for?
 </summary>
 
 <p>
+
 You can use them for fantasy characters,
 RPGs, games, stories, novels and fictional
 worlds.
+
 </p>
 
 </details>
@@ -782,8 +1191,10 @@ Can I generate short warrior names?
 </summary>
 
 <p>
+
 Yes. Choose Short, Medium or Long before
 generating your names.
+
 </p>
 
 </details>
@@ -796,9 +1207,11 @@ What types of warrior names can I generate?
 </summary>
 
 <p>
+
 You can generate knight, barbarian,
 samurai, viking, champion and dark warrior
 names.
+
 </p>
 
 </details>
@@ -811,10 +1224,15 @@ names.
 </section>
 
 
+<!-- ================================= -->
+<!-- OTHER GENERATORS -->
+<!-- ================================= -->
 
 <section class="section container">
 
+
 <div class="content">
+
 
 <h2>
 Explore more NameForge generators
@@ -822,93 +1240,112 @@ Explore more NameForge generators
 
 
 <p>
+
 <a
     href="all-name-generators.html"
     style="color:#fca5a5;font-weight:900;"
 >
 ← All Name Generators
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="fantasy-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🐉 Fantasy Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="rpg-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🎲 RPG Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="anime-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 ✨ Anime Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="gaming-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🎮 Gaming Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="kingdom-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🏰 Kingdom Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="dragon-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🐲 Dragon Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="wizard-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🧙 Wizard Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="elf-name-generator.html"
     style="color:#fca5a5;font-weight:900;"
 >
 🧝 Elf Name Generator
 </a>
+
 </p>
+
 
 </div>
 
@@ -918,291 +1355,316 @@ Explore more NameForge generators
 </main>
 
 
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
 
 <footer>
 
+
 <div class="container">
+
 
 <strong>
 ⚔️ NameForge
 </strong>
 
+
 <br><br>
+
 
 Free warrior name generator for fantasy
 stories, games, RPGs and fictional worlds.
 
+
 <br><br>
 
+
 © 2026 NameForge
+
 
 </div>
 
 </footer>
 
 
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
 
 <script>
 
-const prefixes = {
 
-knight:[
-"Al",
-"Ed",
-"Val",
-"Ar",
-"Cael",
-"Leon",
-"God",
-"Ber",
-"Rol",
-"Ther"
+/* ================================= */
+/* NAME PARTS */
+/* ================================= */
+
+const nameParts = {
+
+
+knight: {
+
+first: [
+
+"Al","Ed","Val","Ar","Cael","Leon",
+"God","Ber","Rol","Ther","Ald","Ced",
+"Luc","Ever","Garr","Wil","Ray","Edr",
+"Mar","Ren","Tris","Hal"
+
 ],
 
-barbarian:[
-"Brak",
-"Grim",
-"Thar",
-"Rag",
-"Kor",
-"Ulf",
-"Drak",
-"Varg",
-"Gor",
-"Skal"
-],
+second: [
 
-samurai:[
-"Ak",
-"Ken",
-"Tak",
-"Ren",
-"Mas",
-"Har",
-"Jin",
-"Kat",
-"Ryo",
-"Hay"
-],
+"ar","en","iel","or","an","eth",
+"ion","us","el","ian","ard","ric",
+"wyn","er","ald","on","eus","in"
 
-viking:[
-"Erik",
-"Rag",
-"Leif",
-"Sig",
-"Bjorn",
-"Har",
-"Ulf",
-"Ivar",
-"Half",
-"Tor"
-],
-
-champion:[
-"Aren",
-"Val",
-"Kael",
-"Dar",
-"Luc",
-"Ther",
-"Ar",
-"Cael",
-"Ryn",
-"Ev"
-],
-
-dark:[
-"Mor",
-"Vhar",
-"Drav",
-"Mal",
-"Kor",
-"Nyx",
-"Vor",
-"Zar",
-"Grim",
-"Rav"
 ]
+
+},
+
+
+barbarian: {
+
+first: [
+
+"Brak","Grim","Thar","Rag","Kor","Ulf",
+"Drak","Varg","Gor","Skal","Brut","Krag",
+"Rok","Grom","Hark","Drog","Throk","Gar",
+"Vorn","Zag","Khar","Morg"
+
+],
+
+second: [
+
+"ak","or","ar","ul","an","eth",
+"ir","on","ur","ag","oth","ok",
+"ar","um","ek","gar","ruk","ash"
+
+]
+
+},
+
+
+samurai: {
+
+first: [
+
+"Ak","Ken","Tak","Ren","Mas","Har",
+"Jin","Kat","Ryo","Hay","Kaz","Yori",
+"Shin","Tad","Hiro","Nobu","Raik","Sora",
+"Isao","Daik","Kyo","Masa"
+
+],
+
+second: [
+
+"shi","ra","to","ka","yu","ro",
+"mi","ken","ta","sa","hiro","nori",
+"maru","zen","ya","chi","suke","ji"
+
+]
+
+},
+
+
+viking: {
+
+first: [
+
+"Erik","Rag","Leif","Sig","Bjorn","Har",
+"Ulf","Ivar","Half","Tor","Einar","Gunn",
+"Sten","Knut","Hakon","Rolf","Sven","Odin",
+"Vidar","Arne","Frey","Gorm"
+
+],
+
+second: [
+
+"ar","ik","ulf","or","ein","ald",
+"var","ir","rik","gar","son","vald",
+"mund","ulf","sten","bjorn","grim","arr"
+
+]
+
+},
+
+
+champion: {
+
+first: [
+
+"Aren","Val","Kael","Dar","Luc","Ther",
+"Ar","Cael","Ryn","Ev","Ael","Cor",
+"Leon","Darian","Auron","Galen","Riven",
+"Alar","Cass","Evan","Tarin","Varen"
+
+],
+
+second: [
+
+"ar","ion","el","ian","or","en",
+"eth","iel","us","an","is","wyn",
+"ard","eus","on","ric","ael","ir"
+
+]
+
+},
+
+
+dark: {
+
+first: [
+
+"Mor","Vhar","Drav","Mal","Kor","Nyx",
+"Vor","Zar","Grim","Rav","Nox","Dra",
+"Veyr","Zeth","Kael","Noct","Var",
+"Malr","Dread","Vorn","Ner","Khar"
+
+],
+
+second: [
+
+"or","ath","yr","an","ek","ul",
+"eth","ar","on","ir","oth","ax",
+"en","os","ak","ael","um","yr"
+
+]
+
+}
 
 };
 
 
-const middles = {
+/* ================================= */
+/* STYLE INFORMATION */
+/* ================================= */
 
-knight:[
-"ar",
-"en",
-"iel",
-"or",
-"an",
-"eth",
-"ion",
-"us",
-"el",
-"ian"
+const styleInfo = {
+
+
+knight: {
+
+descriptions: [
+
+"A noble warrior name suited to a brave knight serving a kingdom.",
+"A heroic name with the atmosphere of an honorable armored champion.",
+"A powerful knight name inspired by courage, loyalty and medieval legends.",
+"A noble-sounding warrior name perfect for a knight or legendary paladin."
+
 ],
 
-barbarian:[
-"ak",
-"or",
-"ar",
-"ul",
-"an",
-"eth",
-"ir",
-"on",
-"ur",
-"ag"
+bestFor:
+"Knights • Paladins • Medieval fantasy"
+
+},
+
+
+barbarian: {
+
+descriptions: [
+
+"A fierce warrior name suited to a powerful barbarian and battle-hardened fighter.",
+"A brutal-sounding name inspired by strength, courage and wild warriors.",
+"A powerful barbarian name with the feeling of an unstoppable battlefield warrior.",
+"A rugged warrior name perfect for tribal champions and fierce fighters."
+
 ],
 
-samurai:[
-"shi",
-"ra",
-"to",
-"ka",
-"yu",
-"ro",
-"mi",
-"ken",
-"ta",
-"sa"
+bestFor:
+"Barbarians • Tribal warriors • Battle games"
+
+},
+
+
+samurai: {
+
+descriptions: [
+
+"A disciplined warrior name inspired by legendary swordsmen and samurai traditions.",
+"An elegant warrior name suited to a master swordsman with discipline and honor.",
+"A sharp and memorable name for a skilled samurai warrior.",
+"A refined warrior name with the atmosphere of ancient sword masters."
+
 ],
 
-viking:[
-"ar",
-"ik",
-"ulf",
-"or",
-"ein",
-"ald",
-"var",
-"ir",
-"rik",
-"gar"
+bestFor:
+"Samurai • Swordsmen • Japanese-inspired fantasy"
+
+},
+
+
+viking: {
+
+descriptions: [
+
+"A powerful northern warrior name inspired by legendary Viking heroes.",
+"A rugged name suited to a fearless raider, shield-bearer or Viking warrior.",
+"A strong warrior name with the atmosphere of ancient northern legends.",
+"A battle-ready name perfect for a Viking hero or warrior king."
+
 ],
 
-champion:[
-"ar",
-"ion",
-"el",
-"ian",
-"or",
-"en",
-"eth",
-"iel",
-"us",
-"an"
+bestFor:
+"Vikings • Norse warriors • Historical fantasy"
+
+},
+
+
+champion: {
+
+descriptions: [
+
+"A heroic warrior name suited to a legendary champion and battlefield hero.",
+"A powerful name for a warrior known for courage, skill and victory.",
+"A prestigious warrior name perfect for a famous champion or great hero.",
+"An epic name with the feeling of a warrior destined for legendary battles."
+
 ],
 
-dark:[
-"or",
-"ath",
-"yr",
-"an",
-"ek",
-"ul",
-"eth",
-"ar",
-"on",
-"ir"
-]
+bestFor:
+"Champions • Heroes • Epic fantasy"
+
+},
+
+
+dark: {
+
+descriptions: [
+
+"A mysterious warrior name suited to a shadowy fighter from a dark fantasy world.",
+"A threatening name with the atmosphere of a feared and relentless warrior.",
+"A dark warrior name inspired by shadows, battles and forbidden legends.",
+"An intimidating name perfect for a mysterious warrior or dark champion."
+
+],
+
+bestFor:
+"Dark fantasy • Shadow warriors • Villains"
+
+}
 
 };
 
 
-const endings = {
-
-knight:[
-"ion",
-"iel",
-"or",
-"us",
-"eth",
-"ian",
-"ar",
-"en",
-"el",
-"wyn"
-],
-
-barbarian:[
-"ak",
-"or",
-"ar",
-"oth",
-"on",
-"ir",
-"ul",
-"ag",
-"eth",
-"an"
-],
-
-samurai:[
-"shi",
-"ro",
-"ken",
-"maru",
-"to",
-"ya",
-"ra",
-"nori",
-"hiro",
-"zen"
-],
-
-viking:[
-"son",
-"rik",
-"ulf",
-"ar",
-"ein",
-"ald",
-"var",
-"or",
-"ir",
-"bjorn"
-],
-
-champion:[
-"ion",
-"iel",
-"ar",
-"en",
-"or",
-"eth",
-"ian",
-"us",
-"el",
-"wyn"
-],
-
-dark:[
-"oth",
-"or",
-"ax",
-"ar",
-"eth",
-"ul",
-"on",
-"yr",
-"ek",
-"an"
-]
-
-};
-
+/* ================================= */
+/* RANDOM ITEM */
+/* ================================= */
 
 function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random()*array.length
+            Math.random() * array.length
         )
     ];
 
 }
 
+
+/* ================================= */
+/* CAPITALIZE */
+/* ================================= */
 
 function capitalize(name){
 
@@ -1212,35 +1674,74 @@ function capitalize(name){
 }
 
 
+/* ================================= */
+/* MAKE NAME */
+/* ================================= */
+
 function makeName(style,length){
+
+    const parts =
+        nameParts[style];
+
+    let first =
+        randomItem(parts.first);
+
+    let second =
+        randomItem(parts.second);
 
     let name;
 
 
-    if(length==="short"){
+    /* SHORT */
 
-        name =
-            randomItem(prefixes[style]) +
-            randomItem(endings[style]);
+    if(length === "short"){
+
+        if(Math.random() < 0.5){
+
+            name = first;
+
+        }else{
+
+            name =
+                first.slice(
+                    0,
+                    Math.max(
+                        3,
+                        Math.ceil(
+                            first.length / 2
+                        )
+                    )
+                )
+                +
+                second.slice(0,2);
+
+        }
 
     }
 
-    else if(length==="medium"){
+
+    /* MEDIUM */
+
+    else if(length === "medium"){
 
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            first +
+            second;
 
     }
+
+
+    /* LONG */
 
     else{
 
+        const third =
+            randomItem(parts.second);
+
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            first +
+            second +
+            third;
 
     }
 
@@ -1249,6 +1750,10 @@ function makeName(style,length){
 
 }
 
+
+/* ================================= */
+/* GENERATE 9 RESULTS */
+/* ================================= */
 
 function generate(){
 
@@ -1264,10 +1769,16 @@ function generate(){
         ).value;
 
 
-    const names=[];
+    const names = [];
 
 
-    while(names.length<9){
+    let attempts = 0;
+
+
+    while(
+        names.length < 9 &&
+        attempts < 500
+    ){
 
         const name =
             makeName(
@@ -1276,7 +1787,12 @@ function generate(){
             );
 
 
-        if(!names.includes(name)){
+        attempts++;
+
+
+        if(
+            !names.includes(name)
+        ){
 
             names.push(name);
 
@@ -1285,17 +1801,43 @@ function generate(){
     }
 
 
+    const info =
+        styleInfo[style];
+
+
     document.getElementById(
         "results"
     ).innerHTML =
+
 
         names.map(name => `
 
             <div class="result">
 
+
                 <div class="result-name">
+
                     ${name}
+
                 </div>
+
+
+                <p class="result-description">
+
+                    ${randomItem(
+                        info.descriptions
+                    )}
+
+                </p>
+
+
+                <div class="best-for">
+
+                    Best for:
+                    ${info.bestFor}
+
+                </div>
+
 
                 <button
                     class="copy"
@@ -1306,12 +1848,17 @@ function generate(){
 
                 </button>
 
+
             </div>
 
         `).join("");
 
 }
 
+
+/* ================================= */
+/* COPY NAME */
+/* ================================= */
 
 async function copyName(name){
 
@@ -1320,6 +1867,7 @@ async function copyName(name){
         await navigator.clipboard.writeText(
             name
         );
+
 
         alert(
             "Name copied: " + name
@@ -1338,7 +1886,12 @@ async function copyName(name){
 }
 
 
+/* ================================= */
+/* INITIAL GENERATION */
+/* ================================= */
+
 generate();
+
 
 </script>
 
@@ -1346,3 +1899,4 @@ generate();
 </body>
 
 </html>
+```
