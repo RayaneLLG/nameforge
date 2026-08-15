@@ -22,345 +22,730 @@
 
 <style>
 
+/* -------------------------------- */
+/* ROOT */
+/* -------------------------------- */
+
 :root{
+
     --bg:#050911;
     --panel:#0e1725;
     --border:#263952;
+
     --text:#f3f8ff;
     --muted:#91a4bb;
+
     --cyan:#06b6d4;
     --blue:#2563eb;
+
 }
 
+
+/* -------------------------------- */
+/* RESET */
+/* -------------------------------- */
+
 *{
+
     box-sizing:border-box;
     margin:0;
     padding:0;
+
 }
+
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
+
 body{
+
     min-height:100vh;
+
     font-family:
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
     color:var(--text);
+
     background:
+
         radial-gradient(
             circle at 10% 0%,
             rgba(6,182,212,.17),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 5%,
             rgba(37,99,235,.16),
             transparent 30%
         ),
+
         var(--bg);
+
     line-height:1.6;
+
 }
+
+
+/* -------------------------------- */
+/* CONTAINER */
+/* -------------------------------- */
 
 .container{
+
     width:min(1100px,92%);
     margin:auto;
+
 }
 
+
+/* -------------------------------- */
+/* HEADER */
+/* -------------------------------- */
+
 header{
+
     position:sticky;
     top:0;
     z-index:10;
-    background:rgba(5,9,17,.92);
+
+    background:
+        rgba(5,9,17,.92);
+
     backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+
 }
+
 
 nav{
+
     min-height:68px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
+
+
+/* -------------------------------- */
+/* LOGO */
+/* -------------------------------- */
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     color:white;
+
     text-decoration:none;
+
     font-size:1.2rem;
+
     font-weight:950;
+
 }
 
+
 .logo-icon{
+
     width:38px;
     height:38px;
+
     display:grid;
+
     place-items:center;
+
     border-radius:11px;
+
     background:
+
         linear-gradient(
             135deg,
             var(--cyan),
             var(--blue)
         );
+
 }
+
+
+/* -------------------------------- */
+/* NAVIGATION */
+/* -------------------------------- */
 
 .nav-links{
+
     display:flex;
+
     gap:18px;
+
 }
+
 
 .nav-links a{
+
     color:var(--muted);
+
     text-decoration:none;
+
     font-weight:800;
+
 }
+
 
 .nav-links a:hover{
+
     color:white;
+
 }
+
+
+/* -------------------------------- */
+/* HERO */
+/* -------------------------------- */
 
 .hero{
+
     text-align:center;
+
     padding:75px 0 45px;
+
 }
+
 
 .badge{
+
     display:inline-block;
+
     padding:7px 13px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:999px;
+
     background:#091321;
+
     color:#dcecff;
+
     font-size:.82rem;
+
     font-weight:850;
+
 }
+
 
 h1{
+
     max-width:900px;
+
     margin:20px auto;
-    font-size:clamp(2.5rem,6vw,5rem);
+
+    font-size:
+        clamp(2.5rem,6vw,5rem);
+
     line-height:1;
+
     letter-spacing:-2px;
+
 }
 
+
 .gradient{
+
     color:transparent;
+
     background:
+
         linear-gradient(
             90deg,
             #fff,
             #67e8f9,
             #93c5fd
         );
+
     background-clip:text;
+
     -webkit-background-clip:text;
+
 }
+
 
 .hero p{
+
     max-width:760px;
+
     margin:auto;
+
     color:var(--muted);
+
     font-size:1.05rem;
+
 }
 
+
+/* -------------------------------- */
+/* HERO BUTTON */
+/* -------------------------------- */
+
 .btn{
+
     display:inline-block;
+
     margin-top:22px;
+
     padding:13px 19px;
+
     border-radius:12px;
+
     background:
+
         linear-gradient(
             135deg,
             var(--cyan),
             var(--blue)
         );
+
     color:white;
+
     text-decoration:none;
+
     font-weight:900;
+
 }
 
+
+/* -------------------------------- */
+/* GENERATOR */
+/* -------------------------------- */
+
 .generator{
+
     padding:25px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:20px;
+
     background:
+
         linear-gradient(
             160deg,
             rgba(16,28,45,.97),
             rgba(8,14,24,.97)
         );
+
     box-shadow:
         0 25px 60px rgba(0,0,0,.4);
+
 }
+
 
 .generator h2{
+
     margin-bottom:6px;
+
 }
 
-.generator p{
+
+.generator > p{
+
     color:var(--muted);
+
 }
+
+
+/* -------------------------------- */
+/* CONTROLS */
+/* -------------------------------- */
 
 .controls{
+
     display:flex;
+
     gap:10px;
+
     margin-top:20px;
+
 }
+
 
 select,
 button{
+
     padding:12px 14px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:10px;
+
     background:#08101c;
+
     color:white;
+
     font:inherit;
+
 }
+
 
 button{
+
     cursor:pointer;
+
     font-weight:850;
+
 }
 
+
 .generate{
+
     flex:1;
+
     border:0;
+
     background:
+
         linear-gradient(
             135deg,
             var(--cyan),
             var(--blue)
         );
+
 }
+
+
+.generate:hover{
+
+    filter:brightness(1.08);
+
+}
+
+
+/* -------------------------------- */
+/* RESULTS */
+/* -------------------------------- */
 
 .results{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
     margin-top:18px;
+
 }
+
+
+/* -------------------------------- */
+/* RESULT CARD */
+/* -------------------------------- */
 
 .result{
+
     padding:20px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:15px;
+
     background:#0d1726;
+
     text-align:center;
+
     transition:.2s;
+
 }
+
 
 .result:hover{
+
     transform:translateY(-3px);
-    border-color:rgba(6,182,212,.55);
+
+    border-color:
+        rgba(6,182,212,.55);
+
 }
+
+
+/* -------------------------------- */
+/* NAME */
+/* -------------------------------- */
 
 .result-name{
+
     font-size:1.15rem;
+
     font-weight:950;
+
     word-break:break-word;
+
 }
+
+
+/* -------------------------------- */
+/* DESCRIPTION */
+/* -------------------------------- */
+
+.result-description{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.45;
+
+    min-height:58px;
+
+}
+
+
+/* -------------------------------- */
+/* BEST FOR */
+/* -------------------------------- */
+
+.result-best-for{
+
+    margin-top:10px;
+
+    color:#67e8f9;
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+    line-height:1.4;
+
+}
+
+
+/* -------------------------------- */
+/* COPY BUTTON */
+/* -------------------------------- */
 
 .copy{
+
     margin-top:12px;
+
     width:100%;
+
     background:#14243a;
+
 }
+
+
+.copy:hover{
+
+    background:#1b304b;
+
+}
+
+
+/* -------------------------------- */
+/* SECTIONS */
+/* -------------------------------- */
 
 .section{
+
     padding:65px 0;
+
 }
+
 
 .content{
+
     max-width:850px;
+
     margin:auto;
+
 }
+
 
 .content h2{
+
     margin-bottom:14px;
+
     font-size:2rem;
+
 }
+
 
 .content h3{
+
     margin-top:27px;
+
     margin-bottom:8px;
+
 }
+
 
 .content p{
+
     color:var(--muted);
+
     margin-bottom:15px;
+
 }
+
+
+/* -------------------------------- */
+/* CARDS */
+/* -------------------------------- */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:13px;
+
 }
+
 
 .card{
+
     padding:22px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:15px;
+
     background:#0d1726;
+
 }
+
 
 .card h3{
+
     margin-bottom:7px;
+
 }
+
 
 .card p{
+
     color:var(--muted);
+
     font-size:.9rem;
+
 }
+
+
+/* -------------------------------- */
+/* FAQ */
+/* -------------------------------- */
 
 .faq details{
+
     margin-bottom:10px;
+
     padding:17px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius:12px;
+
     background:#0d1726;
+
 }
+
 
 .faq summary{
+
     cursor:pointer;
+
     font-weight:900;
+
 }
+
 
 .faq p{
+
     margin-top:10px;
+
     color:var(--muted);
+
 }
 
+
+/* -------------------------------- */
+/* FOOTER */
+/* -------------------------------- */
+
 footer{
+
     padding:40px 0;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
     text-align:center;
+
     color:var(--muted);
+
 }
+
+
+/* -------------------------------- */
+/* MOBILE */
+/* -------------------------------- */
 
 @media(max-width:700px){
 
     .nav-links{
+
         display:none;
+
     }
 
+
     .controls{
+
         flex-direction:column;
+
     }
+
 
     .results,
     .cards{
+
         grid-template-columns:1fr;
+
     }
 
+
     .hero{
+
         padding-top:50px;
+
     }
 
 }
@@ -376,6 +761,7 @@ footer{
 <header>
 
 <nav class="container">
+
 
 <a
     href="index.html"
@@ -419,7 +805,12 @@ FAQ
 <main>
 
 
+<!-- ================================= -->
+<!-- HERO -->
+<!-- ================================= -->
+
 <section class="hero container">
+
 
 <span class="badge">
 👾 FREE SCI-FI NAME GENERATOR
@@ -455,20 +846,27 @@ planets and science-fiction worlds.
 
 </a>
 
+
 </section>
 
 
+<!-- ================================= -->
+<!-- GENERATOR -->
+<!-- ================================= -->
 
 <section
     class="container"
     id="generator"
 >
 
+
 <div class="generator">
+
 
 <h2>
 👾 Sci-Fi Name Generator
 </h2>
+
 
 <p>
 Choose a futuristic style and generate
@@ -534,6 +932,7 @@ Long
 
 </button>
 
+
 </div>
 
 
@@ -548,14 +947,20 @@ Long
 </section>
 
 
+<!-- ================================= -->
+<!-- INFORMATION -->
+<!-- ================================= -->
 
 <section class="section">
 
+
 <div class="content">
+
 
 <h2>
 What is a sci-fi name generator?
 </h2>
+
 
 <p>
 
@@ -565,6 +970,7 @@ space exploration, alien civilizations,
 robots and distant galaxies.
 
 </p>
+
 
 <p>
 
@@ -580,6 +986,7 @@ universes.
 👽 Alien Names
 </h3>
 
+
 <p>
 
 Strange and futuristic names for alien
@@ -591,6 +998,7 @@ characters and extraterrestrial civilizations.
 <h3>
 🤖 Robot Names
 </h3>
+
 
 <p>
 
@@ -604,6 +1012,7 @@ intelligences and futuristic machines.
 🚀 Space Pilots
 </h3>
 
+
 <p>
 
 Names suited to spaceship pilots,
@@ -616,6 +1025,7 @@ explorers and interstellar adventurers.
 💻 Cyberpunk
 </h3>
 
+
 <p>
 
 Modern futuristic names inspired by
@@ -623,13 +1033,18 @@ cyberpunk cities, technology and hackers.
 
 </p>
 
+
 </div>
 
 </section>
 
 
+<!-- ================================= -->
+<!-- POPULAR STYLES -->
+<!-- ================================= -->
 
 <section class="section container">
+
 
 <div class="content">
 
@@ -732,13 +1147,18 @@ synthetic beings and machines.
 </section>
 
 
+<!-- ================================= -->
+<!-- FAQ -->
+<!-- ================================= -->
 
 <section
     class="section container"
     id="faq"
 >
 
+
 <div class="content">
+
 
 <h2>
 Sci-Fi Name Generator FAQ
@@ -812,10 +1232,15 @@ cyberpunk, galactic and android names.
 </section>
 
 
+<!-- ================================= -->
+<!-- MORE GENERATORS -->
+<!-- ================================= -->
 
 <section class="section container">
 
+
 <div class="content">
+
 
 <h2>
 Explore more NameForge generators
@@ -823,113 +1248,136 @@ Explore more NameForge generators
 
 
 <p>
+
 <a
     href="all-name-generators.html"
     style="color:#67e8f9;font-weight:900;"
 >
 ← All Name Generators
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="fantasy-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🐉 Fantasy Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="rpg-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🎲 RPG Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="anime-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 ✨ Anime Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="gaming-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🎮 Gaming Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="kingdom-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🏰 Kingdom Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="dragon-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🐲 Dragon Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="wizard-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🧙 Wizard Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="elf-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🧝 Elf Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="warrior-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 ⚔️ Warrior Name Generator
 </a>
+
 </p>
 
 
 <p>
+
 <a
     href="vampire-name-generator.html"
     style="color:#67e8f9;font-weight:900;"
 >
 🧛 Vampire Name Generator
 </a>
+
 </p>
+
 
 </div>
 
@@ -939,35 +1387,52 @@ Explore more NameForge generators
 </main>
 
 
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
 
 <footer>
 
+
 <div class="container">
+
 
 <strong>
 👾 NameForge
 </strong>
 
+
 <br><br>
+
 
 Free sci-fi name generator for
 stories, games, RPGs and fictional worlds.
 
+
 <br><br>
 
+
 © 2026 NameForge
+
 
 </div>
 
 </footer>
 
 
-
 <script>
 
-const prefixes = {
+/* -------------------------------- */
+/* NAME PARTS */
+/* -------------------------------- */
 
-alien:[
+const nameParts = {
+
+
+alien: {
+
+first: [
+
 "Zar",
 "Xel",
 "Vex",
@@ -977,80 +1442,24 @@ alien:[
 "Vor",
 "Zyn",
 "Rax",
-"Vel"
-],
-
-robot:[
-"X",
-"RX",
-"AX",
-"NX",
-"VX",
-"TR",
-"MK",
-"CY",
-"ZR",
-"QT"
-],
-
-pilot:[
-"Kael",
-"Nova",
-"Ray",
-"Vex",
-"Axel",
-"Zane",
-"Orion",
-"Jax",
+"Vel",
+"Xar",
+"Nyr",
+"Vorl",
+"Zek",
+"Qel",
 "Ryn",
-"Val"
+"Tal",
+"Vyr",
+"Kor",
+"Zal",
+"Xor",
+"Nex"
+
 ],
 
-cyber:[
-"Nyx",
-"Hex",
-"Vex",
-"Zero",
-"Neon",
-"Byte",
-"Rex",
-"Cipher",
-"Ax",
-"Nova"
-],
+second: [
 
-galactic:[
-"Orion",
-"Lyra",
-"Vega",
-"Nova",
-"Altair",
-"Cygnus",
-"Zara",
-"Vela",
-"Arct",
-"Sol"
-],
-
-android:[
-"AX",
-"RX",
-"NX",
-"EL",
-"VA",
-"CY",
-"AR",
-"IX",
-"SY",
-"ZN"
-]
-
-};
-
-
-const middles = {
-
-alien:[
 "ar",
 "ex",
 "ion",
@@ -1060,10 +1469,52 @@ alien:[
 "or",
 "ix",
 "eth",
-"an"
+"an",
+"yr",
+"ael",
+"on",
+"ir",
+"ax",
+"el",
+"us",
+"yn"
+
+]
+
+},
+
+
+robot: {
+
+first: [
+
+"X",
+"RX",
+"AX",
+"NX",
+"VX",
+"TR",
+"MK",
+"CY",
+"ZR",
+"QT",
+"XR",
+"TX",
+"AR",
+"NX",
+"VX",
+"KR",
+"ZX",
+"MX",
+"QX",
+"SY",
+"RY",
+"EX"
+
 ],
 
-robot:[
+second: [
+
 "7",
 "9",
 "X",
@@ -1073,10 +1524,52 @@ robot:[
 "3",
 "8",
 "6",
-"5"
+"5",
+"01",
+"02",
+"11",
+"21",
+"24",
+"31",
+"42",
+"50"
+
+]
+
+},
+
+
+pilot: {
+
+first: [
+
+"Kael",
+"Nova",
+"Ray",
+"Vex",
+"Axel",
+"Zane",
+"Orion",
+"Jax",
+"Ryn",
+"Val",
+"Rex",
+"Kyro",
+"Arin",
+"Zarek",
+"Varen",
+"Cael",
+"Joren",
+"Lyric",
+"Dray",
+"Xan",
+"Corin",
+"Vail"
+
 ],
 
-pilot:[
+second: [
+
 "ar",
 "en",
 "ix",
@@ -1086,10 +1579,50 @@ pilot:[
 "ion",
 "ax",
 "ir",
-"yn"
+"yn",
+"ael",
+"us",
+"on",
+"ex",
+"is",
+"ar"
+
+]
+
+},
+
+
+cyber: {
+
+first: [
+
+"Nyx",
+"Hex",
+"Vex",
+"Zero",
+"Neon",
+"Byte",
+"Rex",
+"Cipher",
+"Ax",
+"Nova",
+"Glitch",
+"Pixel",
+"Flux",
+"Data",
+"Vector",
+"Chrome",
+"Echo",
+"Void",
+"Node",
+"Quantum",
+"Cyber",
+"Zeta"
+
 ],
 
-cyber:[
+second: [
+
 "ix",
 "ex",
 "on",
@@ -1099,10 +1632,52 @@ cyber:[
 "ax",
 "en",
 "el",
-"ir"
+"ir",
+"X",
+"byte",
+"core",
+"net",
+"zero",
+"grid",
+"tech",
+"link"
+
+]
+
+},
+
+
+galactic: {
+
+first: [
+
+"Orion",
+"Lyra",
+"Vega",
+"Nova",
+"Altair",
+"Cygnus",
+"Zara",
+"Vela",
+"Arct",
+"Sol",
+"Draco",
+"Astra",
+"Elara",
+"Sirius",
+"Caelum",
+"Cosmo",
+"Zenith",
+"Stellar",
+"Nebula",
+"Astro",
+"Helios",
+"Vesper"
+
 ],
 
-galactic:[
+second: [
+
 "ar",
 "ion",
 "el",
@@ -1112,10 +1687,50 @@ galactic:[
 "en",
 "ia",
 "yn",
-"us"
+"us",
+"ael",
+"on",
+"ir",
+"eus",
+"aris",
+"or"
+
+]
+
+},
+
+
+android: {
+
+first: [
+
+"AX",
+"RX",
+"NX",
+"EL",
+"VA",
+"CY",
+"AR",
+"IX",
+"SY",
+"ZN",
+"VX",
+"EX",
+"LY",
+"KA",
+"TR",
+"QX",
+"RY",
+"MX",
+"ZX",
+"AN",
+"OR",
+"VE"
+
 ],
 
-android:[
+second: [
+
 "7",
 "X",
 "9",
@@ -1125,107 +1740,178 @@ android:[
 "3",
 "8",
 "6",
-"5"
+"5",
+"01",
+"02",
+"11",
+"21",
+"24",
+"31",
+"42",
+"50"
+
 ]
+
+}
 
 };
 
 
-const endings = {
+/* -------------------------------- */
+/* STYLE INFORMATION */
+/* -------------------------------- */
 
-alien:[
-"ax",
-"on",
-"ix",
-"ar",
-"eth",
-"ul",
-"en",
-"or",
-"yn",
-"ak"
+const styleInfo = {
+
+
+alien: {
+
+descriptions: [
+
+"A futuristic alien name with an otherworldly and extraterrestrial atmosphere.",
+
+"A strange and memorable name suited to an advanced alien civilization.",
+
+"An exotic sci-fi name designed for an extraterrestrial character.",
+
+"A mysterious alien name with the feeling of a distant civilization."
+
 ],
 
-robot:[
-"01",
-"7",
-"9",
-"X",
-"4",
-"8",
-"12",
-"03",
-"6",
-"5"
+bestFor:
+"Alien characters • Extraterrestrial worlds • Sci-Fi RPGs"
+
+},
+
+
+robot: {
+
+descriptions: [
+
+"A mechanical designation suited to an advanced futuristic robot.",
+
+"A technological robot name with a precise artificial identity.",
+
+"A futuristic machine designation designed for robots and AI systems.",
+
+"A synthetic name suited to an advanced robotic intelligence."
+
 ],
 
-pilot:[
-"ar",
-"ion",
-"ix",
-"en",
-"or",
-"ax",
-"iel",
-"an",
-"yn",
-"us"
+bestFor:
+"Robots • Artificial Intelligence • Machines"
+
+},
+
+
+pilot: {
+
+descriptions: [
+
+"A futuristic pilot name suited to a skilled interstellar explorer.",
+
+"A bold spacefaring name for a pilot navigating distant star systems.",
+
+"A dynamic sci-fi name designed for spaceship captains and explorers.",
+
+"A memorable name for a daring pilot travelling across the galaxy."
+
 ],
 
-cyber:[
-"X",
-"ix",
-"ex",
-"on",
-"ar",
-"yn",
-"byte",
-"zero",
-"ax",
-"en"
+bestFor:
+"Space pilots • Explorers • Starship crews"
+
+},
+
+
+cyber: {
+
+descriptions: [
+
+"A futuristic cyberpunk name inspired by technology, networks and neon cities.",
+
+"A digital alias suited to a hacker or technological rebel.",
+
+"A sharp cyberpunk name with a high-tech and urban atmosphere.",
+
+"A modern futuristic name inspired by computers and digital systems."
+
 ],
 
-galactic:[
-"ion",
-"ar",
-"us",
-"el",
-"ia",
-"or",
-"en",
-"ix",
-"yn",
-"ax"
+bestFor:
+"Cyberpunk • Hackers • Futuristic cities"
+
+},
+
+
+galactic: {
+
+descriptions: [
+
+"An epic cosmic name inspired by distant galaxies and mysterious star systems.",
+
+"A celestial name suited to an explorer travelling across the galaxy.",
+
+"A grand sci-fi name with the atmosphere of distant worlds and stars.",
+
+"A cosmic name designed for characters from vast interstellar civilizations."
+
 ],
 
-android:[
-"01",
-"7",
-"X",
-"9",
-"4",
-"8",
-"12",
-"03",
-"6",
-"5"
-]
+bestFor:
+"Galactic adventures • Space opera • Cosmic worlds"
+
+},
+
+
+android: {
+
+descriptions: [
+
+"A futuristic synthetic designation suited to an advanced android.",
+
+"A technological name designed for an artificial humanoid being.",
+
+"A precise android identity with the atmosphere of advanced robotics.",
+
+"A sleek futuristic name suited to a highly advanced synthetic being."
+
+],
+
+bestFor:
+"Androids • Synthetic beings • Future technology"
+
+}
 
 };
 
+
+/* -------------------------------- */
+/* RANDOM ITEM */
+/* -------------------------------- */
 
 function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random()*array.length
+            Math.random() * array.length
         )
     ];
 
 }
 
 
+/* -------------------------------- */
+/* CAPITALIZE */
+/* -------------------------------- */
+
 function capitalize(name){
+
+    if(!name){
+
+        return "";
+
+    }
 
     return name.charAt(0).toUpperCase()
         + name.slice(1);
@@ -1233,35 +1919,57 @@ function capitalize(name){
 }
 
 
+/* -------------------------------- */
+/* GENERATE NAME */
+/* -------------------------------- */
+
 function makeName(style,length){
+
+    const parts =
+        nameParts[style];
 
     let name;
 
 
-    if(length==="short"){
+    /* SHORT */
+
+    if(length === "short"){
 
         name =
-            randomItem(prefixes[style]) +
-            randomItem(endings[style]);
+            randomItem(parts.first);
+
+
+        if(
+            Math.random() < 0.6
+        ){
+
+            name +=
+                randomItem(parts.second);
+
+        }
 
     }
 
-    else if(length==="medium"){
+
+    /* MEDIUM */
+
+    else if(length === "medium"){
 
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            randomItem(parts.first) +
+            randomItem(parts.second);
 
     }
+
+
+    /* LONG */
 
     else{
 
         name =
-            randomItem(prefixes[style]) +
-            randomItem(middles[style]) +
-            randomItem(middles[style]) +
-            randomItem(endings[style]);
+            randomItem(parts.first) +
+            randomItem(parts.second) +
+            randomItem(parts.second);
 
     }
 
@@ -1271,24 +1979,52 @@ function makeName(style,length){
 }
 
 
+/* -------------------------------- */
+/* GENERATE 9 RESULTS */
+/* -------------------------------- */
+
 function generate(){
 
+    const styleElement =
+        document.getElementById("style");
+
+
+    const lengthElement =
+        document.getElementById("length");
+
+
+    const resultsElement =
+        document.getElementById("results");
+
+
+    if(
+        !styleElement ||
+        !lengthElement ||
+        !resultsElement
+    ){
+
+        return;
+
+    }
+
+
     const style =
-        document.getElementById(
-            "style"
-        ).value;
+        styleElement.value;
 
 
     const length =
-        document.getElementById(
-            "length"
-        ).value;
+        lengthElement.value;
 
 
-    const names=[];
+    const names = [];
+
+    let attempts = 0;
 
 
-    while(names.length<9){
+    while(
+        names.length < 9 &&
+        attempts < 1000
+    ){
 
         const name =
             makeName(
@@ -1297,7 +2033,13 @@ function generate(){
             );
 
 
-        if(!names.includes(name)){
+        attempts++;
+
+
+        if(
+            name &&
+            !names.includes(name)
+        ){
 
             names.push(name);
 
@@ -1306,17 +2048,48 @@ function generate(){
     }
 
 
-    document.getElementById(
-        "results"
-    ).innerHTML =
+    const info =
+        styleInfo[style];
+
+
+    if(!info){
+
+        return;
+
+    }
+
+
+    resultsElement.innerHTML =
+
 
         names.map(name => `
 
             <div class="result">
 
+
                 <div class="result-name">
+
                     ${name}
+
                 </div>
+
+
+                <p class="result-description">
+
+                    ${randomItem(
+                        info.descriptions
+                    )}
+
+                </p>
+
+
+                <div class="result-best-for">
+
+                    Best for:
+                    ${info.bestFor}
+
+                </div>
+
 
                 <button
                     class="copy"
@@ -1327,12 +2100,17 @@ function generate(){
 
                 </button>
 
+
             </div>
 
         `).join("");
 
 }
 
+
+/* -------------------------------- */
+/* COPY NAME */
+/* -------------------------------- */
 
 async function copyName(name){
 
@@ -1341,6 +2119,7 @@ async function copyName(name){
         await navigator.clipboard.writeText(
             name
         );
+
 
         alert(
             "Name copied: " + name
@@ -1358,6 +2137,10 @@ async function copyName(name){
 
 }
 
+
+/* -------------------------------- */
+/* INITIAL GENERATION */
+/* -------------------------------- */
 
 generate();
 
