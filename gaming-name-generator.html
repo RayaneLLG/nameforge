@@ -1183,254 +1183,261 @@ usernames and online profiles.
 
 
 
+```html
 <script>
 
-const prefixes = {
+const nameParts = {
 
-pro:[
-"Vex",
-"Rex",
-"Zen",
-"Kai",
-"Nova",
-"Ax",
-"Ry",
-"Zy",
-"Neo",
-"Xen"
-],
+pro: {
+    first: [
+        "Vex","Rex","Zen","Kai","Nova","Ax","Ry","Zy","Neo","Xen",
+        "Volt","Fury","Ace","Flux","Nex","Rift","Blitz","Clutch",
+        "Prime","Titan","Ghost","Rogue","Frost","Drift","Dash","Onyx"
+    ],
+    second: [
+        "X","Z","RX","V","FX","Pro","One","GG","EX","IX",
+        "Core","Rush","Strike","Force","Elite","Prime","Legend","Max"
+    ]
+},
 
-dark:[
-"Dark",
-"Shadow",
-"Night",
-"Void",
-"Grim",
-"Black",
-"Dread",
-"Night",
-"Raven",
-"Ghost"
-],
+dark: {
+    first: [
+        "Dark","Shadow","Night","Void","Grim","Black","Dread","Raven",
+        "Ghost","Phantom","Abyss","Doom","Death","Eclipse","Blood",
+        "Sin","Hollow","Wraith","Obsidian","Nightmare","Fallen"
+    ],
+    second: [
+        "X","Void","Fang","Reaper","Lord","Born","Eye","Fall","King",
+        "Blade","Soul","Walker","Shade","Hunter","Claw","Demon","Bane"
+    ]
+},
 
-cool:[
-"Frost",
-"Blaze",
-"Storm",
-"Drift",
-"Volt",
-"Phantom",
-"Rush",
-"Zero",
-"Flash",
-"Wave"
-],
+cool: {
+    first: [
+        "Frost","Blaze","Storm","Drift","Volt","Phantom","Rush","Zero",
+        "Flash","Wave","Flare","Ice","Thunder","Nova","Rift","Vortex",
+        "Pulse","Shadow","Glare","Fire","Chrome","Ace","Orbit"
+    ],
+    second: [
+        "X","Z","Rush","Fire","Storm","Wave","Flux","Core","Edge",
+        "Force","Strike","Drive","Dash","Peak","Zone","Mode","Vibe"
+    ]
+},
 
-fantasy:[
-"Dragon",
-"Arcane",
-"Rune",
-"Storm",
-"Fae",
-"Shadow",
-"Moon",
-"Star",
-"Raven",
-"Ember"
-],
+fantasy: {
+    first: [
+        "Dragon","Arcane","Rune","Storm","Fae","Shadow","Moon","Star",
+        "Raven","Ember","Mystic","Silver","Iron","Crystal","Flame",
+        "Thunder","Frost","Dawn","Night","Elder","Astral","Wolf"
+    ],
+    second: [
+        "born","bane","blade","heart","fang","lord","wing","fire",
+        "shade","guard","walker","song","keeper","hunter","weaver",
+        "rider","stone","fall","crown"
+    ]
+},
 
-funny:[
-"Potato",
-"Chicken",
-"Toast",
-"Pickle",
-"Noodle",
-"Waffle",
-"Banana",
-"Cookie",
-"Goose",
-"Penguin"
-],
+funny: {
+    first: [
+        "Potato","Chicken","Toast","Pickle","Noodle","Waffle","Banana",
+        "Cookie","Goose","Penguin","Taco","Donut","Muffin","Cheese",
+        "Bacon","Pancake","Coconut","Potato","Hamster","Duck","Panda"
+    ],
+    second: [
+        "Master","King","Boss","Lord","Guy","Bro","Destroyer","Sniper",
+        "Legend","Pro","Ninja","Warrior","Gamer","God","Hunter",
+        "Slayer","Captain","Wizard"
+    ]
+},
 
-cyber:[
-"Cyber",
-"Neon",
-"Byte",
-"Glitch",
-"Pixel",
-"Quantum",
-"Data",
-"Chrome",
-"Code",
-"Vector"
-],
+cyber: {
+    first: [
+        "Cyber","Neon","Byte","Glitch","Pixel","Quantum","Data","Chrome",
+        "Code","Vector","Nexus","Circuit","Digital","Matrix","Hyper",
+        "Nano","System","Tech","Zero","Binary","Crypto","Synth"
+    ],
+    second: [
+        "X","404","Core","Byte","Prime","Zero",".exe","Net","Tech","AI",
+        "Protocol","System","Node","Link","Drive","Grid","Pulse","Wave"
+    ]
+},
 
-stealth:[
-"Silent",
-"Shadow",
-"Ghost",
-"Night",
-"Phantom",
-"Hidden",
-"Zero",
-"Smoke",
-"Dark",
-"Shade"
-]
+stealth: {
+    first: [
+        "Silent","Shadow","Ghost","Night","Phantom","Hidden","Zero",
+        "Smoke","Dark","Shade","Whisper","Raven","Specter","Cloak",
+        "Mist","Hush","Vanish","Eclipse","Stealth","Obscure"
+    ],
+    second: [
+        "X","Shade","Ghost","Strike","Step","Blade","Shadow","Fang",
+        "Zero","Night","Walker","Hunter","Claw","Whisper","Silent",
+        "Stalker","Mist","Phantom"
+    ]
+}
 
 };
 
 
-const endings = {
+/* -------------------------------- */
+/* DESCRIPTION DES STYLES */
+/* -------------------------------- */
 
-pro:[
-"X",
-"Z",
-"RX",
-"V",
-"FX",
-"Pro",
-"One",
-"GG",
-"EX",
-"IX"
-],
+const styleInfo = {
 
-dark:[
-"X",
-"Z",
-"Void",
-"Fang",
-"Reaper",
-"Lord",
-"Born",
-"Eye",
-"Fall",
-"King"
-],
+pro: {
+    descriptions: [
+        "A sharp and competitive name built for a serious gamer.",
+        "A clean and powerful gamer tag with a competitive feel.",
+        "A short, confident name made to stand out in competitive games.",
+        "A professional-style gamer tag with a fast and aggressive tone."
+    ],
+    bestFor: "Competitive gaming • FPS • Ranked matches"
+},
 
-cool:[
-"X",
-"Z",
-"Rush",
-"Fire",
-"Storm",
-"Wave",
-"Flux",
-"Core",
-"Edge",
-"Force"
-],
+dark: {
+    descriptions: [
+        "A dark and intimidating name for a mysterious player.",
+        "A sinister gamer tag with a shadowy and powerful atmosphere.",
+        "A mysterious name suited to players who prefer a darker identity.",
+        "A threatening and dramatic name with a dark gaming style."
+    ],
+    bestFor: "Horror games • PvP • Dark-themed games"
+},
 
-fantasy:[
-"born",
-"bane",
-"blade",
-"heart",
-"fang",
-"lord",
-"wing",
-"fire",
-"shade",
-"guard"
-],
+cool: {
+    descriptions: [
+        "A stylish gamer tag designed to sound modern and memorable.",
+        "A smooth and energetic name with a confident gaming vibe.",
+        "A modern gamer name made to stand out without being too complex.",
+        "A sleek and powerful name with a futuristic edge."
+    ],
+    bestFor: "Any game • Profiles • Multiplayer"
+},
 
-funny:[
-"Master",
-"King",
-"Boss",
-"Lord",
-"Guy",
-"Bro",
-"Destroyer",
-"Sniper",
-"Legend",
-"Pro"
-],
+fantasy: {
+    descriptions: [
+        "An epic fantasy-style name inspired by legendary warriors and magical worlds.",
+        "A mystical gamer tag with the feeling of an ancient legend.",
+        "A powerful fantasy name suited to heroes, warriors and adventurers.",
+        "A magical name that fits an epic fictional world."
+    ],
+    bestFor: "RPGs • Fantasy games • MMORPGs"
+},
 
-cyber:[
-"X",
-"404",
-"Core",
-"Byte",
-"Prime",
-"Zero",
-".exe",
-"Net",
-"Tech",
-"AI"
-],
+funny: {
+    descriptions: [
+        "A playful gamer tag designed to make other players smile.",
+        "A ridiculous and memorable name with a humorous personality.",
+        "A lighthearted gaming name perfect for a fun online identity.",
+        "A funny name that can make your profile instantly memorable."
+    ],
+    bestFor: "Casual games • Multiplayer • Fun profiles"
+},
 
-stealth:[
-"X",
-"Shade",
-"Ghost",
-"Strike",
-"Step",
-"Blade",
-"Shadow",
-"Fang",
-"Zero",
-"Night"
-]
+cyber: {
+    descriptions: [
+        "A futuristic gamer tag inspired by computers, technology and cyberpunk worlds.",
+        "A digital-style name with a futuristic technological atmosphere.",
+        "A high-tech gamer name designed for a cyberpunk identity.",
+        "A futuristic alias inspired by digital systems and advanced technology."
+    ],
+    bestFor: "Cyberpunk • Sci-fi • FPS games"
+},
+
+stealth: {
+    descriptions: [
+        "A quiet and mysterious name inspired by shadows and tactical gameplay.",
+        "A stealthy gamer tag for a player who prefers to stay unseen.",
+        "A tactical name with a silent and elusive personality.",
+        "A mysterious alias inspired by stealth, precision and shadows."
+    ],
+    bestFor: "Stealth games • Tactical games • FPS"
+}
 
 };
 
+
+/* -------------------------------- */
+/* RANDOM ITEM */
+/* -------------------------------- */
 
 function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random()*array.length
+            Math.random() * array.length
         )
     ];
 
 }
 
 
-function makeName(style,length){
+/* -------------------------------- */
+/* GENERATE NAME */
+/* -------------------------------- */
 
-    let name =
-        randomItem(prefixes[style]) +
-        randomItem(endings[style]);
+function makeName(style, length){
+
+    const parts = nameParts[style];
+
+    let first = randomItem(parts.first);
+    let second = randomItem(parts.second);
+
+    let name;
 
 
-    if(length==="short"){
+    /* SHORT */
 
-        name =
-            randomItem(prefixes[style]);
+    if(length === "short"){
 
-        if(
-            name.length < 5
-        ){
+        if(Math.random() < 0.5){
 
-            name +=
-                randomItem(endings[style])
-                .toString()
-                .slice(0,2);
+            name = first;
+
+        }else{
+
+            name =
+                first.slice(0, Math.max(3, Math.ceil(first.length / 2))) +
+                second.slice(0, 2);
 
         }
 
     }
 
 
-    if(length==="long"){
+    /* MEDIUM */
 
-        name +=
-            randomItem(endings[style]);
+    else if(length === "medium"){
+
+        name = first + second;
 
     }
 
 
+    /* LONG */
+
+    else{
+
+        const third =
+            randomItem(parts.second);
+
+        name =
+            first +
+            second +
+            third;
+
+    }
+
+
+    /* NUMBERS */
+
     if(
-        Math.random()<.18 &&
-        length!=="short"
+        length !== "short" &&
+        Math.random() < 0.18
     ){
 
         const number =
-            Math.floor(
-                Math.random()*99
-            ) + 1;
+            Math.floor(Math.random() * 99) + 1;
 
         name += number;
 
@@ -1442,32 +1449,32 @@ function makeName(style,length){
 }
 
 
+/* -------------------------------- */
+/* GENERATE 9 RESULTS */
+/* -------------------------------- */
+
 function generate(){
 
     const style =
-        document.getElementById(
-            "style"
-        ).value;
-
+        document.getElementById("style").value;
 
     const length =
-        document.getElementById(
-            "length"
-        ).value;
+        document.getElementById("length").value;
 
+    const names = [];
 
-    const names=[];
+    let attempts = 0;
 
 
     while(
-        names.length < 9
+        names.length < 9 &&
+        attempts < 500
     ){
 
         const name =
-            makeName(
-                style,
-                length
-            );
+            makeName(style, length);
+
+        attempts++;
 
 
         if(
@@ -1481,9 +1488,11 @@ function generate(){
     }
 
 
-    document.getElementById(
-        "results"
-    ).innerHTML =
+    const info =
+        styleInfo[style];
+
+
+    document.getElementById("results").innerHTML =
 
         names.map(name => `
 
@@ -1493,13 +1502,34 @@ function generate(){
                     ${name}
                 </div>
 
+                <p
+                    class="name-description"
+                    style="
+                        margin-top:8px;
+                        color:#9ba7bd;
+                        font-size:.88rem;
+                        line-height:1.45;
+                    "
+                >
+                    ${randomItem(info.descriptions)}
+                </p>
+
+                <div
+                    style="
+                        margin-top:10px;
+                        color:#a78bfa;
+                        font-size:.78rem;
+                        font-weight:800;
+                    "
+                >
+                    Best for: ${info.bestFor}
+                </div>
+
                 <button
                     class="copy"
                     onclick="copyName('${name.replace(/'/g,"\\'")}')"
                 >
-
                     📋 Copy name
-
                 </button>
 
             </div>
@@ -1509,19 +1539,22 @@ function generate(){
 }
 
 
+/* -------------------------------- */
+/* COPY */
+/* -------------------------------- */
+
 async function copyName(name){
 
     try{
 
-        await navigator.clipboard.writeText(
-            name
-        );
+        await navigator.clipboard.writeText(name);
 
         alert(
             "Name copied: " + name
         );
 
     }
+
     catch{
 
         alert(
@@ -1533,9 +1566,14 @@ async function copyName(name){
 }
 
 
+/* -------------------------------- */
+/* INITIAL GENERATION */
+/* -------------------------------- */
+
 generate();
 
 </script>
+```
 
 
 </body>
