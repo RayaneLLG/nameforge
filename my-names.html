@@ -9,17 +9,16 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>My Names — Saved Names | NameForge</title>
+<title>My Names — Saved & Liked Names | NameForge</title>
 
 <meta name="description"
-      content="View, search and manage your saved NameForge fantasy names, likes and personal notes.">
+      content="View your saved, liked and commented NameForge names in one place.">
 
 <meta name="robots"
       content="index, follow">
 
 <link rel="canonical"
       href="https://rayanellg.github.io/nameforge/my-names.html">
-
 
 <style>
 
@@ -33,12 +32,13 @@
     --panel:#101827;
     --panel2:#0d1422;
     --border:#29354d;
+
     --text:#f5f7ff;
     --muted:#9ba7bd;
 
     --purple:#8b5cf6;
-    --blue:#06b6d4;
     --red:#ef4444;
+    --green:#22c55e;
 
 }
 
@@ -52,7 +52,6 @@
     box-sizing:border-box;
 
     margin:0;
-
     padding:0;
 
 }
@@ -82,19 +81,28 @@ body{
 
         radial-gradient(
             circle at 10% 0%,
-            rgba(239,68,68,.13),
+            rgba(139,92,246,.16),
             transparent 30%
         ),
 
         radial-gradient(
             circle at 90% 5%,
-            rgba(139,92,246,.18),
+            rgba(239,68,68,.13),
             transparent 30%
         ),
 
         var(--bg);
 
     line-height:1.6;
+
+}
+
+
+button,
+input,
+textarea{
+
+    font:inherit;
 
 }
 
@@ -122,7 +130,7 @@ header{
 
     top:0;
 
-    z-index:100;
+    z-index:10;
 
     background:
         rgba(7,9,18,.9);
@@ -225,13 +233,6 @@ nav{
 }
 
 
-.nav-links a.active{
-
-    color:white;
-
-}
-
-
 /* =========================================
    HERO
 ========================================= */
@@ -240,7 +241,7 @@ nav{
 
     text-align:center;
 
-    padding:75px 0 45px;
+    padding:70px 0 35px;
 
 }
 
@@ -268,10 +269,10 @@ nav{
 
 h1{
 
-    margin:20px auto 14px;
+    margin:18px auto 12px;
 
     font-size:
-        clamp(2.5rem,6vw,4.5rem);
+        clamp(2.4rem,6vw,4.5rem);
 
     line-height:1;
 
@@ -289,8 +290,8 @@ h1{
         linear-gradient(
             90deg,
             #fff,
-            #f87171,
-            #c084fc
+            #c084fc,
+            #f87171
         );
 
     background-clip:text;
@@ -308,19 +309,6 @@ h1{
 
     color:var(--muted);
 
-    font-size:1.05rem;
-
-}
-
-
-/* =========================================
-   DASHBOARD
-========================================= */
-
-.dashboard{
-
-    padding-bottom:60px;
-
 }
 
 
@@ -337,7 +325,7 @@ h1{
 
     gap:13px;
 
-    margin-bottom:18px;
+    margin:30px auto;
 
 }
 
@@ -348,14 +336,9 @@ h1{
 
     border:1px solid var(--border);
 
-    border-radius:16px;
+    border-radius:15px;
 
-    background:
-        linear-gradient(
-            160deg,
-            rgba(20,29,47,.97),
-            rgba(12,17,29,.97)
-        );
+    background:#101625;
 
     text-align:center;
 
@@ -363,8 +346,6 @@ h1{
 
 
 .stat-number{
-
-    display:block;
 
     font-size:1.8rem;
 
@@ -379,8 +360,6 @@ h1{
 
     font-size:.85rem;
 
-    font-weight:700;
-
 }
 
 
@@ -390,98 +369,51 @@ h1{
 
 .toolbar{
 
-    padding:18px;
+    padding:20px;
 
     border:1px solid var(--border);
 
-    border-radius:16px;
+    border-radius:18px;
 
-    background:#101625;
+    background:
 
-    margin-bottom:18px;
-
-}
-
-
-.toolbar-row{
-
-    display:flex;
-
-    gap:10px;
-
-    align-items:center;
+        linear-gradient(
+            160deg,
+            rgba(20,29,47,.97),
+            rgba(12,17,29,.97)
+        );
 
 }
 
 
 .search{
 
-    flex:1;
+    width:100%;
 
-    padding:12px 14px;
+    padding:13px 15px;
 
     border:1px solid var(--border);
 
-    border-radius:10px;
+    border-radius:11px;
 
     background:#090e1a;
 
     color:white;
 
-    font:inherit;
-
-}
-
-
-.search::placeholder{
-
-    color:#69758b;
+    outline:none;
 
 }
 
 
 .search:focus{
 
-    outline:none;
-
     border-color:
         rgba(139,92,246,.7);
 
 }
 
 
-.filter{
-
-    padding:12px 14px;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
-    background:#090e1a;
-
-    color:white;
-
-    font:inherit;
-
-}
-
-
-.filter:focus{
-
-    outline:none;
-
-    border-color:
-        rgba(139,92,246,.7);
-
-}
-
-
-/* =========================================
-   FILTER BUTTONS
-========================================= */
-
-.filter-buttons{
+.filters{
 
     display:flex;
 
@@ -494,67 +426,63 @@ h1{
 }
 
 
-.filter-button{
+.filter{
 
-    padding:9px 13px;
+    padding:10px 15px;
 
     border:1px solid var(--border);
 
-    border-radius:999px;
+    border-radius:10px;
 
     background:#090e1a;
 
     color:var(--muted);
 
-    font:inherit;
-
-    font-size:.82rem;
+    cursor:pointer;
 
     font-weight:800;
 
-    cursor:pointer;
+}
+
+
+.filter:hover{
+
+    color:white;
 
 }
 
 
-.filter-button:hover{
-
-    color:white;
-
-    border-color:#475675;
-
-}
-
-
-.filter-button.active{
-
-    color:white;
+.filter.active{
 
     background:
+
         linear-gradient(
             135deg,
-            rgba(239,68,68,.2),
-            rgba(139,92,246,.2)
+            var(--red),
+            var(--purple)
         );
 
-    border-color:
-        rgba(139,92,246,.65);
+    color:white;
+
+    border-color:transparent;
 
 }
 
 
 /* =========================================
-   RESULTS
+   NAMES GRID
 ========================================= */
 
-.saved-results{
+.names-grid{
 
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:13px;
+    gap:14px;
+
+    margin-top:20px;
 
 }
 
@@ -583,7 +511,7 @@ h1{
     transform:translateY(-3px);
 
     border-color:
-        rgba(139,92,246,.55);
+        rgba(139,92,246,.5);
 
 }
 
@@ -592,16 +520,16 @@ h1{
 
     display:flex;
 
-    align-items:flex-start;
-
     justify-content:space-between;
+
+    align-items:flex-start;
 
     gap:10px;
 
 }
 
 
-.name-title{
+.name{
 
     font-size:1.25rem;
 
@@ -612,32 +540,16 @@ h1{
 }
 
 
-.name-generator{
+.like-status{
 
-    display:inline-block;
-
-    margin-top:7px;
-
-    padding:4px 8px;
-
-    border:1px solid var(--border);
-
-    border-radius:999px;
-
-    color:#c4b5fd;
-
-    background:#0d1422;
-
-    font-size:.72rem;
-
-    font-weight:800;
+    font-size:1.1rem;
 
 }
 
 
-.name-style{
+.meta{
 
-    margin-top:5px;
+    margin-top:8px;
 
     color:var(--muted);
 
@@ -646,37 +558,39 @@ h1{
 }
 
 
-.name-date{
+.note-box{
 
-    margin-top:5px;
+    margin-top:14px;
 
-    color:#68758c;
+    padding:12px;
 
-    font-size:.72rem;
+    border-radius:10px;
+
+    background:#090e1a;
+
+    border:1px solid rgba(255,255,255,.05);
 
 }
 
 
-/* =========================================
-   NOTE
-========================================= */
+.note-label{
 
-.note-display{
+    color:#c4b5fd;
 
-    margin-top:14px;
+    font-size:.76rem;
 
-    padding:11px;
+    font-weight:850;
 
-    border-left:
-        3px solid var(--purple);
+    margin-bottom:5px;
 
-    border-radius:8px;
+}
 
-    background:#0b1120;
+
+.note-text{
 
     color:#cbd5e1;
 
-    font-size:.84rem;
+    font-size:.87rem;
 
     white-space:pre-wrap;
 
@@ -685,17 +599,39 @@ h1{
 }
 
 
-.no-note{
+.note-editor{
 
-    color:#657187;
+    width:100%;
 
-    font-style:italic;
+    min-height:75px;
+
+    resize:vertical;
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#070c16;
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+.note-editor:focus{
+
+    border-color:
+        rgba(139,92,246,.7);
 
 }
 
 
 /* =========================================
-   CARD ACTIONS
+   ACTIONS
 ========================================= */
 
 .card-actions{
@@ -703,18 +639,18 @@ h1{
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        1fr 1fr;
 
     gap:8px;
 
-    margin-top:14px;
+    margin-top:13px;
 
 }
 
 
 .card-button{
 
-    padding:9px 10px;
+    padding:10px;
 
     border:1px solid var(--border);
 
@@ -724,15 +660,9 @@ h1{
 
     color:white;
 
-    font:inherit;
-
-    font-size:.8rem;
-
-    font-weight:800;
-
     cursor:pointer;
 
-    transition:.2s;
+    font-weight:800;
 
 }
 
@@ -744,102 +674,12 @@ h1{
 }
 
 
-.card-button.liked{
-
-    color:#f87171;
+.delete-button:hover{
 
     border-color:
-        rgba(239,68,68,.5);
+        rgba(239,68,68,.7);
 
-    background:
-        rgba(239,68,68,.12);
-
-}
-
-
-.card-button.saved{
-
-    color:#c4b5fd;
-
-    border-color:
-        rgba(139,92,246,.5);
-
-    background:
-        rgba(139,92,246,.12);
-
-}
-
-
-.card-button.danger:hover{
-
-    color:#f87171;
-
-    border-color:
-        rgba(239,68,68,.5);
-
-}
-
-
-/* =========================================
-   EDIT NOTE
-========================================= */
-
-.edit-note{
-
-    display:none;
-
-    margin-top:10px;
-
-}
-
-
-.edit-note.active{
-
-    display:block;
-
-}
-
-
-.note-input{
-
-    width:100%;
-
-    min-height:80px;
-
-    padding:10px;
-
-    resize:vertical;
-
-    border:1px solid var(--border);
-
-    border-radius:9px;
-
-    background:#090e1a;
-
-    color:white;
-
-    font:inherit;
-
-    font-size:.82rem;
-
-}
-
-
-.note-input:focus{
-
-    outline:none;
-
-    border-color:
-        rgba(139,92,246,.7);
-
-}
-
-
-.save-note{
-
-    width:100%;
-
-    margin-top:7px;
+    color:#fca5a5;
 
 }
 
@@ -850,17 +690,17 @@ h1{
 
 .empty{
 
-    display:none;
+    grid-column:1 / -1;
 
-    padding:55px 20px;
+    text-align:center;
+
+    padding:60px 20px;
 
     border:1px dashed var(--border);
 
-    border-radius:16px;
+    border-radius:18px;
 
     background:#0d1422;
-
-    text-align:center;
 
 }
 
@@ -876,33 +716,34 @@ h1{
 
 .empty h2{
 
-    margin-bottom:7px;
+    margin-bottom:8px;
 
 }
 
 
 .empty p{
 
+    color:var(--muted);
+
     max-width:550px;
 
     margin:auto;
 
-    color:var(--muted);
-
 }
 
 
-.empty-link{
+.empty-button{
 
     display:inline-block;
 
     margin-top:18px;
 
-    padding:11px 16px;
+    padding:12px 17px;
 
     border-radius:10px;
 
     background:
+
         linear-gradient(
             135deg,
             var(--red),
@@ -919,12 +760,20 @@ h1{
 
 
 /* =========================================
-   CLEAR BUTTON
+   DANGER ZONE
 ========================================= */
 
-.clear-area{
+.danger-zone{
 
-    margin-top:20px;
+    margin-top:35px;
+
+    padding:18px;
+
+    border:1px solid rgba(239,68,68,.25);
+
+    border-radius:14px;
+
+    background:rgba(239,68,68,.04);
 
     text-align:right;
 
@@ -933,33 +782,26 @@ h1{
 
 .clear-button{
 
-    padding:9px 13px;
+    padding:10px 14px;
 
-    border:1px solid
-        rgba(239,68,68,.3);
+    border:1px solid rgba(239,68,68,.4);
 
     border-radius:9px;
 
-    background:
-        rgba(239,68,68,.08);
+    background:rgba(239,68,68,.1);
 
     color:#fca5a5;
 
-    font:inherit;
-
-    font-size:.78rem;
+    cursor:pointer;
 
     font-weight:800;
-
-    cursor:pointer;
 
 }
 
 
 .clear-button:hover{
 
-    background:
-        rgba(239,68,68,.16);
+    background:rgba(239,68,68,.18);
 
 }
 
@@ -969,6 +811,8 @@ h1{
 ========================================= */
 
 footer{
+
+    margin-top:70px;
 
     padding:40px 0;
 
@@ -988,7 +832,7 @@ footer{
 
 @media(max-width:800px){
 
-    .saved-results{
+    .names-grid{
 
         grid-template-columns:
             repeat(2,1fr);
@@ -998,18 +842,11 @@ footer{
 }
 
 
-@media(max-width:700px){
+@media(max-width:600px){
 
     .nav-links{
 
         display:none;
-
-    }
-
-
-    .hero{
-
-        padding-top:50px;
 
     }
 
@@ -1021,30 +858,20 @@ footer{
     }
 
 
-    .toolbar-row{
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-    }
-
-
-    .saved-results{
+    .names-grid{
 
         grid-template-columns:1fr;
 
     }
 
 
-    .filter{
+    .hero{
 
-        width:100%;
+        padding-top:50px;
 
     }
 
 }
-
 
 </style>
 
@@ -1069,7 +896,7 @@ footer{
 >
 
 <span class="logo-icon">
-⚒️
+🔥
 </span>
 
 NameForge
@@ -1087,11 +914,8 @@ Home
 Generators
 </a>
 
-<a
-    href="my-names.html"
-    class="active"
->
-My Names
+<a href="my-names.html">
+❤️ My Names
 </a>
 
 </div>
@@ -1103,27 +927,27 @@ My Names
 
 
 
-<main>
+<main class="container">
 
 
 <!-- =========================================
      HERO
 ========================================= -->
 
-<section class="hero container">
+<section class="hero">
 
 
 <span class="badge">
-⭐ YOUR NAME COLLECTION
+❤️ YOUR PERSONAL NAME COLLECTION
 </span>
 
 
 <h1>
 
-Your
+My
 
 <span class="gradient">
-Name Collection
+Names
 </span>
 
 </h1>
@@ -1131,9 +955,8 @@ Name Collection
 
 <p>
 
-View and manage the names you have
-liked, saved and annotated across
-NameForge generators.
+Your saved, liked and commented names
+are stored locally in this browser.
 
 </p>
 
@@ -1143,206 +966,152 @@ NameForge generators.
 
 
 <!-- =========================================
-     DASHBOARD
+     STATS
 ========================================= -->
 
-<section class="dashboard container">
-
-
-<!-- STATS -->
-
-<div class="stats">
+<section class="stats">
 
 
 <div class="stat">
 
-<span
+<div
     class="stat-number"
-    id="total-count"
+    id="totalCount"
 >
 0
-</span>
+</div>
 
-<span class="stat-label">
-Total Saved
-</span>
+<div class="stat-label">
+Total Names
+</div>
 
 </div>
 
 
 <div class="stat">
 
-<span
+<div
     class="stat-number"
-    id="liked-count"
+    id="likedCount"
 >
 0
-</span>
+</div>
 
-<span class="stat-label">
+<div class="stat-label">
 ❤️ Liked
-</span>
+</div>
 
 </div>
 
 
 <div class="stat">
 
-<span
+<div
     class="stat-number"
-    id="notes-count"
+    id="notesCount"
 >
 0
-</span>
+</div>
 
-<span class="stat-label">
+<div class="stat-label">
 📝 With Notes
-</span>
+</div>
 
 </div>
 
 
-</div>
+</section>
 
 
 
-<!-- TOOLBAR -->
+<!-- =========================================
+     TOOLBAR
+========================================= -->
 
-<div class="toolbar">
-
-
-<div class="toolbar-row">
+<section class="toolbar">
 
 
 <input
     type="search"
     id="search"
     class="search"
-    placeholder="Search your names..."
-    autocomplete="off"
+    placeholder="🔎 Search your names..."
 >
 
 
-<select
-    id="generator-filter"
-    class="filter"
->
-
-<option value="all">
-All Generators
-</option>
-
-</select>
-
-
-</div>
-
-
-<div class="filter-buttons">
+<div class="filters">
 
 
 <button
-    class="filter-button active"
+    class="filter active"
     data-filter="all"
+    onclick="setFilter('all')"
 >
 All
 </button>
 
 
 <button
-    class="filter-button"
+    class="filter"
     data-filter="liked"
+    onclick="setFilter('liked')"
 >
 ❤️ Liked
 </button>
 
 
 <button
-    class="filter-button"
-    data-filter="saved"
->
-⭐ Saved
-</button>
-
-
-<button
-    class="filter-button"
+    class="filter"
     data-filter="notes"
+    onclick="setFilter('notes')"
 >
-📝 Notes
+📝 With Notes
 </button>
 
 
 </div>
 
 
-</div>
+</section>
 
 
 
-<!-- RESULTS -->
+<!-- =========================================
+     NAMES
+========================================= -->
+
+<section>
+
 
 <div
-    id="saved-results"
-    class="saved-results"
+    id="namesGrid"
+    class="names-grid"
 ></div>
 
 
+</section>
 
-<!-- EMPTY STATE -->
 
-<div
-    id="empty"
-    class="empty"
+
+<!-- =========================================
+     DANGER ZONE
+========================================= -->
+
+<section
+    id="dangerZone"
+    class="danger-zone"
+    style="display:none;"
 >
 
-<div class="empty-icon">
-✨
-</div>
-
-
-<h2 id="empty-title">
-No saved names yet
-</h2>
-
-
-<p id="empty-text">
-
-Generate some names and save your
-favorites. They will appear here
-automatically.
-
-</p>
-
-
-<a
-    href="all-name-generators.html"
-    class="empty-link"
->
-Explore Generators
-</a>
-
-</div>
-
-
-
-<!-- CLEAR -->
-
-<div
-    id="clear-area"
-    class="clear-area"
->
 
 <button
     class="clear-button"
-    onclick="clearAllNames()"
+    onclick="clearEverything()"
 >
 
-🗑️ Clear All Local Names
+🗑️ Clear all local names
 
 </button>
-
-</div>
 
 
 </section>
@@ -1361,13 +1130,12 @@ Explore Generators
 <div class="container">
 
 <strong>
-⚒️ NameForge
+🔥 NameForge
 </strong>
 
 <br><br>
 
-Your personal collection of
-NameForge generated names.
+Your personal collection of generated names.
 
 <br><br>
 
@@ -1380,10 +1148,11 @@ NameForge generated names.
 
 
 <!-- =========================================
-     NAMEFORGE STORAGE
+     STORAGE
 ========================================= -->
 
 <script src="js/nameforge-storage.js"></script>
+
 
 
 <script>
@@ -1396,25 +1165,43 @@ let currentFilter = "all";
 
 
 /* =========================================
-   FORMAT GENERATOR NAME
+   ESCAPE HTML
 ========================================= */
 
-function formatGenerator(generator){
+function escapeHtml(value){
 
-    if(!generator){
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
-        return "Unknown Generator";
-
-    }
+}
 
 
-    const names = {
+/* =========================================
+   SAFE ID
+========================================= */
+
+function safeId(value){
+
+    return String(value)
+        .replace(/[^a-zA-Z0-9_-]/g,"-");
+
+}
+
+
+/* =========================================
+   GENERATOR NAME
+========================================= */
+
+function getGeneratorLabel(generator){
+
+    const labels = {
 
         dragon:
             "🐲 Dragon",
-
-        wizard:
-            "🧙 Wizard",
 
         fantasy:
             "🐉 Fantasy",
@@ -1429,74 +1216,57 @@ function formatGenerator(generator){
             "🎮 Gaming",
 
         kingdom:
-            "🏰 Kingdom"
+            "🏰 Kingdom",
+
+        wizard:
+            "🧙 Wizard"
 
     };
 
 
-    return names[generator]
-        || (
-            generator.charAt(0).toUpperCase()
-            + generator.slice(1)
-        );
+    return labels[generator]
+        || generator
+        || "Unknown";
 
 }
 
 
 /* =========================================
-   FORMAT DATE
+   FILTER
 ========================================= */
 
-function formatDate(date){
+function setFilter(filter){
 
-    if(!date){
-
-        return "";
-
-    }
+    currentFilter = filter;
 
 
-    const parsed =
-        new Date(date);
+    document
+        .querySelectorAll(".filter")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.filter === filter
+            );
+
+        });
 
 
-    if(
-        Number.isNaN(
-            parsed.getTime()
-        )
-    ){
+    renderNames();
 
-        return "";
-
-    }
+}
 
 
-    return parsed.toLocaleDateString(
-        undefined,
-        {
-            year:"numeric",
-            month:"short",
-            day:"numeric"
-        }
+/* =========================================
+   SEARCH
+========================================= */
+
+document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        renderNames
     );
-
-}
-
-
-/* =========================================
-   ESCAPE HTML
-========================================= */
-
-function escapeHTML(value){
-
-    return String(value || "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
 
 
 /* =========================================
@@ -1505,37 +1275,23 @@ function escapeHTML(value){
 
 function getFilteredNames(){
 
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .trim()
+            .toLowerCase();
+
+
     let names =
         getSavedNames();
 
-
-    /* GENERATOR FILTER */
-
-    const generator =
-        document.getElementById(
-            "generator-filter"
-        ).value;
-
-
-    if(generator !== "all"){
-
-        names =
-            names.filter(
-                item =>
-                    item.generator === generator
-            );
-
-    }
-
-
-    /* MAIN FILTER */
 
     if(currentFilter === "liked"){
 
         names =
             names.filter(
-                item =>
-                    item.liked === true
+                item => item.liked === true
             );
 
     }
@@ -1553,57 +1309,41 @@ function getFilteredNames(){
     }
 
 
-    /*
-       "saved" means names that exist
-       in the local collection.
-       All stored names are saved.
-    */
-
-
-    /* SEARCH */
-
-    const search =
-        document.getElementById(
-            "search"
-        ).value
-            .trim()
-            .toLowerCase();
-
-
     if(search){
 
         names =
             names.filter(item => {
 
-                return (
+                const name =
+                    String(
+                        item.name || ""
+                    ).toLowerCase();
 
-                    item.name
-                        .toLowerCase()
-                        .includes(search)
 
-                    ||
-
+                const note =
                     String(
                         item.note || ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
+                    ).toLowerCase();
 
-                    ||
 
-                    String(
-                        item.style || ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
-
-                    ||
-
+                const generator =
                     String(
                         item.generator || ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
+                    ).toLowerCase();
+
+
+                const style =
+                    String(
+                        item.style || ""
+                    ).toLowerCase();
+
+
+                return (
+
+                    name.includes(search) ||
+                    note.includes(search) ||
+                    generator.includes(search) ||
+                    style.includes(search)
 
                 );
 
@@ -1618,261 +1358,126 @@ function getFilteredNames(){
 
 
 /* =========================================
-   UPDATE STATS
-========================================= */
-
-function updateStats(){
-
-    const names =
-        getSavedNames();
-
-
-    document.getElementById(
-        "total-count"
-    ).textContent =
-        names.length;
-
-
-    document.getElementById(
-        "liked-count"
-    ).textContent =
-        names.filter(
-            item => item.liked === true
-        ).length;
-
-
-    document.getElementById(
-        "notes-count"
-    ).textContent =
-        names.filter(
-            item =>
-                item.note &&
-                item.note.trim() !== ""
-        ).length;
-
-}
-
-
-/* =========================================
-   UPDATE GENERATOR FILTER
-========================================= */
-
-function updateGeneratorFilter(){
-
-    const select =
-        document.getElementById(
-            "generator-filter"
-        );
-
-
-    const currentValue =
-        select.value;
-
-
-    const names =
-        getSavedNames();
-
-
-    const generators =
-        [
-            ...new Set(
-                names
-                    .map(
-                        item => item.generator
-                    )
-                    .filter(Boolean)
-            )
-        ]
-        .sort();
-
-
-    select.innerHTML = `
-
-        <option value="all">
-            All Generators
-        </option>
-
-    `;
-
-
-    generators.forEach(generator => {
-
-        const option =
-            document.createElement(
-                "option"
-            );
-
-
-        option.value =
-            generator;
-
-
-        option.textContent =
-            formatGenerator(
-                generator
-            );
-
-
-        select.appendChild(
-            option
-        );
-
-    });
-
-
-    if(
-        generators.includes(
-            currentValue
-        )
-    ){
-
-        select.value =
-            currentValue;
-
-    }
-
-}
-
-
-/* =========================================
    RENDER
 ========================================= */
 
 function renderNames(){
 
-    updateStats();
+    const allNames =
+        getSavedNames();
 
-    updateGeneratorFilter();
 
+    /* STATS */
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        allNames.length;
+
+
+    document.getElementById(
+        "likedCount"
+    ).textContent =
+        allNames.filter(
+            item => item.liked === true
+        ).length;
+
+
+    document.getElementById(
+        "notesCount"
+    ).textContent =
+        allNames.filter(
+            item =>
+                item.note &&
+                item.note.trim() !== ""
+        ).length;
+
+
+    /* DANGER ZONE */
+
+    document.getElementById(
+        "dangerZone"
+    ).style.display =
+        allNames.length
+            ? "block"
+            : "none";
+
+
+    /* FILTERED */
 
     const names =
         getFilteredNames();
 
 
-    const container =
+    const grid =
         document.getElementById(
-            "saved-results"
+            "namesGrid"
         );
 
 
-    const empty =
-        document.getElementById(
-            "empty"
-        );
+    if(!names.length){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    ${allNames.length
+                        ? "🔎"
+                        : "❤️"}
+                </div>
 
 
-    const clearArea =
-        document.getElementById(
-            "clear-area"
-        );
+                <h2>
+
+                    ${allNames.length
+                        ? "No names found"
+                        : "Your collection is empty"}
+
+                </h2>
 
 
-    if(names.length === 0){
+                <p>
 
-        container.innerHTML = "";
+                    ${allNames.length
 
-        empty.style.display =
-            "block";
+                        ? "Try another search or filter."
 
-        clearArea.style.display =
-            getSavedNames().length
-                ? "block"
-                : "none";
+                        : "Generate a name and save or like it to see it here."}
+
+                </p>
 
 
-        updateEmptyMessage();
+                ${!allNames.length
+
+                    ? `
+
+                        <a
+                            href="all-name-generators.html"
+                            class="empty-button"
+                        >
+
+                            ✨ Explore Generators
+
+                        </a>
+
+                    `
+
+                    : ""}
+
+            </div>
+
+        `;
+
 
         return;
 
     }
 
 
-    empty.style.display =
-        "none";
-
-
-    clearArea.style.display =
-        "block";
-
-
-    container.innerHTML =
-        names.map(
-            renderCard
-        ).join("");
-
-}
-
-
-/* =========================================
-   EMPTY MESSAGE
-========================================= */
-
-function updateEmptyMessage(){
-
-    const allNames =
-        getSavedNames();
-
-
-    const title =
-        document.getElementById(
-            "empty-title"
-        );
-
-
-    const text =
-        document.getElementById(
-            "empty-text"
-        );
-
-
-    if(allNames.length === 0){
-
-        title.textContent =
-            "No saved names yet";
-
-
-        text.textContent =
-            "Generate some names and save your favorites. They will appear here automatically.";
-
-        return;
-
-    }
-
-
-    if(currentFilter === "liked"){
-
-        title.textContent =
-            "No liked names";
-
-
-        text.textContent =
-            "You have not liked any saved names yet.";
-
-        return;
-
-    }
-
-
-    if(currentFilter === "notes"){
-
-        title.textContent =
-            "No names with notes";
-
-
-        text.textContent =
-            "Add a personal note to one of your saved names.";
-
-        return;
-
-    }
-
-
-    title.textContent =
-        "No names found";
-
-
-    text.textContent =
-        "Try another search or change your filters.";
+    grid.innerHTML = names
+        .map(renderCard)
+        .join("");
 
 }
 
@@ -1883,95 +1488,43 @@ function updateEmptyMessage(){
 
 function renderCard(item){
 
-    const name =
-        escapeHTML(
-            item.name
-        );
-
-
-    const generator =
-        formatGenerator(
-            item.generator
-        );
-
-
-    const style =
-        escapeHTML(
-            item.style
-        );
+    const id =
+        safeId(item.id || item.name);
 
 
     const note =
-        item.note &&
-        item.note.trim() !== "";
+        item.note || "";
 
 
-    const safeId =
-        encodeURIComponent(
-            item.name
-        );
+    const style =
+        item.style
+            ? item.style
+            : "";
 
 
     return `
 
         <article
             class="name-card"
+            data-id="${escapeHtml(item.id || "")}"
         >
 
 
             <div class="name-top">
 
 
-                <div>
+                <div class="name">
+
+                    ${escapeHtml(item.name)}
+
+                </div>
 
 
-                    <div
-                        class="name-title"
-                    >
-                        ${name}
-                    </div>
+                <div class="like-status">
 
-
-                    <span
-                        class="name-generator"
-                    >
-                        ${escapeHTML(generator)}
-                    </span>
-
-
-                    ${
-                        style
-                        ?
-                        `
-                        <div
-                            class="name-style"
-                        >
-                            Style:
-                            ${style}
-                        </div>
-                        `
-                        :
-                        ""
-                    }
-
-
-                    ${
-                        item.createdAt
-                        ?
-                        `
-                        <div
-                            class="name-date"
-                        >
-                            Saved:
-                            ${formatDate(
-                                item.createdAt
-                            )}
-                        </div>
-                        `
-                        :
-                        ""
-                    }
-
+                    ${item.liked
+                        ? "❤️"
+                        : "🤍"}
 
                 </div>
 
@@ -1980,104 +1533,63 @@ function renderCard(item){
 
 
 
-            <div
-                class="note-display"
-            >
+            <div class="meta">
 
-                ${
-                    note
-                    ?
-                    escapeHTML(
-                        item.note
+                ${escapeHtml(
+                    getGeneratorLabel(
+                        item.generator
                     )
-                    :
-                    `<span class="no-note">
-                        No note added yet.
-                    </span>`
-                }
+                )}
+
+                ${style
+                    ? " • " +
+                      escapeHtml(style)
+                    : ""}
 
             </div>
 
 
 
-            <div
-                class="card-actions"
-            >
+            <div class="note-box">
 
 
-                <button
-                    class="card-button ${
-                        item.liked
-                            ? "liked"
-                            : ""
-                    }"
-                    onclick="toggleLikedFromLibrary('${escapeJS(item.name)}')"
-                >
+                <div class="note-label">
 
-                    ${
-                        item.liked
-                            ? "❤️ Liked"
-                            : "♡ Like"
-                    }
+                    📝 Private note
 
-                </button>
+                </div>
 
 
-                <button
-                    class="card-button saved"
-                    onclick="copyFromLibrary('${escapeJS(item.name)}')"
-                >
+                <textarea
+                    id="note-${id}"
+                    class="note-editor"
+                    placeholder="Write a note about this name..."
+                >${escapeHtml(note)}</textarea>
 
-                    📋 Copy
 
-                </button>
+            </div>
+
+
+
+            <div class="card-actions">
 
 
                 <button
                     class="card-button"
-                    onclick="toggleEditNote('${safeId}')"
+                    onclick="saveCardNote('${escapeHtml(item.name)}','${escapeHtml(item.id || "")}')"
                 >
 
-                    📝 Edit Note
+                    📝 Save note
 
                 </button>
 
 
                 <button
-                    class="card-button danger"
-                    onclick="removeFromLibrary('${escapeJS(item.name)}')"
+                    class="card-button delete-button"
+                    onclick="deleteName('${escapeHtml(item.name)}')"
                 >
 
-                    🗑️ Remove
-
-                </button>
-
-
-            </div>
-
-
-
-            <div
-                class="edit-note"
-                id="edit-${safeId}"
-            >
-
-
-                <textarea
-                    class="note-input"
-                    id="input-${safeId}"
-                    placeholder="Write a note about this name..."
-                >${escapeHTML(
-                    item.note || ""
-                )}</textarea>
-
-
-                <button
-                    class="card-button save-note"
-                    onclick="saveLibraryNote('${escapeJS(item.name)}')"
-                >
-
-                    💾 Save Note
+                    🗑️ Delete
 
                 </button>
 
@@ -2093,119 +1605,34 @@ function renderCard(item){
 
 
 /* =========================================
-   ESCAPE JAVASCRIPT STRING
+   SAVE CARD NOTE
 ========================================= */
 
-function escapeJS(value){
+function saveCardNote(name,id){
 
-    return String(value || "")
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'")
-        .replace(/\r/g,"\\r")
-        .replace(/\n/g,"\\n");
-
-}
-
-
-/* =========================================
-   TOGGLE LIKE
-========================================= */
-
-function toggleLikedFromLibrary(name){
-
-    const item =
-        findSavedName(name);
-
-
-    if(!item){
-
-        return;
-
-    }
-
-
-    likeName(
-        name,
-        item.generator,
-        item.style
-    );
-
-
-    renderNames();
-
-}
-
-
-/* =========================================
-   COPY
-========================================= */
-
-async function copyFromLibrary(name){
-
-    try{
-
-        await navigator.clipboard
-            .writeText(name);
-
-
-        alert(
-            "Name copied: " + name
-        );
-
-    }
-
-    catch{
-
-        alert(
-            "Name: " + name
-        );
-
-    }
-
-}
-
-
-/* =========================================
-   TOGGLE NOTE EDITOR
-========================================= */
-
-function toggleEditNote(id){
-
-    const box =
+    const textarea =
         document.getElementById(
-            "edit-" + id
+            "note-" + safeId(id || name)
         );
 
 
-    if(!box){
+    if(!textarea){
 
         return;
 
     }
 
 
-    box.classList.toggle(
-        "active"
-    );
+    const success =
+        updateNameNote(
+            name,
+            textarea.value
+        );
 
 
-    if(
-        box.classList.contains(
-            "active"
-        )
-    ){
+    if(success){
 
-        const input =
-            document.getElementById(
-                "input-" + id
-            );
-
-
-        if(input){
-
-            input.focus();
-
-        }
+        renderNames();
 
     }
 
@@ -2213,50 +1640,14 @@ function toggleEditNote(id){
 
 
 /* =========================================
-   SAVE LIBRARY NOTE
+   DELETE NAME
 ========================================= */
 
-function saveLibraryNote(name){
-
-    const id =
-        encodeURIComponent(
-            name
-        );
-
-
-    const input =
-        document.getElementById(
-            "input-" + id
-        );
-
-
-    if(!input){
-
-        return;
-
-    }
-
-
-    updateNameNote(
-        name,
-        input.value
-    );
-
-
-    renderNames();
-
-}
-
-
-/* =========================================
-   REMOVE
-========================================= */
-
-function removeFromLibrary(name){
+function deleteName(name){
 
     const confirmed =
         confirm(
-            `Remove "${name}" from your saved names?`
+            `Delete "${name}" from My Names?`
         );
 
 
@@ -2278,22 +1669,11 @@ function removeFromLibrary(name){
    CLEAR EVERYTHING
 ========================================= */
 
-function clearAllNames(){
-
-    const names =
-        getSavedNames();
-
-
-    if(names.length === 0){
-
-        return;
-
-    }
-
+function clearEverything(){
 
     const confirmed =
         confirm(
-            "Delete all your locally saved NameForge names and notes?"
+            "Are you sure you want to delete ALL your saved names, likes and notes?"
         );
 
 
@@ -2312,75 +1692,27 @@ function clearAllNames(){
 
 
 /* =========================================
-   SEARCH
+   REFRESH WHEN PAGE BECOMES VISIBLE
 ========================================= */
 
-document
-    .getElementById("search")
-    .addEventListener(
-        "input",
-        renderNames
-    );
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if(
+            document.visibilityState === "visible"
+        ){
+
+            renderNames();
+
+        }
+
+    }
+);
 
 
 /* =========================================
-   GENERATOR FILTER
-========================================= */
-
-document
-    .getElementById(
-        "generator-filter"
-    )
-    .addEventListener(
-        "change",
-        renderNames
-    );
-
-
-/* =========================================
-   MAIN FILTER BUTTONS
-========================================= */
-
-document
-    .querySelectorAll(
-        ".filter-button"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(
-                        ".filter-button"
-                    )
-                    .forEach(
-                        item =>
-                            item.classList
-                                .remove("active")
-                    );
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                currentFilter =
-                    button.dataset.filter;
-
-
-                renderNames();
-
-            }
-        );
-
-    });
-
-
-/* =========================================
-   INITIAL LOAD
+   INITIAL RENDER
 ========================================= */
 
 renderNames();
