@@ -1,14 +1,14 @@
-```javascript
 /* =========================================
-   NAMEFORGE LOCAL STORAGE SYSTEM
-   ========================================= */
+   NAMEFORGE STORAGE
+   Local favorites, likes and notes
+========================================= */
 
 const NAMEFORGE_STORAGE_KEY = "nameforge_saved_names";
 
 
 /* =========================================
-   GET SAVED NAMES
-   ========================================= */
+   GET ALL SAVED NAMES
+========================================= */
 
 function getSavedNames() {
 
@@ -19,22 +19,14 @@ function getSavedNames() {
                 NAMEFORGE_STORAGE_KEY
             );
 
-        if (!data) {
-            return [];
-        }
-
-        const names = JSON.parse(data);
-
-        return Array.isArray(names)
-            ? names
+        return data
+            ? JSON.parse(data)
             : [];
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(
-            "NameForge storage error:",
+            "NameForge Storage Error:",
             error
         );
 
@@ -47,7 +39,7 @@ function getSavedNames() {
 
 /* =========================================
    SAVE ALL NAMES
-   ========================================= */
+========================================= */
 
 function saveAllNames(names) {
 
@@ -60,12 +52,10 @@ function saveAllNames(names) {
 
         return true;
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(
-            "NameForge save error:",
+            "NameForge Storage Error:",
             error
         );
 
@@ -77,28 +67,37 @@ function saveAllNames(names) {
 
 
 /* =========================================
-   SAVE A NAME
-   ========================================= */
+   FIND NAME
+========================================= */
 
-function saveName(data) {
+function findSavedName(name) {
 
-    const names =
-        getSavedNames();
+    const names = getSavedNames();
+
+    return names.find(
+        item => item.name === name
+    );
+
+}
 
 
-    /* Avoid duplicate names */
+/* =========================================
+   SAVE NAME
+========================================= */
 
-    const alreadySaved =
-        names.some(
-            item =>
-                item.name === data.name &&
-                item.generator === data.generator
+function saveName(name, generator, style) {
+
+    const names = getSavedNames();
+
+    const existing =
+        names.find(
+            item => item.name === name
         );
 
 
-    if (alreadySaved) {
+    if (existing) {
 
-        return false;
+        return existing;
 
     }
 
@@ -106,37 +105,24 @@ function saveName(data) {
     const newName = {
 
         id:
-            Date.now().toString()
-            + "-"
-            + Math.random()
+            Date.now().toString() +
+            Math.random()
                 .toString(36)
-                .substring(2,9),
+                .substring(2, 9),
 
-        name:
-            data.name || "Unnamed",
+        name: name,
 
         generator:
-            data.generator || "Unknown",
+            generator || "unknown",
 
         style:
-            data.style || "",
+            style || "",
 
-        length:
-            data.length || "",
+        liked: false,
 
-        description:
-            data.description || "",
+        note: "",
 
-        bestFor:
-            data.bestFor || "",
-
-        favorite:
-            false,
-
-        note:
-            "",
-
-        savedAt:
+        createdAt:
             new Date().toISOString()
 
     };
@@ -144,295 +130,155 @@ function saveName(data) {
 
     names.unshift(newName);
 
+    saveAllNames(names);
 
-    return saveAllNames(names);
-
-}
-
-
-/* =========================================
-   DELETE A NAME
-   ========================================= */
-
-function deleteSavedName(id) {
-
-    const names =
-        getSavedNames();
-
-
-    const filtered =
-        names.filter(
-            item =>
-                item.id !== id
-        );
-
-
-    return saveAllNames(filtered);
+    return newName;
 
 }
 
 
 /* =========================================
-   TOGGLE FAVORITE
-   ========================================= */
+   LIKE NAME
+========================================= */
 
-function toggleFavorite(id) {
+function likeName(name, generator, style) {
 
-    const names =
-        getSavedNames();
+    const names = getSavedNames();
 
-
-    const item =
+    let existing =
         names.find(
-            name =>
-                name.id === id
+            item => item.name === name
         );
 
 
-    if (!item) {
+    if (!existing) {
 
-        return false;
+        existing =
+            saveName(
+                name,
+                generator,
+                style
+            );
 
     }
 
 
-    item.favorite =
-        !item.favorite;
+    existing.liked =
+        !existing.liked;
 
 
-    return saveAllNames(names);
+    saveAllNames(names);
+
+    return existing;
 
 }
 
 
 /* =========================================
    UPDATE NOTE
-   ========================================= */
+========================================= */
 
-function updateNote(id, note) {
+function updateNameNote(name, note) {
 
-    const names =
-        getSavedNames();
+    const names = getSavedNames();
 
-
-    const item =
+    const existing =
         names.find(
-            name =>
-                name.id === id
+            item => item.name === name
         );
 
 
-    if (!item) {
+    if (!existing) {
 
         return false;
 
     }
 
 
-    item.note =
-        note;
+    existing.note =
+        note.trim();
 
 
-    return saveAllNames(names);
+    saveAllNames(names);
 
-}
-
-
-/* =========================================
-   CHECK IF NAME IS SAVED
-   ========================================= */
-
-function isNameSaved(name, generator) {
-
-    const names =
-        getSavedNames();
-
-
-    return names.some(
-        item =>
-            item.name === name &&
-            item.generator === generator
-    );
+    return true;
 
 }
 
 
 /* =========================================
-   GET ONE NAME
-   ========================================= */
+   REMOVE NAME
+========================================= */
 
-function getSavedName(id) {
+function removeSavedName(name) {
 
     const names =
-        getSavedNames();
+        getSavedNames()
+            .filter(
+                item => item.name !== name
+            );
 
 
-    return names.find(
-        item =>
-            item.id === id
-    ) || null;
+    saveAllNames(names);
+
+}
+
+
+/* =========================================
+   IS LIKED?
+========================================= */
+
+function isNameLiked(name) {
+
+    const existing =
+        findSavedName(name);
+
+
+    return existing
+        ? existing.liked === true
+        : false;
+
+}
+
+
+/* =========================================
+   GET LIKED NAMES
+========================================= */
+
+function getLikedNames() {
+
+    return getSavedNames()
+        .filter(
+            item => item.liked === true
+        );
+
+}
+
+
+/* =========================================
+   GET SAVED NAMES WITH NOTES
+========================================= */
+
+function getNamesWithNotes() {
+
+    return getSavedNames()
+        .filter(
+            item =>
+                item.note &&
+                item.note.trim() !== ""
+        );
 
 }
 
 
 /* =========================================
    CLEAR EVERYTHING
-   ========================================= */
+========================================= */
 
-function clearAllSavedNames() {
+function clearNameForgeStorage() {
 
     localStorage.removeItem(
         NAMEFORGE_STORAGE_KEY
     );
 
 }
-
-
-/* =========================================
-   EXPORT DATA
-   ========================================= */
-
-function exportSavedNames() {
-
-    const names =
-        getSavedNames();
-
-
-    const data =
-        JSON.stringify(
-            names,
-            null,
-            2
-        );
-
-
-    const blob =
-        new Blob(
-            [data],
-            {
-                type:
-                    "application/json"
-            }
-        );
-
-
-    const url =
-        URL.createObjectURL(
-            blob
-        );
-
-
-    const link =
-        document.createElement(
-            "a"
-        );
-
-
-    link.href =
-        url;
-
-
-    link.download =
-        "nameforge-saved-names.json";
-
-
-    document.body.appendChild(
-        link
-    );
-
-
-    link.click();
-
-
-    document.body.removeChild(
-        link
-    );
-
-
-    URL.revokeObjectURL(
-        url
-    );
-
-}
-
-
-/* =========================================
-   IMPORT DATA
-   ========================================= */
-
-function importSavedNames(file) {
-
-    return new Promise(
-        (resolve, reject) => {
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(event) {
-
-                    try {
-
-                        const imported =
-                            JSON.parse(
-                                event.target.result
-                            );
-
-
-                        if (
-                            !Array.isArray(
-                                imported
-                            )
-                        ) {
-
-                            reject(
-                                "Invalid NameForge file."
-                            );
-
-                            return;
-
-                        }
-
-
-                        saveAllNames(
-                            imported
-                        );
-
-
-                        resolve(
-                            imported
-                        );
-
-                    }
-
-                    catch {
-
-                        reject(
-                            "Could not read the file."
-                        );
-
-                    }
-
-                };
-
-
-            reader.onerror =
-                function() {
-
-                    reject(
-                        "Could not read the file."
-                    );
-
-                };
-
-
-            reader.readAsText(
-                file
-            );
-
-        }
-    );
-
-}
-```
