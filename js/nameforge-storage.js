@@ -19,8 +19,14 @@ function getSavedNames() {
                 NAMEFORGE_STORAGE_KEY
             );
 
-        return data
-            ? JSON.parse(data)
+        if (!data) {
+            return [];
+        }
+
+        const parsed = JSON.parse(data);
+
+        return Array.isArray(parsed)
+            ? parsed
             : [];
 
     } catch (error) {
@@ -139,11 +145,12 @@ function saveName(name, generator, style) {
 
 /* =========================================
    LIKE NAME
+   FIXED VERSION
 ========================================= */
 
 function likeName(name, generator, style) {
 
-    const names = getSavedNames();
+    let names = getSavedNames();
 
     let existing =
         names.find(
@@ -151,23 +158,60 @@ function likeName(name, generator, style) {
         );
 
 
+    /*
+     * If the name doesn't exist,
+     * create it first.
+     */
+
     if (!existing) {
 
-        existing =
-            saveName(
-                name,
-                generator,
-                style
-            );
+        existing = {
+
+            id:
+                Date.now().toString() +
+                Math.random()
+                    .toString(36)
+                    .substring(2, 9),
+
+            name: name,
+
+            generator:
+                generator || "unknown",
+
+            style:
+                style || "",
+
+            liked: false,
+
+            note: "",
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        names.unshift(existing);
 
     }
 
+
+    /*
+     * Toggle the like.
+     */
 
     existing.liked =
         !existing.liked;
 
 
+    /*
+     * IMPORTANT:
+     * Save the SAME array that contains
+     * the modified object.
+     */
+
     saveAllNames(names);
+
 
     return existing;
 
@@ -196,7 +240,7 @@ function updateNameNote(name, note) {
 
 
     existing.note =
-        note.trim();
+        String(note || "").trim();
 
 
     saveAllNames(names);
@@ -256,7 +300,21 @@ function getLikedNames() {
 
 
 /* =========================================
-   GET SAVED NAMES WITH NOTES
+   GET SAVED NAMES
+========================================= */
+
+function getSavedOnlyNames() {
+
+    return getSavedNames()
+        .filter(
+            item => item.liked === false
+        );
+
+}
+
+
+/* =========================================
+   GET NAMES WITH NOTES
 ========================================= */
 
 function getNamesWithNotes() {
