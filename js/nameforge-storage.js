@@ -1,35 +1,103 @@
+```javascript
 /* =========================================
    NAMEFORGE STORAGE
-   Local favorites, likes and notes
+   Separate Saved, Liked and Notes
 ========================================= */
 
 const NAMEFORGE_STORAGE_KEY = "nameforge_saved_names";
 
 
 /* =========================================
-   GET ALL SAVED NAMES
+   GET ALL SAVED DATA
 ========================================= */
 
-function getSavedNames() {
+function getSavedNames(){
 
-    try {
+    try{
 
         const data =
             localStorage.getItem(
                 NAMEFORGE_STORAGE_KEY
             );
 
-        if (!data) {
+        if(!data){
+
             return [];
+
         }
 
-        const parsed = JSON.parse(data);
+        const names =
+            JSON.parse(data);
 
-        return Array.isArray(parsed)
-            ? parsed
-            : [];
+        if(!Array.isArray(names)){
 
-    } catch (error) {
+            return [];
+
+        }
+
+
+        /*
+         * MIGRATION OF OLD DATA
+         *
+         * Old NameForge entries did not have
+         * a "saved" property.
+         *
+         * They are considered saved so
+         * existing user data is preserved.
+         */
+
+        let changed = false;
+
+
+        names.forEach(item => {
+
+            if(
+                typeof item.saved === "undefined"
+            ){
+
+                item.saved = true;
+
+                changed = true;
+
+            }
+
+
+            if(
+                typeof item.liked === "undefined"
+            ){
+
+                item.liked = false;
+
+                changed = true;
+
+            }
+
+
+            if(
+                typeof item.note === "undefined"
+            ){
+
+                item.note = "";
+
+                changed = true;
+
+            }
+
+        });
+
+
+        if(changed){
+
+            saveAllNames(names);
+
+        }
+
+
+        return names;
+
+    }
+
+    catch(error){
 
         console.error(
             "NameForge Storage Error:",
@@ -44,12 +112,12 @@ function getSavedNames() {
 
 
 /* =========================================
-   SAVE ALL NAMES
+   SAVE ALL DATA
 ========================================= */
 
-function saveAllNames(names) {
+function saveAllNames(names){
 
-    try {
+    try{
 
         localStorage.setItem(
             NAMEFORGE_STORAGE_KEY,
@@ -58,7 +126,9 @@ function saveAllNames(names) {
 
         return true;
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         console.error(
             "NameForge Storage Error:",
@@ -76,9 +146,10 @@ function saveAllNames(names) {
    FIND NAME
 ========================================= */
 
-function findSavedName(name) {
+function findSavedName(name){
 
-    const names = getSavedNames();
+    const names =
+        getSavedNames();
 
     return names.find(
         item => item.name === name
@@ -88,35 +159,24 @@ function findSavedName(name) {
 
 
 /* =========================================
-   SAVE NAME
+   CREATE NAME ENTRY
 ========================================= */
 
-function saveName(name, generator, style) {
+function createNameEntry(
+    name,
+    generator,
+    style
+){
 
-    const names = getSavedNames();
-
-    const existing =
-        names.find(
-            item => item.name === name
-        );
-
-
-    if (existing) {
-
-        return existing;
-
-    }
-
-
-    const newName = {
+    return {
 
         id:
             Date.now().toString() +
             Math.random()
                 .toString(36)
-                .substring(2, 9),
+                .substring(2,9),
 
-        name: name,
+        name:name,
 
         generator:
             generator || "unknown",
@@ -124,14 +184,83 @@ function saveName(name, generator, style) {
         style:
             style || "",
 
-        liked: false,
+        saved:false,
 
-        note: "",
+        liked:false,
+
+        note:"",
 
         createdAt:
             new Date().toISOString()
 
     };
+
+}
+
+
+/* =========================================
+   SAVE NAME
+========================================= */
+
+function saveName(
+    name,
+    generator,
+    style
+){
+
+    const names =
+        getSavedNames();
+
+
+    let existing =
+        names.find(
+            item => item.name === name
+        );
+
+
+    /*
+     * If the name already exists,
+     * simply mark it as saved.
+     */
+
+    if(existing){
+
+        existing.saved = true;
+
+        if(generator){
+
+            existing.generator =
+                generator;
+
+        }
+
+        if(style){
+
+            existing.style =
+                style;
+
+        }
+
+        saveAllNames(names);
+
+        return existing;
+
+    }
+
+
+    /*
+     * Create a new saved entry.
+     */
+
+    const newName =
+        createNameEntry(
+            name,
+            generator,
+            style
+        );
+
+
+    newName.saved = true;
 
 
     names.unshift(newName);
@@ -144,87 +273,14 @@ function saveName(name, generator, style) {
 
 
 /* =========================================
-   LIKE NAME
-   FIXED VERSION
+   UNSAVE NAME
 ========================================= */
 
-function likeName(name, generator, style) {
+function unsaveName(name){
 
-    let names = getSavedNames();
+    const names =
+        getSavedNames();
 
-    let existing =
-        names.find(
-            item => item.name === name
-        );
-
-
-    /*
-     * If the name doesn't exist,
-     * create it first.
-     */
-
-    if (!existing) {
-
-        existing = {
-
-            id:
-                Date.now().toString() +
-                Math.random()
-                    .toString(36)
-                    .substring(2, 9),
-
-            name: name,
-
-            generator:
-                generator || "unknown",
-
-            style:
-                style || "",
-
-            liked: false,
-
-            note: "",
-
-            createdAt:
-                new Date().toISOString()
-
-        };
-
-
-        names.unshift(existing);
-
-    }
-
-
-    /*
-     * Toggle the like.
-     */
-
-    existing.liked =
-        !existing.liked;
-
-
-    /*
-     * IMPORTANT:
-     * Save the SAME array that contains
-     * the modified object.
-     */
-
-    saveAllNames(names);
-
-
-    return existing;
-
-}
-
-
-/* =========================================
-   UPDATE NOTE
-========================================= */
-
-function updateNameNote(name, note) {
-
-    const names = getSavedNames();
 
     const existing =
         names.find(
@@ -232,15 +288,44 @@ function updateNameNote(name, note) {
         );
 
 
-    if (!existing) {
+    if(!existing){
 
         return false;
 
     }
 
 
-    existing.note =
-        String(note || "").trim();
+    /*
+     * Only remove the Saved status.
+     *
+     * The Like and Note remain.
+     */
+
+    existing.saved = false;
+
+
+    /*
+     * If the name is no longer saved,
+     * liked and has no note, there is
+     * no reason to keep it in storage.
+     */
+
+    if(
+        existing.liked !== true &&
+        (!existing.note ||
+         existing.note.trim() === "")
+    ){
+
+        const filtered =
+            names.filter(
+                item => item.name !== name
+            );
+
+        saveAllNames(filtered);
+
+        return true;
+
+    }
 
 
     saveAllNames(names);
@@ -251,10 +336,167 @@ function updateNameNote(name, note) {
 
 
 /* =========================================
-   REMOVE NAME
+   LIKE / UNLIKE NAME
 ========================================= */
 
-function removeSavedName(name) {
+function likeName(
+    name,
+    generator,
+    style
+){
+
+    const names =
+        getSavedNames();
+
+
+    let existing =
+        names.find(
+            item => item.name === name
+        );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * Liking a name does NOT automatically
+     * save it anymore.
+     */
+
+    if(!existing){
+
+        existing =
+            createNameEntry(
+                name,
+                generator,
+                style
+            );
+
+
+        existing.liked = true;
+
+
+        names.unshift(existing);
+
+    }
+
+    else{
+
+        existing.liked =
+            !existing.liked;
+
+    }
+
+
+    /*
+     * If the user unlikes a name and it is
+     * neither saved nor has a note anymore,
+     * remove it completely.
+     */
+
+    if(
+        existing.liked !== true &&
+        existing.saved !== true &&
+        (!existing.note ||
+         existing.note.trim() === "")
+    ){
+
+        const filtered =
+            names.filter(
+                item => item.name !== name
+            );
+
+        saveAllNames(filtered);
+
+        return null;
+
+    }
+
+
+    saveAllNames(names);
+
+    return existing;
+
+}
+
+
+/* =========================================
+   UPDATE NOTE
+========================================= */
+
+function updateNameNote(
+    name,
+    note
+){
+
+    const names =
+        getSavedNames();
+
+
+    let existing =
+        names.find(
+            item => item.name === name
+        );
+
+
+    /*
+     * If the name doesn't exist,
+     * create it without automatically
+     * marking it as saved.
+     */
+
+    if(!existing){
+
+        existing =
+            createNameEntry(
+                name,
+                "unknown",
+                ""
+            );
+
+        names.unshift(existing);
+
+    }
+
+
+    existing.note =
+        String(note || "").trim();
+
+
+    /*
+     * If the entry has no saved status,
+     * no like and no note, remove it.
+     */
+
+    if(
+        existing.saved !== true &&
+        existing.liked !== true &&
+        existing.note === ""
+    ){
+
+        const filtered =
+            names.filter(
+                item => item.name !== name
+            );
+
+        saveAllNames(filtered);
+
+        return true;
+
+    }
+
+
+    saveAllNames(names);
+
+    return true;
+
+}
+
+
+/* =========================================
+   REMOVE NAME COMPLETELY
+========================================= */
+
+function removeSavedName(name){
 
     const names =
         getSavedNames()
@@ -269,10 +511,27 @@ function removeSavedName(name) {
 
 
 /* =========================================
+   IS SAVED?
+========================================= */
+
+function isNameSaved(name){
+
+    const existing =
+        findSavedName(name);
+
+
+    return existing
+        ? existing.saved === true
+        : false;
+
+}
+
+
+/* =========================================
    IS LIKED?
 ========================================= */
 
-function isNameLiked(name) {
+function isNameLiked(name){
 
     const existing =
         findSavedName(name);
@@ -286,10 +545,24 @@ function isNameLiked(name) {
 
 
 /* =========================================
+   GET SAVED NAMES
+========================================= */
+
+function getOnlySavedNames(){
+
+    return getSavedNames()
+        .filter(
+            item => item.saved === true
+        );
+
+}
+
+
+/* =========================================
    GET LIKED NAMES
 ========================================= */
 
-function getLikedNames() {
+function getLikedNames(){
 
     return getSavedNames()
         .filter(
@@ -300,24 +573,10 @@ function getLikedNames() {
 
 
 /* =========================================
-   GET SAVED NAMES
-========================================= */
-
-function getSavedOnlyNames() {
-
-    return getSavedNames()
-        .filter(
-            item => item.liked === false
-        );
-
-}
-
-
-/* =========================================
    GET NAMES WITH NOTES
 ========================================= */
 
-function getNamesWithNotes() {
+function getNamesWithNotes(){
 
     return getSavedNames()
         .filter(
@@ -333,10 +592,11 @@ function getNamesWithNotes() {
    CLEAR EVERYTHING
 ========================================= */
 
-function clearNameForgeStorage() {
+function clearNameForgeStorage(){
 
     localStorage.removeItem(
         NAMEFORGE_STORAGE_KEY
     );
 
 }
+```
