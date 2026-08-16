@@ -1,2102 +1,1754 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>NameForge — Free Name Generators for Fantasy, RPG, Anime & Gaming</title>
+<title>NameForge — Free Name Generators for Fantasy, RPG, Anime & Gaming</title>
 
-    <meta name="description"
-          content="NameForge is a free name generator website for fantasy characters, RPGs, anime, gaming, dragons, kingdoms and fictional worlds. Forge memorable names instantly.">
+<meta name="description"
+      content="NameForge is a free name generator website for fantasy characters, RPGs, anime, gaming, dragons, kingdoms and fictional worlds. Forge memorable names instantly.">
 
-    <meta name="keywords"
-          content="name generator, fantasy name generator, RPG name generator, anime name generator, gaming name generator, dragon name generator, kingdom name generator, character name generator">
+<meta name="keywords"
+      content="name generator, fantasy name generator, RPG name generator, anime name generator, gaming name generator, dragon name generator, kingdom name generator, character name generator">
 
-    <meta name="robots"
-          content="index, follow">
+<meta name="robots"
+      content="index, follow">
 
-    <meta name="theme-color"
-          content="#080b16">
+<meta name="theme-color"
+      content="#070714">
 
-    <link rel="canonical"
-          href="https://rayanellg.github.io/nameforge/index.html">
-
-
-    <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
-
-    <meta property="og:type"
-          content="website">
-
-    <meta property="og:title"
-          content="NameForge — Forge Your Perfect Name">
-
-    <meta property="og:description"
-          content="Discover free name generators for fantasy, RPG, anime, gaming and fictional worlds.">
-
-    <meta property="og:url"
-          content="https://rayanellg.github.io/nameforge/index.html">
-
-    <meta property="og:site_name"
-          content="NameForge">
+<link rel="canonical"
+      href="https://rayanellg.github.io/nameforge/index.html">
 
 
-    <!-- =====================================================
-         STRUCTURED DATA
-    ====================================================== -->
+<!-- =====================================================
+     OPEN GRAPH
+====================================================== -->
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "NameForge",
-        "url": "https://rayanellg.github.io/nameforge/",
-        "description": "Free name generators for fantasy, RPG, anime, gaming and fictional worlds.",
-        "inLanguage": "en"
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="NameForge — Forge Your Perfect Name">
+
+<meta property="og:description"
+      content="Discover free name generators for fantasy, RPG, anime, gaming and fictional worlds.">
+
+<meta property="og:url"
+      content="https://rayanellg.github.io/nameforge/index.html">
+
+<meta property="og:site_name"
+      content="NameForge">
+
+
+<!-- =====================================================
+     STRUCTURED DATA
+====================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "NameForge",
+    "url": "https://rayanellg.github.io/nameforge/",
+    "description": "Free name generators for fantasy, RPG, anime, gaming and fictional worlds.",
+    "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "NameForge",
+    "url": "https://rayanellg.github.io/nameforge/",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Web Browser",
+    "isAccessibleForFree": true,
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
     }
-    </script>
+}
+</script>
 
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "NameForge",
-        "url": "https://rayanellg.github.io/nameforge/",
-        "applicationCategory": "EntertainmentApplication",
-        "operatingSystem": "Web Browser",
-        "isAccessibleForFree": true,
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+
+    --bg: #060611;
+    --bg-2: #09091a;
+
+    --surface: #111124;
+    --surface-2: #16162d;
+
+    --border: rgba(255,255,255,.10);
+    --border-bright: rgba(167,139,250,.35);
+
+    --text: #ffffff;
+    --text-soft: #d9d8e8;
+    --muted: #9291aa;
+
+    --purple: #8b5cf6;
+    --purple-light: #b497ff;
+
+    --blue: #22d3ee;
+    --cyan: #06b6d4;
+
+    --pink: #ec4899;
+    --gold: #fbbf24;
+
+    --max-width: 1160px;
+
+    --radius: 20px;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(139,92,246,.15),
+            transparent 32%
+        ),
+        var(--bg);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+}
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(139,92,246,.13),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 92% 20%,
+            rgba(34,211,238,.10),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 50% 70%,
+            rgba(236,72,153,.055),
+            transparent 30%
+        );
+
+}
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    opacity: .18;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 75%
+        );
+
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width:
+        min(
+            var(--max-width),
+            calc(100% - 40px)
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(6,6,17,.72);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+}
+
+.nav {
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    font-size: 1.08rem;
+
+    font-weight: 950;
+
+    letter-spacing: -.5px;
+
+}
+
+.logo-mark {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b6cff,
+            #6d28d9 55%,
+            #06b6d4
+        );
+
+    border:
+        1px solid rgba(255,255,255,.20);
+
+    box-shadow:
+        0 0 30px rgba(139,92,246,.30);
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+
+}
+
+.nav-links a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: .82rem;
+
+    font-weight: 800;
+
+    transition: .2s ease;
+
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.language-wrapper {
+    position: relative;
+}
+
+.language-button {
+
+    min-height: 39px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background:
+        rgba(15,15,31,.85);
+
+    color: var(--text-soft);
+
+    cursor: pointer;
+
+    font-size: .77rem;
+
+    font-weight: 800;
+
+}
+
+.language-button:hover {
+
+    border-color:
+        var(--border-bright);
+
+    color: white;
+
+}
+
+.language-menu {
+
+    position: absolute;
+
+    top: calc(100% + 9px);
+
+    right: 0;
+
+    width: 235px;
+
+    max-height: 390px;
+
+    overflow-y: auto;
+
+    padding: 8px;
+
+    border:
+        1px solid rgba(167,139,250,.25);
+
+    border-radius: 15px;
+
+    background:
+        rgba(8,8,20,.98);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.55);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-7px);
+
+    transition: .2s ease;
+
+}
+
+.language-wrapper.open .language-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+.language-menu button {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 10px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-soft);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: .78rem;
+
+}
+
+.language-menu button:hover {
+
+    background:
+        rgba(139,92,246,.14);
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   MY NAMES
+===================================================== */
+
+.my-names {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid rgba(236,72,153,.30);
+
+    border-radius: 11px;
+
+    background:
+        rgba(236,72,153,.08);
+
+    color: #f6b5d5;
+
+    text-decoration: none;
+
+    font-size: .77rem;
+
+    font-weight: 850;
+
+    transition: .2s ease;
+
+}
+
+.my-names:hover {
+
+    background:
+        rgba(236,72,153,.15);
+
+    border-color:
+        rgba(236,72,153,.55);
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    position: relative;
+
+    padding:
+        105px 0 80px;
+
+    text-align: center;
+
+}
+
+
+/* LARGE LIGHT */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 850px;
+
+    height: 500px;
+
+    top: -100px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(139,92,246,.20),
+            rgba(139,92,246,.07) 35%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* SECOND LIGHT */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+
+    height: 260px;
+
+    top: 120px;
+
+    left: calc(50% - 500px);
+
+    border-radius: 50%;
+
+    background:
+        rgba(34,211,238,.08);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   EYEBROW
+===================================================== */
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border:
+        1px solid rgba(167,139,250,.28);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.13),
+            rgba(34,211,238,.06)
+        );
+
+    color: #dcd5ff;
+
+    font-size: .74rem;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    box-shadow:
+        0 0 25px rgba(139,92,246,.08);
+
+}
+
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero h1 {
+
+    max-width: 1000px;
+
+    margin:
+        25px auto 22px;
+
+    font-size:
+        clamp(
+            3.6rem,
+            8vw,
+            7rem
+        );
+
+    line-height: .91;
+
+    letter-spacing: -5px;
+
+    font-weight: 1000;
+
+    text-shadow:
+        0 15px 70px rgba(0,0,0,.45);
+
+}
+
+.gradient-text {
+
+    color: transparent;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #b79cff 28%,
+            #8b5cf6 52%,
+            #22d3ee 78%,
+            #f0abfc 100%
+        );
+
+    background-size: 200% auto;
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    animation:
+        gradientMove 5s linear infinite;
+
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% center;
     }
-    </script>
 
+    100% {
+        background-position: 200% center;
+    }
 
-    <style>
+}
 
-        /* =====================================================
-           ROOT
-        ====================================================== */
 
-        :root {
+/* =====================================================
+   HERO SUBTITLE
+===================================================== */
 
-            --bg:
-                #070914;
+.hero-subtitle {
 
-            --bg-soft:
-                #0b1020;
+    max-width: 740px;
 
-            --surface:
-                #101729;
+    margin: 0 auto;
 
-            --surface-light:
-                #141d31;
+    color: var(--muted);
 
-            --surface-hover:
-                #18223a;
+    font-size:
+        clamp(
+            1rem,
+            2vw,
+            1.16rem
+        );
 
-            --border:
-                rgba(139, 160, 205, .20);
+}
 
-            --border-strong:
-                rgba(139, 160, 205, .32);
 
-            --text:
-                #f7f8ff;
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
 
-            --text-soft:
-                #d7dced;
+.hero-actions {
 
-            --muted:
-                #8f9bb5;
+    display: flex;
 
-            --purple:
-                #8b5cf6;
+    justify-content: center;
 
-            --purple-light:
-                #a78bfa;
+    flex-wrap: wrap;
 
-            --blue:
-                #22d3ee;
+    gap: 13px;
 
-            --cyan:
-                #06b6d4;
+    margin-top: 32px;
 
-            --gold:
-                #fbbf24;
+}
 
-            --pink:
-                #ec4899;
+.btn {
 
-            --success:
-                #34d399;
+    min-height: 52px;
 
-            --max-width:
-                1120px;
+    display: inline-flex;
 
-            --radius:
-                18px;
+    align-items: center;
 
-        }
+    justify-content: center;
 
+    gap: 9px;
 
-        /* =====================================================
-           RESET
-        ====================================================== */
+    padding: 0 21px;
 
-        * {
+    border-radius: 13px;
 
-            box-sizing:
-                border-box;
+    text-decoration: none;
 
-            margin:
-                0;
+    font-size: .85rem;
 
-            padding:
-                0;
+    font-weight: 950;
 
-        }
+    cursor: pointer;
 
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 
-        html {
+}
 
-            scroll-behavior:
-                smooth;
+.btn:hover {
 
-        }
+    transform:
+        translateY(-3px);
 
+}
 
-        body {
+.btn-primary {
 
-            min-height:
-                100vh;
+    position: relative;
 
-            font-family:
-                Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
+    overflow: hidden;
 
-            color:
-                var(--text);
+    background:
+        linear-gradient(
+            135deg,
+            #9b6cff,
+            #7c3aed 55%,
+            #5b21b6
+        );
 
-            background:
-                var(--bg);
+    box-shadow:
+        0 12px 45px rgba(124,58,237,.35);
 
-            line-height:
-                1.6;
+}
 
-            overflow-x:
-                hidden;
+.btn-primary::after {
 
-        }
+    content: "";
 
+    position: absolute;
 
-        img,
-        svg {
+    top: 0;
 
-            max-width:
-                100%;
+    left: -100%;
 
-        }
+    width: 70%;
 
+    height: 100%;
 
-        button,
-        select {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
 
-            font:
-                inherit;
+    transform: skewX(-20deg);
 
-        }
+    animation:
+        buttonShine 4s infinite;
 
+}
 
-        a {
+@keyframes buttonShine {
 
-            color:
-                inherit;
+    0% {
+        left: -100%;
+    }
 
-        }
+    35% {
+        left: 130%;
+    }
 
+    100% {
+        left: 130%;
+    }
 
-        /* =====================================================
-           BACKGROUND
-        ====================================================== */
+}
 
-        body::before {
+.btn-primary:hover {
 
-            content:
-                "";
+    box-shadow:
+        0 18px 60px rgba(124,58,237,.50);
 
-            position:
-                fixed;
+}
 
-            inset:
-                0;
+.btn-secondary {
 
-            z-index:
-                -2;
+    border:
+        1px solid rgba(255,255,255,.13);
 
-            pointer-events:
-                none;
+    background:
+        rgba(17,17,36,.75);
 
-            background:
+    color:
+        var(--text-soft);
 
-                radial-gradient(
-                    circle at 15% 8%,
-                    rgba(139, 92, 246, .16),
-                    transparent 28%
-                ),
+}
 
-                radial-gradient(
-                    circle at 86% 12%,
-                    rgba(6, 182, 212, .12),
-                    transparent 27%
-                ),
+.btn-secondary:hover {
 
-                radial-gradient(
-                    circle at 50% 60%,
-                    rgba(139, 92, 246, .045),
-                    transparent 35%
-                );
+    border-color:
+        rgba(167,139,250,.38);
 
-        }
+    background:
+        rgba(25,25,50,.9);
 
+}
 
-        body::after {
 
-            content:
-                "";
+/* =====================================================
+   STATS
+===================================================== */
 
-            position:
-                fixed;
+.stats {
 
-            inset:
-                0;
+    width:
+        min(
+            850px,
+            100%
+        );
 
-            z-index:
-                -1;
+    margin:
+        55px auto 0;
 
-            pointer-events:
-                none;
+    display:
+        grid;
 
-            opacity:
-                .25;
+    grid-template-columns:
+        repeat(3,1fr);
 
-            background-image:
+    border:
+        1px solid rgba(255,255,255,.10);
 
-                linear-gradient(
-                    rgba(255,255,255,.015) 1px,
-                    transparent 1px
-                ),
+    border-radius: 18px;
 
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,.015) 1px,
-                    transparent 1px
-                );
+    background:
+        linear-gradient(
+            135deg,
+            rgba(17,17,36,.85),
+            rgba(10,10,25,.85)
+        );
 
-            background-size:
-                80px 80px;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.20);
 
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent 80%
-                );
+    overflow: hidden;
 
-        }
+}
 
+.stat {
 
-        /* =====================================================
-           GLOBAL
-        ====================================================== */
+    padding:
+        23px 15px;
 
-        .container {
+}
 
-            width:
-                min(
-                    var(--max-width),
-                    calc(100% - 40px)
-                );
+.stat + .stat {
 
-            margin:
-                0 auto;
+    border-left:
+        1px solid rgba(255,255,255,.08);
 
-        }
+}
 
+.stat-value {
 
-        .section {
+    display: block;
 
-            padding:
-                100px 0;
+    font-size: 1.65rem;
 
-        }
+    font-weight: 1000;
 
+}
 
-        .section-heading {
+.stat-label {
 
-            max-width:
-                760px;
+    display: block;
 
-            margin:
-                0 auto 45px;
+    margin-top: 2px;
 
-            text-align:
-                center;
+    color: var(--muted);
 
-        }
+    font-size: .72rem;
 
+    font-weight: 750;
 
-        .section-heading h2 {
+}
 
-            font-size:
-                clamp(
-                    2rem,
-                    4vw,
-                    3rem
-                );
 
-            line-height:
-                1.1;
+/* =====================================================
+   SECTIONS
+===================================================== */
 
-            letter-spacing:
-                -1.5px;
+.section {
 
-        }
+    padding: 105px 0;
 
+}
 
-        .section-heading p {
+.section-heading {
 
-            margin-top:
-                15px;
+    max-width: 760px;
 
-            color:
-                var(--muted);
+    margin:
+        0 auto 45px;
 
-            font-size:
-                1rem;
+    text-align: center;
 
-        }
+}
 
+.section-heading h2 {
 
-        .eyebrow {
+    margin-top: 15px;
 
-            display:
-                inline-flex;
+    font-size:
+        clamp(
+            2.2rem,
+            4vw,
+            3.2rem
+        );
 
-            align-items:
-                center;
+    line-height: 1.05;
 
-            gap:
-                8px;
+    letter-spacing: -2px;
 
-            padding:
-                7px 12px;
+}
 
-            border:
-                1px solid var(--border);
+.section-heading p {
 
-            border-radius:
-                999px;
+    margin-top: 15px;
 
-            background:
-                rgba(15, 22, 39, .75);
+    color: var(--muted);
 
-            color:
-                var(--text-soft);
+}
 
-            font-size:
-                .75rem;
 
-            font-weight:
-                850;
+/* =====================================================
+   GENERATOR GRID
+===================================================== */
 
-            letter-spacing:
-                .3px;
+.generator-grid {
 
-        }
+    display: grid;
 
+    grid-template-columns:
+        repeat(3,1fr);
 
-        .gradient-text {
+    gap: 16px;
 
-            color:
-                transparent;
+}
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff 0%,
-                    #a78bfa 38%,
-                    #22d3ee 75%,
-                    #f0abfc 100%
-                );
 
-            background-clip:
-                text;
+/* =====================================================
+   GENERATOR CARD
+===================================================== */
 
-            -webkit-background-clip:
-                text;
+.generator-card {
 
-        }
+    position: relative;
 
+    min-height: 245px;
 
-        /* =====================================================
-           HEADER
-        ====================================================== */
+    display: flex;
 
-        .site-header {
+    flex-direction: column;
 
-            position:
-                sticky;
+    padding: 25px;
 
-            top:
-                0;
+    border:
+        1px solid rgba(255,255,255,.09);
 
-            z-index:
-                100;
+    border-radius: 20px;
 
-            border-bottom:
-                1px solid rgba(255,255,255,.06);
+    background:
 
-            background:
-                rgba(7,9,20,.78);
+        linear-gradient(
+            145deg,
+            rgba(23,23,47,.94),
+            rgba(10,10,24,.97)
+        );
 
-            backdrop-filter:
-                blur(18px);
+    overflow: hidden;
 
-            -webkit-backdrop-filter:
-                blur(18px);
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 
-        }
+}
 
+.generator-card::before {
 
-        .nav {
+    content: "";
 
-            min-height:
-                70px;
+    position: absolute;
 
-            display:
-                flex;
+    width: 220px;
 
-            align-items:
-                center;
+    height: 220px;
 
-            justify-content:
-                space-between;
+    top: -130px;
 
-            gap:
-                25px;
+    right: -100px;
 
-        }
+    border-radius: 50%;
 
+    background:
+        rgba(139,92,246,.18);
 
-        /* =====================================================
-           LOGO
-        ====================================================== */
+    filter:
+        blur(30px);
 
-        .logo {
+    transition:
+        .3s ease;
 
-            display:
-                inline-flex;
+}
 
-            align-items:
-                center;
+.generator-card:hover {
 
-            gap:
-                10px;
+    transform:
+        translateY(-8px);
 
-            color:
-                white;
+    border-color:
+        rgba(139,92,246,.48);
 
-            text-decoration:
-                none;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.30),
+        0 0 35px rgba(139,92,246,.08);
 
-            font-size:
-                1.05rem;
+}
 
-            font-weight:
-                950;
+.generator-card:hover::before {
 
-            letter-spacing:
-                -.4px;
+    background:
+        rgba(34,211,238,.16);
 
-            flex-shrink:
-                0;
+    transform:
+        scale(1.25);
 
-        }
+}
 
+.card-icon {
 
-        .logo-mark {
+    width: 48px;
 
-            width:
-                39px;
+    height: 48px;
 
-            height:
-                39px;
+    display: grid;
 
-            display:
-                grid;
+    place-items: center;
 
-            place-items:
-                center;
+    margin-bottom: 18px;
 
-            border:
-                1px solid rgba(255,255,255,.15);
+    border:
+        1px solid rgba(255,255,255,.11);
 
-            border-radius:
-                11px;
+    border-radius: 14px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #8b5cf6,
-                    #4f46e5 55%,
-                    #06b6d4
-                );
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.16),
+            rgba(34,211,238,.06)
+        );
 
-            box-shadow:
-                0 8px 30px rgba(139,92,246,.22);
+    font-size: 1.35rem;
 
-        }
+}
 
+.generator-card h3 {
 
-        .logo-mark svg {
+    font-size: 1.05rem;
 
-            width:
-                25px;
+}
 
-            height:
-                25px;
+.generator-card p {
 
-        }
+    margin-top: 9px;
 
+    color: var(--muted);
 
-        /* =====================================================
-           NAVIGATION
-        ====================================================== */
+    font-size: .83rem;
 
-        .nav-links {
+    line-height: 1.6;
 
-            display:
-                flex;
+}
 
-            align-items:
-                center;
+.card-link {
 
-            gap:
-                22px;
+    margin-top: auto;
 
-        }
+    padding-top: 18px;
 
+    color: #c9baff;
 
-        .nav-links a {
+    text-decoration: none;
 
-            color:
-                var(--muted);
+    font-size: .78rem;
 
-            text-decoration:
-                none;
+    font-weight: 950;
 
-            font-size:
-                .82rem;
+}
 
-            font-weight:
-                800;
+.card-link:hover {
+    color: white;
+}
 
-            transition:
-                color .2s ease;
 
-        }
+/* =====================================================
+   WHY NAMEFORGE
+===================================================== */
 
+.why-section {
 
-        .nav-links a:hover {
+    padding-top: 80px;
 
-            color:
-                white;
+}
 
-        }
+.benefit-grid {
 
+    display: grid;
 
-        .nav-actions {
+    grid-template-columns:
+        repeat(4,1fr);
 
-            display:
-                flex;
+    gap: 14px;
 
-            align-items:
-                center;
+}
 
-            gap:
-                8px;
+.benefit {
 
-        }
+    padding: 25px;
 
+    border:
+        1px solid rgba(255,255,255,.08);
 
-        /* =====================================================
-           LANGUAGE
-        ====================================================== */
+    border-radius: 18px;
 
-        .language-wrapper {
+    background:
+        rgba(15,15,32,.70);
 
-            position:
-                relative;
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
 
-        }
+}
 
+.benefit:hover {
 
-        .language-button {
+    transform:
+        translateY(-5px);
 
-            display:
-                inline-flex;
+    border-color:
+        rgba(167,139,250,.25);
 
-            align-items:
-                center;
+}
 
-            gap:
-                7px;
+.benefit-icon {
 
-            min-height:
-                38px;
+    font-size: 1.4rem;
 
-            padding:
-                0 11px;
+    margin-bottom: 15px;
 
-            border:
-                1px solid var(--border);
+}
 
-            border-radius:
-                10px;
+.benefit h3 {
+    font-size: .98rem;
+}
 
-            background:
-                rgba(13,19,34,.8);
+.benefit p {
 
-            color:
-                var(--text-soft);
+    margin-top: 8px;
 
-            cursor:
-                pointer;
+    color: var(--muted);
 
-            font-size:
-                .78rem;
+    font-size: .81rem;
 
-            font-weight:
-                800;
+}
 
-            transition:
-                .2s ease;
 
-        }
+/* =====================================================
+   ABOUT
+===================================================== */
 
+.about-layout {
 
-        .language-button:hover {
+    display: grid;
 
-            border-color:
-                var(--border-strong);
+    grid-template-columns:
+        minmax(0,1.2fr)
+        minmax(300px,.8fr);
 
-            background:
-                var(--surface-light);
+    gap: 55px;
 
-            color:
-                white;
+    align-items: start;
 
-        }
+}
 
+.about-copy {
+    color: var(--muted);
+}
 
-        .language-menu {
+.about-copy h2 {
 
-            position:
-                absolute;
+    margin:
+        17px 0 22px;
 
-            top:
-                calc(100% + 9px);
+    color: white;
 
-            right:
-                0;
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3rem
+        );
 
-            width:
-                235px;
+    line-height: 1.05;
 
-            max-height:
-                390px;
+    letter-spacing: -2px;
 
-            overflow-y:
-                auto;
+}
 
-            padding:
-                8px;
+.about-copy p {
 
-            border:
-                1px solid var(--border-strong);
+    margin-bottom: 18px;
 
-            border-radius:
-                14px;
+}
 
-            background:
-                rgba(10,15,28,.98);
+.about-copy strong {
+    color: var(--text-soft);
+}
 
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.45);
+.about-panel {
 
-            opacity:
-                0;
+    position: sticky;
 
-            visibility:
-                hidden;
+    top: 95px;
 
-            transform:
-                translateY(-6px);
+    padding: 27px;
 
-            transition:
-                .2s ease;
+    border:
+        1px solid rgba(255,255,255,.10);
 
-        }
+    border-radius: 20px;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,24,50,.95),
+            rgba(10,10,24,.95)
+        );
 
-        .language-wrapper.open .language-menu {
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.25);
 
-            opacity:
-                1;
+}
 
-            visibility:
-                visible;
+.about-panel-title {
 
-            transform:
-                translateY(0);
+    display: flex;
 
-        }
+    align-items: center;
 
+    gap: 9px;
 
-        .language-menu button {
+    font-weight: 950;
 
-            width:
-                100%;
+}
 
-            display:
-                flex;
+.about-list {
 
-            align-items:
-                center;
+    margin-top: 22px;
 
-            gap:
-                9px;
+    display: grid;
 
-            padding:
-                9px 10px;
+    gap: 13px;
 
-            border:
-                0;
+}
 
-            border-radius:
-                8px;
+.about-list-item {
 
-            background:
-                transparent;
+    display: grid;
 
-            color:
-                var(--text-soft);
+    grid-template-columns: 30px 1fr;
 
-            text-align:
-                left;
+    gap: 10px;
 
-            cursor:
-                pointer;
+}
 
-            font-size:
-                .78rem;
+.about-list-item span:first-child {
+    color: var(--purple-light);
+}
 
-        }
+.about-list-item strong {
 
+    display: block;
 
-        .language-menu button:hover {
+    font-size: .84rem;
 
-            background:
-                rgba(139,92,246,.13);
+}
 
-            color:
-                white;
+.about-list-item small {
 
-        }
+    display: block;
 
+    margin-top: 2px;
 
-        /* =====================================================
-           MY NAMES
-        ====================================================== */
+    color: var(--muted);
 
-        .my-names {
+    font-size: .75rem;
 
-            display:
-                inline-flex;
+}
 
-            align-items:
-                center;
 
-            gap:
-                6px;
+/* =====================================================
+   FINAL CTA
+===================================================== */
 
-            padding:
-                9px 12px;
+.final-cta {
 
-            border:
-                1px solid rgba(236,72,153,.25);
+    padding:
+        70px 0 115px;
 
-            border-radius:
-                10px;
+}
 
-            background:
-                rgba(236,72,153,.07);
+.final-box {
 
-            color:
-                #f3b3d2;
+    position: relative;
 
-            text-decoration:
-                none;
+    padding: 65px 30px;
 
-            font-size:
-                .78rem;
+    border:
+        1px solid rgba(167,139,250,.20);
 
-            font-weight:
-                850;
+    border-radius: 25px;
 
-        }
+    text-align: center;
 
+    background:
 
-        .my-names:hover {
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(139,92,246,.18),
+            transparent 45%
+        ),
 
-            border-color:
-                rgba(236,72,153,.45);
+        linear-gradient(
+            135deg,
+            rgba(25,25,53,.96),
+            rgba(10,10,24,.96)
+        );
 
-            background:
-                rgba(236,72,153,.12);
+    overflow: hidden;
 
-            color:
-                white;
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.30);
 
-        }
+}
 
+.final-box::before {
 
-        /* =====================================================
-           HERO
-        ====================================================== */
+    content: "";
 
-        .hero {
+    position: absolute;
 
-            position:
-                relative;
+    width: 500px;
 
-            padding:
-                105px 0 75px;
+    height: 200px;
 
-            text-align:
-                center;
+    left: 50%;
 
-        }
+    bottom: -160px;
 
+    transform:
+        translateX(-50%);
 
-        .hero::before {
+    background:
+        rgba(139,92,246,.25);
 
-            content:
-                "";
+    filter:
+        blur(70px);
 
-            position:
-                absolute;
+}
 
-            width:
-                500px;
+.final-box h2 {
 
-            height:
-                300px;
+    position: relative;
 
-            top:
-                25px;
+    font-size:
+        clamp(
+            1.9rem,
+            4vw,
+            3rem
+        );
 
-            left:
-                50%;
+    letter-spacing: -1.5px;
 
-            transform:
-                translateX(-50%);
+}
 
-            background:
-                radial-gradient(
-                    ellipse,
-                    rgba(139,92,246,.14),
-                    transparent 70%
-                );
+.final-box p {
 
-            filter:
-                blur(15px);
+    position: relative;
 
-            z-index:
-                -1;
+    max-width: 650px;
 
-        }
+    margin: 12px auto 0;
 
+    color: var(--muted);
 
-        .hero h1 {
+}
 
-            max-width:
-                850px;
 
-            margin:
-                22px auto 20px;
+/* =====================================================
+   FOOTER
+===================================================== */
 
-            font-size:
-                clamp(
-                    3rem,
-                    7vw,
-                    5.8rem
-                );
+footer {
 
-            line-height:
-                .98;
+    border-top:
+        1px solid rgba(255,255,255,.07);
 
-            letter-spacing:
-                -4px;
+    padding:
+        32px 0;
 
-            font-weight:
-                950;
+    color: var(--muted);
 
-        }
+}
 
+.footer-inner {
 
-        .hero-subtitle {
+    display: flex;
 
-            max-width:
-                720px;
+    align-items: center;
 
-            margin:
-                0 auto;
+    justify-content: space-between;
 
-            color:
-                var(--muted);
+    gap: 20px;
 
-            font-size:
-                clamp(
-                    .98rem,
-                    2vw,
-                    1.12rem
-                );
+}
 
-        }
+.footer-brand {
 
+    display: flex;
 
-        .hero-actions {
+    align-items: center;
 
-            display:
-                flex;
+    gap: 8px;
 
-            justify-content:
-                center;
+    color: var(--text-soft);
 
-            flex-wrap:
-                wrap;
+    font-weight: 900;
 
-            gap:
-                11px;
+    font-size: .82rem;
 
-            margin-top:
-                30px;
+}
 
-        }
+.footer-links {
 
+    display: flex;
 
-        .btn {
+    gap: 18px;
 
-            min-height:
-                46px;
+    flex-wrap: wrap;
 
-            display:
-                inline-flex;
+}
 
-            align-items:
-                center;
+.footer-links a {
 
-            justify-content:
-                center;
+    color: var(--muted);
 
-            gap:
-                8px;
+    text-decoration: none;
 
-            padding:
-                0 18px;
+    font-size: .74rem;
 
-            border:
-                1px solid transparent;
+}
 
-            border-radius:
-                11px;
+.footer-links a:hover {
+    color: white;
+}
 
-            text-decoration:
-                none;
+.copyright {
 
-            font-size:
-                .84rem;
+    margin-top: 18px;
 
-            font-weight:
-                900;
+    text-align: center;
 
-            cursor:
-                pointer;
+    font-size: .7rem;
 
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease,
-                border-color .2s ease;
+}
 
-        }
 
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
-        .btn:hover {
+@media(max-width:900px) {
 
-            transform:
-                translateY(-2px);
+    .nav-links {
+        display: none;
+    }
 
-        }
+    .generator-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
+    .benefit-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-        .btn-primary {
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #8b5cf6,
-                    #6d28d9
-                );
+    .about-panel {
+        position: static;
+    }
 
-            box-shadow:
-                0 12px 35px rgba(124,58,237,.25);
+}
 
-        }
 
+@media(max-width:650px) {
 
-        .btn-primary:hover {
+    .container {
 
-            box-shadow:
-                0 16px 40px rgba(124,58,237,.38);
+        width:
+            min(
+                100% - 28px,
+                var(--max-width)
+            );
 
-        }
+    }
 
+    .hero {
 
-        .btn-secondary {
+        padding:
+            75px 0 55px;
 
-            border-color:
-                var(--border);
+    }
 
-            background:
-                rgba(16,23,41,.8);
+    .hero h1 {
 
-            color:
-                var(--text-soft);
+        font-size:
+            clamp(
+                3.1rem,
+                15vw,
+                5rem
+            );
 
-        }
+        letter-spacing:
+            -3px;
 
+    }
 
-        .btn-secondary:hover {
+    .hero-actions {
 
-            border-color:
-                var(--border-strong);
+        flex-direction: column;
 
-            background:
-                var(--surface-light);
+    }
 
-        }
+    .hero-actions .btn {
 
+        width: 100%;
 
-        /* =====================================================
-           STATS
-        ====================================================== */
+    }
 
-        .stats {
+    .stats {
 
-            width:
-                min(
-                    800px,
-                    100%
-                );
+        grid-template-columns: 1fr;
 
-            margin:
-                45px auto 0;
+    }
 
-            display:
-                grid;
+    .stat + .stat {
 
-            grid-template-columns:
-                repeat(3,1fr);
+        border-left: 0;
 
-            border:
-                1px solid var(--border);
+        border-top:
+            1px solid rgba(255,255,255,.08);
 
-            border-radius:
-                16px;
+    }
 
-            background:
-                rgba(13,19,34,.68);
+    .generator-grid {
 
-            overflow:
-                hidden;
+        grid-template-columns: 1fr;
 
-        }
+    }
 
+    .benefit-grid {
 
-        .stat {
+        grid-template-columns: 1fr;
 
-            position:
-                relative;
+    }
 
-            padding:
-                20px 15px;
+    .footer-inner {
 
-        }
+        flex-direction: column;
 
+        text-align: center;
 
-        .stat + .stat {
+    }
 
-            border-left:
-                1px solid var(--border);
+}
 
-        }
 
+@media(prefers-reduced-motion:reduce) {
 
-        .stat-value {
+    html {
+        scroll-behavior: auto;
+    }
 
-            display:
-                block;
+    *,
+    *::before,
+    *::after {
 
-            font-size:
-                1.45rem;
+        animation: none !important;
 
-            font-weight:
-                950;
+        transition: none !important;
 
-        }
+    }
 
+}
 
-        .stat-label {
-
-            display:
-                block;
-
-            margin-top:
-                2px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                .72rem;
-
-            font-weight:
-                700;
-
-        }
-
-
-        /* =====================================================
-           POPULAR
-        ====================================================== */
-
-        .popular {
-
-            padding-top:
-                45px;
-
-        }
-
-
-        .generator-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                14px;
-
-        }
-
-
-        .generator-card {
-
-            position:
-                relative;
-
-            min-height:
-                230px;
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            padding:
-                22px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(16,23,41,.96),
-                    rgba(10,15,28,.96)
-                );
-
-            overflow:
-                hidden;
-
-            transition:
-                transform .25s ease,
-                border-color .25s ease,
-                background .25s ease;
-
-        }
-
-
-        .generator-card::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                150px;
-
-            height:
-                150px;
-
-            top:
-                -80px;
-
-            right:
-                -60px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(139,92,246,.13);
-
-            filter:
-                blur(15px);
-
-        }
-
-
-        .generator-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(139,92,246,.48);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(21,30,52,.98),
-                    rgba(11,17,31,.98)
-                );
-
-        }
-
-
-        .card-icon {
-
-            width:
-                43px;
-
-            height:
-                43px;
-
-            display:
-                grid;
-
-            place-items:
-                center;
-
-            margin-bottom:
-                17px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                12px;
-
-            background:
-                rgba(139,92,246,.10);
-
-            font-size:
-                1.2rem;
-
-        }
-
-
-        .generator-card h3 {
-
-            font-size:
-                1rem;
-
-            line-height:
-                1.25;
-
-        }
-
-
-        .generator-card p {
-
-            margin-top:
-                8px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                .82rem;
-
-            line-height:
-                1.55;
-
-        }
-
-
-        .card-link {
-
-            margin-top:
-                auto;
-
-            padding-top:
-                17px;
-
-            color:
-                #c4b5fd;
-
-            text-decoration:
-                none;
-
-            font-size:
-                .78rem;
-
-            font-weight:
-                900;
-
-        }
-
-
-        .card-link:hover {
-
-            color:
-                white;
-
-        }
-
-
-        /* =====================================================
-           WHY NAMEFORGE
-        ====================================================== */
-
-        .why-section {
-
-            padding-top:
-                110px;
-
-        }
-
-
-        .benefit-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            gap:
-                13px;
-
-        }
-
-
-        .benefit {
-
-            padding:
-                23px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius);
-
-            background:
-                rgba(14,21,37,.72);
-
-        }
-
-
-        .benefit-icon {
-
-            font-size:
-                1.35rem;
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .benefit h3 {
-
-            font-size:
-                .98rem;
-
-        }
-
-
-        .benefit p {
-
-            margin-top:
-                8px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                .81rem;
-
-            line-height:
-                1.6;
-
-        }
-
-
-        /* =====================================================
-           WHAT IS NAMEFORGE
-        ====================================================== */
-
-        .about-layout {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                minmax(0,1.2fr)
-                minmax(300px,.8fr);
-
-            gap:
-                50px;
-
-            align-items:
-                start;
-
-        }
-
-
-        .about-copy {
-
-            color:
-                var(--muted);
-
-        }
-
-
-        .about-copy h2 {
-
-            margin-bottom:
-                20px;
-
-            color:
-                white;
-
-            font-size:
-                clamp(
-                    2rem,
-                    4vw,
-                    2.8rem
-                );
-
-            line-height:
-                1.1;
-
-            letter-spacing:
-                -1.5px;
-
-        }
-
-
-        .about-copy p {
-
-            margin-bottom:
-                17px;
-
-        }
-
-
-        .about-copy strong {
-
-            color:
-                var(--text-soft);
-
-        }
-
-
-        .about-panel {
-
-            position:
-                sticky;
-
-            top:
-                95px;
-
-            padding:
-                25px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(17,25,44,.95),
-                    rgba(10,15,27,.95)
-                );
-
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.20);
-
-        }
-
-
-        .about-panel-title {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            font-weight:
-                900;
-
-        }
-
-
-        .about-list {
-
-            margin-top:
-                20px;
-
-            display:
-                grid;
-
-            gap:
-                12px;
-
-        }
-
-
-        .about-list-item {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                28px 1fr;
-
-            gap:
-                10px;
-
-            align-items:
-                start;
-
-        }
-
-
-        .about-list-item span:first-child {
-
-            color:
-                var(--purple-light);
-
-        }
-
-
-        .about-list-item strong {
-
-            display:
-                block;
-
-            font-size:
-                .84rem;
-
-        }
-
-
-        .about-list-item small {
-
-            display:
-                block;
-
-            margin-top:
-                2px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                .76rem;
-
-        }
-
-
-        /* =====================================================
-           FINAL CTA
-        ====================================================== */
-
-        .final-cta {
-
-            padding:
-                70px 0 110px;
-
-        }
-
-
-        .final-box {
-
-            position:
-                relative;
-
-            padding:
-                42px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                22px;
-
-            text-align:
-                center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(19,27,48,.95),
-                    rgba(12,17,31,.95)
-                );
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .final-box::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                300px;
-
-            height:
-                180px;
-
-            left:
-                50%;
-
-            bottom:
-                -130px;
-
-            transform:
-                translateX(-50%);
-
-            background:
-                radial-gradient(
-                    ellipse,
-                    rgba(139,92,246,.24),
-                    transparent 70%
-                );
-
-            filter:
-                blur(10px);
-
-        }
-
-
-        .final-box h2 {
-
-            position:
-                relative;
-
-            font-size:
-                clamp(
-                    1.7rem,
-                    3vw,
-                    2.4rem
-                );
-
-        }
-
-
-        .final-box p {
-
-            position:
-                relative;
-
-            max-width:
-                650px;
-
-            margin:
-                10px auto 0;
-
-            color:
-                var(--muted);
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ====================================================== */
-
-        footer {
-
-            border-top:
-                1px solid rgba(255,255,255,.06);
-
-            padding:
-                32px 0;
-
-            color:
-                var(--muted);
-
-        }
-
-
-        .footer-inner {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                20px;
-
-        }
-
-
-        .footer-brand {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
-
-            color:
-                var(--text-soft);
-
-            font-weight:
-                900;
-
-            font-size:
-                .82rem;
-
-        }
-
-
-        .footer-links {
-
-            display:
-                flex;
-
-            gap:
-                17px;
-
-            flex-wrap:
-                wrap;
-
-        }
-
-
-        .footer-links a {
-
-            color:
-                var(--muted);
-
-            text-decoration:
-                none;
-
-            font-size:
-                .74rem;
-
-        }
-
-
-        .footer-links a:hover {
-
-            color:
-                white;
-
-        }
-
-
-        .copyright {
-
-            margin-top:
-                18px;
-
-            text-align:
-                center;
-
-            font-size:
-                .7rem;
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-        ====================================================== */
-
-        @media(max-width:900px) {
-
-            .nav-links {
-
-                display:
-                    none;
-
-            }
-
-
-            .generator-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
-            }
-
-
-            .benefit-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
-            }
-
-
-            .about-layout {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .about-panel {
-
-                position:
-                    static;
-
-            }
-
-        }
-
-
-        @media(max-width:650px) {
-
-            .container {
-
-                width:
-                    min(
-                        100% - 28px,
-                        var(--max-width)
-                    );
-
-            }
-
-
-            .section {
-
-                padding:
-                    75px 0;
-
-            }
-
-
-            .hero {
-
-                padding:
-                    75px 0 55px;
-
-            }
-
-
-            .hero h1 {
-
-                letter-spacing:
-                    -2.5px;
-
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .stat + .stat {
-
-                border-left:
-                    0;
-
-                border-top:
-                    1px solid var(--border);
-
-            }
-
-
-            .generator-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .benefit-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .hero-actions {
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .hero-actions .btn {
-
-                width:
-                    100%;
-
-            }
-
-
-            .nav-actions {
-
-                gap:
-                    5px;
-
-            }
-
-
-            .language-button {
-
-                padding:
-                    0 9px;
-
-            }
-
-
-            .my-names {
-
-                padding:
-                    8px 9px;
-
-                font-size:
-                    .72rem;
-
-            }
-
-
-            .final-box {
-
-                padding:
-                    30px 20px;
-
-            }
-
-
-            .footer-inner {
-
-                flex-direction:
-                    column;
-
-                text-align:
-                    center;
-
-            }
-
-        }
-
-
-        @media(prefers-reduced-motion:reduce) {
-
-            html {
-
-                scroll-behavior:
-                    auto;
-
-            }
-
-            *,
-            *::before,
-            *::after {
-
-                transition:
-                    none !important;
-
-                animation:
-                    none !important;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -2104,1046 +1756,922 @@
 <body>
 
 
-<!-- =======================================================
+<!-- =====================================================
      HEADER
-======================================================== -->
+===================================================== -->
 
 <header class="site-header">
 
-    <nav class="container nav">
+<nav class="container nav">
 
 
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="NameForge Home"
-        >
+<a
+    href="index.html"
+    class="logo"
+    aria-label="NameForge Home"
+>
 
-            <span class="logo-mark"
-                  aria-hidden="true">
+<span class="logo-mark">
 
-                <!-- NameForge custom logo:
-                     stylized anvil + forge spark -->
+<svg
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
 
-                <svg
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
+<path
+    d="M8 22.5H24"
+    stroke="white"
+    stroke-width="2.6"
+    stroke-linecap="round"
+/>
+
+<path
+    d="M10 22.5L12.2 18H19.8L22 22.5"
+    stroke="white"
+    stroke-width="2.6"
+    stroke-linejoin="round"
+/>
 
-                    <path
-                        d="M8 22.5H24"
-                        stroke="white"
-                        stroke-width="2.6"
-                        stroke-linecap="round"
-                    />
+<path
+    d="M13 18V14.5H19V18"
+    stroke="white"
+    stroke-width="2.6"
+/>
 
-                    <path
-                        d="M10 22.5L12.2 18H19.8L22 22.5"
-                        stroke="white"
-                        stroke-width="2.6"
-                        stroke-linejoin="round"
-                    />
+<path
+    d="M15.5 10.5L16.5 8L17.5 10.5L20 11.5L17.5 12.5L16.5 15L15.5 12.5L13 11.5L15.5 10.5Z"
+    fill="#FBBF24"
+/>
 
-                    <path
-                        d="M13 18V14.5H19V18"
-                        stroke="white"
-                        stroke-width="2.6"
-                        stroke-linejoin="round"
-                    />
+</svg>
 
-                    <path
-                        d="M15.5 10.5L16.5 8L17.5 10.5L20 11.5L17.5 12.5L16.5 15L15.5 12.5L13 11.5L15.5 10.5Z"
-                        fill="#FBBF24"
-                    />
+</span>
 
-                </svg>
+<span>NameForge</span>
 
-            </span>
+</a>
 
-            <span>
-                NameForge
-            </span>
 
-        </a>
+<div class="nav-links">
 
+<a href="index.html">Home</a>
 
-        <div class="nav-links">
+<a href="#popular">Popular</a>
 
-            <a href="index.html">
-                Home
-            </a>
+<a href="#why-nameforge">Why NameForge</a>
 
-            <a href="#popular">
-                Popular
-            </a>
+<a href="#about">About</a>
 
-            <a href="#why-nameforge">
-                Why NameForge
-            </a>
+</div>
 
-            <a href="#about">
-                About
-            </a>
 
-        </div>
+<div class="nav-actions">
 
 
-        <div class="nav-actions">
+<div
+    class="language-wrapper"
+    id="languageWrapper"
+>
 
+<button
+    class="language-button"
+    id="languageButton"
+    type="button"
+    aria-expanded="false"
+>
 
-            <!-- LANGUAGE -->
+🌐
+<span id="currentLanguage">English</span>
+▾
 
-            <div
-                class="language-wrapper"
-                id="languageWrapper"
-            >
+</button>
 
-                <button
-                    class="language-button"
-                    id="languageButton"
-                    type="button"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
 
-                    🌐
-                    <span id="currentLanguage">
-                        English
-                    </span>
-                    ▾
+<div
+    class="language-menu"
+    id="languageMenu"
+>
 
-                </button>
-
-
-                <div
-                    class="language-menu"
-                    id="languageMenu"
-                    aria-label="Language selection"
-                >
-
-                    <button data-lang="en">
-                        🇬🇧 English
-                    </button>
-
-                    <button data-lang="fr">
-                        🇫🇷 Français
-                    </button>
-
-                    <button data-lang="es">
-                        🇪🇸 Español
-                    </button>
-
-                    <button data-lang="de">
-                        🇩🇪 Deutsch
-                    </button>
-
-                    <button data-lang="it">
-                        🇮🇹 Italiano
-                    </button>
-
-                    <button data-lang="pt">
-                        🇵🇹 Português
-                    </button>
-
-                    <button data-lang="nl">
-                        🇳🇱 Nederlands
-                    </button>
-
-                    <button data-lang="tr">
-                        🇹🇷 Türkçe
-                    </button>
-
-                    <button data-lang="ar">
-                        🇸🇦 العربية
-                    </button>
-
-                    <button data-lang="he">
-                        🇮🇱 עברית
-                    </button>
-
-                    <button data-lang="fa">
-                        🇮🇷 فارسی
-                    </button>
-
-                    <button data-lang="ru">
-                        🇷🇺 Русский
-                    </button>
-
-                    <button data-lang="uk">
-                        🇺🇦 Українська
-                    </button>
-
-                    <button data-lang="pl">
-                        🇵🇱 Polski
-                    </button>
-
-                    <button data-lang="cs">
-                        🇨🇿 Čeština
-                    </button>
-
-                    <button data-lang="sv">
-                        🇸🇪 Svenska
-                    </button>
-
-                    <button data-lang="da">
-                        🇩🇰 Dansk
-                    </button>
-
-                    <button data-lang="no">
-                        🇳🇴 Norsk
-                    </button>
-
-                    <button data-lang="fi">
-                        🇫🇮 Suomi
-                    </button>
-
-                    <button data-lang="el">
-                        🇬🇷 Ελληνικά
-                    </button>
-
-                    <button data-lang="ro">
-                        🇷🇴 Română
-                    </button>
-
-                    <button data-lang="hu">
-                        🇭🇺 Magyar
-                    </button>
-
-                    <button data-lang="id">
-                        🇮🇩 Bahasa Indonesia
-                    </button>
-
-                    <button data-lang="ms">
-                        🇲🇾 Bahasa Melayu
-                    </button>
-
-                    <button data-lang="vi">
-                        🇻🇳 Tiếng Việt
-                    </button>
-
-                    <button data-lang="th">
-                        🇹🇭 ไทย
-                    </button>
-
-                    <button data-lang="ja">
-                        🇯🇵 日本語
-                    </button>
-
-                    <button data-lang="ko">
-                        🇰🇷 한국어
-                    </button>
-
-                    <button data-lang="zh-CN">
-                        🇨🇳 简体中文
-                    </button>
-
-                    <button data-lang="zh-TW">
-                        🇹🇼 繁體中文
-                    </button>
-
-                    <button data-lang="hi">
-                        🇮🇳 हिन्दी
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="my-names.html"
-                class="my-names"
-            >
-
-                ♥
-                My Names
-
-            </a>
-
-        </div>
-
-    </nav>
+<button data-lang="en">🇬🇧 English</button>
+<button data-lang="fr">🇫🇷 Français</button>
+<button data-lang="es">🇪🇸 Español</button>
+<button data-lang="de">🇩🇪 Deutsch</button>
+<button data-lang="it">🇮🇹 Italiano</button>
+<button data-lang="pt">🇵🇹 Português</button>
+<button data-lang="nl">🇳🇱 Nederlands</button>
+<button data-lang="tr">🇹🇷 Türkçe</button>
+<button data-lang="ar">🇸🇦 العربية</button>
+<button data-lang="he">🇮🇱 עברית</button>
+<button data-lang="fa">🇮🇷 فارسی</button>
+<button data-lang="ru">🇷🇺 Русский</button>
+<button data-lang="uk">🇺🇦 Українська</button>
+<button data-lang="pl">🇵🇱 Polski</button>
+<button data-lang="cs">🇨🇿 Čeština</button>
+<button data-lang="sv">🇸🇪 Svenska</button>
+<button data-lang="da">🇩🇰 Dansk</button>
+<button data-lang="no">🇳🇴 Norsk</button>
+<button data-lang="fi">🇫🇮 Suomi</button>
+<button data-lang="el">🇬🇷 Ελληνικά</button>
+<button data-lang="ro">🇷🇴 Română</button>
+<button data-lang="hu">🇭🇺 Magyar</button>
+<button data-lang="id">🇮🇩 Bahasa Indonesia</button>
+<button data-lang="ms">🇲🇾 Bahasa Melayu</button>
+<button data-lang="vi">🇻🇳 Tiếng Việt</button>
+<button data-lang="th">🇹🇭 ไทย</button>
+<button data-lang="ja">🇯🇵 日本語</button>
+<button data-lang="ko">🇰🇷 한국어</button>
+<button data-lang="zh-CN">🇨🇳 简体中文</button>
+<button data-lang="zh-TW">🇹🇼 繁體中文</button>
+<button data-lang="hi">🇮🇳 हिन्दी</button>
+
+</div>
+
+</div>
+
+
+<a
+    href="my-names.html"
+    class="my-names"
+>
+
+♥ My Names
+
+</a>
+
+</div>
+
+</nav>
 
 </header>
 
 
 
-<!-- =======================================================
+<!-- =====================================================
      MAIN
-======================================================== -->
+===================================================== -->
 
 <main>
 
 
-    <!-- ===================================================
-         HERO
-    ==================================================== -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-    <section class="hero container">
+<section class="hero container">
 
 
-        <span class="eyebrow">
-            ✦ FREE NAME GENERATORS
-        </span>
+<span class="eyebrow">
+✦ FREE NAME GENERATORS
+</span>
 
 
-        <h1>
+<h1>
 
-            Forge a name
-            <br>
+Forge a name
+<br>
 
-            <span class="gradient-text">
-                worth remembering.
-            </span>
+<span class="gradient-text">
+worth remembering.
+</span>
 
-        </h1>
+</h1>
 
 
-        <p class="hero-subtitle">
+<p class="hero-subtitle">
 
-            Create memorable names for characters,
-            RPGs, anime, games, fantasy worlds and
-            unforgettable stories — instantly and for free.
+Create memorable names for characters,
+RPGs, anime, games, fantasy worlds and
+unforgettable stories — instantly and for free.
 
-        </p>
+</p>
 
 
-        <div class="hero-actions">
+<div class="hero-actions">
 
+<a
+    href="all-name-generators.html"
+    class="btn btn-primary"
+>
 
-            <a
-                href="all-name-generators.html"
-                class="btn btn-primary"
-            >
+⚡ Explore All Generators
 
-                ⚡
-                Explore All Generators
+</a>
 
-            </a>
 
+<a
+    href="#popular"
+    class="btn btn-secondary"
+>
 
-            <a
-                href="#popular"
-                class="btn btn-secondary"
-            >
+🔥 Popular Generators
 
-                🔥
-                Popular Generators
+</a>
 
-            </a>
+</div>
 
 
-        </div>
+<div class="stats">
 
 
-        <!-- STATS -->
+<div class="stat">
 
-        <div class="stats">
+<span class="stat-value">
+6+
+</span>
 
+<span class="stat-label">
+Generator categories
+</span>
 
-            <div class="stat">
+</div>
 
-                <span class="stat-value">
-                    6+
-                </span>
 
-                <span class="stat-label">
-                    Generator categories
-                </span>
+<div class="stat">
 
-            </div>
+<span class="stat-value">
+∞
+</span>
 
+<span class="stat-label">
+Name possibilities
+</span>
 
-            <div class="stat">
+</div>
 
-                <span class="stat-value">
-                    ∞
-                </span>
 
-                <span class="stat-label">
-                    Name possibilities
-                </span>
+<div class="stat">
 
-            </div>
+<span class="stat-value">
+100%
+</span>
 
+<span class="stat-label">
+Free to use
+</span>
 
-            <div class="stat">
+</div>
 
-                <span class="stat-value">
-                    100%
-                </span>
 
-                <span class="stat-label">
-                    Free to use
-                </span>
+</div>
 
-            </div>
+</section>
 
 
-        </div>
 
-    </section>
+<!-- =====================================================
+     POPULAR
+===================================================== -->
 
+<section
+    class="section container"
+    id="popular"
+>
 
 
-    <!-- ===================================================
-         POPULAR GENERATORS
-    ==================================================== -->
+<div class="section-heading">
 
-    <section
-        class="section popular container"
-        id="popular"
-    >
+<span class="eyebrow">
+🔥 DISCOVER THE MOST POPULAR
+</span>
 
+<h2>
+Popular name generators
+</h2>
 
-        <div class="section-heading">
+<p>
+Start with one of NameForge's most popular
+generators and forge a name that fits your world.
+</p>
 
-            <span class="eyebrow">
-                🔥 DISCOVER THE MOST POPULAR
-            </span>
+</div>
 
-            <h2>
-                Popular name generators
-            </h2>
 
-            <p>
-                Start with one of NameForge's most popular
-                generators and forge a name that fits your world.
-            </p>
+<div class="generator-grid">
 
-        </div>
 
+<article class="generator-card">
 
-        <div class="generator-grid">
+<div class="card-icon">
+🐉
+</div>
 
+<h3>
+Fantasy Name Generator
+</h3>
 
-            <!-- FANTASY -->
+<p>
+Create original names for heroes,
+warriors, mages, villains, kingdoms
+and magical worlds.
+</p>
 
-            <article class="generator-card">
+<a
+    href="fantasy-name-generator.html"
+    class="card-link"
+>
+Generate fantasy names →
+</a>
 
-                <div class="card-icon">
-                    🐉
-                </div>
+</article>
 
-                <h3>
-                    Fantasy Name Generator
-                </h3>
 
-                <p>
-                    Create original names for heroes,
-                    warriors, mages, villains, kingdoms
-                    and magical worlds.
-                </p>
+<article class="generator-card">
 
-                <a
-                    href="fantasy-name-generator.html"
-                    class="card-link"
-                >
-                    Generate fantasy names →
-                </a>
+<div class="card-icon">
+🎲
+</div>
 
-            </article>
+<h3>
+RPG Name Generator
+</h3>
 
+<p>
+Find memorable character names for
+role-playing games, campaigns,
+adventures and fictional universes.
+</p>
 
-            <!-- RPG -->
+<a
+    href="rpg-name-generator.html"
+    class="card-link"
+>
+Generate RPG names →
+</a>
 
-            <article class="generator-card">
+</article>
 
-                <div class="card-icon">
-                    🎲
-                </div>
 
-                <h3>
-                    RPG Name Generator
-                </h3>
+<article class="generator-card">
 
-                <p>
-                    Find memorable character names for
-                    role-playing games, campaigns,
-                    adventures and fictional universes.
-                </p>
+<div class="card-icon">
+✨
+</div>
 
-                <a
-                    href="rpg-name-generator.html"
-                    class="card-link"
-                >
-                    Generate RPG names →
-                </a>
+<h3>
+Anime Name Generator
+</h3>
 
-            </article>
+<p>
+Generate distinctive names inspired by
+anime characters, Japanese-style fantasy
+and original fictional worlds.
+</p>
 
+<a
+    href="anime-name-generator.html"
+    class="card-link"
+>
+Generate anime names →
+</a>
 
-            <!-- ANIME -->
+</article>
 
-            <article class="generator-card">
 
-                <div class="card-icon">
-                    ✨
-                </div>
+<article class="generator-card">
 
-                <h3>
-                    Anime Name Generator
-                </h3>
+<div class="card-icon">
+🎮
+</div>
 
-                <p>
-                    Generate distinctive names inspired by
-                    anime characters, Japanese-style fantasy
-                    and original fictional worlds.
-                </p>
+<h3>
+Gaming Name Generator
+</h3>
 
-                <a
-                    href="anime-name-generator.html"
-                    class="card-link"
-                >
-                    Generate anime names →
-                </a>
+<p>
+Create names for gaming characters,
+usernames, heroes, villains and
+fictional gaming worlds.
+</p>
 
-            </article>
+<a
+    href="gaming-name-generator.html"
+    class="card-link"
+>
+Generate gaming names →
+</a>
 
+</article>
 
-            <!-- GAMING -->
 
-            <article class="generator-card">
+<article class="generator-card">
 
-                <div class="card-icon">
-                    🎮
-                </div>
+<div class="card-icon">
+🐲
+</div>
 
-                <h3>
-                    Gaming Name Generator
-                </h3>
+<h3>
+Dragon Name Generator
+</h3>
 
-                <p>
-                    Create names for gaming characters,
-                    usernames, heroes, villains and
-                    fictional gaming worlds.
-                </p>
+<p>
+Forge powerful names for dragons,
+ancient beasts, legendary creatures
+and mythical characters.
+</p>
 
-                <a
-                    href="gaming-name-generator.html"
-                    class="card-link"
-                >
-                    Generate gaming names →
-                </a>
+<a
+    href="dragon-name-generator.html"
+    class="card-link"
+>
+Generate dragon names →
+</a>
 
-            </article>
+</article>
 
 
-            <!-- DRAGON -->
+<article class="generator-card">
 
-            <article class="generator-card">
+<div class="card-icon">
+🏰
+</div>
 
-                <div class="card-icon">
-                    🐲
-                </div>
+<h3>
+Kingdom Name Generator
+</h3>
 
-                <h3>
-                    Dragon Name Generator
-                </h3>
+<p>
+Create names for kingdoms, empires,
+cities, territories and entire fictional
+civilizations.
+</p>
 
-                <p>
-                    Forge powerful names for dragons,
-                    ancient beasts, legendary creatures
-                    and mythical characters.
-                </p>
+<a
+    href="kingdom-name-generator.html"
+    class="card-link"
+>
+Generate kingdom names →
+</a>
 
-                <a
-                    href="dragon-name-generator.html"
-                    class="card-link"
-                >
-                    Generate dragon names →
-                </a>
+</article>
 
-            </article>
 
+</div>
 
-            <!-- KINGDOM -->
+</section>
 
-            <article class="generator-card">
 
-                <div class="card-icon">
-                    🏰
-                </div>
 
-                <h3>
-                    Kingdom Name Generator
-                </h3>
+<!-- =====================================================
+     WHY
+===================================================== -->
 
-                <p>
-                    Create names for kingdoms, empires,
-                    cities, territories and entire fictional
-                    civilizations.
-                </p>
+<section
+    class="section why-section container"
+    id="why-nameforge"
+>
 
-                <a
-                    href="kingdom-name-generator.html"
-                    class="card-link"
-                >
-                    Generate kingdom names →
-                </a>
 
-            </article>
+<div class="section-heading">
 
+<span class="eyebrow">
+✦ BUILT FOR CREATORS
+</span>
 
-        </div>
+<h2>
+Why use NameForge?
+</h2>
 
-    </section>
+<p>
+NameForge makes the difficult part of naming
+a character or fictional world fast, simple
+and genuinely enjoyable.
+</p>
 
+</div>
 
 
-    <!-- ===================================================
-         WHY NAMEFORGE
-    ==================================================== -->
+<div class="benefit-grid">
 
-    <section
-        class="section why-section container"
-        id="why-nameforge"
-    >
 
+<article class="benefit">
 
-        <div class="section-heading">
+<div class="benefit-icon">
+⚡
+</div>
 
-            <span class="eyebrow">
-                ✦ BUILT FOR CREATORS
-            </span>
+<h3>
+Fast generation
+</h3>
 
-            <h2>
-                Why use NameForge?
-            </h2>
+<p>
+Generate fresh names instantly without
+waiting, registering an account or dealing
+with complicated forms.
+</p>
 
-            <p>
-                NameForge is designed to make the difficult
-                part of naming a character or fictional world
-                fast, simple and genuinely enjoyable.
-            </p>
+</article>
 
-        </div>
 
+<article class="benefit">
 
-        <div class="benefit-grid">
+<div class="benefit-icon">
+🎯
+</div>
 
+<h3>
+Genre-focused names
+</h3>
 
-            <article class="benefit">
+<p>
+Different stories need different naming
+styles. Choose a generator that fits
+your world.
+</p>
 
-                <div class="benefit-icon">
-                    ⚡
-                </div>
+</article>
 
-                <h3>
-                    Fast generation
-                </h3>
 
-                <p>
-                    Generate fresh names instantly without
-                    waiting, registering an account or navigating
-                    through complicated forms. NameForge keeps
-                    the experience focused on creation.
-                </p>
+<article class="benefit">
 
-            </article>
+<div class="benefit-icon">
+💾
+</div>
 
+<h3>
+Save your favorites
+</h3>
 
-            <article class="benefit">
+<p>
+Found a name you love? Save it to My Names
+and keep your best ideas organized.
+</p>
 
-                <div class="benefit-icon">
-                    🎯
-                </div>
+</article>
 
-                <h3>
-                    Genre-focused names
-                </h3>
 
-                <p>
-                    Different stories need different naming
-                    styles. NameForge organizes generators around
-                    recognizable genres and fictional settings
-                    so you can start closer to the result you want.
-                </p>
+<article class="benefit">
 
-            </article>
+<div class="benefit-icon">
+🌍
+</div>
 
+<h3>
+Made for everyone
+</h3>
 
-            <article class="benefit">
+<p>
+For writers, gamers, developers, role-playing
+fans and anyone creating something original.
+</p>
 
-                <div class="benefit-icon">
-                    💾
-                </div>
+</article>
 
-                <h3>
-                    Save your favorites
-                </h3>
 
-                <p>
-                    Found a name you love? Save it to My Names,
-                    like it or add a personal note so promising
-                    ideas do not disappear while you keep exploring.
-                </p>
+</div>
 
-            </article>
+</section>
 
 
-            <article class="benefit">
 
-                <div class="benefit-icon">
-                    🌍
-                </div>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-                <h3>
-                    Made for everyone
-                </h3>
+<section
+    class="section container"
+    id="about"
+>
 
-                <p>
-                    NameForge is designed for writers, gamers,
-                    developers, role-playing fans and anyone who
-                    needs an original name for a creative project.
-                </p>
 
-            </article>
+<div class="about-layout">
 
 
-        </div>
+<div class="about-copy">
 
-    </section>
 
+<span class="eyebrow">
+📖 THE NAMEFORGE EXPERIENCE
+</span>
 
 
-    <!-- ===================================================
-         WHAT IS NAMEFORGE
-    ==================================================== -->
+<h2>
 
-    <section
-        class="section container"
-        id="about"
-    >
+What is
+<span class="gradient-text">
+NameForge?
+</span>
 
+</h2>
 
-        <div class="about-layout">
 
+<p>
 
-            <div class="about-copy">
+<strong>
+NameForge is a collection of specialized
+name generators created to help you turn
+ideas into memorable characters, worlds
+and stories.
+</strong>
 
+Instead of spending hours trying to invent
+the right combination of sounds, explore
+different naming styles and quickly discover
+possibilities that match your creation.
 
-                <span class="eyebrow">
-                    📖 THE NAMEFORGE EXPERIENCE
-                </span>
+</p>
 
 
-                <h2>
-                    What is
-                    <span class="gradient-text">
-                        NameForge?
-                    </span>
-                </h2>
+<p>
 
+A name is often one of the first things
+people remember about a fictional character
+or world. A heroic name can suggest courage.
+A darker name can create mystery. A royal
+name can communicate history and power.
 
-                <p>
-                    <strong>NameForge is a collection of specialized
-                    name generators created to help you turn ideas
-                    into memorable characters, worlds and stories.</strong>
-                    Instead of spending hours trying to invent the
-                    right combination of sounds, you can explore
-                    different naming styles and quickly discover
-                    possibilities that match the atmosphere of your creation.
-                </p>
+</p>
 
 
-                <p>
-                    A name is often one of the first things people
-                    remember about a fictional character or world.
-                    A heroic name can suggest courage. A darker name
-                    can create mystery. A royal name can communicate
-                    history and power. A dragon name can make a creature
-                    feel ancient and legendary before the story even begins.
-                </p>
+<p>
 
+Whether you are writing a novel, creating
+an RPG campaign, designing a game, inventing
+an anime-inspired character or building an
+entire fantasy universe, the goal is the same:
 
-                <p>
-                    That is why NameForge is organized around different
-                    creative categories. Whether you are writing a novel,
-                    creating an RPG campaign, designing a game, inventing
-                    an anime-inspired character or building an entire
-                    fantasy universe, the goal is the same:
-                    <strong>help you find a name that feels right.</strong>
-                </p>
+<strong>
+help you find a name that feels right.
+</strong>
 
+</p>
 
-                <p>
-                    NameForge is intentionally simple. There is no need
-                    to understand complicated naming systems or spend
-                    time configuring dozens of options before seeing
-                    results. Choose a generator, explore the possibilities,
-                    save the names you like and continue until you find
-                    something worth keeping.
-                </p>
 
+<p>
 
-                <p>
-                    The generators are also designed to encourage
-                    experimentation. A generated name does not have to
-                    be the final answer. It can be the starting point
-                    for a character, a kingdom, a faction, a creature,
-                    a username or an entire story idea.
-                </p>
+The generators are designed to encourage
+experimentation. A generated name does not
+have to be the final answer. It can be the
+starting point for a character, kingdom,
+faction, creature, username or entire story.
 
+</p>
 
-            </div>
 
+</div>
 
-            <aside class="about-panel">
 
+<aside class="about-panel">
 
-                <div class="about-panel-title">
 
-                    ✨
-                    What you can create
+<div class="about-panel-title">
 
-                </div>
+✨
+What you can create
 
+</div>
 
-                <div class="about-list">
 
+<div class="about-list">
 
-                    <div class="about-list-item">
 
-                        <span>⚔</span>
+<div class="about-list-item">
 
-                        <div>
+<span>⚔</span>
 
-                            <strong>
-                                Characters
-                            </strong>
+<div>
 
-                            <small>
-                                Heroes, villains, warriors, mages and more.
-                            </small>
+<strong>
+Characters
+</strong>
 
-                        </div>
+<small>
+Heroes, villains, warriors, mages and more.
+</small>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="about-list-item">
 
-                        <span>🎲</span>
+<div class="about-list-item">
 
-                        <div>
+<span>🎲</span>
 
-                            <strong>
-                                RPG worlds
-                            </strong>
+<div>
 
-                            <small>
-                                Names for campaigns, characters and adventures.
-                            </small>
+<strong>
+RPG worlds
+</strong>
 
-                        </div>
+<small>
+Campaigns, characters and adventures.
+</small>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="about-list-item">
 
-                        <span>🏰</span>
+<div class="about-list-item">
 
-                        <div>
+<span>🏰</span>
 
-                            <strong>
-                                Fictional worlds
-                            </strong>
+<div>
 
-                            <small>
-                                Kingdoms, empires, cities and territories.
-                            </small>
+<strong>
+Fictional worlds
+</strong>
 
-                        </div>
+<small>
+Kingdoms, empires, cities and territories.
+</small>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="about-list-item">
 
-                        <span>🐉</span>
+<div class="about-list-item">
 
-                        <div>
+<span>🐉</span>
 
-                            <strong>
-                                Creatures
-                            </strong>
+<div>
 
-                            <small>
-                                Dragons, monsters and legendary beings.
-                            </small>
+<strong>
+Creatures
+</strong>
 
-                        </div>
+<small>
+Dragons, monsters and legendary beings.
+</small>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="about-list-item">
 
-                        <span>🎮</span>
+<div class="about-list-item">
 
-                        <div>
+<span>🎮</span>
 
-                            <strong>
-                                Games & usernames
-                            </strong>
+<div>
 
-                            <small>
-                                Gaming identities and fictional characters.
-                            </small>
+<strong>
+Games & usernames
+</strong>
 
-                        </div>
+<small>
+Gaming identities and fictional characters.
+</small>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="about-list-item">
 
-                        <span>📚</span>
+<div class="about-list-item">
 
-                        <div>
+<span>📚</span>
 
-                            <strong>
-                                Stories
-                            </strong>
+<div>
 
-                            <small>
-                                Names that help bring original stories to life.
-                            </small>
+<strong>
+Stories
+</strong>
 
-                        </div>
+<small>
+Names that bring original stories to life.
+</small>
 
-                    </div>
+</div>
 
+</div>
 
-                </div>
 
-            </aside>
+</div>
 
+</aside>
 
-        </div>
 
-    </section>
+</div>
 
+</section>
 
 
-    <!-- ===================================================
-         FINAL CTA
-    ==================================================== -->
 
-    <section class="final-cta container">
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
 
+<section class="final-cta container">
 
-        <div class="final-box">
+<div class="final-box">
 
+<h2>
+Your next character needs a name.
+</h2>
 
-            <h2>
-                Your next character needs a name.
-            </h2>
+<p>
+Start exploring NameForge and discover a name
+that gives your next creation its identity.
+</p>
 
+<div
+    class="hero-actions"
+    style="position:relative;margin-top:25px;"
+>
 
-            <p>
-                Start exploring NameForge and discover a name
-                that gives your next creation its identity.
-            </p>
+<a
+    href="all-name-generators.html"
+    class="btn btn-primary"
+>
+⚡ Explore All Generators
+</a>
 
+</div>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
 
 </main>
 
 
 
-<!-- =======================================================
+<!-- =====================================================
      FOOTER
-======================================================== -->
+===================================================== -->
 
 <footer>
 
-
-    <div class="container footer-inner">
-
-
-        <div class="footer-brand">
-
-            <span class="logo-mark"
-                  aria-hidden="true"
-                  style="width:30px;height:30px;border-radius:8px;">
-
-                <svg
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-
-                    <path
-                        d="M8 22.5H24"
-                        stroke="white"
-                        stroke-width="2.6"
-                        stroke-linecap="round"
-                    />
-
-                    <path
-                        d="M10 22.5L12.2 18H19.8L22 22.5"
-                        stroke="white"
-                        stroke-width="2.6"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M13 18V14.5H19V18"
-                        stroke="white"
-                        stroke-width="2.6"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M15.5 10.5L16.5 8L17.5 10.5L20 11.5L17.5 12.5L16.5 15L15.5 12.5L13 11.5L15.5 10.5Z"
-                        fill="#FBBF24"
-                    />
-
-                </svg>
-
-            </span>
-
-            NameForge
-
-        </div>
+<div class="container footer-inner">
 
 
-        <div class="footer-links">
+<div class="footer-brand">
 
-            <a href="index.html">
-                Home
-            </a>
+<span
+    class="logo-mark"
+    style="width:30px;height:30px;border-radius:8px;"
+>
 
-            <a href="all-name-generators.html">
-                All Generators
-            </a>
+<svg
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
 
-            <a href="my-names.html">
-                My Names
-            </a>
+<path
+    d="M8 22.5H24"
+    stroke="white"
+    stroke-width="2.6"
+    stroke-linecap="round"
+/>
 
-        </div>
+<path
+    d="M10 22.5L12.2 18H19.8L22 22.5"
+    stroke="white"
+    stroke-width="2.6"
+/>
+
+<path
+    d="M13 18V14.5H19V18"
+    stroke="white"
+    stroke-width="2.6"
+/>
+
+<path
+    d="M15.5 10.5L16.5 8L17.5 10.5L20 11.5L17.5 12.5L16.5 15L15.5 12.5L13 11.5L15.5 10.5Z"
+    fill="#FBBF24"
+/>
+
+</svg>
+
+</span>
+
+NameForge
+
+</div>
 
 
-    </div>
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="all-name-generators.html">
+All Generators
+</a>
+
+<a href="my-names.html">
+My Names
+</a>
+
+</div>
 
 
-    <div class="container copyright">
+</div>
 
-        © 2026 NameForge.
-        Free name generators for creative worlds,
-        characters and stories.
 
-    </div>
+<div class="container copyright">
 
+© 2026 NameForge.
+Free name generators for creative worlds,
+characters and stories.
+
+</div>
 
 </footer>
 
@@ -3151,227 +2679,215 @@
 
 <script>
 
-    /* =====================================================
-       LANGUAGE SELECTOR
-       ===================================================== */
+/* =====================================================
+   LANGUAGE SELECTOR
+===================================================== */
 
-    const languageWrapper =
-        document.getElementById(
-            "languageWrapper"
-        );
+const languageWrapper =
+    document.getElementById(
+        "languageWrapper"
+    );
 
+const languageButton =
+    document.getElementById(
+        "languageButton"
+    );
 
-    const languageButton =
-        document.getElementById(
-            "languageButton"
-        );
-
-
-    const currentLanguage =
-        document.getElementById(
-            "currentLanguage"
-        );
-
-
-    const languageNames = {
-
-        en: "English",
-        fr: "Français",
-        es: "Español",
-        de: "Deutsch",
-        it: "Italiano",
-        pt: "Português",
-        nl: "Nederlands",
-        tr: "Türkçe",
-        ar: "العربية",
-        he: "עברית",
-        fa: "فارسی",
-        ru: "Русский",
-        uk: "Українська",
-        pl: "Polski",
-        cs: "Čeština",
-        sv: "Svenska",
-        da: "Dansk",
-        no: "Norsk",
-        fi: "Suomi",
-        el: "Ελληνικά",
-        ro: "Română",
-        hu: "Magyar",
-        id: "Bahasa Indonesia",
-        ms: "Bahasa Melayu",
-        vi: "Tiếng Việt",
-        th: "ไทย",
-        ja: "日本語",
-        ko: "한국어",
-        "zh-CN": "简体中文",
-        "zh-TW": "繁體中文",
-        hi: "हिन्दी"
-
-    };
-
-
-    languageButton.addEventListener(
-        "click",
-        function(event) {
-
-            event.stopPropagation();
-
-            const opened =
-                languageWrapper.classList.toggle(
-                    "open"
-                );
-
-            languageButton.setAttribute(
-                "aria-expanded",
-                opened ? "true" : "false"
-            );
-
-        }
+const currentLanguage =
+    document.getElementById(
+        "currentLanguage"
     );
 
 
-    document.querySelectorAll(
-        ".language-menu button"
-    ).forEach(
-        button => {
+const languageNames = {
 
-            button.addEventListener(
-                "click",
-                function() {
+    en: "English",
+    fr: "Français",
+    es: "Español",
+    de: "Deutsch",
+    it: "Italiano",
+    pt: "Português",
+    nl: "Nederlands",
+    tr: "Türkçe",
+    ar: "العربية",
+    he: "עברית",
+    fa: "فارسی",
+    ru: "Русский",
+    uk: "Українська",
+    pl: "Polski",
+    cs: "Čeština",
+    sv: "Svenska",
+    da: "Dansk",
+    no: "Norsk",
+    fi: "Suomi",
+    el: "Ελληνικά",
+    ro: "Română",
+    hu: "Magyar",
+    id: "Bahasa Indonesia",
+    ms: "Bahasa Melayu",
+    vi: "Tiếng Việt",
+    th: "ไทย",
+    ja: "日本語",
+    ko: "한국어",
+    "zh-CN": "简体中文",
+    "zh-TW": "繁體中文",
+    hi: "हिन्दी"
 
-                    const lang =
-                        this.dataset.lang;
+};
 
 
-                    if(lang === "en") {
+languageButton.addEventListener(
+    "click",
+    function(event) {
 
-                        currentLanguage.textContent =
-                            "English";
+        event.stopPropagation();
 
-                        languageWrapper.classList.remove(
-                            "open"
-                        );
+        const opened =
+            languageWrapper.classList.toggle(
+                "open"
+            );
 
-                        languageButton.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
+        languageButton.setAttribute(
+            "aria-expanded",
+            opened ? "true" : "false"
+        );
 
-                        localStorage.setItem(
-                            "nameforge_language",
-                            "en"
-                        );
-
-                        return;
-
-                    }
+    }
+);
 
 
-                    /*
-                     * Google Translate is used as the
-                     * translation layer for languages
-                     * other than the default English version.
-                     *
-                     * The original NameForge page remains
-                     * English-first for SEO and indexing.
-                     */
+document.querySelectorAll(
+    ".language-menu button"
+).forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                const lang =
+                    this.dataset.lang;
+
+                if(lang === "en") {
+
+                    currentLanguage.textContent =
+                        "English";
+
+                    languageWrapper.classList.remove(
+                        "open"
+                    );
+
+                    languageButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
                     localStorage.setItem(
                         "nameforge_language",
-                        lang
+                        "en"
                     );
 
-
-                    const currentUrl =
-                        window.location.href;
-
-
-                    const translateUrl =
-                        "https://translate.google.com/translate" +
-                        "?sl=en" +
-                        "&tl=" +
-                        encodeURIComponent(lang) +
-                        "&u=" +
-                        encodeURIComponent(currentUrl);
-
-
-                    window.location.href =
-                        translateUrl;
+                    return;
 
                 }
+
+
+                localStorage.setItem(
+                    "nameforge_language",
+                    lang
+                );
+
+
+                const currentUrl =
+                    window.location.href;
+
+
+                const translateUrl =
+                    "https://translate.google.com/translate" +
+                    "?sl=en" +
+                    "&tl=" +
+                    encodeURIComponent(lang) +
+                    "&u=" +
+                    encodeURIComponent(currentUrl);
+
+
+                window.location.href =
+                    translateUrl;
+
+            }
+        );
+
+    }
+);
+
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if(
+            !languageWrapper.contains(event.target)
+        ) {
+
+            languageWrapper.classList.remove(
+                "open"
+            );
+
+            languageButton.setAttribute(
+                "aria-expanded",
+                "false"
             );
 
         }
-    );
-
-
-    document.addEventListener(
-        "click",
-        function(event) {
-
-            if(
-                !languageWrapper.contains(event.target)
-            ) {
-
-                languageWrapper.classList.remove(
-                    "open"
-                );
-
-                languageButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       REMEMBER LANGUAGE LABEL
-       ===================================================== */
-
-    const savedLanguage =
-        localStorage.getItem(
-            "nameforge_language"
-        );
-
-
-    if(
-        savedLanguage &&
-        languageNames[savedLanguage]
-    ) {
-
-        currentLanguage.textContent =
-            languageNames[savedLanguage];
 
     }
+);
 
 
-    /* =====================================================
-       KEYBOARD ACCESSIBILITY
-       ===================================================== */
+/* =====================================================
+   REMEMBER LANGUAGE
+===================================================== */
 
-    document.addEventListener(
-        "keydown",
-        function(event) {
+const savedLanguage =
+    localStorage.getItem(
+        "nameforge_language"
+    );
 
-            if(event.key === "Escape") {
 
-                languageWrapper.classList.remove(
-                    "open"
-                );
+if(
+    savedLanguage &&
+    languageNames[savedLanguage]
+) {
 
-                languageButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+    currentLanguage.textContent =
+        languageNames[savedLanguage];
 
-            }
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if(event.key === "Escape") {
+
+            languageWrapper.classList.remove(
+                "open"
+            );
+
+            languageButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
         }
-    );
+
+    }
+);
 
 </script>
 
@@ -3379,3 +2895,4 @@
 </body>
 
 </html>
+```
