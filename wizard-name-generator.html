@@ -553,55 +553,138 @@ button{
     margin-bottom:15px;
 }
 
+/* -------------------------------- */
+/* STYLE DESIGN : POPULAR STYLES */
+/* -------------------------------- */
+
 .cards{
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:13px;
+    gap:20px;
 }
 
 .card{
-    padding:22px;
+    padding:26px 22px;
 
-    border:1px solid var(--border);
-    border-radius:15px;
+    border:1px solid #1a2333;
+    border-radius:18px;
 
-    background:#101625;
+    background:linear-gradient(160deg, rgba(16, 22, 37, 0.9), rgba(11, 17, 30, 0.9));
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: inline-block;
 }
 
 .card h3{
-    margin-bottom:7px;
+    margin-bottom:10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
 }
 
 .card p{
-    color:var(--muted);
-
-    font-size:.9rem;
+    color:#a3b1c6;
+    font-size:.95rem;
+    line-height: 1.6;
 }
 
+/* -------------------------------- */
+/* STYLE FAQ AMÉLIORÉ PRO */
+/* -------------------------------- */
+
 .faq details{
-    margin-bottom:10px;
+    margin-bottom:14px;
 
-    padding:17px;
+    padding:20px 22px;
 
-    border:1px solid var(--border);
-    border-radius:12px;
+    border:1px solid #1e293b;
+    border-radius:16px;
 
-    background:#101625;
+    background:linear-gradient(160deg, rgba(16, 22, 37, 0.8), rgba(11, 17, 30, 0.8));
+    transition: border-color 0.2s ease;
+}
+
+.faq details[open]{
+    border-color: rgba(139, 92, 246, 0.4);
 }
 
 .faq summary{
     cursor:pointer;
 
-    font-weight:900;
+    font-weight:800;
+    font-size: 1.1rem;
+    color: #ffffff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: "＋";
+    font-size: 1.2rem;
+    color: var(--purple);
+    transition: transform 0.2s ease;
+}
+
+.faq details[open] summary::after {
+    content: "✕";
+    color: var(--pink);
 }
 
 .faq p{
-    margin-top:10px;
+    margin-top:14px;
 
-    color:var(--muted);
+    color:#a3b1c6;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+/* -------------------------------- */
+/* STYLE NAVIGATION SIMPLE BOTTOM */
+/* -------------------------------- */
+
+.navigation-bottom {
+    text-align: center;
+    padding: 30px 0 10px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--purple);
+    font-weight: 850;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.back-link:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: translateX(-3px);
 }
 
 footer{
@@ -995,11 +1078,15 @@ From shadowy Necromancers and celestial Astromancers to ancient Chronomancers, s
 
 <section class="section container">
 
-<div class="content">
+<div class="content" style="text-align: center; margin-bottom: 35px;">
 
 <h2>
-Popular Wizard Styles
+Top 6 Popular Wizard Styles
 </h2>
+
+<p>
+Discover the most sought-after spellcaster archetypes chosen by writers, gamers, and worldbuilders worldwide.
+</p>
 
 </div>
 
@@ -1009,13 +1096,14 @@ Popular Wizard Styles
 
 <div class="card">
 
+<div class="card-icon">✨</div>
+
 <h3>
-✨ Arcane
+Arcane Mages
 </h3>
 
 <p>
-Mystical names for powerful arcane
-spellcasters.
+The timeless archetype of high fantasy. Ideal for scholarly spellcasters, archmages, and master scholars of ancient mystical arts.
 </p>
 
 </div>
@@ -1023,13 +1111,14 @@ spellcasters.
 
 <div class="card">
 
+<div class="card-icon">🌑</div>
+
 <h3>
-🌑 Dark
+Dark Wizards
 </h3>
 
 <p>
-Mysterious names for shadowy and
-dark fantasy wizards.
+Mysterious and dangerous names for sorcerers manipulating shadow magic, forbidden curses, and ominous dark powers.
 </p>
 
 </div>
@@ -1037,13 +1126,14 @@ dark fantasy wizards.
 
 <div class="card">
 
+<div class="card-icon">🔥</div>
+
 <h3>
-🔥 Elemental
+Elemental Sorcerers
 </h3>
 
 <p>
-Names inspired by magical elemental
-powers.
+High-energy identities tailored for spellcasters commanding nature's raw forces—fire, ice, storms, and earth.
 </p>
 
 </div>
@@ -1051,13 +1141,14 @@ powers.
 
 <div class="card">
 
+<div class="card-icon">💀</div>
+
 <h3>
-📜 Ancient
+Necromancers
 </h3>
 
 <p>
-Names for legendary and forgotten
-wizards.
+Chilling titles designed for bone weavers, dark ritualists, and commanders of the undead and forgotten crypts.
 </p>
 
 </div>
@@ -1065,13 +1156,14 @@ wizards.
 
 <div class="card">
 
+<div class="card-icon">💥</div>
+
 <h3>
-👑 Royal
+Pyromancers
 </h3>
 
 <p>
-Elegant names for court wizards
-and magical rulers.
+Fiery, explosive names suited for aggressive battle-mages wielding destructive flames, brimstone, and volcanic blazes.
 </p>
 
 </div>
@@ -1079,13 +1171,14 @@ and magical rulers.
 
 <div class="card">
 
+<div class="card-icon">🌟</div>
+
 <h3>
-🔮 Mystic
+Celestial Astromancers
 </h3>
 
 <p>
-Mystical names for mysterious
-sorcerers.
+Radiant and ethereal names inspired by cosmic energy, starlight, nebulae, and ancient stellar divination.
 </p>
 
 </div>
@@ -1096,7 +1189,7 @@ sorcerers.
 </section>
 
 
-<!-- FAQ -->
+<!-- FAQ AMÉLIORÉE -->
 
 <section
     class="section container"
@@ -1105,9 +1198,13 @@ sorcerers.
 
 <div class="content">
 
-<h2>
-Wizard Name Generator FAQ
+<h2 style="text-align: center; margin-bottom: 12px;">
+Frequently Asked Questions
 </h2>
+
+<p style="text-align: center; margin-bottom: 35px;">
+Everything you need to know about generating fantasy names with NameForge.
+</p>
 
 
 <div class="faq">
@@ -1116,12 +1213,11 @@ Wizard Name Generator FAQ
 <details>
 
 <summary>
-Is the wizard name generator free?
+Is the NameForge Wizard Name Generator completely free?
 </summary>
 
 <p>
-Yes. The NameForge Wizard Name Generator
-is free to use in your browser.
+Yes, 100% free. You can generate unlimited wizard names without registering, creating an account, or entering payment information. All names generated are free to use for both personal and commercial projects.
 </p>
 
 </details>
@@ -1130,13 +1226,11 @@ is free to use in your browser.
 <details>
 
 <summary>
-What can I use these wizard names for?
+Can I use these names for commercial books, games, or RPGs?
 </summary>
 
 <p>
-You can use them as inspiration for
-fantasy characters, games, RPGs, stories
-and fictional worlds.
+Absolutely. All names produced by our generator are algorithmically generated and free of copyright restrictions. You can freely use them for fantasy novels, video games, tabletop RPG campaigns (D&D, Pathfinder), comic books, and world-building projects.
 </p>
 
 </details>
@@ -1145,12 +1239,11 @@ and fictional worlds.
 <details>
 
 <summary>
-Can I generate short wizard names?
+How does the name generator create authentic fantasy names?
 </summary>
 
 <p>
-Yes. Choose Short, Medium or Long before
-generating your names.
+Our generator utilizes linguistic patterns based on ancient languages, mythologies, and high-fantasy literature conventions. By pairing thematic prefixes with specialized arcane suffixes, it produces names that sound natural, memorable, and lore-friendly.
 </p>
 
 </details>
@@ -1159,12 +1252,11 @@ generating your names.
 <details>
 
 <summary>
-What types of wizard names can I generate?
+How do I filter names by length or magic style?
 </summary>
 
 <p>
-You can generate arcane, dark, elemental,
-ancient, royal and mystic wizard names.
+Use the interactive control panel at the top of the page. You can choose from over 20 distinct magical archetypes (such as Arcane, Necromancer, or Chronomancer) and select your preferred name length (Short, Medium, or Long) before clicking "Generate Names".
 </p>
 
 </details>
@@ -1177,85 +1269,18 @@ ancient, royal and mystic wizard names.
 </section>
 
 
-<!-- OTHER GENERATORS -->
+<!-- NAVIGATION BOTTOM (SEUL LIEN REPRIS) -->
 
 <section class="section container">
 
-<div class="content">
+<div class="navigation-bottom">
 
-<h2>
-Explore more NameForge generators
-</h2>
-
-
-<p>
 <a
     href="all-name-generators.html"
-    style="color:#a78bfa;font-weight:900;"
+    class="back-link"
 >
 ← All Name Generators
 </a>
-</p>
-
-
-<p>
-<a
-    href="fantasy-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-🐉 Fantasy Name Generator
-</a>
-</p>
-
-
-<p>
-<a
-    href="rpg-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-🎲 RPG Name Generator
-</a>
-</p>
-
-
-<p>
-<a
-    href="anime-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-✨ Anime Name Generator
-</a>
-</p>
-
-
-<p>
-<a
-    href="gaming-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-🎮 Gaming Name Generator
-</a>
-</p>
-
-
-<p>
-<a
-    href="kingdom-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-🏰 Kingdom Name Generator
-</a>
-</p>
-
-
-<p>
-<a
-    href="dragon-name-generator.html"
-    style="color:#a78bfa;font-weight:900;"
->
-🐲 Dragon Name Generator
-</a>
-</p>
 
 </div>
 
