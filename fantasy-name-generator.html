@@ -1652,37 +1652,38 @@ RPGs and fictional worlds.
 const GENERATOR_TYPE = "fantasy";
 
 
+```javascript
+/* =========================================================
+   NAMEFORGE — FANTASY NAME GENERATOR
+   Version compatible avec nameforge-storage.js
+   ========================================================= */
+
+
 /* =========================================================
    NAME PARTS
-========================================================= */
+   ========================================================= */
 
 const nameParts = {
 
     hero: {
 
         first: [
-
             "Al","Ael","Aer","Ari","Cael","Cal",
             "Eld","Ely","Kael","Rae","Val","Syl",
             "Aren","Eryn","Lio","Ther","Vael",
             "Cyr","El","Ar"
-
         ],
 
         middle: [
-
             "a","ae","ai","e","ei","ia","io",
             "o","or","el","er","ir","is",
             "an","en","in","on"
-
         ],
 
         second: [
-
             "ion","iel","ian","or","en","is",
             "eus","ael","ar","yr","eth","rin",
             "on","el","ian"
-
         ]
 
     },
@@ -1691,27 +1692,21 @@ const nameParts = {
     warrior: {
 
         first: [
-
             "Br","Dr","Gar","Gor","Kar","Khar",
             "Kor","Rag","Ror","Thar","Tor","Var",
             "Dun","Grim","Keld","Bor","Drak",
             "Varn","Thorn"
-
         ],
 
         middle: [
-
             "a","ar","e","o","u","ak","an",
             "or","ur","er","on","un"
-
         ],
 
         second: [
-
             "gar","gor","dor","dar","rik","rak",
             "ron","orn","vald","var","dur",
             "dan","kar","thor","ak","us","ar"
-
         ]
 
     },
@@ -1720,28 +1715,22 @@ const nameParts = {
     mage: {
 
         first: [
-
             "Ae","Ael","Aen","Ar","Ely","Eli",
             "Elar","Ily","Lun","Myr","Nym",
             "Oryn","Ser","Syl","Thael","Vael",
             "Vey","Zel","Aeth","Eryn"
-
         ],
 
         middle: [
-
             "a","ae","ai","e","ei","ia",
             "ie","io","y","el","er","il",
             "ir","or","yn"
-
         ],
 
         second: [
-
             "iel","ia","ara","ora","eris","yne",
             "eth","ael","ion","is","aris",
             "eus","ine","aeth"
-
         ]
 
     },
@@ -1750,27 +1739,21 @@ const nameParts = {
     dark: {
 
         first: [
-
             "Mor","Nox","Nyx","Mal","Vel","Vyr",
             "Vor","Rav","Zar","Zer","Kha","Vex",
             "Dra","Drel","Morth","Ner","Vhal",
             "Xar","Roth","Dym"
-
         ],
 
         middle: [
-
             "a","e","o","u","y","ar","or",
             "ur","av","ev","ir","yr","ax","ex"
-
         ],
 
         second: [
-
             "oth","yx","eth","mor","vyr","ain",
             "ar","iel","en","or","is","aen",
             "yr","ax","ven"
-
         ]
 
     },
@@ -1779,27 +1762,21 @@ const nameParts = {
     royal: {
 
         first: [
-
             "Aur","Aure","Cal","Cyr","Edr","Ely",
             "El","Lor","Val","Valen","Ari","Aris",
             "Ser","Riel","Cael","Ther","Alar",
             "Eron","Ed","Ael"
-
         ],
 
         middle: [
-
             "a","ae","e","ia","io","el","er",
             "or","an","en","ian","elle"
-
         ],
 
         second: [
-
             "ius","ian","or","elle","ara","is",
             "ion","eus","ael","ia","en","iel",
             "aris"
-
         ]
 
     },
@@ -1808,27 +1785,21 @@ const nameParts = {
     ancient: {
 
         first: [
-
             "Az","Azh","Aen","Eon","Eld","Eldor",
             "Ery","Ith","Ithar","Or","Oryn",
             "Thal","Ur","Urien","Vael","Aeth",
             "Eru","Thae","Zor","Ael"
-
         ],
 
         middle: [
-
             "a","ae","e","ia","io","u","or",
             "ur","el","er","an","en","on","um"
-
         ],
 
         second: [
-
             "us","ae","on","os","iel","eth",
             "ar","is","um","ael","ion","or",
             "eus","ian","ith","aen"
-
         ]
 
     }
@@ -1838,29 +1809,24 @@ const nameParts = {
 
 /* =========================================================
    STYLE INFORMATION
-========================================================= */
+   ========================================================= */
 
 const styleInfo = {
 
     hero: {
 
-        label:"Heroic",
+        label: "Heroic",
 
-        icon:"⚔️",
+        icon: "⚔️",
 
         bestFor:
             "Heroes, adventurers and legendary champions",
 
-        descriptions:[
-
+        descriptions: [
             "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
-
             "A noble name that fits a courageous hero destined for an important quest.",
-
             "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
-
             "A classic heroic name suited to a character who inspires others through courage."
-
         ]
 
     },
@@ -1868,23 +1834,18 @@ const styleInfo = {
 
     warrior: {
 
-        label:"Warrior",
+        label: "Warrior",
 
-        icon:"🛡️",
+        icon: "🛡️",
 
         bestFor:
             "Warriors, knights and battle commanders",
 
-        descriptions:[
-
+        descriptions: [
             "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
-
             "A powerful name for a knight, mercenary or commander known for strength and determination.",
-
             "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
-
             "A fierce name suited to a battle-hardened champion or military leader."
-
         ]
 
     },
@@ -1892,23 +1853,18 @@ const styleInfo = {
 
     mage: {
 
-        label:"Mystical",
+        label: "Mystical",
 
-        icon:"🔮",
+        icon: "🔮",
 
         bestFor:
             "Mages, wizards and spellcasters",
 
-        descriptions:[
-
+        descriptions: [
             "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
-
             "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
-
             "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
-
             "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
-
         ]
 
     },
@@ -1916,23 +1872,18 @@ const styleInfo = {
 
     dark: {
 
-        label:"Dark Fantasy",
+        label: "Dark Fantasy",
 
-        icon:"🌑",
+        icon: "🌑",
 
         bestFor:
             "Villains, assassins and mysterious characters",
 
-        descriptions:[
-
+        descriptions: [
             "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
-
             "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
-
             "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
-
             "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
-
         ]
 
     },
@@ -1940,23 +1891,18 @@ const styleInfo = {
 
     royal: {
 
-        label:"Royal",
+        label: "Royal",
 
-        icon:"👑",
+        icon: "👑",
 
         bestFor:
             "Kings, queens, princes and noble characters",
 
-        descriptions:[
-
+        descriptions: [
             "A noble and elegant name suited to a king, queen or powerful ruler.",
-
             "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
-
             "A sophisticated name for a monarch, noble heir or influential ruler.",
-
             "An elegant royal name suited to a character born into power and tradition."
-
         ]
 
     },
@@ -1964,23 +1910,18 @@ const styleInfo = {
 
     ancient: {
 
-        label:"Ancient",
+        label: "Ancient",
 
-        icon:"🏛️",
+        icon: "🏛️",
 
         bestFor:
             "Ancient beings, sages and legendary characters",
 
-        descriptions:[
-
+        descriptions: [
             "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
-
             "A mysterious archaic name that fits an ancient guardian or legendary figure.",
-
             "A timeless name suited to a character connected to forgotten civilizations and old magic.",
-
             "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
-
         ]
 
     }
@@ -1989,27 +1930,10 @@ const styleInfo = {
 
 
 /* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-    return String(value ?? "")
-
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================================
    RANDOM ITEM
-========================================================= */
+   ========================================================= */
 
-function randomItem(array){
+function randomItem(array) {
 
     return array[
         Math.floor(
@@ -2022,12 +1946,11 @@ function randomItem(array){
 
 /* =========================================================
    CREATE BASE NAME
-========================================================= */
+   ========================================================= */
 
-function createBaseName(style){
+function createBaseName(style) {
 
-    const parts =
-        nameParts[style];
+    const parts = nameParts[style];
 
     const structure =
         Math.floor(
@@ -2035,61 +1958,44 @@ function createBaseName(style){
         );
 
 
-    if(structure === 0){
+    if(structure === 0) {
 
         return (
-
             randomItem(parts.first) +
-
             randomItem(parts.second)
-
         );
 
     }
 
 
-    if(structure === 1){
+    if(structure === 1) {
 
         return (
-
             randomItem(parts.first) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.second)
-
         );
 
     }
 
 
-    if(structure === 2){
+    if(structure === 2) {
 
         return (
-
             randomItem(parts.first) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.second)
-
         );
 
     }
 
 
     return (
-
         randomItem(parts.first) +
-
         randomItem(parts.middle) +
-
         randomItem(parts.second) +
-
         randomItem(parts.second)
-
     );
 
 }
@@ -2097,30 +2003,25 @@ function createBaseName(style){
 
 /* =========================================================
    CLEAN NAME
-========================================================= */
+   ========================================================= */
 
-function cleanName(name){
+function cleanName(name) {
 
-    name =
-        name.replace(
-            /([aeiou])\1{2,}/gi,
-            "$1"
-        );
+    name = name.replace(
+        /([aeiou])\1{2,}/gi,
+        "$1"
+    );
 
 
-    name =
-        name.replace(
-            /(ion|iel|ian|eth|ael)\1+/gi,
-            "$1"
-        );
+    name = name.replace(
+        /(ion|iel|ian|eth|ael)\1+/gi,
+        "$1"
+    );
 
 
     return (
-
         name.charAt(0).toUpperCase() +
-
         name.slice(1)
-
     );
 
 }
@@ -2128,28 +2029,25 @@ function cleanName(name){
 
 /* =========================================================
    MAKE NAME
-========================================================= */
+   ========================================================= */
 
-function makeName(style,length){
+function makeName(style, length) {
 
-    const parts =
-        nameParts[style];
+    const parts = nameParts[style];
 
     let name;
 
 
-    if(length === "short"){
+    if(length === "short") {
 
         name =
             randomItem(parts.first) +
-
-            randomItem(parts.second)
-                .slice(0,2);
+            randomItem(parts.second).slice(0, 2);
 
     }
 
 
-    else if(length === "medium"){
+    else if(length === "medium") {
 
         name =
             createBaseName(style);
@@ -2157,16 +2055,12 @@ function makeName(style,length){
     }
 
 
-    else{
+    else {
 
         name =
-
             randomItem(parts.first) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.second) +
-
             randomItem(parts.second);
 
     }
@@ -2178,414 +2072,32 @@ function makeName(style,length){
 
 
 /* =========================================================
-   GET SAVED STATUS
-========================================================= */
-
-function getNameStorageStatus(name){
-
-    const saved =
-        findSavedName(name);
-
-
-    return {
-
-        saved: !!saved,
-
-        liked:
-            !!(
-                saved &&
-                saved.liked === true
-            )
-
-    };
-
-}
-
-
-/* =========================================================
-   SAVE NAME
-========================================================= */
-
-function handleSave(name,style){
-
-    const result =
-        saveName(
-            name,
-            GENERATOR_TYPE,
-            style
-        );
-
-
-    if(result){
-
-        updateResultButtons(name);
-
-    }
-
-}
-
-
-/* =========================================================
-   TOGGLE LIKE
-========================================================= */
-
-function handleLike(name,style){
-
-    likeName(
-        name,
-        GENERATOR_TYPE,
-        style
-    );
-
-
-    updateResultButtons(name);
-
-}
-
-
-/* =========================================================
-   UPDATE BUTTONS
-========================================================= */
-
-function updateResultButtons(name){
-
-    const cards =
-        document.querySelectorAll(
-            ".result"
-        );
-
-
-    cards.forEach(card => {
-
-        if(
-            card.dataset.name !== name
-        ){
-
-            return;
-
-        }
-
-
-        const status =
-            getNameStorageStatus(name);
-
-
-        const saveButton =
-            card.querySelector(
-                ".save-button"
-            );
-
-
-        const likeButton =
-            card.querySelector(
-                ".like-button"
-            );
-
-
-        if(saveButton){
-
-            saveButton.classList.toggle(
-                "saved",
-                status.saved
-            );
-
-
-            saveButton.textContent =
-                status.saved
-                    ? "✅ Saved"
-                    : "💾 Save";
-
-        }
-
-
-        if(likeButton){
-
-            likeButton.classList.toggle(
-                "liked",
-                status.liked
-            );
-
-
-            likeButton.textContent =
-                status.liked
-                    ? "❤️ Liked"
-                    : "🤍 Like";
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   COPY NAME
-========================================================= */
-
-async function copyName(name){
-
-    try{
-
-        await navigator.clipboard.writeText(
-            name
-        );
-
-
-        alert(
-            "Name copied: " + name
-        );
-
-    }
-
-    catch(error){
-
-        alert(
-            "Name: " + name
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   RENDER RESULTS
-========================================================= */
-
-function renderResults(names,style){
-
-    const info =
-        styleInfo[style];
-
-
-    const results =
-        document.getElementById(
-            "results"
-        );
-
-
-    results.innerHTML =
-
-        names.map(name => {
-
-            const status =
-                getNameStorageStatus(name);
-
-
-            return `
-
-                <article
-                    class="result"
-                    data-name="${escapeHtml(name)}"
-                >
-
-                    <div class="result-name">
-
-                        ${escapeHtml(name)}
-
-                    </div>
-
-
-                    <div class="result-style">
-
-                        ${escapeHtml(info.icon)}
-                        ${escapeHtml(info.label)}
-
-                    </div>
-
-
-                    <p class="result-description">
-
-                        ${escapeHtml(
-                            randomItem(
-                                info.descriptions
-                            )
-                        )}
-
-                    </p>
-
-
-                    <div class="result-best">
-
-                        <strong>
-                            Best for:
-                        </strong>
-
-                        ${escapeHtml(
-                            info.bestFor
-                        )}
-
-                    </div>
-
-
-                    <div class="result-actions">
-
-
-                        <button
-                            type="button"
-                            class="result-button save-button ${
-                                status.saved
-                                    ? "saved"
-                                    : ""
-                            }"
-                            data-action="save"
-                        >
-
-                            ${
-                                status.saved
-                                    ? "✅ Saved"
-                                    : "💾 Save"
-                            }
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="result-button like-button ${
-                                status.liked
-                                    ? "liked"
-                                    : ""
-                            }"
-                            data-action="like"
-                        >
-
-                            ${
-                                status.liked
-                                    ? "❤️ Liked"
-                                    : "🤍 Like"
-                            }
-
-                        </button>
-
-
-                    </div>
-
-
-                    <button
-                        type="button"
-                        class="result-button copy"
-                        data-action="copy"
-                    >
-
-                        📋 Copy name
-
-                    </button>
-
-
-                </article>
-
-            `;
-
-        }).join("");
-
-
-    attachResultEvents(style);
-
-}
-
-
-/* =========================================================
-   RESULT EVENTS
-========================================================= */
-
-function attachResultEvents(style){
-
-    document
-        .querySelectorAll(".result")
-        .forEach(card => {
-
-            const name =
-                card.dataset.name;
-
-
-            const saveButton =
-                card.querySelector(
-                    '[data-action="save"]'
-                );
-
-
-            const likeButton =
-                card.querySelector(
-                    '[data-action="like"]'
-                );
-
-
-            const copyButton =
-                card.querySelector(
-                    '[data-action="copy"]'
-                );
-
-
-            if(saveButton){
-
-                saveButton.addEventListener(
-                    "click",
-                    () => {
-
-                        handleSave(
-                            name,
-                            style
-                        );
-
-                    }
-                );
-
-            }
-
-
-            if(likeButton){
-
-                likeButton.addEventListener(
-                    "click",
-                    () => {
-
-                        handleLike(
-                            name,
-                            style
-                        );
-
-                    }
-                );
-
-            }
-
-
-            if(copyButton){
-
-                copyButton.addEventListener(
-                    "click",
-                    () => {
-
-                        copyName(name);
-
-                    }
-                );
-
-            }
-
-        });
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
 
 /* =========================================================
    GENERATE 9 NAMES
-========================================================= */
+   ========================================================= */
 
-function generate(){
+function generate() {
 
     const style =
-        document.getElementById(
-            "style"
-        ).value;
-
+        document.getElementById("style").value;
 
     const length =
-        document.getElementById(
-            "length"
-        ).value;
-
+        document.getElementById("length").value;
 
     const names = [];
 
@@ -2593,12 +2105,9 @@ function generate(){
 
 
     while(
-
         names.length < 9 &&
-
         attempts < 1000
-
-    ){
+    ) {
 
         attempts++;
 
@@ -2610,9 +2119,7 @@ function generate(){
             );
 
 
-        if(
-            !names.includes(name)
-        ){
+        if(!names.includes(name)) {
 
             names.push(name);
 
@@ -2630,53 +2137,728 @@ function generate(){
 
 
 /* =========================================================
-   GENERATE BUTTON
-========================================================= */
+   RENDER RESULTS
+   ========================================================= */
 
-document
-    .getElementById(
-        "generateButton"
-    )
-    .addEventListener(
+function renderResults(names, style) {
+
+    const info =
+        styleInfo[style];
+
+
+    const results =
+        document.getElementById("results");
+
+
+    results.innerHTML =
+        names.map(
+            (name, index) => {
+
+                const saved =
+                    isNameSaved(name);
+
+                const liked =
+                    isNameLiked(name);
+
+
+                return `
+
+                    <div
+                        class="result"
+                        data-name="${escapeHtml(name)}"
+                    >
+
+                        <div class="result-name">
+
+                            ${escapeHtml(name)}
+
+                        </div>
+
+
+                        <div class="result-style">
+
+                            ${info.icon}
+                            ${escapeHtml(info.label)}
+
+                        </div>
+
+
+                        <p class="result-description">
+
+                            ${escapeHtml(
+                                randomItem(
+                                    info.descriptions
+                                )
+                            )}
+
+                        </p>
+
+
+                        <div class="result-best">
+
+                            <strong>
+                                Best for:
+                            </strong>
+
+                            ${escapeHtml(
+                                info.bestFor
+                            )}
+
+                        </div>
+
+
+                        <div
+                            class="fantasy-actions"
+                            style="
+                                display:grid;
+                                grid-template-columns:1fr 1fr;
+                                gap:8px;
+                                margin-top:12px;
+                            "
+                        >
+
+                            <button
+                                type="button"
+                                class="copy"
+                                data-action="copy"
+                                data-index="${index}"
+                                style="margin-top:0;"
+                            >
+                                📋 Copy
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="copy"
+                                data-action="save"
+                                data-index="${index}"
+                            >
+                                ${saved
+                                    ? "💾 Saved"
+                                    : "💾 Save"}
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="copy"
+                                data-action="like"
+                                data-index="${index}"
+                            >
+                                ${liked
+                                    ? "❤️ Liked"
+                                    : "🤍 Like"}
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="copy"
+                                data-action="note"
+                                data-index="${index}"
+                            >
+                                📝 Note
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="fantasy-note-area"
+                            id="note-area-${index}"
+                            style="
+                                display:none;
+                                margin-top:10px;
+                            "
+                        >
+
+                            <textarea
+                                class="fantasy-note-editor"
+                                data-index="${index}"
+                                placeholder="Write a private note about this name..."
+                                style="
+                                    width:100%;
+                                    min-height:75px;
+                                    resize:vertical;
+                                    padding:10px;
+                                    border:1px solid var(--border);
+                                    border-radius:9px;
+                                    background:#070c16;
+                                    color:white;
+                                    outline:none;
+                                "
+                            ></textarea>
+
+
+                            <button
+                                type="button"
+                                class="copy"
+                                data-action="save-note"
+                                data-index="${index}"
+                            >
+                                💾 Save note
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+
+    attachResultEvents(
+        names,
+        style
+    );
+
+}
+
+
+/* =========================================================
+   ATTACH RESULT EVENTS
+   ========================================================= */
+
+function attachResultEvents(names, style) {
+
+    const results =
+        document.getElementById("results");
+
+
+    results
+        .querySelectorAll("[data-action]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const action =
+                        button.dataset.action;
+
+                    const index =
+                        Number(
+                            button.dataset.index
+                        );
+
+                    const name =
+                        names[index];
+
+
+                    if(!name) {
+
+                        return;
+
+                    }
+
+
+                    handleResultAction(
+                        action,
+                        name,
+                        style,
+                        index
+                    );
+
+                }
+            );
+
+        });
+
+
+    results
+        .querySelectorAll(".fantasy-note-editor")
+        .forEach(textarea => {
+
+            const name =
+                names[
+                    Number(
+                        textarea.dataset.index
+                    )
+                ];
+
+
+            const existing =
+                findSavedName(name);
+
+
+            if(existing) {
+
+                textarea.value =
+                    existing.note || "";
+
+            }
+
+        });
+
+}
+
+
+/* =========================================================
+   HANDLE RESULT ACTION
+   ========================================================= */
+
+function handleResultAction(
+    action,
+    name,
+    style,
+    index
+) {
+
+
+    /* =========================================
+       COPY
+    ========================================= */
+
+    if(action === "copy") {
+
+        copyName(name);
+
+        return;
+
+    }
+
+
+    /* =========================================
+       SAVE / UNSAVE
+    ========================================= */
+
+    if(action === "save") {
+
+        const saved =
+            isNameSaved(name);
+
+
+        if(saved) {
+
+            unsaveName(name);
+
+        }
+
+        else {
+
+            saveName(
+                name,
+                "fantasy",
+                style
+            );
+
+        }
+
+
+        refreshCurrentResult(
+            name,
+            style,
+            index
+        );
+
+        return;
+
+    }
+
+
+    /* =========================================
+       LIKE / UNLIKE
+    ========================================= */
+
+    if(action === "like") {
+
+        likeName(
+            name,
+            "fantasy",
+            style
+        );
+
+
+        refreshCurrentResult(
+            name,
+            style,
+            index
+        );
+
+        return;
+
+    }
+
+
+    /* =========================================
+       SHOW NOTE
+    ========================================= */
+
+    if(action === "note") {
+
+        const area =
+            document.getElementById(
+                "note-area-" + index
+            );
+
+
+        if(!area) {
+
+            return;
+
+        }
+
+
+        const existing =
+            findSavedName(name);
+
+
+        const textarea =
+            area.querySelector(
+                ".fantasy-note-editor"
+            );
+
+
+        if(existing && textarea) {
+
+            textarea.value =
+                existing.note || "";
+
+        }
+
+
+        area.style.display =
+            area.style.display === "none"
+                ? "block"
+                : "none";
+
+
+        return;
+
+    }
+
+
+    /* =========================================
+       SAVE NOTE
+    ========================================= */
+
+    if(action === "save-note") {
+
+        const area =
+            document.getElementById(
+                "note-area-" + index
+            );
+
+
+        if(!area) {
+
+            return;
+
+        }
+
+
+        const textarea =
+            area.querySelector(
+                ".fantasy-note-editor"
+            );
+
+
+        if(!textarea) {
+
+            return;
+
+        }
+
+
+        updateNameNote(
+            name,
+            textarea.value
+        );
+
+
+        refreshCurrentResult(
+            name,
+            style,
+            index
+        );
+
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   REFRESH ONE RESULT
+   ========================================================= */
+
+function refreshCurrentResult(
+    name,
+    style,
+    index
+) {
+
+    /*
+     * Instead of generating new names,
+     * redraw the current nine names while
+     * keeping the selected name's state.
+     */
+
+    const result =
+        document.querySelector(
+            `.result[data-name="${CSS.escape(name)}"]`
+        );
+
+
+    if(!result) {
+
+        return;
+
+    }
+
+
+    const saved =
+        isNameSaved(name);
+
+    const liked =
+        isNameLiked(name);
+
+
+    const saveButton =
+        result.querySelector(
+            '[data-action="save"]'
+        );
+
+
+    const likeButton =
+        result.querySelector(
+            '[data-action="like"]'
+        );
+
+
+    if(saveButton) {
+
+        saveButton.textContent =
+            saved
+                ? "💾 Saved"
+                : "💾 Save";
+
+    }
+
+
+    if(likeButton) {
+
+        likeButton.textContent =
+            liked
+                ? "❤️ Liked"
+                : "🤍 Like";
+
+    }
+
+}
+
+
+/* =========================================================
+   COPY NAME
+   ========================================================= */
+
+async function copyName(name) {
+
+    try {
+
+        if(
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
+
+            await navigator.clipboard.writeText(
+                name
+            );
+
+            showCopyMessage(
+                "Copied: " + name
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Fallback for older browsers.
+         */
+
+        const textarea =
+            document.createElement("textarea");
+
+
+        textarea.value = name;
+
+        textarea.style.position =
+            "fixed";
+
+        textarea.style.opacity =
+            "0";
+
+
+        document.body.appendChild(
+            textarea
+        );
+
+
+        textarea.select();
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        textarea.remove();
+
+
+        showCopyMessage(
+            "Copied: " + name
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Copy error:",
+            error
+        );
+
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   COPY MESSAGE
+   ========================================================= */
+
+function showCopyMessage(message) {
+
+    /*
+     * Small temporary message instead of
+     * interrupting the user with alert().
+     */
+
+    const oldMessage =
+        document.getElementById(
+            "nameforge-copy-message"
+        );
+
+
+    if(oldMessage) {
+
+        oldMessage.remove();
+
+    }
+
+
+    const messageBox =
+        document.createElement("div");
+
+
+    messageBox.id =
+        "nameforge-copy-message";
+
+
+    messageBox.textContent =
+        "✓ " + message;
+
+
+    messageBox.style.position =
+        "fixed";
+
+    messageBox.style.bottom =
+        "20px";
+
+    messageBox.style.left =
+        "50%";
+
+    messageBox.style.transform =
+        "translateX(-50%)";
+
+    messageBox.style.zIndex =
+        "9999";
+
+    messageBox.style.padding =
+        "10px 16px";
+
+    messageBox.style.borderRadius =
+        "10px";
+
+    messageBox.style.background =
+        "#182236";
+
+    messageBox.style.border =
+        "1px solid #29354d";
+
+    messageBox.style.color =
+        "white";
+
+    messageBox.style.fontWeight =
+        "800";
+
+
+    document.body.appendChild(
+        messageBox
+    );
+
+
+    setTimeout(
+        () => {
+
+            messageBox.remove();
+
+        },
+        1800
+    );
+
+}
+
+
+/* =========================================================
+   GENERATE BUTTON
+   ========================================================= */
+
+const generateButton =
+    document.querySelector(
+        ".generate"
+    );
+
+
+if(generateButton) {
+
+    generateButton.addEventListener(
         "click",
         generate
     );
 
+}
 
-/* =========================================================
-   REFRESH STORAGE STATUS
-   Useful if My Names is modified in another tab.
-========================================================= */
 
-document.addEventListener(
-    "visibilitychange",
-    () => {
-
-        if(
-            document.visibilityState === "visible"
-        ){
-
-            document
-                .querySelectorAll(".result")
-                .forEach(card => {
-
-                    updateResultButtons(
-                        card.dataset.name
-                    );
-
-                });
-
-        }
-
-    }
-);
+/*
+ * IMPORTANT:
+ *
+ * The old HTML has:
+ *
+ * onclick="generate()"
+ *
+ * We therefore leave generate()
+ * globally available as well.
+ */
 
 
 /* =========================================================
    INITIAL GENERATION
-========================================================= */
+   ========================================================= */
 
 generate();
+```
 
 </script>
 
