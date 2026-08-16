@@ -1,59 +1,26 @@
-/* =========================================================
-   NAMEFORGE — UNIVERSAL 21-STYLE CATALOG
-   The same professional style selector is available on every generator.
-========================================================= */
+/* NameForge — universal style catalog and naming DNA */
 window.NameForgeStyles={
-  list:[
-    ['assassin',"🗡️ Assassin de l’ombre"],
-    ['warrior',"⚔️ Guerrier héroïque"],
-    ['high-elf',"🧝 Haut-Né Elfe"],
-    ['dwarf-defender',"⛏️ Défenseur nain"],
-    ['dragonkin',"🐉 Dragonkin"],
-    ['orc-berserker',"🪓 Berserker orc"],
-    ['dark-elf',"🏹 Elfe noir (Drow)"],
-    ['demon-lord',"😈 Seigneur Démon"],
-    ['seraph',"🪽 Séraphin angélique"],
-    ['noble-vampire',"🦇 Noble Vampire"],
-    ['fantasy-kingdom',"👑 Royaume fantastique"],
-    ['fantasy-tavern',"🍺 Taverne Fantastique"],
-    ['legendary-weapon',"⚔️ Arme légendaire"],
-    ['arcane-mage',"🔮 Mage arcanique"],
-    ['necromancer',"💀 Nécromancien"],
-    ['samurai',"🌸 Samouraï"],
-    ['ranger',"🏹 Rôdeur forestier"],
-    ['celestial',"✨ Céleste mystique"],
-    ['pirate',"🏴‍☠️ Pirate légendaire"],
-    ['royal',"👑 Noble royal"],
-    ['shadow-rogue',"🌑 Voleur des ombres"]
-  ],
-  aliases:{
-    assassin:['ninja','rogue','dark','villain','hunter','demon'],
-    warrior:['warrior','knight','hero','fighter','default'],
-    'high-elf':['high','royal','elf','hero','magic'],
-    'dwarf-defender':['dwarf','defender','warrior','knight','default'],
-    dragonkin:['dragon','dragonkin','fire','ancient','default'],
-    'orc-berserker':['orc','berserker','warrior','villain','default'],
-    'dark-elf':['dark','shadow','darkelf','villain','rogue'],
-    'demon-lord':['demon','dark','villain','darklord','default'],
-    seraph:['angel','celestial','healer','royal','magic'],
-    'noble-vampire':['noble','royal','vampire','ancient','default'],
-    'fantasy-kingdom':['royal','kingdom','enchanted','default'],
-    'fantasy-tavern':['tavern','fun','human','default'],
-    'legendary-weapon':['weapon','warrior','samurai','knight','default'],
-    'arcane-mage':['archmage','mage','magic','scholar','elemental','default'],
-    necromancer:['dark','necromancer','villain','demon','default'],
-    samurai:['samurai','warrior','hero','default'],
-    ranger:['ranger','wood','hunter','rogue','default'],
-    celestial:['celestial','magic','healer','royal','default'],
-    pirate:['pirate','rogue','adventurer','fun','default'],
-    royal:['royal','noble','kingdom','high','default'],
-    'shadow-rogue':['rogue','ninja','dark','villain','default']
-  },
-  getOptions:function(){return this.list.map(function(x){return {key:x[0],label:x[1]};});},
-  resolve:function(generator,key,data){
-    var group=data&&data[generator]||{};
-    var candidates=this.aliases[key]||[];
-    for(var i=0;i<candidates.length;i++){if(group[candidates[i]]) return group[candidates[i]];}
-    return group.default||Object.values(group)[0]||{label:key,icon:'✨',prefixes:['Ael'],suffixes:['dor'],descriptions:['A unique NameForge name.'],bestFor:'characters and fictional worlds'};
-  }
+ list:[
+  ['assassin','🗡️ Assassin de l’ombre'],['warrior','⚔️ Guerrier héroïque'],['high-elf','🧝 Haut-Né Elfe'],['dwarf-defender','⛏️ Défenseur nain'],['dragonkin','🐉 Dragonkin'],['orc-berserker','🪓 Berserker orc'],['dark-elf','🏹 Elfe noir (Drow)'],['demon-lord','😈 Seigneur Démon'],['seraph','🪽 Séraphin angélique'],['noble-vampire','🦇 Noble Vampire'],['fantasy-kingdom','👑 Royaume fantastique'],['fantasy-tavern','🍺 Taverne Fantastique'],['legendary-weapon','⚔️ Arme légendaire'],['arcane-mage','🔮 Mage arcanique'],['necromancer','💀 Nécromancien'],['samurai','🌸 Samouraï'],['ranger','🏹 Rôdeur forestier'],['celestial','✨ Céleste mystique'],['pirate','🏴‍☠️ Pirate légendaire'],['royal','👑 Noble royal'],['shadow-rogue','🌑 Voleur des ombres']
+ ],
+ aliases:{
+  assassin:['assassin','ninja','rogue','dark','villain','hunter'],warrior:['warrior','knight','hero','fighter','default'],'high-elf':['high','royal','elf','hero','magic'],'dwarf-defender':['dwarf','defender','warrior','knight','default'],dragonkin:['dragon','dragonkin','fire','ancient','default'],'orc-berserker':['orc','berserker','warrior','villain','default'],'dark-elf':['dark','shadow','darkelf','villain','rogue'],'demon-lord':['demon','dark','villain','darklord','default'],seraph:['angel','celestial','healer','royal','magic'],'noble-vampire':['noble','royal','vampire','ancient','default'],'fantasy-kingdom':['royal','kingdom','enchanted','default'],'fantasy-tavern':['tavern','fun','human','default'],'legendary-weapon':['weapon','warrior','samurai','knight','default'],'arcane-mage':['archmage','mage','magic','scholar','elemental','default'],necromancer:['dark','necromancer','villain','demon','default'],samurai:['samurai','warrior','hero','default'],ranger:['ranger','wood','hunter','rogue','default'],celestial:['celestial','magic','healer','royal','default'],pirate:['pirate','rogue','adventurer','fun','default'],royal:['royal','noble','kingdom','high','default'],'shadow-rogue':['rogue','ninja','dark','villain','default']
+ },
+ dna:{
+  assassin:{tone:'Stealthy • sharp • mysterious',starts:['Vex','Nyx','Rav','Zan','Kyr'],ends:['is','rix','ven','shade','nox']},warrior:{tone:'Heroic • strong • legendary',starts:['Kael','Thar','Ryn','Val','Gar'],ends:['dor','ric','gar','orn','wyn']},'high-elf':{tone:'Elegant • ancient • melodic',starts:['Ael','Cael','Elar','Fael','Syl'],ends:['riel','wyn','eth','lith','iel']},'dwarf-defender':{tone:'Solid • ancestral • rugged',starts:['Brom','Khar','Dur','Thar','Grom'],ends:['grim','bek','dorn','karn','vark']},dragonkin:{tone:'Primal • ancient • powerful',starts:['Vyr','Azh','Drak','Zor','Khal'],ends:['rax','vyr','thar','ion','oth']},'orc-berserker':{tone:'Fierce • raw • warlike',starts:['Gor','Rag','Urz','Krag','Drog'],ends:['ak','ash','gor','ruk','grim']},'dark-elf':{tone:'Shadowy • refined • dangerous',starts:['Nyr','Zal','Vey','Morn','Xyr'],ends:['ith','rae','vyr','nox','ris']},'demon-lord':{tone:'Ominous • commanding • infernal',starts:['Mal','Khar','Zul','Vex','Azr'],ends:['gath','zar','oth','mord','iel']},seraph:{tone:'Radiant • noble • celestial',starts:['Ari','Ely','Ser','Cael','Lumi'],ends:['iel','ora','ion','ael','eth']},'noble-vampire':{tone:'Gothic • aristocratic • immortal',starts:['Val','Luc','Alar','Vey','Sel'],ends:['ian','vain','mont','ius','elle']},'fantasy-kingdom':{tone:'Grand • royal • geographical',starts:['Alder','Val','Eld','Silver','Aure'],ends:['ia','oria','mere','mont','reach']},'fantasy-tavern':{tone:'Warm • rustic • memorable',starts:['Golden','Silver','Moon','Laughing','Red'],ends:['Tankard','Stag','Dragon','Fox','Hearth']},'legendary-weapon':{tone:'Mythic • ceremonial • iconic',starts:['Star','Dawn','Storm','Frost','Ember'],ends:['fall','song','bane','heart','edge']},'arcane-mage':{tone:'Arcane • scholarly • mystical',starts:['Balth','Eld','Zeph','Arcan','Merv'],ends:['azar','ius','mir','dor','ion']},necromancer:{tone:'Dark • ancient • forbidden',starts:['Nek','Mor','Vhal','Grim','Seth'],ends:['gath','lich','mord','zar','oth']},samurai:{tone:'Disciplined • elegant • traditional',starts:['Ren','Jin','Hiro','Taka','Ryu'],ends:['mori','sai','ken','to','hiro']},ranger:{tone:'Natural • quiet • adventurous',starts:['Fen','Ryn','Syl','Ery','Thal'],ends:['wyn','wood','thorn','iel','ran']},celestial:{tone:'Cosmic • luminous • serene',starts:['Astra','Sol','Luma','Cael','Ori'],ends:['ion','ara','iel','is','ora']},pirate:{tone:'Adventurous • bold • roguish',starts:['Red','Black','Cap','Storm','Sea'],ends:['hook','tide','wake','beard','wind']},royal:{tone:'Noble • prestigious • regal',starts:['Aure','Val','Eld','Cael','Ser'],ends:['mont','mere','ric','ion','ria']},'shadow-rogue':{tone:'Cunning • elusive • dark',starts:['Shade','Nyx','Rav','Vel','Nox'],ends:['ren','veil','rix','is','bane']}
+ },
+ getOptions:function(){return this.list.map(function(x){return {key:x[0],label:x[1]};});},
+ resolve:function(generator,key,data){
+  var group=data&&data[generator]||{};var aliases=this.aliases[key]||[];var chosen=null;
+  for(var i=0;i<aliases.length;i++){if(group[aliases[i]]){chosen=group[aliases[i]];break;}}
+  if(!chosen)chosen=group.default||{};
+  var dna=this.dna[key]||this.dna.warrior;
+  var merged=Object.assign({},chosen);
+  merged.prefixes=(chosen.prefixes||[]).concat(dna.starts||[]);
+  merged.suffixes=(chosen.suffixes||[]).concat(dna.ends||[]);
+  merged.tone=dna.tone;merged.styleKey=key;
+  merged.label=(chosen.label||this.list.find(function(x){return x[0]===key;})?.[1]||key).replace(/^\S+\s/,'');
+  merged.icon=(chosen.icon||this.list.find(function(x){return x[0]===key;})?.[1]?.split(' ')[0]||'✨');
+  return merged;
+ }
 };
