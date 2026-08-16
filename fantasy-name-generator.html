@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -8,13 +8,13 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Fantasy Name Generator — Free Fantasy Character Names | NameForge</title>
+<title>Générateur de Noms Fantasy Gratuit | NameForge</title>
 
 <meta name="description"
-      content="Generate unique fantasy names for characters, heroes, villains, warriors, mages, kingdoms and magical worlds with the free NameForge Fantasy Name Generator.">
+      content="Créez gratuitement des noms fantasy uniques pour vos héros, guerriers, mages, rois, personnages, royaumes et univers fantastiques avec le générateur de noms fantasy NameForge.">
 
 <meta name="keywords"
-      content="fantasy name generator, fantasy names, fantasy character names, RPG fantasy names, fantasy warrior names, fantasy mage names">
+      content="générateur de noms fantasy, noms fantasy, générateur nom fantastique, noms personnages fantasy, noms RPG, noms guerriers, noms mages">
 
 <meta name="robots"
       content="index, follow">
@@ -23,32 +23,40 @@
       href="https://rayanellg.github.io/nameforge/fantasy-name-generator.html">
 
 
+<!-- =========================================================
+     OPEN GRAPH
+========================================================= -->
+
 <meta property="og:type"
       content="website">
 
 <meta property="og:title"
-      content="Fantasy Name Generator — NameForge">
+      content="Générateur de Noms Fantasy Gratuit | NameForge">
 
 <meta property="og:description"
-      content="Generate unique fantasy names for heroes, warriors, mages, villains, kingdoms and magical worlds.">
+      content="Générez gratuitement des noms fantasy uniques pour vos personnages, héros, guerriers, mages et univers fantastiques.">
 
 <meta property="og:url"
       content="https://rayanellg.github.io/nameforge/fantasy-name-generator.html">
 
 
+<!-- =========================================================
+     STRUCTURED DATA
+========================================================= -->
+
 <script type="application/ld+json">
 {
-    "@context":"https://schema.org",
-    "@type":"WebApplication",
-    "name":"NameForge Fantasy Name Generator",
-    "url":"https://rayanellg.github.io/nameforge/fantasy-name-generator.html",
-    "description":"Free fantasy name generator for characters, heroes, warriors, mages, villains and fictional worlds.",
-    "applicationCategory":"EntertainmentApplication",
-    "operatingSystem":"Web Browser",
-    "offers":{
-        "@type":"Offer",
-        "price":"0",
-        "priceCurrency":"USD"
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "NameForge Fantasy Name Generator",
+    "url": "https://rayanellg.github.io/nameforge/fantasy-name-generator.html",
+    "description": "Free fantasy name generator for characters, heroes, warriors, mages, villains and fictional worlds.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
     }
 }
 </script>
@@ -63,18 +71,26 @@
 :root{
 
     --bg:#070912;
+    --bg-soft:#0b1020;
+
     --panel:#101827;
-    --panel2:#151f32;
+    --panel-2:#131d30;
+
     --border:#29354d;
+    --border-soft:rgba(255,255,255,.08);
 
     --text:#f5f7ff;
     --muted:#9ba7bd;
+    --muted-2:#748097;
 
     --purple:#8b5cf6;
+    --purple-dark:#6d28d9;
+
     --blue:#06b6d4;
-    --gold:#fbbf24;
-    --red:#ef4444;
+
     --green:#22c55e;
+    --pink:#ec4899;
+    --gold:#fbbf24;
 
 }
 
@@ -84,19 +100,14 @@
 ========================================================= */
 
 *{
-
     box-sizing:border-box;
-
     margin:0;
     padding:0;
-
 }
 
 
 html{
-
     scroll-behavior:smooth;
-
 }
 
 
@@ -118,39 +129,46 @@ body{
         radial-gradient(
             circle at 10% 0%,
             rgba(139,92,246,.20),
-            transparent 30%
+            transparent 32%
         ),
 
         radial-gradient(
             circle at 90% 5%,
-            rgba(6,182,212,.15),
+            rgba(6,182,212,.14),
             transparent 30%
         ),
 
-        var(--bg);
+        linear-gradient(
+            180deg,
+            #080b17 0%,
+            #060811 100%
+        );
 
     line-height:1.6;
 
 }
 
 
-button,
-select{
+/* =========================================================
+   GLOBAL
+========================================================= */
 
-    font:inherit;
-
+a{
+    color:inherit;
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+button,
+select{
+    font:inherit;
+}
+
 
 .container{
 
     width:min(1100px,92%);
 
-    margin:auto;
+    margin-inline:auto;
 
 }
 
@@ -167,9 +185,14 @@ header{
 
     z-index:100;
 
-    background:rgba(7,9,18,.90);
+    background:
+        rgba(7,9,18,.88);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
 
     border-bottom:
         1px solid rgba(255,255,255,.06);
@@ -187,6 +210,8 @@ nav{
 
     justify-content:space-between;
 
+    gap:20px;
+
 }
 
 
@@ -202,7 +227,7 @@ nav{
 
     text-decoration:none;
 
-    font-size:1.2rem;
+    font-size:1.12rem;
 
     font-weight:950;
 
@@ -222,12 +247,14 @@ nav{
     border-radius:11px;
 
     background:
-
         linear-gradient(
             135deg,
             var(--purple),
             var(--blue)
         );
+
+    box-shadow:
+        0 8px 25px rgba(139,92,246,.25);
 
 }
 
@@ -238,7 +265,7 @@ nav{
 
     align-items:center;
 
-    gap:18px;
+    gap:20px;
 
 }
 
@@ -249,9 +276,12 @@ nav{
 
     text-decoration:none;
 
+    font-size:.9rem;
+
     font-weight:800;
 
-    transition:.2s;
+    transition:
+        color .2s ease;
 
 }
 
@@ -263,9 +293,9 @@ nav{
 }
 
 
-.nav-links .my-names-link{
+.nav-links .my-names{
 
-    color:#fca5a5;
+    color:#f9a8d4;
 
 }
 
@@ -278,26 +308,32 @@ nav{
 
     text-align:center;
 
-    padding:75px 0 45px;
+    padding:
+        72px 0 48px;
 
 }
 
 
 .badge{
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:7px 13px;
+    align-items:center;
 
-    border:1px solid var(--border);
+    padding:
+        7px 13px;
+
+    border:
+        1px solid var(--border);
 
     border-radius:999px;
 
-    background:#0e1421;
+    background:
+        rgba(14,20,33,.8);
 
     color:#dce3f5;
 
-    font-size:.82rem;
+    font-size:.78rem;
 
     font-weight:850;
 
@@ -308,14 +344,15 @@ h1{
 
     max-width:900px;
 
-    margin:20px auto;
+    margin:
+        20px auto;
 
     font-size:
-        clamp(2.5rem,6vw,5rem);
+        clamp(2.4rem,6vw,4.8rem);
 
-    line-height:1;
+    line-height:1.02;
 
-    letter-spacing:-2px;
+    letter-spacing:-2.5px;
 
 }
 
@@ -328,9 +365,9 @@ h1{
 
         linear-gradient(
             90deg,
-            white,
-            var(--blue),
-            #c084fc
+            #ffffff,
+            #67e8f9,
+            #a78bfa
         );
 
     background-clip:text;
@@ -348,12 +385,12 @@ h1{
 
     color:var(--muted);
 
-    font-size:1.05rem;
+    font-size:1rem;
 
 }
 
 
-.hero-buttons{
+.hero-actions{
 
     display:flex;
 
@@ -363,16 +400,21 @@ h1{
 
     flex-wrap:wrap;
 
+    margin-top:24px;
+
 }
 
 
 .btn{
 
-    display:inline-block;
+    display:inline-flex;
 
-    margin-top:22px;
+    align-items:center;
 
-    padding:13px 19px;
+    justify-content:center;
+
+    padding:
+        13px 19px;
 
     border-radius:12px;
 
@@ -381,7 +423,7 @@ h1{
         linear-gradient(
             135deg,
             var(--purple),
-            #6d28d9
+            var(--purple-dark)
         );
 
     color:white;
@@ -390,14 +432,24 @@ h1{
 
     font-weight:900;
 
+    border:1px solid transparent;
+
+    box-shadow:
+        0 10px 30px rgba(109,40,217,.2);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
 }
 
 
-.btn.secondary{
+.btn:hover{
 
-    background:#182236;
+    transform:translateY(-2px);
 
-    border:1px solid var(--border);
+    box-shadow:
+        0 15px 35px rgba(109,40,217,.32);
 
 }
 
@@ -406,11 +458,19 @@ h1{
    GENERATOR
 ========================================================= */
 
+.generator-section{
+
+    padding-bottom:25px;
+
+}
+
+
 .generator{
 
     padding:25px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:20px;
 
@@ -423,21 +483,32 @@ h1{
         );
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.30);
+        0 25px 70px rgba(0,0,0,.32);
+
+}
+
+
+.generator-header{
+
+    margin-bottom:18px;
 
 }
 
 
 .generator h2{
 
-    margin-bottom:6px;
+    margin-bottom:5px;
+
+    font-size:1.35rem;
 
 }
 
 
-.generator > p{
+.generator-subtitle{
 
     color:var(--muted);
+
+    font-size:.9rem;
 
 }
 
@@ -448,21 +519,28 @@ h1{
 
 .controls{
 
-    display:flex;
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        2fr;
 
     gap:10px;
-
-    margin-top:20px;
 
 }
 
 
 select,
-.control-button{
+button{
 
-    padding:12px 14px;
+    min-height:46px;
 
-    border:1px solid var(--border);
+    padding:
+        11px 13px;
+
+    border:
+        1px solid var(--border);
 
     border-radius:10px;
 
@@ -482,28 +560,52 @@ select{
 }
 
 
-.control-button{
+select:focus{
 
-    cursor:pointer;
+    border-color:
+        rgba(139,92,246,.8);
 
-    font-weight:850;
+    box-shadow:
+        0 0 0 3px rgba(139,92,246,.12);
 
 }
 
 
 .generate{
 
-    flex:1;
-
     border:0;
+
+    cursor:pointer;
+
+    font-weight:900;
 
     background:
 
         linear-gradient(
             135deg,
             var(--purple),
-            #6d28d9
+            var(--purple-dark)
         );
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+
+}
+
+
+.generate:hover{
+
+    filter:brightness(1.1);
+
+    transform:translateY(-1px);
+
+}
+
+
+.generate:active{
+
+    transform:translateY(0);
 
 }
 
@@ -528,15 +630,28 @@ select{
 
 .result{
 
+    position:relative;
+
     padding:20px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:15px;
 
-    background:#101625;
+    background:
+        linear-gradient(
+            180deg,
+            #101625,
+            #0d1422
+        );
 
-    transition:.2s;
+    text-align:center;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
 
 }
 
@@ -548,29 +663,15 @@ select{
     border-color:
         rgba(139,92,246,.55);
 
-}
-
-
-/* =========================================================
-   RESULT TOP
-========================================================= */
-
-.result-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:10px;
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.2);
 
 }
 
 
 .result-name{
 
-    font-size:1.25rem;
+    font-size:1.28rem;
 
     font-weight:950;
 
@@ -579,60 +680,41 @@ select{
 }
 
 
-.like-indicator{
-
-    font-size:1.2rem;
-
-}
-
-
-/* =========================================================
-   RESULT DESCRIPTION
-========================================================= */
-
-.result-description{
-
-    margin-top:8px;
-
-    color:var(--muted);
-
-    font-size:.88rem;
-
-    line-height:1.45;
-
-    min-height:58px;
-
-}
-
-
-/* =========================================================
-   RESULT STYLE
-========================================================= */
-
 .result-style{
 
-    margin-top:10px;
+    margin-top:8px;
 
     color:#a78bfa;
 
     font-size:.78rem;
 
-    font-weight:800;
+    font-weight:850;
 
 }
 
 
-/* =========================================================
-   BEST FOR
-========================================================= */
+.result-description{
+
+    margin-top:9px;
+
+    color:var(--muted);
+
+    font-size:.86rem;
+
+    line-height:1.5;
+
+    min-height:63px;
+
+}
+
 
 .result-best{
 
-    margin-top:10px;
+    margin-top:9px;
 
     color:#7f8ba3;
 
-    font-size:.82rem;
+    font-size:.8rem;
 
     line-height:1.45;
 
@@ -649,7 +731,7 @@ select{
 
 
 /* =========================================================
-   CARD ACTIONS
+   RESULT ACTIONS
 ========================================================= */
 
 .result-actions{
@@ -657,74 +739,100 @@ select{
     display:grid;
 
     grid-template-columns:
-        1fr 1fr;
+        repeat(2,1fr);
 
-    gap:8px;
+    gap:7px;
 
     margin-top:14px;
 
 }
 
 
-.action-button{
+.result-action{
 
     width:100%;
 
-    padding:10px 8px;
+    min-height:38px;
 
-    border:1px solid var(--border);
-
-    border-radius:9px;
+    padding:
+        8px 9px;
 
     background:#182236;
 
-    color:white;
+    border:
+        1px solid #293852;
 
-    cursor:pointer;
+    color:#dce3f5;
 
-    font-size:.82rem;
+    font-size:.76rem;
 
     font-weight:850;
 
-    transition:.2s;
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
 
 }
 
 
-.action-button:hover{
+.result-action:hover{
 
     background:#202d45;
 
+    border-color:#3b4d6b;
+
+    transform:translateY(-1px);
+
 }
 
 
-.action-button.saved{
-
-    border-color:
-        rgba(34,197,94,.55);
-
-    background:
-        rgba(34,197,94,.12);
+.result-action.active-save{
 
     color:#86efac;
 
-}
-
-
-.action-button.liked{
-
     border-color:
-        rgba(239,68,68,.55);
+        rgba(34,197,94,.45);
 
     background:
-        rgba(239,68,68,.12);
-
-    color:#fca5a5;
+        rgba(34,197,94,.10);
 
 }
 
 
-.action-button.note{
+.result-action.active-like{
+
+    color:#f9a8d4;
+
+    border-color:
+        rgba(236,72,153,.45);
+
+    background:
+        rgba(236,72,153,.10);
+
+}
+
+
+.result-action.has-note{
+
+    color:#fde68a;
+
+    border-color:
+        rgba(251,191,36,.45);
+
+    background:
+        rgba(251,191,36,.08);
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.copy{
 
     grid-column:
         1 / -1;
@@ -732,82 +840,31 @@ select{
 }
 
 
-.action-button.note.has-note{
+.copy.copied{
+
+    color:#86efac;
 
     border-color:
-        rgba(139,92,246,.55);
-
-    background:
-        rgba(139,92,246,.12);
-
-    color:#c4b5fd;
-
-}
-
-
-.copy{
-
-    margin-top:8px;
-
-    width:100%;
-
-    padding:10px;
-
-    border:1px solid var(--border);
-
-    border-radius:9px;
-
-    background:#090e1a;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-weight:850;
-
-}
-
-
-.copy:hover{
-
-    background:#182236;
+        rgba(34,197,94,.45);
 
 }
 
 
 /* =========================================================
-   NOTE STATUS
-========================================================= */
-
-.note-status{
-
-    margin-top:8px;
-
-    color:#8f9bb1;
-
-    font-size:.75rem;
-
-    text-align:center;
-
-    min-height:18px;
-
-}
-
-
-/* =========================================================
-   SECTIONS
+   SECTION
 ========================================================= */
 
 .section{
 
-    padding:65px 0;
+    padding:
+        72px 0;
 
 }
 
 
 .content{
 
-    max-width:850px;
+    max-width:900px;
 
     margin:auto;
 
@@ -816,18 +873,25 @@ select{
 
 .content h2{
 
-    margin-bottom:14px;
+    margin-bottom:18px;
 
-    font-size:2rem;
+    font-size:
+        clamp(1.8rem,4vw,2.45rem);
+
+    line-height:1.15;
+
+    letter-spacing:-.8px;
 
 }
 
 
 .content h3{
 
-    margin-top:27px;
+    margin-top:34px;
 
-    margin-bottom:8px;
+    margin-bottom:10px;
+
+    font-size:1.2rem;
 
 }
 
@@ -836,16 +900,27 @@ select{
 
     color:var(--muted);
 
-    margin-bottom:15px;
+    margin-bottom:17px;
+
+    font-size:.97rem;
+
+    line-height:1.8;
+
+}
+
+
+.content strong{
+
+    color:#e7ebf5;
 
 }
 
 
 /* =========================================================
-   CARDS
+   FEATURE GRID
 ========================================================= */
 
-.cards{
+.feature-grid{
 
     display:grid;
 
@@ -854,14 +929,17 @@ select{
 
     gap:13px;
 
+    margin-top:30px;
+
 }
 
 
-.card{
+.feature{
 
-    padding:22px;
+    padding:20px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:15px;
 
@@ -870,18 +948,71 @@ select{
 }
 
 
-.card h3{
+.feature-icon{
 
-    margin-bottom:7px;
+    font-size:1.4rem;
 
 }
 
 
-.card p{
+.feature h3{
 
-    color:var(--muted);
+    margin-top:10px;
 
-    font-size:.9rem;
+    margin-bottom:7px;
+
+    font-size:1rem;
+
+}
+
+
+.feature p{
+
+    margin:0;
+
+    font-size:.86rem;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   INFO HIGHLIGHT
+========================================================= */
+
+.info-highlight{
+
+    margin-top:30px;
+
+    padding:23px;
+
+    border:
+        1px solid rgba(139,92,246,.28);
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.08),
+            rgba(6,182,212,.05)
+        );
+
+}
+
+
+.info-highlight h3{
+
+    margin-top:0;
+
+}
+
+
+.info-highlight p{
+
+    margin-bottom:0;
 
 }
 
@@ -890,55 +1021,138 @@ select{
    FAQ
 ========================================================= */
 
+.faq{
+
+    margin-top:25px;
+
+}
+
+
 .faq details{
 
     margin-bottom:10px;
 
-    padding:17px;
+    border:
+        1px solid var(--border);
 
-    border:1px solid var(--border);
+    border-radius:13px;
 
-    border-radius:12px;
+    background:
+        linear-gradient(
+            180deg,
+            #101625,
+            #0e1523
+        );
 
-    background:#101625;
+    overflow:hidden;
+
+    transition:
+        border-color .2s ease;
+
+}
+
+
+.faq details[open]{
+
+    border-color:
+        rgba(139,92,246,.45);
 
 }
 
 
 .faq summary{
 
+    position:relative;
+
     cursor:pointer;
 
+    padding:17px 18px;
+
     font-weight:900;
+
+    list-style:none;
 
 }
 
 
-.faq p{
+.faq summary::-webkit-details-marker{
 
-    margin-top:10px;
+    display:none;
 
-    color:var(--muted);
+}
+
+
+.faq summary::after{
+
+    content:"+";
+
+    position:absolute;
+
+    right:18px;
+
+    color:#a78bfa;
+
+    font-size:1.1rem;
+
+}
+
+
+.faq details[open] summary::after{
+
+    content:"−";
+
+}
+
+
+.faq-answer{
+
+    padding:
+        0 18px 18px;
+
+}
+
+
+.faq-answer p{
+
+    margin:0;
+
+    font-size:.9rem;
+
+    line-height:1.7;
 
 }
 
 
 /* =========================================================
-   LINKS
+   RETURN LINK
 ========================================================= */
 
-.content a{
+.return-section{
 
-    color:#a78bfa;
-
-    font-weight:900;
-
-    text-decoration:none;
+    padding:
+        25px 0 65px;
 
 }
 
 
-.content a:hover{
+.return-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+}
+
+
+.return-link:hover{
 
     color:#c4b5fd;
 
@@ -951,7 +1165,8 @@ select{
 
 footer{
 
-    padding:40px 0;
+    padding:
+        35px 0;
 
     border-top:
         1px solid rgba(255,255,255,.06);
@@ -959,6 +1174,72 @@ footer{
     text-align:center;
 
     color:var(--muted);
+
+    font-size:.85rem;
+
+}
+
+
+footer strong{
+
+    color:white;
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+        translate(-50%,20px);
+
+    z-index:1000;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:#111a2b;
+
+    color:white;
+
+    font-size:.86rem;
+
+    font-weight:800;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+
+}
+
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
 
 }
 
@@ -969,51 +1250,93 @@ footer{
 
 @media(max-width:800px){
 
-    .results{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-
-    .cards{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-}
-
-
-@media(max-width:700px){
-
     .nav-links{
 
-        display:none;
+        gap:11px;
+
+    }
+
+
+    .nav-links a{
+
+        font-size:.78rem;
 
     }
 
 
     .controls{
 
-        flex-direction:column;
+        grid-template-columns:1fr;
 
     }
 
 
-    .results,
-    .cards{
+    .results{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+    .feature-grid{
 
         grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    nav{
+
+        min-height:62px;
+
+    }
+
+
+    .logo{
+
+        font-size:1rem;
+
+    }
+
+
+    .logo-icon{
+
+        width:34px;
+
+        height:34px;
+
+    }
+
+
+    .nav-links{
+
+        gap:8px;
+
+    }
+
+
+    .nav-links a:not(.my-names){
+
+        display:none;
 
     }
 
 
     .hero{
 
-        padding-top:50px;
+        padding:
+            55px 0 35px;
+
+    }
+
+
+    h1{
+
+        letter-spacing:-1.5px;
 
     }
 
@@ -1025,17 +1348,17 @@ footer{
     }
 
 
-    .result{
+    .results{
 
-        padding:18px;
+        grid-template-columns:1fr;
 
     }
 
 
-    .result-actions{
+    .section{
 
-        grid-template-columns:
-            1fr 1fr;
+        padding:
+            55px 0;
 
     }
 
@@ -1067,7 +1390,9 @@ footer{
 ⚡
 </span>
 
+<span>
 NameForge
+</span>
 
 </a>
 
@@ -1075,11 +1400,11 @@ NameForge
 <div class="nav-links">
 
 <a href="index.html">
-Home
+Accueil
 </a>
 
 <a href="#generator">
-Generator
+Générateur
 </a>
 
 <a href="#guide">
@@ -1092,9 +1417,9 @@ FAQ
 
 <a
     href="my-names.html"
-    class="my-names-link"
+    class="my-names"
 >
-❤️ My Names
+💗 Mes noms
 </a>
 
 </div>
@@ -1120,20 +1445,16 @@ FAQ
 
 
 <span class="badge">
-
-🐉 FREE FANTASY NAME GENERATOR
-
+🐉 GÉNÉRATEUR DE NOMS FANTASY GRATUIT
 </span>
 
 
 <h1>
 
-Create your next
+Créez votre prochain
 
 <span class="gradient">
-
-legendary fantasy name
-
+nom légendaire de fantasy
 </span>
 
 </h1>
@@ -1141,32 +1462,20 @@ legendary fantasy name
 
 <p>
 
-Generate unique fantasy names for heroes,
-villains, warriors, mages, kingdoms, clans,
-creatures and magical worlds.
+Générez instantanément des noms fantasy uniques
+pour vos héros, guerriers, mages, personnages,
+royaumes et univers fantastiques.
 
 </p>
 
 
-<div class="hero-buttons">
+<div class="hero-actions">
 
 <a
     href="#generator"
     class="btn"
 >
-
-⚡ Generate Fantasy Names
-
-</a>
-
-
-<a
-    href="my-names.html"
-    class="btn secondary"
->
-
-❤️ My Names
-
+⚡ Générer des noms fantastiques
 </a>
 
 </div>
@@ -1181,7 +1490,7 @@ creatures and magical worlds.
 ======================================================= -->
 
 <section
-    class="container"
+    class="generator-section container"
     id="generator"
 >
 
@@ -1189,32 +1498,34 @@ creatures and magical worlds.
 <div class="generator">
 
 
+<div class="generator-header">
+
 <h2>
-
-🐉 Fantasy Name Generator
-
+🐉 Générateur de noms fantastiques
 </h2>
 
+<p class="generator-subtitle">
 
-<p>
-
-Choose a style and generate nine unique
-fantasy names instantly.
+Choisissez un style et une longueur,
+puis générez neuf noms fantasy uniques.
 
 </p>
+
+</div>
 
 
 <div class="controls">
 
 
-<select id="style">
+<select id="style"
+        aria-label="Style du nom">
 
 <option value="hero">
-⚔️ Hero
+⚔️ Héros
 </option>
 
 <option value="warrior">
-🛡️ Warrior
+🛡️ Guerrier
 </option>
 
 <option value="mage">
@@ -1230,20 +1541,22 @@ fantasy names instantly.
 </option>
 
 <option value="ancient">
-🏛️ Ancient
+🏛️ Ancien
 </option>
 
 </select>
 
 
-<select id="length">
+<select id="length"
+        aria-label="Longueur du nom">
 
 <option value="short">
-Short
+Court
 </option>
 
-<option value="medium" selected>
-Medium
+<option value="medium"
+        selected>
+Moyen
 </option>
 
 <option value="long">
@@ -1254,11 +1567,12 @@ Long
 
 
 <button
-    class="control-button generate"
-    onclick="generate()"
+    type="button"
+    class="generate"
+    id="generateButton"
 >
 
-⚡ Generate Names
+⚡ Générer les noms
 
 </button>
 
@@ -1269,6 +1583,7 @@ Long
 <div
     id="results"
     class="results"
+    aria-live="polite"
 ></div>
 
 
@@ -1292,212 +1607,267 @@ Long
 
 
 <h2>
-
-What is a fantasy name generator?
-
+Qu'est-ce qu'un générateur de noms fantastiques ?
 </h2>
 
 
 <p>
 
-A fantasy name generator is a tool designed to
-help writers, gamers, developers and creators
-find names for characters and fictional worlds.
+Un <strong>générateur de noms fantastiques</strong> est un outil
+conçu pour créer rapidement des noms originaux inspirés
+des univers de fantasy. Il peut être utilisé pour trouver
+le nom d'un héros, d'un guerrier, d'un mage, d'un roi,
+d'une créature, d'un personnage mystérieux ou même d'un
+univers fictif entier.
 
 </p>
 
 
 <p>
 
-Creating a memorable fantasy name can be difficult.
-A good name should match the personality, culture,
-history and atmosphere of a fictional character
-or world.
+Trouver un bon nom peut sembler simple, mais le nom d'un
+personnage joue un rôle beaucoup plus important qu'on ne
+le pense. Il contribue immédiatement à son identité et
+peut transmettre une impression de force, de noblesse,
+de mystère, d'ancienneté ou de magie avant même que le
+personnage soit présenté.
+
+</p>
+
+
+<p>
+
+C'est précisément pour cette raison que NameForge combine
+plusieurs styles de génération. Au lieu de produire
+simplement une suite de lettres aléatoires, le générateur
+utilise des structures de syllabes différentes selon le
+style sélectionné. Un nom destiné à un guerrier n'a donc
+pas nécessairement la même sonorité qu'un nom destiné à
+un mage ou à un personnage royal.
 
 </p>
 
 
 <h3>
-Fantasy character names
+Créer un nom adapté à votre personnage
 </h3>
 
 
 <p>
 
-Use NameForge to generate names for heroes,
-warriors, mages, villains, assassins and other
-fantasy characters. Experiment with different
-styles until you find a name that fits your idea.
+Le choix du style est particulièrement important.
+Un <strong>nom héroïque</strong> peut convenir à un protagoniste,
+un aventurier ou un champion légendaire. Un
+<strong>nom de guerrier</strong> peut donner une impression
+plus forte et plus imposante. Le style <strong>Mage</strong>
+est davantage orienté vers des sonorités mystérieuses et
+magiques, tandis que <strong>Dark Fantasy</strong> privilégie
+des noms plus sombres et inquiétants.
+
+</p>
+
+
+<p>
+
+Le style <strong>Royal</strong> est particulièrement adapté
+aux rois, reines, princes, princesses et familles nobles.
+Le style <strong>Ancien</strong>, quant à lui, peut être utilisé
+pour des sages immortels, des civilisations oubliées,
+des gardiens ancestraux ou des personnages liés à une
+histoire très ancienne.
 
 </p>
 
 
 <h3>
-Fantasy kingdom names
+Pourquoi utiliser un générateur de noms fantasy ?
 </h3>
 
 
 <p>
 
-Building a fantasy world often requires names for
-kingdoms, empires, cities and territories.
-A strong kingdom name can make a fictional world
-feel more complete and memorable.
+Lorsque vous créez un personnage, un jeu, une histoire,
+un monde imaginaire ou une campagne de jeu de rôle, vous
+pouvez avoir besoin de dizaines voire de centaines de noms.
+Trouver manuellement autant de noms cohérents peut devenir
+long et répétitif.
 
 </p>
-
-
-<h3>
-Fantasy names for RPG games
-</h3>
 
 
 <p>
 
-Role-playing games need names for characters,
-guilds, factions and locations. NameForge can help
-you quickly generate ideas while designing your
-next RPG character or game world.
+Un générateur permet de transformer cette étape en une
+source d'inspiration rapide. Vous pouvez générer plusieurs
+propositions, comparer leurs sonorités et conserver celles
+qui correspondent le mieux à votre idée. Le générateur
+n'impose pas un personnage ou une histoire : il vous donne
+simplement une base à partir de laquelle vous pouvez
+construire votre propre univers.
 
 </p>
 
 
-<h3>
-Dark fantasy names
-</h3>
+<div class="feature-grid">
 
 
-<p>
+<div class="feature">
 
-Dark fantasy settings often use mysterious,
-ancient and intimidating names. Try the Dark
-Fantasy style to generate names suited to darker
-fictional worlds.
-
-</p>
-
-
+<div class="feature-icon">
+⚔️
 </div>
 
-</section>
-
-
-
-<!-- =======================================================
-     POPULAR CATEGORIES
-======================================================= -->
-
-<section class="section container">
-
-
-<div class="content">
-
-<h2>
-
-Popular fantasy name categories
-
-</h2>
-
-</div>
-
-
-<div class="cards">
-
-
-<div class="card">
-
 <h3>
-⚔️ Fantasy Warriors
+Personnages
 </h3>
 
 <p>
-
-Strong names for knights, warriors,
-mercenaries and legendary fighters.
-
+Créez des noms pour héros, guerriers,
+mages, antagonistes et aventuriers.
 </p>
 
 </div>
 
 
-<div class="card">
+<div class="feature">
+
+<div class="feature-icon">
+🎲
+</div>
 
 <h3>
-🔮 Fantasy Mages
+Jeux RPG
+</h3>
+
+<p>
+Trouvez rapidement des idées de noms
+pour vos personnages et campagnes.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📖
+</div>
+
+<h3>
+Histoires
+</h3>
+
+<p>
+Donnez une identité aux personnages
+de vos romans et récits fantasy.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🌎
+</div>
+
+<h3>
+Worldbuilding
+</h3>
+
+<p>
+Utilisez les noms comme point de départ
+pour construire vos propres univers.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+✨
+</div>
+
+<h3>
+Inspiration
+</h3>
+
+<p>
+Générez plusieurs possibilités lorsque
+vous manquez d'inspiration.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Rapide
+</h3>
+
+<p>
+Obtenez neuf propositions différentes
+en quelques secondes.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="info-highlight">
+
+<h3>
+Comment fonctionne le générateur NameForge ?
 </h3>
 
 <p>
 
-Mystical names for wizards, sorcerers,
-magic users and ancient spellcasters.
+NameForge combine différentes parties de noms fantasy
+afin de produire des noms ayant des structures et des
+sonorités variées. Vous choisissez d'abord un style,
+puis une longueur. Le générateur sélectionne ensuite
+aléatoirement plusieurs composants correspondant au style
+choisi et construit neuf propositions différentes.
+Les résultats sont ensuite nettoyés afin d'éviter
+certaines répétitions de lettres et de syllabes.
 
 </p>
 
 </div>
 
 
-<div class="card">
-
 <h3>
-👑 Fantasy Kings & Queens
+Comment choisir le bon nom ?
 </h3>
+
 
 <p>
 
-Royal names for rulers, monarchs,
-emperors and queens.
+Il n'existe pas de nom universellement parfait.
+Le meilleur choix dépend de votre personnage et de son
+univers. Essayez plusieurs styles et plusieurs longueurs.
+Lisez les noms à voix haute : leur sonorité peut souvent
+vous aider à déterminer lequel semble le plus naturel.
 
 </p>
 
-</div>
-
-
-<div class="card">
-
-<h3>
-🐉 Fantasy Creatures
-</h3>
 
 <p>
 
-Names for dragons, monsters, mythical
-beasts and magical creatures.
+Vous pouvez également conserver vos résultats préférés
+avec les fonctions <strong>Save</strong>, <strong>Like</strong>
+et <strong>Note</strong>. Cela vous permet de revenir
+plus tard sur vos idées sans devoir les générer à nouveau.
 
 </p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🏰 Fantasy Kingdoms
-</h3>
-
-<p>
-
-Create names for kingdoms, empires,
-cities and fictional territories.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🌑 Dark Fantasy
-</h3>
-
-<p>
-
-Mysterious and darker names for villains,
-assassins and sinister characters.
-
-</p>
-
-</div>
 
 
 </div>
@@ -1511,7 +1881,7 @@ assassins and sinister characters.
 ======================================================= -->
 
 <section
-    class="section container"
+    class="section"
     id="faq"
 >
 
@@ -1520,10 +1890,16 @@ assassins and sinister characters.
 
 
 <h2>
-
-Fantasy Name Generator FAQ
-
+FAQ — Générateur de noms fantastiques
 </h2>
+
+
+<p>
+
+Voici les réponses aux principales questions concernant
+le fonctionnement du générateur de noms fantasy NameForge.
+
+</p>
 
 
 <div class="faq">
@@ -1532,15 +1908,22 @@ Fantasy Name Generator FAQ
 <details>
 
 <summary>
-Is this fantasy name generator free?
+Comment utiliser le générateur de noms fantastiques ?
 </summary>
+
+<div class="faq-answer">
 
 <p>
 
-Yes. NameForge's fantasy name generator is
-free to use directly in your browser.
+Sélectionnez d'abord le style qui correspond à votre
+personnage : Héros, Guerrier, Mage, Dark Fantasy,
+Royal ou Ancien. Choisissez ensuite la longueur souhaitée.
+Cliquez sur « Générer les noms » pour obtenir neuf
+propositions instantanément.
 
 </p>
+
+</div>
 
 </details>
 
@@ -1548,16 +1931,21 @@ free to use directly in your browser.
 <details>
 
 <summary>
-Can I use these names for my RPG character?
+Combien de noms sont générés à chaque utilisation ?
 </summary>
+
+<div class="faq-answer">
 
 <p>
 
-Yes. You can use the generated names as ideas
-for RPG characters, games, stories and fictional
-worlds.
+Le générateur affiche neuf noms différents à chaque
+génération. Le système vérifie les résultats afin
+d'éviter d'afficher deux fois exactement le même nom
+dans une même génération.
 
 </p>
+
+</div>
 
 </details>
 
@@ -1565,15 +1953,23 @@ worlds.
 <details>
 
 <summary>
-Can I generate names for fantasy kingdoms?
+Quelle est la différence entre Court, Moyen et Long ?
 </summary>
+
+<div class="faq-answer">
 
 <p>
 
-Yes. NameForge can be used to create ideas for
-kingdoms, empires, cities, clans and factions.
+La longueur influence la structure du nom généré.
+Les noms courts sont plus simples et rapides à retenir.
+Les noms moyens offrent un équilibre entre simplicité
+et originalité. Les noms longs utilisent davantage de
+parties et peuvent produire des noms plus imposants ou
+plus complexes.
 
 </p>
+
+</div>
 
 </details>
 
@@ -1581,15 +1977,20 @@ kingdoms, empires, cities, clans and factions.
 <details>
 
 <summary>
-Can I generate dark fantasy names?
+Quel style choisir pour un héros ?
 </summary>
+
+<div class="faq-answer">
 
 <p>
 
-Yes. Select the Dark Fantasy style to generate
-names with a darker and more mysterious feeling.
+Le style Héros est conçu pour produire des noms ayant
+une sonorité héroïque et adaptée aux protagonistes,
+aventuriers, champions et personnages importants.
 
 </p>
+
+</div>
 
 </details>
 
@@ -1597,15 +1998,130 @@ names with a darker and more mysterious feeling.
 <details>
 
 <summary>
-Does the generator work on mobile?
+Quel style choisir pour un personnage sombre ?
 </summary>
+
+<div class="faq-answer">
 
 <p>
 
-Yes. The page is designed to work on smartphones,
-tablets and desktop computers.
+Le style Dark Fantasy est le choix le plus adapté aux
+personnages mystérieux, antagonistes, assassins,
+guerriers maudits et autres personnages associés à
+des univers plus sombres.
 
 </p>
+
+</div>
+
+</details>
+
+
+<details>
+
+<summary>
+Puis-je enregistrer un nom que j'aime ?
+</summary>
+
+<div class="faq-answer">
+
+<p>
+
+Oui. Chaque résultat possède des boutons permettant
+de sauvegarder un nom, de l'aimer ou d'ajouter une note.
+Les informations sont enregistrées localement dans
+votre navigateur et peuvent être retrouvées depuis
+la page « Mes noms ».
+
+</p>
+
+</div>
+
+</details>
+
+
+<details>
+
+<summary>
+Quelle est la différence entre Like et Save ?
+</summary>
+
+<div class="faq-answer">
+
+<p>
+
+<strong>Save</strong> permet de conserver un nom comme
+nom sauvegardé. <strong>Like</strong> permet simplement
+d'indiquer que vous aimez un nom. Les deux états sont
+indépendants : aimer un nom ne le sauvegarde pas
+automatiquement.
+
+</p>
+
+</div>
+
+</details>
+
+
+<details>
+
+<summary>
+À quoi sert la fonction Note ?
+</summary>
+
+<div class="faq-answer">
+
+<p>
+
+La fonction Note vous permet d'associer une remarque
+personnelle à un nom. Vous pouvez par exemple noter
+« nom du personnage principal », « utiliser pour mon mage »
+ou toute autre information utile. La note est conservée
+avec le nom.
+
+</p>
+
+</div>
+
+</details>
+
+
+<details>
+
+<summary>
+Les noms générés sont-ils gratuits ?
+</summary>
+
+<div class="faq-answer">
+
+<p>
+
+Oui. Le générateur de noms fantasy NameForge est
+accessible gratuitement depuis votre navigateur.
+
+</p>
+
+</div>
+
+</details>
+
+
+<details>
+
+<summary>
+Le générateur fonctionne-t-il sur mobile ?
+</summary>
+
+<div class="faq-answer">
+
+<p>
+
+Oui. L'interface est responsive et s'adapte aux
+ordinateurs, tablettes et smartphones.
+
+</p>
+
+</div>
 
 </details>
 
@@ -1619,72 +2135,17 @@ tablets and desktop computers.
 
 
 <!-- =======================================================
-     EXPLORE MORE
+     RETURN
 ======================================================= -->
 
-<section class="section container">
+<section class="return-section container">
 
-
-<div class="content">
-
-
-<h2>
-
-Explore more NameForge generators
-
-</h2>
-
-
-<p>
-<a href="index.html">
-← Return to the main NameForge generator
+<a
+    href="index.html"
+    class="return-link"
+>
+← Retour au générateur principal de NameForge
 </a>
-</p>
-
-
-<p>
-<a href="wizard-name-generator.html">
-🧙 Wizard Name Generator
-</a>
-</p>
-
-
-<p>
-<a href="rpg-name-generator.html">
-🎲 RPG Name Generator
-</a>
-</p>
-
-
-<p>
-<a href="anime-name-generator.html">
-✨ Anime Name Generator
-</a>
-</p>
-
-
-<p>
-<a href="gaming-name-generator.html">
-🎮 Gaming Name Generator
-</a>
-</p>
-
-
-<p>
-<a href="kingdom-name-generator.html">
-🏰 Kingdom Name Generator
-</a>
-</p>
-
-
-<p>
-<a href="dragon-name-generator.html">
-🐲 Dragon Name Generator
-</a>
-</p>
-
-
-</div>
 
 </section>
 
@@ -1699,27 +2160,20 @@ Explore more NameForge generators
 
 <footer>
 
-
 <div class="container">
-
 
 <strong>
 ⚡ NameForge
 </strong>
 
-
 <br><br>
 
-
-Free fantasy name generator for characters,
-RPGs and fictional worlds.
-
+Générateur de noms fantasy gratuit pour personnages,
+jeux RPG et univers fantastiques.
 
 <br><br>
-
 
 © 2026 NameForge
-
 
 </div>
 
@@ -1728,14 +2182,30 @@ RPGs and fictional worlds.
 
 
 <!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+
+<!-- =======================================================
      NAMEFORGE STORAGE
-     IMPORTANT:
-     This MUST load before the generator JavaScript.
+     IMPORTANT : TON FICHIER EXISTANT
 ======================================================= -->
 
 <script src="js/nameforge-storage.js"></script>
 
 
+
+<!-- =======================================================
+     GENERATOR JAVASCRIPT
+======================================================= -->
 
 <script>
 
@@ -1895,18 +2365,18 @@ const styleInfo = {
 
     hero: {
 
-        label:"Heroic",
+        label:"Héroïque",
 
         icon:"⚔️",
 
         bestFor:
-            "Heroes, adventurers and legendary champions",
+            "Héros, aventuriers et champions légendaires",
 
         descriptions:[
-            "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
-            "A noble name that fits a courageous hero destined for an important quest.",
-            "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
-            "A classic heroic name suited to a character who inspires others through courage."
+            "Un nom héroïque adapté à un aventurier courageux ou à un champion légendaire.",
+            "Un nom noble qui convient à un héros destiné à accomplir une quête importante.",
+            "Un nom puissant mais accessible pour un protagoniste ou un aventurier.",
+            "Un nom classique pour un personnage qui inspire les autres par son courage."
         ]
 
     },
@@ -1914,18 +2384,18 @@ const styleInfo = {
 
     warrior: {
 
-        label:"Warrior",
+        label:"Guerrier",
 
         icon:"🛡️",
 
         bestFor:
-            "Warriors, knights and battle commanders",
+            "Guerriers, chevaliers et commandants",
 
         descriptions:[
-            "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
-            "A powerful name for a knight, mercenary or commander known for strength and determination.",
-            "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
-            "A fierce name suited to a battle-hardened champion or military leader."
+            "Un nom puissant adapté à un guerrier discipliné ou à un combattant expérimenté.",
+            "Un nom imposant pour un chevalier, mercenaire ou commandant.",
+            "Un nom robuste pour un combattant aguerri ou un épéiste légendaire.",
+            "Un nom féroce adapté à un champion endurci par les batailles."
         ]
 
     },
@@ -1933,18 +2403,18 @@ const styleInfo = {
 
     mage: {
 
-        label:"Mystical",
+        label:"Mystique",
 
         icon:"🔮",
 
         bestFor:
-            "Mages, wizards and spellcasters",
+            "Mages, sorciers et utilisateurs de magie",
 
         descriptions:[
-            "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
-            "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
-            "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
-            "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
+            "Un nom mystérieux avec une sonorité magique, idéal pour un mage puissant.",
+            "Un nom élégant adapté à un sorcier ou gardien d'une ancienne magie.",
+            "Un nom magique pour un sorcier ou maître des arts arcaniques.",
+            "Un nom mystérieux pour un personnage lié aux connaissances interdites."
         ]
 
     },
@@ -1957,13 +2427,13 @@ const styleInfo = {
         icon:"🌑",
 
         bestFor:
-            "Villains, assassins and mysterious characters",
+            "Vilains, assassins et personnages mystérieux",
 
         descriptions:[
-            "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
-            "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
-            "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
-            "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
+            "Un nom sinistre adapté à un mystérieux antagoniste.",
+            "Un nom sombre et intimidant pour un guerrier maudit ou un assassin.",
+            "Un nom mystérieux pour un personnage entouré de secrets et de pouvoirs interdits.",
+            "Un nom menaçant adapté à un vilain ou un voyageur énigmatique."
         ]
 
     },
@@ -1976,13 +2446,13 @@ const styleInfo = {
         icon:"👑",
 
         bestFor:
-            "Kings, queens, princes and noble characters",
+            "Rois, reines, princes et nobles",
 
         descriptions:[
-            "A noble and elegant name suited to a king, queen or powerful ruler.",
-            "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
-            "A sophisticated name for a monarch, noble heir or influential ruler.",
-            "An elegant royal name suited to a character born into power and tradition."
+            "Un nom noble et élégant adapté à un roi, une reine ou un puissant souverain.",
+            "Un nom royal pour un prince, une princesse ou une ancienne dynastie.",
+            "Un nom sophistiqué pour un monarque ou un héritier noble.",
+            "Un nom élégant pour un personnage né dans le pouvoir et la tradition."
         ]
 
     },
@@ -1990,18 +2460,18 @@ const styleInfo = {
 
     ancient: {
 
-        label:"Ancient",
+        label:"Ancien",
 
         icon:"🏛️",
 
         bestFor:
-            "Ancient beings, sages and legendary characters",
+            "Êtres anciens, sages et légendes",
 
         descriptions:[
-            "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
-            "A mysterious archaic name that fits an ancient guardian or legendary figure.",
-            "A timeless name suited to a character connected to forgotten civilizations and old magic.",
-            "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
+            "Un nom ancien adapté à un sage intemporel ou à un être immortel.",
+            "Un nom archaïque mystérieux pour un gardien ancestral.",
+            "Un nom intemporel lié aux civilisations oubliées et à la magie ancienne.",
+            "Un nom légendaire avec une sonorité ancienne et mystérieuse."
         ]
 
     }
@@ -2115,8 +2585,7 @@ function cleanName(name){
 
 function makeName(style,length){
 
-    const parts =
-        nameParts[style];
+    const parts = nameParts[style];
 
     let name;
 
@@ -2155,40 +2624,769 @@ function makeName(style,length){
 
 
 /* =========================================================
-   HTML ESCAPE
+   TOAST
 ========================================================= */
 
-function escapeHtml(value){
+let toastTimer = null;
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    if(!toast){
+
+        return;
+
+    }
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove("show");
+
+            },
+            1800
+        );
 
 }
 
 
 /* =========================================================
-   GENERATE
+   COPY NAME
+========================================================= */
+
+async function copyName(name, button){
+
+    try{
+
+        if(
+            navigator.clipboard &&
+            window.isSecureContext
+        ){
+
+            await navigator.clipboard.writeText(
+                name
+            );
+
+        }
+
+        else{
+
+            const textarea =
+                document.createElement("textarea");
+
+            textarea.value =
+                name;
+
+            textarea.style.position =
+                "fixed";
+
+            textarea.style.opacity =
+                "0";
+
+            document.body.appendChild(
+                textarea
+            );
+
+            textarea.focus();
+
+            textarea.select();
+
+            document.execCommand(
+                "copy"
+            );
+
+            textarea.remove();
+
+        }
+
+
+        const oldText =
+            button.textContent;
+
+
+        button.textContent =
+            "✓ Copié";
+
+
+        button.classList.add(
+            "copied"
+        );
+
+
+        showToast(
+            "Nom copié : " + name
+        );
+
+
+        setTimeout(
+            () => {
+
+                button.textContent =
+                    oldText;
+
+                button.classList.remove(
+                    "copied"
+                );
+
+            },
+            1400
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Copy error:",
+            error
+        );
+
+        showToast(
+            "Impossible de copier automatiquement."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   GET CURRENT STORAGE ENTRY
+========================================================= */
+
+function getNameEntry(name){
+
+    if(
+        typeof findSavedName !== "function"
+    ){
+
+        console.error(
+            "NameForge Storage n'est pas chargé."
+        );
+
+        return null;
+
+    }
+
+
+    return findSavedName(name);
+
+}
+
+
+/* =========================================================
+   UPDATE RESULT BUTTON STATES
+========================================================= */
+
+function updateResultState(card, name){
+
+    const saveButton =
+        card.querySelector(
+            '[data-action="save"]'
+        );
+
+    const likeButton =
+        card.querySelector(
+            '[data-action="like"]'
+        );
+
+    const noteButton =
+        card.querySelector(
+            '[data-action="note"]'
+        );
+
+
+    const entry =
+        getNameEntry(name);
+
+
+    const saved =
+        entry &&
+        entry.saved === true;
+
+
+    const liked =
+        entry &&
+        entry.liked === true;
+
+
+    const hasNote =
+        entry &&
+        entry.note &&
+        entry.note.trim() !== "";
+
+
+    if(saveButton){
+
+        saveButton.classList.toggle(
+            "active-save",
+            saved
+        );
+
+        saveButton.textContent =
+            saved
+                ? "✓ Sauvegardé"
+                : "💾 Save";
+
+    }
+
+
+    if(likeButton){
+
+        likeButton.classList.toggle(
+            "active-like",
+            liked
+        );
+
+        likeButton.textContent =
+            liked
+                ? "♥ Aimé"
+                : "♡ Like";
+
+    }
+
+
+    if(noteButton){
+
+        noteButton.classList.toggle(
+            "has-note",
+            hasNote
+        );
+
+        noteButton.textContent =
+            hasNote
+                ? "📝 Modifier la note"
+                : "📝 Note";
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+function handleSave(name, card){
+
+    if(
+        typeof saveName !== "function" ||
+        typeof unsaveName !== "function"
+    ){
+
+        showToast(
+            "Erreur : stockage NameForge introuvable."
+        );
+
+        return;
+
+    }
+
+
+    const entry =
+        getNameEntry(name);
+
+
+    if(
+        entry &&
+        entry.saved === true
+    ){
+
+        unsaveName(name);
+
+        showToast(
+            "Nom retiré des sauvegardes."
+        );
+
+    }
+
+    else{
+
+        saveName(
+            name,
+            "fantasy",
+            document.getElementById("style").value
+        );
+
+        showToast(
+            "Nom sauvegardé dans Mes noms."
+        );
+
+    }
+
+
+    updateResultState(
+        card,
+        name
+    );
+
+}
+
+
+/* =========================================================
+   LIKE BUTTON
+========================================================= */
+
+function handleLike(name, card){
+
+    if(
+        typeof likeName !== "function"
+    ){
+
+        showToast(
+            "Erreur : stockage NameForge introuvable."
+        );
+
+        return;
+
+    }
+
+
+    const result =
+        likeName(
+            name,
+            "fantasy",
+            document.getElementById("style").value
+        );
+
+
+    if(
+        result &&
+        result.liked === true
+    ){
+
+        showToast(
+            "Nom ajouté à vos favoris."
+        );
+
+    }
+
+    else{
+
+        showToast(
+            "Like retiré."
+        );
+
+    }
+
+
+    updateResultState(
+        card,
+        name
+    );
+
+}
+
+
+/* =========================================================
+   NOTE BUTTON
+========================================================= */
+
+function handleNote(name, card){
+
+    if(
+        typeof updateNameNote !== "function"
+    ){
+
+        showToast(
+            "Erreur : stockage NameForge introuvable."
+        );
+
+        return;
+
+    }
+
+
+    const existing =
+        getNameEntry(name);
+
+
+    const currentNote =
+        existing &&
+        typeof existing.note === "string"
+            ? existing.note
+            : "";
+
+
+    const note =
+        window.prompt(
+            "Ajoutez une note pour « " + name + " » :",
+            currentNote
+        );
+
+
+    if(note === null){
+
+        return;
+
+    }
+
+
+    updateNameNote(
+        name,
+        note
+    );
+
+
+    if(
+        note.trim() === ""
+    ){
+
+        showToast(
+            "Note supprimée."
+        );
+
+    }
+
+    else{
+
+        showToast(
+            "Note enregistrée."
+        );
+
+    }
+
+
+    updateResultState(
+        card,
+        name
+    );
+
+}
+
+
+/* =========================================================
+   CREATE RESULT CARD
+========================================================= */
+
+function createResultCard(name, info){
+
+    const card =
+        document.createElement("article");
+
+
+    card.className =
+        "result";
+
+
+    const nameElement =
+        document.createElement("div");
+
+
+    nameElement.className =
+        "result-name";
+
+
+    nameElement.textContent =
+        name;
+
+
+    card.appendChild(
+        nameElement
+    );
+
+
+    const styleElement =
+        document.createElement("div");
+
+
+    styleElement.className =
+        "result-style";
+
+
+    styleElement.textContent =
+        info.icon + " " + info.label;
+
+
+    card.appendChild(
+        styleElement
+    );
+
+
+    const description =
+        document.createElement("p");
+
+
+    description.className =
+        "result-description";
+
+
+    description.textContent =
+        randomItem(
+            info.descriptions
+        );
+
+
+    card.appendChild(
+        description
+    );
+
+
+    const best =
+        document.createElement("div");
+
+
+    best.className =
+        "result-best";
+
+
+    const strong =
+        document.createElement("strong");
+
+
+    strong.textContent =
+        "Idéal pour :";
+
+
+    best.appendChild(
+        strong
+    );
+
+
+    best.appendChild(
+        document.createTextNode(
+            " " + info.bestFor
+        )
+    );
+
+
+    card.appendChild(
+        best
+    );
+
+
+    /* =====================================================
+       ACTIONS
+    ===================================================== */
+
+    const actions =
+        document.createElement("div");
+
+
+    actions.className =
+        "result-actions";
+
+
+    const saveButton =
+        document.createElement("button");
+
+
+    saveButton.type =
+        "button";
+
+    saveButton.className =
+        "result-action";
+
+    saveButton.dataset.action =
+        "save";
+
+
+    saveButton.addEventListener(
+        "click",
+        () => {
+
+            handleSave(
+                name,
+                card
+            );
+
+        }
+    );
+
+
+    const likeButton =
+        document.createElement("button");
+
+
+    likeButton.type =
+        "button";
+
+    likeButton.className =
+        "result-action";
+
+    likeButton.dataset.action =
+        "like";
+
+
+    likeButton.addEventListener(
+        "click",
+        () => {
+
+            handleLike(
+                name,
+                card
+            );
+
+        }
+    );
+
+
+    const noteButton =
+        document.createElement("button");
+
+
+    noteButton.type =
+        "button";
+
+    noteButton.className =
+        "result-action";
+
+    noteButton.dataset.action =
+        "note";
+
+
+    noteButton.addEventListener(
+        "click",
+        () => {
+
+            handleNote(
+                name,
+                card
+            );
+
+        }
+    );
+
+
+    const copyButton =
+        document.createElement("button");
+
+
+    copyButton.type =
+        "button";
+
+    copyButton.className =
+        "result-action copy";
+
+    copyButton.textContent =
+        "📋 Copier le nom";
+
+
+    copyButton.addEventListener(
+        "click",
+        () => {
+
+            copyName(
+                name,
+                copyButton
+            );
+
+        }
+    );
+
+
+    actions.appendChild(
+        saveButton
+    );
+
+    actions.appendChild(
+        likeButton
+    );
+
+    actions.appendChild(
+        noteButton
+    );
+
+    actions.appendChild(
+        copyButton
+    );
+
+
+    card.appendChild(
+        actions
+    );
+
+
+    updateResultState(
+        card,
+        name
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   GENERATE 9 NAMES
 ========================================================= */
 
 function generate(){
 
+    const styleElement =
+        document.getElementById("style");
+
+    const lengthElement =
+        document.getElementById("length");
+
+    const resultsElement =
+        document.getElementById("results");
+
+
+    if(
+        !styleElement ||
+        !lengthElement ||
+        !resultsElement
+    ){
+
+        console.error(
+            "NameForge Generator : éléments HTML introuvables."
+        );
+
+        return;
+
+    }
+
+
     const style =
-        document.getElementById("style").value;
+        styleElement.value;
 
     const length =
-        document.getElementById("length").value;
+        lengthElement.value;
 
-    const names = [];
+
+    const info =
+        styleInfo[style];
+
+
+    if(!info){
+
+        console.error(
+            "Style inconnu :",
+            style
+        );
+
+        return;
+
+    }
+
+
+    const names =
+        new Set();
+
 
     let attempts = 0;
 
 
     while(
-        names.length < 9 &&
+        names.size < 9 &&
         attempts < 1000
     ){
 
@@ -2202,573 +3400,56 @@ function generate(){
             );
 
 
-        if(!names.includes(name)){
-
-            names.push(name);
-
-        }
-
-    }
-
-
-    const info =
-        styleInfo[style];
-
-
-    const results =
-        document.getElementById("results");
-
-
-    results.innerHTML =
-        names.map(
-            (name,index) =>
-                renderResult(
-                    name,
-                    style,
-                    info,
-                    index
-                )
-        ).join("");
-
-
-    /*
-     * IMPORTANT:
-     * The generated cards are rendered first,
-     * then we synchronize their buttons with
-     * localStorage.
-     */
-
-    refreshResultStates();
-
-}
-
-
-/* =========================================================
-   RENDER RESULT
-========================================================= */
-
-function renderResult(
-    name,
-    style,
-    info,
-    index
-){
-
-    const description =
-        randomItem(
-            info.descriptions
-        );
-
-
-    return `
-
-        <article
-            class="result"
-            data-name="${escapeHtml(name)}"
-        >
-
-            <div class="result-top">
-
-                <div class="result-name">
-
-                    ${escapeHtml(name)}
-
-                </div>
-
-                <div
-                    class="like-indicator"
-                    id="like-indicator-${index}"
-                >
-                    🤍
-                </div>
-
-            </div>
-
-
-            <div class="result-style">
-
-                ${info.icon}
-                ${escapeHtml(info.label)}
-
-            </div>
-
-
-            <p class="result-description">
-
-                ${escapeHtml(description)}
-
-            </p>
-
-
-            <div class="result-best">
-
-                <strong>
-                    Best for:
-                </strong>
-
-                ${escapeHtml(info.bestFor)}
-
-            </div>
-
-
-            <div class="result-actions">
-
-                <button
-                    type="button"
-                    class="action-button save-button"
-                    data-name="${escapeHtml(name)}"
-                    data-generator="fantasy"
-                    data-style="${escapeHtml(style)}"
-                    onclick="toggleSave(this)"
-                >
-
-                    🔖 Save
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="action-button like-button"
-                    data-name="${escapeHtml(name)}"
-                    data-generator="fantasy"
-                    data-style="${escapeHtml(style)}"
-                    onclick="toggleLike(this)"
-                >
-
-                    🤍 Like
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="action-button note"
-                    data-name="${escapeHtml(name)}"
-                    data-generator="fantasy"
-                    data-style="${escapeHtml(style)}"
-                    onclick="addNote(this)"
-                >
-
-                    📝 Add note
-
-                </button>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="copy"
-                data-name="${escapeHtml(name)}"
-                onclick="copyNameFromButton(this)"
-            >
-
-                📋 Copy name
-
-            </button>
-
-
-            <div
-                class="note-status"
-                id="note-status-${index}"
-            ></div>
-
-
-        </article>
-
-    `;
-
-}
-
-
-/* =========================================================
-   FIND CARD DATA
-========================================================= */
-
-function getButtonData(button){
-
-    return {
-
-        name:
-            button.dataset.name,
-
-        generator:
-            button.dataset.generator || "fantasy",
-
-        style:
-            button.dataset.style || ""
-
-    };
-
-}
-
-
-/* =========================================================
-   TOGGLE SAVE
-========================================================= */
-
-function toggleSave(button){
-
-    const data =
-        getButtonData(button);
-
-
-    const currentlySaved =
-        isNameSaved(
-            data.name
-        );
-
-
-    if(currentlySaved){
-
-        unsaveName(
-            data.name
-        );
-
-    }
-
-    else{
-
-        saveName(
-            data.name,
-            data.generator,
-            data.style
-        );
-
-    }
-
-
-    refreshResultStates();
-
-}
-
-
-/* =========================================================
-   TOGGLE LIKE
-========================================================= */
-
-function toggleLike(button){
-
-    const data =
-        getButtonData(button);
-
-
-    likeName(
-        data.name,
-        data.generator,
-        data.style
-    );
-
-
-    refreshResultStates();
-
-}
-
-
-/* =========================================================
-   ADD / EDIT NOTE
-========================================================= */
-
-function addNote(button){
-
-    const data =
-        getButtonData(button);
-
-
-    const existing =
-        findSavedName(
-            data.name
-        );
-
-
-    const currentNote =
-        existing &&
-        existing.note
-            ? existing.note
-            : "";
-
-
-    const note =
-        prompt(
-            "Write a private note for \"" +
-            data.name +
-            "\":",
-            currentNote
-        );
-
-
-    /*
-     * Cancel means do nothing.
-     */
-
-    if(note === null){
-
-        return;
-
-    }
-
-
-    updateNameNote(
-        data.name,
-        note
-    );
-
-
-    refreshResultStates();
-
-}
-
-
-/* =========================================================
-   REFRESH BUTTON STATES
-========================================================= */
-
-function refreshResultStates(){
-
-    document
-        .querySelectorAll(".result")
-        .forEach(card => {
-
-            const name =
-                card.dataset.name;
-
-
-            const saveButton =
-                card.querySelector(
-                    ".save-button"
-                );
-
-
-            const likeButton =
-                card.querySelector(
-                    ".like-button"
-                );
-
-
-            const noteButton =
-                card.querySelector(
-                    ".note"
-                );
-
-
-            const likeIndicator =
-                card.querySelector(
-                    ".like-indicator"
-                );
-
-
-            const noteStatus =
-                card.querySelector(
-                    ".note-status"
-                );
-
-
-            const saved =
-                isNameSaved(name);
-
-
-            const liked =
-                isNameLiked(name);
-
-
-            const entry =
-                findSavedName(name);
-
-
-            const hasNote =
-                !!(
-                    entry &&
-                    entry.note &&
-                    entry.note.trim() !== ""
-                );
-
-
-            /* SAVE */
-
-            if(saved){
-
-                saveButton.classList.add(
-                    "saved"
-                );
-
-                saveButton.textContent =
-                    "✅ Saved";
-
-            }
-
-            else{
-
-                saveButton.classList.remove(
-                    "saved"
-                );
-
-                saveButton.textContent =
-                    "🔖 Save";
-
-            }
-
-
-            /* LIKE */
-
-            if(liked){
-
-                likeButton.classList.add(
-                    "liked"
-                );
-
-                likeButton.textContent =
-                    "❤️ Liked";
-
-                likeIndicator.textContent =
-                    "❤️";
-
-            }
-
-            else{
-
-                likeButton.classList.remove(
-                    "liked"
-                );
-
-                likeButton.textContent =
-                    "🤍 Like";
-
-                likeIndicator.textContent =
-                    "🤍";
-
-            }
-
-
-            /* NOTE */
-
-            if(hasNote){
-
-                noteButton.classList.add(
-                    "has-note"
-                );
-
-                noteButton.textContent =
-                    "📝 Edit note";
-
-                noteStatus.textContent =
-                    "📝 This name has a private note.";
-
-            }
-
-            else{
-
-                noteButton.classList.remove(
-                    "has-note"
-                );
-
-                noteButton.textContent =
-                    "📝 Add note";
-
-                noteStatus.textContent =
-                    "";
-
-            }
-
-        });
-
-}
-
-
-/* =========================================================
-   COPY
-========================================================= */
-
-async function copyNameFromButton(button){
-
-    const name =
-        button.dataset.name;
-
-
-    try{
-
-        await navigator.clipboard.writeText(
-            name
-        );
-
-
-        const original =
-            button.textContent;
-
-
-        button.textContent =
-            "✅ Copied!";
-
-
-        setTimeout(
-            () => {
-
-                button.textContent =
-                    original;
-
-            },
-            1200
-        );
-
-    }
-
-    catch(error){
-
-        /*
-         * Fallback for browsers where
-         * clipboard access is unavailable.
-         */
-
-        window.prompt(
-            "Copy this name:",
+        names.add(
             name
         );
 
     }
 
+
+    resultsElement.innerHTML =
+        "";
+
+
+    Array.from(names)
+        .forEach(
+            name => {
+
+                const card =
+                    createResultCard(
+                        name,
+                        info
+                    );
+
+
+                resultsElement.appendChild(
+                    card
+                );
+
+            }
+        );
+
 }
 
 
 /* =========================================================
-   STORAGE SYNCHRONIZATION
+   GENERATE BUTTON
 ========================================================= */
 
-window.addEventListener(
-    "storage",
-    event => {
-
-        if(
-            event.key ===
-            NAMEFORGE_STORAGE_KEY
-        ){
-
-            refreshResultStates();
-
-        }
-
-    }
-);
+const generateButton =
+    document.getElementById(
+        "generateButton"
+    );
 
 
-/* =========================================================
-   PAGE VISIBILITY
-========================================================= */
+if(generateButton){
 
-document.addEventListener(
-    "visibilitychange",
-    () => {
+    generateButton.addEventListener(
+        "click",
+        generate
+    );
 
-        if(
-            document.visibilityState ===
-            "visible"
-        ){
-
-            refreshResultStates();
-
-        }
-
-    }
-);
+}
 
 
 /* =========================================================
