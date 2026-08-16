@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,41 +58,37 @@
 
 /* =========================================================
    ROOT
-   ========================================================= */
+========================================================= */
 
 :root{
 
     --bg:#070912;
-
     --panel:#101827;
-
     --panel2:#151f32;
-
     --border:#29354d;
 
     --text:#f5f7ff;
-
     --muted:#9ba7bd;
 
     --purple:#8b5cf6;
-
     --blue:#06b6d4;
-
     --gold:#fbbf24;
+
+    --green:#22c55e;
+    --red:#ef4444;
 
 }
 
 
 /* =========================================================
    RESET
-   ========================================================= */
+========================================================= */
 
 *{
 
     box-sizing:border-box;
 
     margin:0;
-
     padding:0;
 
 }
@@ -140,9 +135,17 @@ body{
 }
 
 
+button,
+select{
+
+    font:inherit;
+
+}
+
+
 /* =========================================================
    CONTAINER
-   ========================================================= */
+========================================================= */
 
 .container{
 
@@ -155,7 +158,7 @@ body{
 
 /* =========================================================
    HEADER
-   ========================================================= */
+========================================================= */
 
 header{
 
@@ -259,7 +262,7 @@ nav{
 
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .hero{
 
@@ -369,7 +372,7 @@ h1{
 
 /* =========================================================
    GENERATOR
-   ========================================================= */
+========================================================= */
 
 .generator{
 
@@ -409,7 +412,7 @@ h1{
 
 /* =========================================================
    CONTROLS
-   ========================================================= */
+========================================================= */
 
 .controls{
 
@@ -434,8 +437,6 @@ button{
     background:#090e1a;
 
     color:white;
-
-    font:inherit;
 
 }
 
@@ -466,9 +467,16 @@ button{
 }
 
 
+.generate:hover{
+
+    filter:brightness(1.1);
+
+}
+
+
 /* =========================================================
    RESULTS
-   ========================================================= */
+========================================================= */
 
 .results{
 
@@ -493,8 +501,6 @@ button{
     border-radius:15px;
 
     background:#101625;
-
-    text-align:center;
 
     transition:.2s;
 
@@ -524,7 +530,7 @@ button{
 
 /* =========================================================
    RESULT DESCRIPTION
-   ========================================================= */
+========================================================= */
 
 .result-description{
 
@@ -543,7 +549,7 @@ button{
 
 /* =========================================================
    RESULT STYLE
-   ========================================================= */
+========================================================= */
 
 .result-style{
 
@@ -560,7 +566,7 @@ button{
 
 /* =========================================================
    BEST FOR
-   ========================================================= */
+========================================================= */
 
 .result-best{
 
@@ -585,12 +591,60 @@ button{
 
 
 /* =========================================================
-   COPY BUTTON
-   ========================================================= */
+   RESULT ACTIONS
+========================================================= */
+
+.result-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:8px;
+
+    margin-top:12px;
+
+}
+
+
+.result-button{
+
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#182236;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:850;
+
+    transition:.2s;
+
+}
+
+
+.result-button:hover{
+
+    background:#202d45;
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
 
 .copy{
 
-    margin-top:12px;
+    margin-top:8px;
 
     width:100%;
 
@@ -607,8 +661,42 @@ button{
 
 
 /* =========================================================
+   SAVED
+========================================================= */
+
+.save-button.saved{
+
+    border-color:
+        rgba(34,197,94,.45);
+
+    background:
+        rgba(34,197,94,.10);
+
+    color:#86efac;
+
+}
+
+
+/* =========================================================
+   LIKED
+========================================================= */
+
+.like-button.liked{
+
+    border-color:
+        rgba(239,68,68,.45);
+
+    background:
+        rgba(239,68,68,.10);
+
+    color:#fca5a5;
+
+}
+
+
+/* =========================================================
    SECTIONS
-   ========================================================= */
+========================================================= */
 
 .section{
 
@@ -655,7 +743,7 @@ button{
 
 /* =========================================================
    CARDS
-   ========================================================= */
+========================================================= */
 
 .cards{
 
@@ -700,7 +788,7 @@ button{
 
 /* =========================================================
    FAQ
-   ========================================================= */
+========================================================= */
 
 .faq details{
 
@@ -737,7 +825,7 @@ button{
 
 /* =========================================================
    LINKS
-   ========================================================= */
+========================================================= */
 
 .content a{
 
@@ -759,7 +847,7 @@ button{
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 footer{
 
@@ -777,7 +865,7 @@ footer{
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media(max-width:700px){
 
@@ -835,7 +923,7 @@ footer{
 
 <!-- =======================================================
      HEADER
-     ======================================================= -->
+======================================================= -->
 
 <header>
 
@@ -874,6 +962,10 @@ Guide
 FAQ
 </a>
 
+<a href="my-names.html">
+❤️ My Names
+</a>
+
 </div>
 
 </nav>
@@ -884,14 +976,14 @@ FAQ
 
 <!-- =======================================================
      MAIN
-     ======================================================= -->
+======================================================= -->
 
 <main>
 
 
 <!-- =======================================================
      HERO
-     ======================================================= -->
+======================================================= -->
 
 <section class="hero container">
 
@@ -941,7 +1033,7 @@ creatures and magical worlds.
 
 <!-- =======================================================
      GENERATOR
-     ======================================================= -->
+======================================================= -->
 
 <section
     class="container"
@@ -1017,8 +1109,9 @@ Long
 
 
 <button
+    type="button"
     class="generate"
-    onclick="generate()"
+    id="generateButton"
 >
 
 ⚡ Generate Names
@@ -1043,7 +1136,7 @@ Long
 
 <!-- =======================================================
      GUIDE
-     ======================================================= -->
+======================================================= -->
 
 <section
     class="section"
@@ -1156,7 +1249,7 @@ fictional worlds.
 
 <!-- =======================================================
      POPULAR CATEGORIES
-     ======================================================= -->
+======================================================= -->
 
 <section class="section container">
 
@@ -1279,7 +1372,7 @@ assassins and sinister characters.
 
 <!-- =======================================================
      FAQ
-     ======================================================= -->
+======================================================= -->
 
 <section
     class="section container"
@@ -1401,7 +1494,7 @@ tablets and desktop computers.
 
 <!-- =======================================================
      EXPLORE MORE
-     ======================================================= -->
+======================================================= -->
 
 <section class="section container">
 
@@ -1504,7 +1597,7 @@ Explore more NameForge generators
 
 <!-- =======================================================
      FOOTER
-     ======================================================= -->
+======================================================= -->
 
 <footer>
 
@@ -1539,353 +1632,382 @@ RPGs and fictional worlds.
 
 
 <!-- =======================================================
-     JAVASCRIPT
-     ======================================================= -->
+     NAMEFORGE STORAGE
+======================================================= -->
+
+<script src="js/nameforge-storage.js"></script>
+
+
+
+<!-- =======================================================
+     GENERATOR JAVASCRIPT
+======================================================= -->
 
 <script>
+
+/* =========================================================
+   CONSTANTS
+========================================================= */
+
+const GENERATOR_TYPE = "fantasy";
 
 
 /* =========================================================
    NAME PARTS
-   ========================================================= */
+========================================================= */
 
 const nameParts = {
 
+    hero: {
 
-hero: {
+        first: [
 
-    first: [
+            "Al","Ael","Aer","Ari","Cael","Cal",
+            "Eld","Ely","Kael","Rae","Val","Syl",
+            "Aren","Eryn","Lio","Ther","Vael",
+            "Cyr","El","Ar"
 
-        "Al","Ael","Aer","Ari","Cael","Cal",
-        "Eld","Ely","Kael","Rae","Val","Syl",
-        "Aren","Eryn","Lio","Ther","Vael",
-        "Cyr","El","Ar"
+        ],
 
-    ],
+        middle: [
 
-    middle: [
+            "a","ae","ai","e","ei","ia","io",
+            "o","or","el","er","ir","is",
+            "an","en","in","on"
 
-        "a","ae","ai","e","ei","ia","io",
-        "o","or","el","er","ir","is",
-        "an","en","in","on"
+        ],
 
-    ],
+        second: [
 
-    second: [
+            "ion","iel","ian","or","en","is",
+            "eus","ael","ar","yr","eth","rin",
+            "on","el","ian"
 
-        "ion","iel","ian","or","en","is",
-        "eus","ael","ar","yr","eth","rin",
-        "on","el","ian"
+        ]
 
-    ]
+    },
 
-},
 
+    warrior: {
 
-warrior: {
+        first: [
 
-    first: [
+            "Br","Dr","Gar","Gor","Kar","Khar",
+            "Kor","Rag","Ror","Thar","Tor","Var",
+            "Dun","Grim","Keld","Bor","Drak",
+            "Varn","Thorn"
 
-        "Br","Dr","Gar","Gor","Kar","Khar",
-        "Kor","Rag","Ror","Thar","Tor","Var",
-        "Dun","Grim","Keld","Bor","Drak",
-        "Varn","Thorn"
+        ],
 
-    ],
+        middle: [
 
-    middle: [
+            "a","ar","e","o","u","ak","an",
+            "or","ur","er","on","un"
 
-        "a","ar","e","o","u","ak","an",
-        "or","ur","er","on","un"
+        ],
 
-    ],
+        second: [
 
-    second: [
+            "gar","gor","dor","dar","rik","rak",
+            "ron","orn","vald","var","dur",
+            "dan","kar","thor","ak","us","ar"
 
-        "gar","gor","dor","dar","rik","rak",
-        "ron","orn","vald","var","dur",
-        "dan","kar","thor","ak","us","ar"
+        ]
 
-    ]
+    },
 
-},
 
+    mage: {
 
-mage: {
+        first: [
 
-    first: [
+            "Ae","Ael","Aen","Ar","Ely","Eli",
+            "Elar","Ily","Lun","Myr","Nym",
+            "Oryn","Ser","Syl","Thael","Vael",
+            "Vey","Zel","Aeth","Eryn"
 
-        "Ae","Ael","Aen","Ar","Ely","Eli",
-        "Elar","Ily","Lun","Myr","Nym",
-        "Oryn","Ser","Syl","Thael","Vael",
-        "Vey","Zel","Aeth","Eryn"
+        ],
 
-    ],
+        middle: [
 
-    middle: [
+            "a","ae","ai","e","ei","ia",
+            "ie","io","y","el","er","il",
+            "ir","or","yn"
 
-        "a","ae","ai","e","ei","ia",
-        "ie","io","y","el","er","il",
-        "ir","or","yn"
+        ],
 
-    ],
+        second: [
 
-    second: [
+            "iel","ia","ara","ora","eris","yne",
+            "eth","ael","ion","is","aris",
+            "eus","ine","aeth"
 
-        "iel","ia","ara","ora","eris","yne",
-        "eth","ael","ion","is","aris",
-        "eus","ine","aeth"
+        ]
 
-    ]
+    },
 
-},
 
+    dark: {
 
-dark: {
+        first: [
 
-    first: [
+            "Mor","Nox","Nyx","Mal","Vel","Vyr",
+            "Vor","Rav","Zar","Zer","Kha","Vex",
+            "Dra","Drel","Morth","Ner","Vhal",
+            "Xar","Roth","Dym"
 
-        "Mor","Nox","Nyx","Mal","Vel","Vyr",
-        "Vor","Rav","Zar","Zer","Kha","Vex",
-        "Dra","Drel","Morth","Ner","Vhal",
-        "Xar","Roth","Dym"
+        ],
 
-    ],
+        middle: [
 
-    middle: [
+            "a","e","o","u","y","ar","or",
+            "ur","av","ev","ir","yr","ax","ex"
 
-        "a","e","o","u","y","ar","or",
-        "ur","av","ev","ir","yr","ax","ex"
+        ],
 
-    ],
+        second: [
 
-    second: [
+            "oth","yx","eth","mor","vyr","ain",
+            "ar","iel","en","or","is","aen",
+            "yr","ax","ven"
 
-        "oth","yx","eth","mor","vyr","ain",
-        "ar","iel","en","or","is","aen",
-        "yr","ax","ven"
+        ]
 
-    ]
+    },
 
-},
 
+    royal: {
 
-royal: {
+        first: [
 
-    first: [
+            "Aur","Aure","Cal","Cyr","Edr","Ely",
+            "El","Lor","Val","Valen","Ari","Aris",
+            "Ser","Riel","Cael","Ther","Alar",
+            "Eron","Ed","Ael"
 
-        "Aur","Aure","Cal","Cyr","Edr","Ely",
-        "El","Lor","Val","Valen","Ari","Aris",
-        "Ser","Riel","Cael","Ther","Alar",
-        "Eron","Ed","Ael"
+        ],
 
-    ],
+        middle: [
 
-    middle: [
+            "a","ae","e","ia","io","el","er",
+            "or","an","en","ian","elle"
 
-        "a","ae","e","ia","io","el","er",
-        "or","an","en","ian","elle"
+        ],
 
-    ],
+        second: [
 
-    second: [
+            "ius","ian","or","elle","ara","is",
+            "ion","eus","ael","ia","en","iel",
+            "aris"
 
-        "ius","ian","or","elle","ara","is",
-        "ion","eus","ael","ia","en","iel",
-        "aris"
+        ]
 
-    ]
+    },
 
-},
 
+    ancient: {
 
-ancient: {
+        first: [
 
-    first: [
+            "Az","Azh","Aen","Eon","Eld","Eldor",
+            "Ery","Ith","Ithar","Or","Oryn",
+            "Thal","Ur","Urien","Vael","Aeth",
+            "Eru","Thae","Zor","Ael"
 
-        "Az","Azh","Aen","Eon","Eld","Eldor",
-        "Ery","Ith","Ithar","Or","Oryn",
-        "Thal","Ur","Urien","Vael","Aeth",
-        "Eru","Thae","Zor","Ael"
+        ],
 
-    ],
+        middle: [
 
-    middle: [
+            "a","ae","e","ia","io","u","or",
+            "ur","el","er","an","en","on","um"
 
-        "a","ae","e","ia","io","u","or",
-        "ur","el","er","an","en","on","um"
+        ],
 
-    ],
+        second: [
 
-    second: [
+            "us","ae","on","os","iel","eth",
+            "ar","is","um","ael","ion","or",
+            "eus","ian","ith","aen"
 
-        "us","ae","on","os","iel","eth",
-        "ar","is","um","ael","ion","or",
-        "eus","ian","ith","aen"
+        ]
 
-    ]
-
-}
+    }
 
 };
 
 
 /* =========================================================
    STYLE INFORMATION
-   ========================================================= */
+========================================================= */
 
 const styleInfo = {
 
+    hero: {
 
-hero: {
+        label:"Heroic",
 
-    label:"Heroic",
+        icon:"⚔️",
 
-    icon:"⚔️",
+        bestFor:
+            "Heroes, adventurers and legendary champions",
 
-    bestFor:
-        "Heroes, adventurers and legendary champions",
+        descriptions:[
 
-    descriptions:[
+            "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
 
-        "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
+            "A noble name that fits a courageous hero destined for an important quest.",
 
-        "A noble name that fits a courageous hero destined for an important quest.",
+            "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
 
-        "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
+            "A classic heroic name suited to a character who inspires others through courage."
 
-        "A classic heroic name suited to a character who inspires others through courage."
+        ]
 
-    ]
+    },
 
-},
 
+    warrior: {
 
-warrior: {
+        label:"Warrior",
 
-    label:"Warrior",
+        icon:"🛡️",
 
-    icon:"🛡️",
+        bestFor:
+            "Warriors, knights and battle commanders",
 
-    bestFor:
-        "Warriors, knights and battle commanders",
+        descriptions:[
 
-    descriptions:[
+            "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
 
-        "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
+            "A powerful name for a knight, mercenary or commander known for strength and determination.",
 
-        "A powerful name for a knight, mercenary or commander known for strength and determination.",
+            "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
 
-        "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
+            "A fierce name suited to a battle-hardened champion or military leader."
 
-        "A fierce name suited to a battle-hardened champion or military leader."
+        ]
 
-    ]
+    },
 
-},
 
+    mage: {
 
-mage: {
+        label:"Mystical",
 
-    label:"Mystical",
+        icon:"🔮",
 
-    icon:"🔮",
+        bestFor:
+            "Mages, wizards and spellcasters",
 
-    bestFor:
-        "Mages, wizards and spellcasters",
+        descriptions:[
 
-    descriptions:[
+            "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
 
-        "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
+            "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
 
-        "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
+            "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
 
-        "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
+            "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
 
-        "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
+        ]
 
-    ]
+    },
 
-},
 
+    dark: {
 
-dark: {
+        label:"Dark Fantasy",
 
-    label:"Dark Fantasy",
+        icon:"🌑",
 
-    icon:"🌑",
+        bestFor:
+            "Villains, assassins and mysterious characters",
 
-    bestFor:
-        "Villains, assassins and mysterious characters",
+        descriptions:[
 
-    descriptions:[
+            "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
 
-        "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
+            "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
 
-        "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
+            "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
 
-        "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
+            "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
 
-        "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
+        ]
 
-    ]
+    },
 
-},
 
+    royal: {
 
-royal: {
+        label:"Royal",
 
-    label:"Royal",
+        icon:"👑",
 
-    icon:"👑",
+        bestFor:
+            "Kings, queens, princes and noble characters",
 
-    bestFor:
-        "Kings, queens, princes and noble characters",
+        descriptions:[
 
-    descriptions:[
+            "A noble and elegant name suited to a king, queen or powerful ruler.",
 
-        "A noble and elegant name suited to a king, queen or powerful ruler.",
+            "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
 
-        "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
+            "A sophisticated name for a monarch, noble heir or influential ruler.",
 
-        "A sophisticated name for a monarch, noble heir or influential ruler.",
+            "An elegant royal name suited to a character born into power and tradition."
 
-        "An elegant royal name suited to a character born into power and tradition."
+        ]
 
-    ]
+    },
 
-},
 
+    ancient: {
 
-ancient: {
+        label:"Ancient",
 
-    label:"Ancient",
+        icon:"🏛️",
 
-    icon:"🏛️",
+        bestFor:
+            "Ancient beings, sages and legendary characters",
 
-    bestFor:
-        "Ancient beings, sages and legendary characters",
+        descriptions:[
 
-    descriptions:[
+            "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
 
-        "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
+            "A mysterious archaic name that fits an ancient guardian or legendary figure.",
 
-        "A mysterious archaic name that fits an ancient guardian or legendary figure.",
+            "A timeless name suited to a character connected to forgotten civilizations and old magic.",
 
-        "A timeless name suited to a character connected to forgotten civilizations and old magic.",
+            "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
 
-        "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
+        ]
 
-    ]
-
-}
+    }
 
 };
 
 
 /* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
    RANDOM ITEM
-   ========================================================= */
+========================================================= */
 
 function randomItem(array){
 
@@ -1900,7 +2022,7 @@ function randomItem(array){
 
 /* =========================================================
    CREATE BASE NAME
-   ========================================================= */
+========================================================= */
 
 function createBaseName(style){
 
@@ -1975,7 +2097,7 @@ function createBaseName(style){
 
 /* =========================================================
    CLEAN NAME
-   ========================================================= */
+========================================================= */
 
 function cleanName(name){
 
@@ -2006,7 +2128,7 @@ function cleanName(name){
 
 /* =========================================================
    MAKE NAME
-   ========================================================= */
+========================================================= */
 
 function makeName(style,length){
 
@@ -2015,8 +2137,6 @@ function makeName(style,length){
 
     let name;
 
-
-    /* SHORT */
 
     if(length === "short"){
 
@@ -2029,8 +2149,6 @@ function makeName(style,length){
     }
 
 
-    /* MEDIUM */
-
     else if(length === "medium"){
 
         name =
@@ -2038,8 +2156,6 @@ function makeName(style,length){
 
     }
 
-
-    /* LONG */
 
     else{
 
@@ -2062,16 +2178,414 @@ function makeName(style,length){
 
 
 /* =========================================================
+   GET SAVED STATUS
+========================================================= */
+
+function getNameStorageStatus(name){
+
+    const saved =
+        findSavedName(name);
+
+
+    return {
+
+        saved: !!saved,
+
+        liked:
+            !!(
+                saved &&
+                saved.liked === true
+            )
+
+    };
+
+}
+
+
+/* =========================================================
+   SAVE NAME
+========================================================= */
+
+function handleSave(name,style){
+
+    const result =
+        saveName(
+            name,
+            GENERATOR_TYPE,
+            style
+        );
+
+
+    if(result){
+
+        updateResultButtons(name);
+
+    }
+
+}
+
+
+/* =========================================================
+   TOGGLE LIKE
+========================================================= */
+
+function handleLike(name,style){
+
+    likeName(
+        name,
+        GENERATOR_TYPE,
+        style
+    );
+
+
+    updateResultButtons(name);
+
+}
+
+
+/* =========================================================
+   UPDATE BUTTONS
+========================================================= */
+
+function updateResultButtons(name){
+
+    const cards =
+        document.querySelectorAll(
+            ".result"
+        );
+
+
+    cards.forEach(card => {
+
+        if(
+            card.dataset.name !== name
+        ){
+
+            return;
+
+        }
+
+
+        const status =
+            getNameStorageStatus(name);
+
+
+        const saveButton =
+            card.querySelector(
+                ".save-button"
+            );
+
+
+        const likeButton =
+            card.querySelector(
+                ".like-button"
+            );
+
+
+        if(saveButton){
+
+            saveButton.classList.toggle(
+                "saved",
+                status.saved
+            );
+
+
+            saveButton.textContent =
+                status.saved
+                    ? "✅ Saved"
+                    : "💾 Save";
+
+        }
+
+
+        if(likeButton){
+
+            likeButton.classList.toggle(
+                "liked",
+                status.liked
+            );
+
+
+            likeButton.textContent =
+                status.liked
+                    ? "❤️ Liked"
+                    : "🤍 Like";
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   COPY NAME
+========================================================= */
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            name
+        );
+
+
+        alert(
+            "Name copied: " + name
+        );
+
+    }
+
+    catch(error){
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER RESULTS
+========================================================= */
+
+function renderResults(names,style){
+
+    const info =
+        styleInfo[style];
+
+
+    const results =
+        document.getElementById(
+            "results"
+        );
+
+
+    results.innerHTML =
+
+        names.map(name => {
+
+            const status =
+                getNameStorageStatus(name);
+
+
+            return `
+
+                <article
+                    class="result"
+                    data-name="${escapeHtml(name)}"
+                >
+
+                    <div class="result-name">
+
+                        ${escapeHtml(name)}
+
+                    </div>
+
+
+                    <div class="result-style">
+
+                        ${escapeHtml(info.icon)}
+                        ${escapeHtml(info.label)}
+
+                    </div>
+
+
+                    <p class="result-description">
+
+                        ${escapeHtml(
+                            randomItem(
+                                info.descriptions
+                            )
+                        )}
+
+                    </p>
+
+
+                    <div class="result-best">
+
+                        <strong>
+                            Best for:
+                        </strong>
+
+                        ${escapeHtml(
+                            info.bestFor
+                        )}
+
+                    </div>
+
+
+                    <div class="result-actions">
+
+
+                        <button
+                            type="button"
+                            class="result-button save-button ${
+                                status.saved
+                                    ? "saved"
+                                    : ""
+                            }"
+                            data-action="save"
+                        >
+
+                            ${
+                                status.saved
+                                    ? "✅ Saved"
+                                    : "💾 Save"
+                            }
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="result-button like-button ${
+                                status.liked
+                                    ? "liked"
+                                    : ""
+                            }"
+                            data-action="like"
+                        >
+
+                            ${
+                                status.liked
+                                    ? "❤️ Liked"
+                                    : "🤍 Like"
+                            }
+
+                        </button>
+
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="result-button copy"
+                        data-action="copy"
+                    >
+
+                        📋 Copy name
+
+                    </button>
+
+
+                </article>
+
+            `;
+
+        }).join("");
+
+
+    attachResultEvents(style);
+
+}
+
+
+/* =========================================================
+   RESULT EVENTS
+========================================================= */
+
+function attachResultEvents(style){
+
+    document
+        .querySelectorAll(".result")
+        .forEach(card => {
+
+            const name =
+                card.dataset.name;
+
+
+            const saveButton =
+                card.querySelector(
+                    '[data-action="save"]'
+                );
+
+
+            const likeButton =
+                card.querySelector(
+                    '[data-action="like"]'
+                );
+
+
+            const copyButton =
+                card.querySelector(
+                    '[data-action="copy"]'
+                );
+
+
+            if(saveButton){
+
+                saveButton.addEventListener(
+                    "click",
+                    () => {
+
+                        handleSave(
+                            name,
+                            style
+                        );
+
+                    }
+                );
+
+            }
+
+
+            if(likeButton){
+
+                likeButton.addEventListener(
+                    "click",
+                    () => {
+
+                        handleLike(
+                            name,
+                            style
+                        );
+
+                    }
+                );
+
+            }
+
+
+            if(copyButton){
+
+                copyButton.addEventListener(
+                    "click",
+                    () => {
+
+                        copyName(name);
+
+                    }
+                );
+
+            }
+
+        });
+
+}
+
+
+/* =========================================================
    GENERATE 9 NAMES
-   ========================================================= */
+========================================================= */
 
 function generate(){
 
     const style =
-        document.getElementById("style").value;
+        document.getElementById(
+            "style"
+        ).value;
+
 
     const length =
-        document.getElementById("length").value;
+        document.getElementById(
+            "length"
+        ).value;
+
 
     const names = [];
 
@@ -2107,101 +2621,60 @@ function generate(){
     }
 
 
-    const info =
-        styleInfo[style];
-
-
-    document.getElementById("results").innerHTML =
-
-        names.map(name => `
-
-            <div class="result">
-
-
-                <div class="result-name">
-
-                    ${name}
-
-                </div>
-
-
-                <div class="result-style">
-
-                    ${info.icon}
-                    ${info.label}
-
-                </div>
-
-
-                <p class="result-description">
-
-                    ${randomItem(
-                        info.descriptions
-                    )}
-
-                </p>
-
-
-                <div class="result-best">
-
-                    <strong>
-                        Best for:
-                    </strong>
-
-                    ${info.bestFor}
-
-                </div>
-
-
-                <button
-                    class="copy"
-                    onclick="copyName('${name.replace(/'/g,"\\'")}')"
-                >
-
-                    📋 Copy name
-
-                </button>
-
-
-            </div>
-
-        `).join("");
+    renderResults(
+        names,
+        style
+    );
 
 }
 
 
 /* =========================================================
-   COPY NAME
-   ========================================================= */
+   GENERATE BUTTON
+========================================================= */
 
-async function copyName(name){
+document
+    .getElementById(
+        "generateButton"
+    )
+    .addEventListener(
+        "click",
+        generate
+    );
 
-    try{
 
-        await navigator.clipboard.writeText(
-            name
-        );
+/* =========================================================
+   REFRESH STORAGE STATUS
+   Useful if My Names is modified in another tab.
+========================================================= */
 
-        alert(
-            "Name copied: " + name
-        );
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if(
+            document.visibilityState === "visible"
+        ){
+
+            document
+                .querySelectorAll(".result")
+                .forEach(card => {
+
+                    updateResultButtons(
+                        card.dataset.name
+                    );
+
+                });
+
+        }
 
     }
-
-    catch(error){
-
-        alert(
-            "Name: " + name
-        );
-
-    }
-
-}
+);
 
 
 /* =========================================================
    INITIAL GENERATION
-   ========================================================= */
+========================================================= */
 
 generate();
 
@@ -2211,4 +2684,3 @@ generate();
 </body>
 
 </html>
-```
