@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,15 +71,10 @@
     --muted:#9ba7bd;
 
     --purple:#8b5cf6;
-    --purple-dark:#6d28d9;
-
     --blue:#06b6d4;
-
     --gold:#fbbf24;
-
-    --green:#22c55e;
-
     --red:#ef4444;
+    --green:#22c55e;
 
 }
 
@@ -94,7 +88,6 @@
     box-sizing:border-box;
 
     margin:0;
-
     padding:0;
 
 }
@@ -142,8 +135,7 @@ body{
 
 
 button,
-select,
-textarea{
+select{
 
     font:inherit;
 
@@ -175,8 +167,7 @@ header{
 
     z-index:100;
 
-    background:
-        rgba(7,9,18,.90);
+    background:rgba(7,9,18,.90);
 
     backdrop-filter:blur(15px);
 
@@ -198,10 +189,6 @@ nav{
 
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
 
 .logo{
 
@@ -245,13 +232,11 @@ nav{
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
 .nav-links{
 
     display:flex;
+
+    align-items:center;
 
     gap:18px;
 
@@ -266,12 +251,21 @@ nav{
 
     font-weight:800;
 
+    transition:.2s;
+
 }
 
 
 .nav-links a:hover{
 
     color:white;
+
+}
+
+
+.nav-links .my-names-link{
+
+    color:#fca5a5;
 
 }
 
@@ -359,7 +353,20 @@ h1{
 }
 
 
-.hero .btn{
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.btn{
 
     display:inline-block;
 
@@ -374,7 +381,7 @@ h1{
         linear-gradient(
             135deg,
             var(--purple),
-            var(--purple-dark)
+            #6d28d9
         );
 
     color:white;
@@ -383,14 +390,14 @@ h1{
 
     font-weight:900;
 
-    transition:.2s;
-
 }
 
 
-.hero .btn:hover{
+.btn.secondary{
 
-    transform:translateY(-2px);
+    background:#182236;
+
+    border:1px solid var(--border);
 
 }
 
@@ -451,7 +458,7 @@ h1{
 
 
 select,
-button{
+.control-button{
 
     padding:12px 14px;
 
@@ -463,6 +470,8 @@ button{
 
     color:white;
 
+    outline:none;
+
 }
 
 
@@ -473,23 +482,11 @@ select{
 }
 
 
-button{
+.control-button{
 
     cursor:pointer;
 
     font-weight:850;
-
-}
-
-
-button:focus-visible,
-select:focus-visible,
-textarea:focus-visible{
-
-    outline:
-        2px solid rgba(139,92,246,.7);
-
-    outline-offset:2px;
 
 }
 
@@ -505,19 +502,8 @@ textarea:focus-visible{
         linear-gradient(
             135deg,
             var(--purple),
-            var(--purple-dark)
+            #6d28d9
         );
-
-    transition:.2s;
-
-}
-
-
-.generate:hover{
-
-    filter:brightness(1.12);
-
-    transform:translateY(-1px);
 
 }
 
@@ -540,10 +526,6 @@ textarea:focus-visible{
 }
 
 
-/* =========================================================
-   RESULT CARD
-========================================================= */
-
 .result{
 
     padding:20px;
@@ -553,8 +535,6 @@ textarea:focus-visible{
     border-radius:15px;
 
     background:#101625;
-
-    text-align:center;
 
     transition:.2s;
 
@@ -571,6 +551,23 @@ textarea:focus-visible{
 }
 
 
+/* =========================================================
+   RESULT TOP
+========================================================= */
+
+.result-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+
 .result-name{
 
     font-size:1.25rem;
@@ -578,6 +575,13 @@ textarea:focus-visible{
     font-weight:950;
 
     word-break:break-word;
+
+}
+
+
+.like-indicator{
+
+    font-size:1.2rem;
 
 }
 
@@ -645,7 +649,7 @@ textarea:focus-visible{
 
 
 /* =========================================================
-   ACTIONS
+   CARD ACTIONS
 ========================================================= */
 
 .result-actions{
@@ -662,126 +666,130 @@ textarea:focus-visible{
 }
 
 
-.result-action{
+.action-button{
 
     width:100%;
 
-    padding:10px;
-
-    background:#182236;
+    padding:10px 8px;
 
     border:1px solid var(--border);
 
     border-radius:9px;
 
+    background:#182236;
+
     color:white;
+
+    cursor:pointer;
+
+    font-size:.82rem;
+
+    font-weight:850;
 
     transition:.2s;
 
 }
 
 
-.result-action:hover{
+.action-button:hover{
 
     background:#202d45;
 
 }
 
 
-.result-action.liked{
+.action-button.saved{
 
     border-color:
-        rgba(239,68,68,.45);
+        rgba(34,197,94,.55);
 
     background:
-        rgba(239,68,68,.10);
+        rgba(34,197,94,.12);
+
+    color:#86efac;
 
 }
 
 
-.result-action.saved{
+.action-button.liked{
 
     border-color:
-        rgba(34,197,94,.45);
+        rgba(239,68,68,.55);
 
     background:
-        rgba(34,197,94,.10);
+        rgba(239,68,68,.12);
+
+    color:#fca5a5;
 
 }
 
 
-/* =========================================================
-   NOTE AREA
-========================================================= */
+.action-button.note{
 
-.note-area{
-
-    display:none;
-
-    margin-top:12px;
-
-    text-align:left;
+    grid-column:
+        1 / -1;
 
 }
 
 
-.note-area.visible{
+.action-button.note.has-note{
 
-    display:block;
+    border-color:
+        rgba(139,92,246,.55);
+
+    background:
+        rgba(139,92,246,.12);
+
+    color:#c4b5fd;
 
 }
 
 
-.note-editor{
+.copy{
+
+    margin-top:8px;
 
     width:100%;
 
-    min-height:80px;
-
     padding:10px;
-
-    resize:vertical;
 
     border:1px solid var(--border);
 
     border-radius:9px;
 
-    background:#070c16;
+    background:#090e1a;
 
     color:white;
+
+    cursor:pointer;
+
+    font-weight:850;
 
 }
 
 
-.note-save{
-
-    width:100%;
-
-    margin-top:8px;
+.copy:hover{
 
     background:#182236;
 
 }
 
 
-.note-save:hover{
-
-    background:#202d45;
-
-}
-
+/* =========================================================
+   NOTE STATUS
+========================================================= */
 
 .note-status{
 
-    min-height:20px;
+    margin-top:8px;
 
-    margin-top:5px;
+    color:#8f9bb1;
 
-    color:#86efac;
-
-    font-size:.76rem;
+    font-size:.75rem;
 
     text-align:center;
+
+    min-height:18px;
 
 }
 
@@ -959,6 +967,26 @@ footer{
    MOBILE
 ========================================================= */
 
+@media(max-width:800px){
+
+    .results{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .cards{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
 @media(max-width:700px){
 
     .nav-links{
@@ -1003,25 +1031,11 @@ footer{
 
     }
 
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media(max-width:420px){
 
     .result-actions{
 
-        grid-template-columns:1fr;
-
-    }
-
-
-    h1{
-
-        letter-spacing:-1px;
+        grid-template-columns:
+            1fr 1fr;
 
     }
 
@@ -1076,7 +1090,10 @@ Guide
 FAQ
 </a>
 
-<a href="my-names.html">
+<a
+    href="my-names.html"
+    class="my-names-link"
+>
 ❤️ My Names
 </a>
 
@@ -1131,6 +1148,8 @@ creatures and magical worlds.
 </p>
 
 
+<div class="hero-buttons">
+
 <a
     href="#generator"
     class="btn"
@@ -1139,6 +1158,18 @@ creatures and magical worlds.
 ⚡ Generate Fantasy Names
 
 </a>
+
+
+<a
+    href="my-names.html"
+    class="btn secondary"
+>
+
+❤️ My Names
+
+</a>
+
+</div>
 
 
 </section>
@@ -1176,8 +1207,7 @@ fantasy names instantly.
 <div class="controls">
 
 
-<select id="style"
-        aria-label="Fantasy name style">
+<select id="style">
 
 <option value="hero">
 ⚔️ Hero
@@ -1206,15 +1236,13 @@ fantasy names instantly.
 </select>
 
 
-<select id="length"
-        aria-label="Fantasy name length">
+<select id="length">
 
 <option value="short">
 Short
 </option>
 
-<option value="medium"
-        selected>
+<option value="medium" selected>
 Medium
 </option>
 
@@ -1226,9 +1254,8 @@ Long
 
 
 <button
-    type="button"
-    id="generateButton"
-    class="generate"
+    class="control-button generate"
+    onclick="generate()"
 >
 
 ⚡ Generate Names
@@ -1291,9 +1318,7 @@ or world.
 
 
 <h3>
-
 Fantasy character names
-
 </h3>
 
 
@@ -1308,9 +1333,7 @@ styles until you find a name that fits your idea.
 
 
 <h3>
-
 Fantasy kingdom names
-
 </h3>
 
 
@@ -1325,9 +1348,7 @@ feel more complete and memorable.
 
 
 <h3>
-
 Fantasy names for RPG games
-
 </h3>
 
 
@@ -1342,9 +1363,7 @@ next RPG character or game world.
 
 
 <h3>
-
 Dark fantasy names
-
 </h3>
 
 
@@ -1513,9 +1532,7 @@ Fantasy Name Generator FAQ
 <details>
 
 <summary>
-
 Is this fantasy name generator free?
-
 </summary>
 
 <p>
@@ -1531,9 +1548,7 @@ free to use directly in your browser.
 <details>
 
 <summary>
-
 Can I use these names for my RPG character?
-
 </summary>
 
 <p>
@@ -1550,9 +1565,7 @@ worlds.
 <details>
 
 <summary>
-
 Can I generate names for fantasy kingdoms?
-
 </summary>
 
 <p>
@@ -1568,9 +1581,7 @@ kingdoms, empires, cities, clans and factions.
 <details>
 
 <summary>
-
 Can I generate dark fantasy names?
-
 </summary>
 
 <p>
@@ -1586,9 +1597,7 @@ names with a darker and more mysterious feeling.
 <details>
 
 <summary>
-
 Does the generator work on mobile?
-
 </summary>
 
 <p>
@@ -1627,79 +1636,51 @@ Explore more NameForge generators
 
 
 <p>
-
 <a href="index.html">
-
 ← Return to the main NameForge generator
-
 </a>
-
 </p>
 
 
 <p>
-
 <a href="wizard-name-generator.html">
-
 🧙 Wizard Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
 <a href="rpg-name-generator.html">
-
 🎲 RPG Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
 <a href="anime-name-generator.html">
-
 ✨ Anime Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
 <a href="gaming-name-generator.html">
-
 🎮 Gaming Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
 <a href="kingdom-name-generator.html">
-
 🏰 Kingdom Name Generator
-
 </a>
-
 </p>
 
 
 <p>
-
 <a href="dragon-name-generator.html">
-
 🐲 Dragon Name Generator
-
 </a>
-
 </p>
 
 
@@ -1723,9 +1704,7 @@ Explore more NameForge generators
 
 
 <strong>
-
 ⚡ NameForge
-
 </strong>
 
 
@@ -1750,10 +1729,8 @@ RPGs and fictional worlds.
 
 <!-- =======================================================
      NAMEFORGE STORAGE
-     
      IMPORTANT:
-     This file must exist at:
-     js/nameforge-storage.js
+     This MUST load before the generator JavaScript.
 ======================================================= -->
 
 <script src="js/nameforge-storage.js"></script>
@@ -1771,28 +1748,22 @@ const nameParts = {
     hero: {
 
         first: [
-
             "Al","Ael","Aer","Ari","Cael","Cal",
             "Eld","Ely","Kael","Rae","Val","Syl",
             "Aren","Eryn","Lio","Ther","Vael",
             "Cyr","El","Ar"
-
         ],
 
         middle: [
-
             "a","ae","ai","e","ei","ia","io",
             "o","or","el","er","ir","is",
             "an","en","in","on"
-
         ],
 
         second: [
-
             "ion","iel","ian","or","en","is",
             "eus","ael","ar","yr","eth","rin",
             "on","el","ian"
-
         ]
 
     },
@@ -1801,27 +1772,21 @@ const nameParts = {
     warrior: {
 
         first: [
-
             "Br","Dr","Gar","Gor","Kar","Khar",
             "Kor","Rag","Ror","Thar","Tor","Var",
             "Dun","Grim","Keld","Bor","Drak",
             "Varn","Thorn"
-
         ],
 
         middle: [
-
             "a","ar","e","o","u","ak","an",
             "or","ur","er","on","un"
-
         ],
 
         second: [
-
             "gar","gor","dor","dar","rik","rak",
             "ron","orn","vald","var","dur",
             "dan","kar","thor","ak","us","ar"
-
         ]
 
     },
@@ -1830,28 +1795,22 @@ const nameParts = {
     mage: {
 
         first: [
-
             "Ae","Ael","Aen","Ar","Ely","Eli",
             "Elar","Ily","Lun","Myr","Nym",
             "Oryn","Ser","Syl","Thael","Vael",
             "Vey","Zel","Aeth","Eryn"
-
         ],
 
         middle: [
-
             "a","ae","ai","e","ei","ia",
             "ie","io","y","el","er","il",
             "ir","or","yn"
-
         ],
 
         second: [
-
             "iel","ia","ara","ora","eris","yne",
             "eth","ael","ion","is","aris",
             "eus","ine","aeth"
-
         ]
 
     },
@@ -1860,27 +1819,21 @@ const nameParts = {
     dark: {
 
         first: [
-
             "Mor","Nox","Nyx","Mal","Vel","Vyr",
             "Vor","Rav","Zar","Zer","Kha","Vex",
             "Dra","Drel","Morth","Ner","Vhal",
             "Xar","Roth","Dym"
-
         ],
 
         middle: [
-
             "a","e","o","u","y","ar","or",
             "ur","av","ev","ir","yr","ax","ex"
-
         ],
 
         second: [
-
             "oth","yx","eth","mor","vyr","ain",
             "ar","iel","en","or","is","aen",
             "yr","ax","ven"
-
         ]
 
     },
@@ -1889,27 +1842,21 @@ const nameParts = {
     royal: {
 
         first: [
-
             "Aur","Aure","Cal","Cyr","Edr","Ely",
             "El","Lor","Val","Valen","Ari","Aris",
             "Ser","Riel","Cael","Ther","Alar",
             "Eron","Ed","Ael"
-
         ],
 
         middle: [
-
             "a","ae","e","ia","io","el","er",
             "or","an","en","ian","elle"
-
         ],
 
         second: [
-
             "ius","ian","or","elle","ara","is",
             "ion","eus","ael","ia","en","iel",
             "aris"
-
         ]
 
     },
@@ -1918,27 +1865,21 @@ const nameParts = {
     ancient: {
 
         first: [
-
             "Az","Azh","Aen","Eon","Eld","Eldor",
             "Ery","Ith","Ithar","Or","Oryn",
             "Thal","Ur","Urien","Vael","Aeth",
             "Eru","Thae","Zor","Ael"
-
         ],
 
         middle: [
-
             "a","ae","e","ia","io","u","or",
             "ur","el","er","an","en","on","um"
-
         ],
 
         second: [
-
             "us","ae","on","os","iel","eth",
             "ar","is","um","ael","ion","or",
             "eus","ian","ith","aen"
-
         ]
 
     }
@@ -1962,15 +1903,10 @@ const styleInfo = {
             "Heroes, adventurers and legendary champions",
 
         descriptions:[
-
             "A heroic-sounding fantasy name suited to a brave adventurer or legendary champion.",
-
             "A noble name that fits a courageous hero destined for an important quest.",
-
             "A powerful yet approachable name for a protagonist, adventurer or rising legend.",
-
             "A classic heroic name suited to a character who inspires others through courage."
-
         ]
 
     },
@@ -1986,15 +1922,10 @@ const styleInfo = {
             "Warriors, knights and battle commanders",
 
         descriptions:[
-
             "A strong battle-ready name suited to a disciplined warrior or seasoned fighter.",
-
             "A powerful name for a knight, mercenary or commander known for strength and determination.",
-
             "A rugged warrior name that fits a hardened fighter or legendary swordsman.",
-
             "A fierce name suited to a battle-hardened champion or military leader."
-
         ]
 
     },
@@ -2010,15 +1941,10 @@ const styleInfo = {
             "Mages, wizards and spellcasters",
 
         descriptions:[
-
             "A mysterious name with an arcane feeling, perfect for a powerful mage or spellcaster.",
-
             "An elegant mystical name suited to a wizard, scholar or keeper of ancient magic.",
-
             "A magical-sounding name for a sorcerer, enchanted scholar or master of the arcane arts.",
-
             "A mysterious name that fits a character devoted to forbidden knowledge and ancient spells."
-
         ]
 
     },
@@ -2034,15 +1960,10 @@ const styleInfo = {
             "Villains, assassins and mysterious characters",
 
         descriptions:[
-
             "A sinister-sounding name suited to a mysterious villain or shadowy figure.",
-
             "A dark and intimidating name for a cursed warrior, assassin or dangerous antagonist.",
-
             "A mysterious name that fits a character surrounded by secrets, darkness and forbidden power.",
-
             "A menacing fantasy name suited to a feared villain or enigmatic wanderer."
-
         ]
 
     },
@@ -2058,15 +1979,10 @@ const styleInfo = {
             "Kings, queens, princes and noble characters",
 
         descriptions:[
-
             "A noble and elegant name suited to a king, queen or powerful ruler.",
-
             "A regal name that fits a prince, princess or member of an ancient royal dynasty.",
-
             "A sophisticated name for a monarch, noble heir or influential ruler.",
-
             "An elegant royal name suited to a character born into power and tradition."
-
         ]
 
     },
@@ -2082,15 +1998,10 @@ const styleInfo = {
             "Ancient beings, sages and legendary characters",
 
         descriptions:[
-
             "An ancient-sounding name suited to a timeless sage, immortal being or forgotten legend.",
-
             "A mysterious archaic name that fits an ancient guardian or legendary figure.",
-
             "A timeless name suited to a character connected to forgotten civilizations and old magic.",
-
             "A legendary name with an old-world feeling, perfect for an ancient being or immortal sage."
-
         ]
 
     }
@@ -2114,37 +2025,12 @@ function randomItem(array){
 
 
 /* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================================
    CREATE BASE NAME
 ========================================================= */
 
 function createBaseName(style){
 
-    const parts =
-        nameParts[style];
-
-
-    if(!parts){
-
-        return "";
-
-    }
-
+    const parts = nameParts[style];
 
     const structure =
         Math.floor(
@@ -2155,11 +2041,8 @@ function createBaseName(style){
     if(structure === 0){
 
         return (
-
             randomItem(parts.first) +
-
             randomItem(parts.second)
-
         );
 
     }
@@ -2168,13 +2051,9 @@ function createBaseName(style){
     if(structure === 1){
 
         return (
-
             randomItem(parts.first) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.second)
-
         );
 
     }
@@ -2183,30 +2062,20 @@ function createBaseName(style){
     if(structure === 2){
 
         return (
-
             randomItem(parts.first) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.second)
-
         );
 
     }
 
 
     return (
-
         randomItem(parts.first) +
-
         randomItem(parts.middle) +
-
         randomItem(parts.second) +
-
         randomItem(parts.second)
-
     );
 
 }
@@ -2219,11 +2088,10 @@ function createBaseName(style){
 function cleanName(name){
 
     name =
-        String(name || "")
-            .replace(
-                /([aeiou])\1{2,}/gi,
-                "$1"
-            );
+        name.replace(
+            /([aeiou])\1{2,}/gi,
+            "$1"
+        );
 
 
     name =
@@ -2234,11 +2102,8 @@ function cleanName(name){
 
 
     return (
-
         name.charAt(0).toUpperCase() +
-
         name.slice(1)
-
     );
 
 }
@@ -2253,25 +2118,14 @@ function makeName(style,length){
     const parts =
         nameParts[style];
 
-
-    if(!parts){
-
-        return "";
-
-    }
-
-
     let name;
 
 
     if(length === "short"){
 
         name =
-
             randomItem(parts.first) +
-
-            randomItem(parts.second)
-                .slice(0,2);
+            randomItem(parts.second).slice(0,2);
 
     }
 
@@ -2287,13 +2141,9 @@ function makeName(style,length){
     else{
 
         name =
-
             randomItem(parts.first) +
-
             randomItem(parts.middle) +
-
             randomItem(parts.second) +
-
             randomItem(parts.second);
 
     }
@@ -2305,14 +2155,32 @@ function makeName(style,length){
 
 
 /* =========================================================
-   GENERATE UNIQUE NAMES
+   HTML ESCAPE
 ========================================================= */
 
-function generateNames(
-    style,
-    length,
-    amount
-){
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   GENERATE
+========================================================= */
+
+function generate(){
+
+    const style =
+        document.getElementById("style").value;
+
+    const length =
+        document.getElementById("length").value;
 
     const names = [];
 
@@ -2320,7 +2188,7 @@ function generateNames(
 
 
     while(
-        names.length < amount &&
+        names.length < 9 &&
         attempts < 1000
     ){
 
@@ -2334,10 +2202,7 @@ function generateNames(
             );
 
 
-        if(
-            name &&
-            !names.includes(name)
-        ){
+        if(!names.includes(name)){
 
             names.push(name);
 
@@ -2346,59 +2211,53 @@ function generateNames(
     }
 
 
-    return names;
-
-}
-
-
-/* =========================================================
-   GET EXISTING NAME DATA
-========================================================= */
-
-function getNameData(name){
-
-    const existing =
-        findSavedName(name);
-
-
-    return existing || null;
-
-}
-
-
-/* =========================================================
-   CREATE RESULT CARD
-========================================================= */
-
-function createResultCard(
-    name,
-    style
-){
-
     const info =
         styleInfo[style];
 
 
-    const existing =
-        getNameData(name);
+    const results =
+        document.getElementById("results");
 
 
-    const isSaved =
-        existing
-            ? existing.saved === true
-            : false;
+    results.innerHTML =
+        names.map(
+            (name,index) =>
+                renderResult(
+                    name,
+                    style,
+                    info,
+                    index
+                )
+        ).join("");
 
 
-    const isLiked =
-        existing
-            ? existing.liked === true
-            : false;
+    /*
+     * IMPORTANT:
+     * The generated cards are rendered first,
+     * then we synchronize their buttons with
+     * localStorage.
+     */
+
+    refreshResultStates();
+
+}
 
 
-    const note =
-        existing
-            ? existing.note || ""
-            : "";
+/* =========================================================
+   RENDER RESULT
+========================================================= */
+
+function renderResult(
+    name,
+    style,
+    info,
+    index
+){
+
+    const description =
+        randomItem(
+            info.descriptions
+        );
 
 
     return `
@@ -2408,9 +2267,20 @@ function createResultCard(
             data-name="${escapeHtml(name)}"
         >
 
-            <div class="result-name">
+            <div class="result-top">
 
-                ${escapeHtml(name)}
+                <div class="result-name">
+
+                    ${escapeHtml(name)}
+
+                </div>
+
+                <div
+                    class="like-indicator"
+                    id="like-indicator-${index}"
+                >
+                    🤍
+                </div>
 
             </div>
 
@@ -2425,11 +2295,7 @@ function createResultCard(
 
             <p class="result-description">
 
-                ${escapeHtml(
-                    randomItem(
-                        info.descriptions
-                    )
-                )}
+                ${escapeHtml(description)}
 
             </p>
 
@@ -2447,82 +2313,66 @@ function createResultCard(
 
             <div class="result-actions">
 
-
                 <button
                     type="button"
-                    class="result-action like-button ${isLiked ? "liked" : ""}"
-                    data-action="like"
+                    class="action-button save-button"
+                    data-name="${escapeHtml(name)}"
+                    data-generator="fantasy"
+                    data-style="${escapeHtml(style)}"
+                    onclick="toggleSave(this)"
                 >
 
-                    ${isLiked
-                        ? "❤️ Liked"
-                        : "🤍 Like"}
+                    🔖 Save
 
                 </button>
 
 
                 <button
                     type="button"
-                    class="result-action save-button ${isSaved ? "saved" : ""}"
-                    data-action="save"
+                    class="action-button like-button"
+                    data-name="${escapeHtml(name)}"
+                    data-generator="fantasy"
+                    data-style="${escapeHtml(style)}"
+                    onclick="toggleLike(this)"
                 >
 
-                    ${isSaved
-                        ? "✓ Saved"
-                        : "💾 Save"}
+                    🤍 Like
 
                 </button>
 
 
                 <button
                     type="button"
-                    class="result-action note-button"
-                    data-action="note"
+                    class="action-button note"
+                    data-name="${escapeHtml(name)}"
+                    data-generator="fantasy"
+                    data-style="${escapeHtml(style)}"
+                    onclick="addNote(this)"
                 >
 
-                    📝 Note
+                    📝 Add note
 
                 </button>
-
-
-                <button
-                    type="button"
-                    class="result-action copy-button"
-                    data-action="copy"
-                >
-
-                    📋 Copy
-
-                </button>
-
 
             </div>
+
+
+            <button
+                type="button"
+                class="copy"
+                data-name="${escapeHtml(name)}"
+                onclick="copyNameFromButton(this)"
+            >
+
+                📋 Copy name
+
+            </button>
 
 
             <div
-                class="note-area ${note ? "visible" : ""}"
-            >
-
-                <textarea
-                    class="note-editor"
-                    placeholder="Write a private note about this name..."
-                >${escapeHtml(note)}</textarea>
-
-
-                <button
-                    type="button"
-                    class="note-save"
-                    data-action="save-note"
-                >
-
-                    📝 Save note
-
-                </button>
-
-
-                <div class="note-status"></div>
-
-            </div>
+                class="note-status"
+                id="note-status-${index}"
+            ></div>
 
 
         </article>
@@ -2533,248 +2383,47 @@ function createResultCard(
 
 
 /* =========================================================
-   RENDER RESULTS
+   FIND CARD DATA
 ========================================================= */
 
-function renderResults(
-    names,
-    style
-){
+function getButtonData(button){
 
-    const results =
-        document.getElementById(
-            "results"
-        );
+    return {
 
+        name:
+            button.dataset.name,
 
-    if(!results){
+        generator:
+            button.dataset.generator || "fantasy",
 
-        console.error(
-            "NameForge error: #results was not found."
-        );
+        style:
+            button.dataset.style || ""
 
-        return;
-
-    }
-
-
-    if(!names.length){
-
-        results.innerHTML = `
-
-            <div
-                style="
-                    grid-column:1/-1;
-                    text-align:center;
-                    padding:40px;
-                    color:#9ba7bd;
-                "
-            >
-
-                ⚠️ No names could be generated.
-                Please try again.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    results.innerHTML =
-        names
-            .map(
-                name =>
-                    createResultCard(
-                        name,
-                        style
-                    )
-            )
-            .join("");
+    };
 
 }
 
 
 /* =========================================================
-   GENERATE
+   TOGGLE SAVE
 ========================================================= */
 
-function generate(){
+function toggleSave(button){
 
-    const styleElement =
-        document.getElementById(
-            "style"
+    const data =
+        getButtonData(button);
+
+
+    const currentlySaved =
+        isNameSaved(
+            data.name
         );
 
 
-    const lengthElement =
-        document.getElementById(
-            "length"
-        );
+    if(currentlySaved){
 
-
-    if(
-        !styleElement ||
-        !lengthElement
-    ){
-
-        console.error(
-            "NameForge error: generator controls not found."
-        );
-
-        return;
-
-    }
-
-
-    const style =
-        styleElement.value;
-
-
-    const length =
-        lengthElement.value;
-
-
-    if(!nameParts[style]){
-
-        console.error(
-            "NameForge error: unknown style:",
-            style
-        );
-
-        return;
-
-    }
-
-
-    const names =
-        generateNames(
-            style,
-            length,
-            9
-        );
-
-
-    renderResults(
-        names,
-        style
-    );
-
-}
-
-
-/* =========================================================
-   GET RESULT CARD
-========================================================= */
-
-function getResultCard(button){
-
-    return button.closest(
-        ".result"
-    );
-
-}
-
-
-/* =========================================================
-   HANDLE LIKE
-========================================================= */
-
-function handleLike(button){
-
-    const card =
-        getResultCard(button);
-
-
-    if(!card){
-
-        return;
-
-    }
-
-
-    const name =
-        card.dataset.name;
-
-
-    const style =
-        document.getElementById(
-            "style"
-        ).value;
-
-
-    const result =
-        likeName(
-            name,
-            "fantasy",
-            style
-        );
-
-
-    const liked =
-        result
-            ? result.liked === true
-            : false;
-
-
-    button.textContent =
-        liked
-            ? "❤️ Liked"
-            : "🤍 Like";
-
-
-    button.classList.toggle(
-        "liked",
-        liked
-    );
-
-}
-
-
-/* =========================================================
-   HANDLE SAVE
-========================================================= */
-
-function handleSave(button){
-
-    const card =
-        getResultCard(button);
-
-
-    if(!card){
-
-        return;
-
-    }
-
-
-    const name =
-        card.dataset.name;
-
-
-    const style =
-        document.getElementById(
-            "style"
-        ).value;
-
-
-    const saved =
-        isNameSaved(name);
-
-
-    if(saved){
-
-        unsaveName(name);
-
-
-        button.textContent =
-            "💾 Save";
-
-
-        button.classList.remove(
-            "saved"
+        unsaveName(
+            data.name
         );
 
     }
@@ -2782,218 +2431,280 @@ function handleSave(button){
     else{
 
         saveName(
-            name,
-            "fantasy",
-            style
-        );
-
-
-        button.textContent =
-            "✓ Saved";
-
-
-        button.classList.add(
-            "saved"
+            data.name,
+            data.generator,
+            data.style
         );
 
     }
+
+
+    refreshResultStates();
 
 }
 
 
 /* =========================================================
-   HANDLE NOTE TOGGLE
+   TOGGLE LIKE
 ========================================================= */
 
-function handleNote(button){
+function toggleLike(button){
 
-    const card =
-        getResultCard(button);
-
-
-    if(!card){
-
-        return;
-
-    }
+    const data =
+        getButtonData(button);
 
 
-    const noteArea =
-        card.querySelector(
-            ".note-area"
-        );
-
-
-    const textarea =
-        card.querySelector(
-            ".note-editor"
-        );
-
-
-    if(!noteArea){
-
-        return;
-
-    }
-
-
-    const visible =
-        noteArea.classList.contains(
-            "visible"
-        );
-
-
-    noteArea.classList.toggle(
-        "visible",
-        !visible
+    likeName(
+        data.name,
+        data.generator,
+        data.style
     );
 
 
-    if(!visible && textarea){
-
-        setTimeout(
-            () => textarea.focus(),
-            50
-        );
-
-    }
+    refreshResultStates();
 
 }
 
 
 /* =========================================================
-   HANDLE SAVE NOTE
+   ADD / EDIT NOTE
 ========================================================= */
 
-function handleSaveNote(button){
+function addNote(button){
 
-    const card =
-        getResultCard(button);
+    const data =
+        getButtonData(button);
 
 
-    if(!card){
+    const existing =
+        findSavedName(
+            data.name
+        );
+
+
+    const currentNote =
+        existing &&
+        existing.note
+            ? existing.note
+            : "";
+
+
+    const note =
+        prompt(
+            "Write a private note for \"" +
+            data.name +
+            "\":",
+            currentNote
+        );
+
+
+    /*
+     * Cancel means do nothing.
+     */
+
+    if(note === null){
 
         return;
 
     }
 
 
-    const name =
-        card.dataset.name;
+    updateNameNote(
+        data.name,
+        note
+    );
 
 
-    const textarea =
-        card.querySelector(
-            ".note-editor"
-        );
-
-
-    const status =
-        card.querySelector(
-            ".note-status"
-        );
-
-
-    if(!textarea){
-
-        return;
-
-    }
-
-
-    const success =
-        updateNameNote(
-            name,
-            textarea.value
-        );
-
-
-    if(success && status){
-
-        status.textContent =
-            "✓ Note saved";
-
-
-        setTimeout(
-            () => {
-
-                if(
-                    document.body.contains(
-                        status
-                    )
-                ){
-
-                    status.textContent = "";
-
-                }
-
-            },
-            1500
-        );
-
-    }
+    refreshResultStates();
 
 }
 
 
 /* =========================================================
-   HANDLE COPY
+   REFRESH BUTTON STATES
 ========================================================= */
 
-async function handleCopy(button){
+function refreshResultStates(){
 
-    const card =
-        getResultCard(button);
+    document
+        .querySelectorAll(".result")
+        .forEach(card => {
+
+            const name =
+                card.dataset.name;
 
 
-    if(!card){
+            const saveButton =
+                card.querySelector(
+                    ".save-button"
+                );
 
-        return;
 
-    }
+            const likeButton =
+                card.querySelector(
+                    ".like-button"
+                );
 
+
+            const noteButton =
+                card.querySelector(
+                    ".note"
+                );
+
+
+            const likeIndicator =
+                card.querySelector(
+                    ".like-indicator"
+                );
+
+
+            const noteStatus =
+                card.querySelector(
+                    ".note-status"
+                );
+
+
+            const saved =
+                isNameSaved(name);
+
+
+            const liked =
+                isNameLiked(name);
+
+
+            const entry =
+                findSavedName(name);
+
+
+            const hasNote =
+                !!(
+                    entry &&
+                    entry.note &&
+                    entry.note.trim() !== ""
+                );
+
+
+            /* SAVE */
+
+            if(saved){
+
+                saveButton.classList.add(
+                    "saved"
+                );
+
+                saveButton.textContent =
+                    "✅ Saved";
+
+            }
+
+            else{
+
+                saveButton.classList.remove(
+                    "saved"
+                );
+
+                saveButton.textContent =
+                    "🔖 Save";
+
+            }
+
+
+            /* LIKE */
+
+            if(liked){
+
+                likeButton.classList.add(
+                    "liked"
+                );
+
+                likeButton.textContent =
+                    "❤️ Liked";
+
+                likeIndicator.textContent =
+                    "❤️";
+
+            }
+
+            else{
+
+                likeButton.classList.remove(
+                    "liked"
+                );
+
+                likeButton.textContent =
+                    "🤍 Like";
+
+                likeIndicator.textContent =
+                    "🤍";
+
+            }
+
+
+            /* NOTE */
+
+            if(hasNote){
+
+                noteButton.classList.add(
+                    "has-note"
+                );
+
+                noteButton.textContent =
+                    "📝 Edit note";
+
+                noteStatus.textContent =
+                    "📝 This name has a private note.";
+
+            }
+
+            else{
+
+                noteButton.classList.remove(
+                    "has-note"
+                );
+
+                noteButton.textContent =
+                    "📝 Add note";
+
+                noteStatus.textContent =
+                    "";
+
+            }
+
+        });
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+async function copyNameFromButton(button){
 
     const name =
-        card.dataset.name;
+        button.dataset.name;
 
 
     try{
 
-        if(
-            navigator.clipboard &&
-            navigator.clipboard.writeText
-        ){
+        await navigator.clipboard.writeText(
+            name
+        );
 
-            await navigator.clipboard.writeText(
-                name
-            );
 
-        }
-
-        else{
-
-            fallbackCopy(name);
-
-        }
+        const original =
+            button.textContent;
 
 
         button.textContent =
-            "✓ Copied";
+            "✅ Copied!";
 
 
         setTimeout(
             () => {
 
-                if(
-                    document.body.contains(
-                        button
-                    )
-                ){
-
-                    button.textContent =
-                        "📋 Copy";
-
-                }
+                button.textContent =
+                    original;
 
             },
             1200
@@ -3003,35 +2714,14 @@ async function handleCopy(button){
 
     catch(error){
 
-        console.error(
-            "NameForge copy error:",
-            error
-        );
+        /*
+         * Fallback for browsers where
+         * clipboard access is unavailable.
+         */
 
-
-        fallbackCopy(name);
-
-
-        button.textContent =
-            "✓ Copied";
-
-
-        setTimeout(
-            () => {
-
-                if(
-                    document.body.contains(
-                        button
-                    )
-                ){
-
-                    button.textContent =
-                        "📋 Copy";
-
-                }
-
-            },
-            1200
+        window.prompt(
+            "Copy this name:",
+            name
         );
 
     }
@@ -3040,124 +2730,19 @@ async function handleCopy(button){
 
 
 /* =========================================================
-   FALLBACK COPY
+   STORAGE SYNCHRONIZATION
 ========================================================= */
 
-function fallbackCopy(text){
-
-    const textarea =
-        document.createElement(
-            "textarea"
-        );
-
-
-    textarea.value =
-        text;
-
-
-    textarea.style.position =
-        "fixed";
-
-
-    textarea.style.left =
-        "-9999px";
-
-
-    document.body.appendChild(
-        textarea
-    );
-
-
-    textarea.focus();
-
-    textarea.select();
-
-
-    try{
-
-        document.execCommand(
-            "copy"
-        );
-
-    }
-
-    catch(error){
-
-        console.error(
-            "NameForge fallback copy error:",
-            error
-        );
-
-    }
-
-
-    document.body.removeChild(
-        textarea
-    );
-
-}
-
-
-/* =========================================================
-   EVENT DELEGATION
-========================================================= */
-
-document.addEventListener(
-    "click",
+window.addEventListener(
+    "storage",
     event => {
 
-        const button =
-            event.target.closest(
-                "[data-action]"
-            );
+        if(
+            event.key ===
+            NAMEFORGE_STORAGE_KEY
+        ){
 
-
-        if(!button){
-
-            return;
-
-        }
-
-
-        const action =
-            button.dataset.action;
-
-
-        switch(action){
-
-            case "like":
-
-                handleLike(button);
-
-                break;
-
-
-            case "save":
-
-                handleSave(button);
-
-                break;
-
-
-            case "note":
-
-                handleNote(button);
-
-                break;
-
-
-            case "copy":
-
-                handleCopy(button);
-
-                break;
-
-
-            case "save-note":
-
-                handleSaveNote(button);
-
-                break;
+            refreshResultStates();
 
         }
 
@@ -3166,48 +2751,24 @@ document.addEventListener(
 
 
 /* =========================================================
-   GENERATE BUTTON
+   PAGE VISIBILITY
 ========================================================= */
 
-const generateButton =
-    document.getElementById(
-        "generateButton"
-    );
+document.addEventListener(
+    "visibilitychange",
+    () => {
 
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
 
-if(generateButton){
+            refreshResultStates();
 
-    generateButton.addEventListener(
-        "click",
-        generate
-    );
+        }
 
-}
-
-
-/* =========================================================
-   GENERATE WHEN STYLE OR LENGTH CHANGES
-========================================================= */
-
-const styleSelect =
-    document.getElementById(
-        "style"
-    );
-
-
-const lengthSelect =
-    document.getElementById(
-        "length"
-    );
-
-
-/*
- * We intentionally do NOT generate automatically
- * when changing the selectors.
- *
- * The user can choose the options and then
- * click Generate Names.
- */
+    }
+);
 
 
 /* =========================================================
@@ -3222,4 +2783,3 @@ generate();
 </body>
 
 </html>
-```
