@@ -461,27 +461,95 @@ button{
     padding:65px 0;
 }
 
+/* -------------------------------- */
+/* STYLE DESIGN : SECTION ABOUT */
+/* -------------------------------- */
+
+.about-section {
+    padding: 70px 0;
+}
+
+.about-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.about-header h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+}
+
+.about-header p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.about-card {
+    background: linear-gradient(160deg, rgba(16, 22, 37, 0.9), rgba(11, 17, 30, 0.9));
+    border: 1px solid #1e293b;
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+.about-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    color: #a3b1c6;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
 .content{
     max-width:850px;
-
     margin:auto;
 }
 
 .content h2{
     margin-bottom:14px;
-
     font-size:2rem;
 }
 
 .content h3{
     margin-top:27px;
-
     margin-bottom:8px;
 }
 
 .content p{
     color:var(--muted);
-
     margin-bottom:15px;
 }
 
@@ -563,7 +631,8 @@ footer{
     }
 
     .results,
-    .cards{
+    .cards,
+    .about-grid{
         grid-template-columns:1fr;
     }
 
@@ -716,6 +785,66 @@ wizard names instantly.
 🔮 Mystic Sorcerer
 </option>
 
+<option value="necromancer">
+💀 Necromancer
+</option>
+
+<option value="pyromancer">
+💥 Pyromancer
+</option>
+
+<option value="chronomancer">
+⏳ Chronomancer
+</option>
+
+<option value="druidic">
+🌿 Druidic Wizard
+</option>
+
+<option value="celestial">
+🌟 Celestial Astromancer
+</option>
+
+<option value="shadow">
+🗡️ Shadow Weaver
+</option>
+
+<option value="runic">
+ᚠ Runic Enchanter
+</option>
+
+<option value="frost">
+❄️ Frost Wizard
+</option>
+
+<option value="storm">
+⚡ Storm Summoner
+</option>
+
+<option value="alchemy">
+🧪 Alchemist Wizard
+</option>
+
+<option value="illusionist">
+🎭 Illusionist
+</option>
+
+<option value="blood">
+🩸 Blood Mage
+</option>
+
+<option value="void">
+🌀 Void Sorcerer
+</option>
+
+<option value="fey">
+🦋 Fey Wild Wizard
+</option>
+
+<option value="divine">
+☀️ Divine Cleric
+</option>
+
 </select>
 
 
@@ -759,79 +888,103 @@ Long
 </section>
 
 
-<!-- INFORMATION -->
+<!-- INFORMATION DESIGN PRO -->
 
-<section class="section">
+<section class="about-section container">
 
-<div class="content">
+<div class="about-header">
 
 <h2>
-What is a wizard name generator?
+What is a Wizard Name Generator?
 </h2>
 
 <p>
 
-A wizard name generator creates fictional
-names for magical characters such as wizards,
-mages, sorcerers and spellcasters.
+An intelligent creative engine designed to craft authentic, lore-friendly identities for fantasy spellcasters, mages, and mythical heroes across all storytelling mediums.
 
 </p>
 
-<p>
+</div>
 
-These names can be useful for fantasy stories,
-RPG campaigns, games, novels and fictional
-worlds.
 
-</p>
+<div class="about-grid">
 
+
+<div class="about-card">
+
+<div class="about-icon">
+📜
+</div>
 
 <h3>
-✨ Arcane Wizards
+Algorithmic Lore Building
 </h3>
 
 <p>
 
-Names inspired by ancient magic, mystical
-knowledge and powerful spellcasters.
+Our generator combines ancient linguistic roots, arcane prefixes, and thematic suffixes to forge names that sound natural, memorable, and rooted in high-fantasy mythology.
 
 </p>
 
+</div>
+
+
+<div class="about-card">
+
+<div class="about-icon">
+🎲
+</div>
 
 <h3>
-🌑 Dark Wizards
+Tailored for TTRPG & Gaming
 </h3>
 
 <p>
 
-Names suited to mysterious spellcasters,
-shadow mages and dark fantasy characters.
+Whether you are building a Dungeons & Dragons archmage, an MMORPG main character, or an indie game NPC, get immersive names matched with combat roles and character archetypes.
 
 </p>
 
+</div>
+
+
+<div class="about-card">
+
+<div class="about-icon">
+✒️
+</div>
 
 <h3>
-🔥 Elemental Mages
+Essential Tool for Authors
 </h3>
 
 <p>
 
-Names inspired by fire, ice, storms, earth
-and other magical elements.
+Overcome writer's block instantly. Discover distinctive character names for fantasy novels, web fiction, and world-building projects with consistent tone and narrative depth.
 
 </p>
 
+</div>
+
+
+<div class="about-card">
+
+<div class="about-icon">
+✨
+</div>
 
 <h3>
-📜 Ancient Wizards
+20+ Specialized Archetypes
 </h3>
 
 <p>
 
-Names designed for legendary sorcerers,
-ancient sages and forgotten magical masters.
+From shadowy Necromancers and celestial Astromancers to ancient Chronomancers, seamlessly filter names by magic schools, power levels, and syllable lengths.
 
 </p>
+
+</div>
+
 
 </div>
 
@@ -1146,88 +1299,108 @@ stories, games, RPGs and fictional worlds.
 const nameParts = {
 
 arcane: {
-
-    first: [
-        "Astra","Eldor","Arcan","Valen","Zyra","Elion","Cael","Orin",
-        "Auren","Velar","Lorien","Sylas","Neris","Alaric","Eryndor",
-        "Vaelis","Theron","Aelion","Mirel","Cyran","Elandor","Oryn"
-    ],
-
-    second: [
-        "ion","ius","ar","iel","or","en","is","ael","eth","or",
-        "wyn","aris","ion","eus","an","iel","os","ir"
-    ]
-
+    first: ["Astra","Eldor","Arcan","Valen","Zyra","Elion","Cael","Orin","Auren","Velar","Lorien","Sylas","Neris","Alaric","Eryndor","Vaelis","Theron","Aelion","Mirel","Cyran","Elandor","Oryn"],
+    second: ["ion","ius","ar","iel","or","en","is","ael","eth","wyn","aris","eus","an","os","ir"]
 },
 
 dark: {
-
-    first: [
-        "Mor","Mal","Varyn","Nox","Zar","Vor","Draven","Nyx","Kael",
-        "Rav","Vhal","Darth","Noct","Zareth","Malric","Veyr","Grim",
-        "Abyss","Velkor","Draz","Korv","Neroth"
-    ],
-
-    second: [
-        "ath","or","is","ak","eth","ar","on","yr","us","ek",
-        "oth","ael","en","ir","ax","os","ul","an"
-    ]
-
+    first: ["Mor","Mal","Varyn","Nox","Zar","Vor","Draven","Nyx","Kael","Rav","Vhal","Darth","Noct","Zareth","Malric","Veyr","Grim","Abyss","Velkor","Draz","Korv","Neroth"],
+    second: ["ath","or","is","ak","eth","ar","on","yr","us","ek","oth","ael","en","ir","ax","os","ul","an"]
 },
 
 elemental: {
-
-    first: [
-        "Ignis","Pyra","Frost","Storm","Ember","Volt","Terra","Aqua",
-        "Zephyr","Flare","Blaze","Thund","Ash","Crystal","Tempest",
-        "Infer","Glacius","Solar","Lumen","Torr","Cinder","Aeris"
-    ],
-
-    second: [
-        "ion","ar","is","os","ael","or","en","ius","eth","an",
-        "on","iel","aris","eus","or","ax","ir","um"
-    ]
-
+    first: ["Ignis","Pyra","Frost","Storm","Ember","Volt","Terra","Aqua","Zephyr","Flare","Blaze","Thund","Ash","Crystal","Tempest","Infer","Glacius","Solar","Lumen","Torr","Cinder","Aeris"],
+    second: ["ion","ar","is","os","ael","or","en","ius","eth","an","on","iel","aris","eus","ax","ir","um"]
 },
 
 ancient: {
-
-    first: [
-        "Eldar","Aethel","Thal","Ozym","Amon","Eldrin","Vaelor","Arkan",
-        "Seraph","Orphe","Myth","Aurel","Tharos","Erevan","Solon",
-        "Eldros","Calder","Valdor","Eryx","Aether","Thalion","Orren"
-    ],
-
-    second: [
-        "ius","or","ion","iel","an","eth","eus","ar","is","os",
-        "ael","on","ir","wyn","en","oth","aris","iel"
-    ]
-
+    first: ["Eldar","Aethel","Thal","Ozym","Amon","Eldrin","Vaelor","Arkan","Seraph","Orphe","Myth","Aurel","Tharos","Erevan","Solon","Eldros","Calder","Valdor","Eryx","Aether","Thalion","Orren"],
+    second: ["ius","or","ion","iel","an","eth","eus","ar","is","os","ael","on","ir","wyn","en","oth","aris"]
 },
 
 royal: {
-
-    first: [
-        "Aurel","Valerian","Alaric","Cassian","Lucian","Elias","Leander",
-        "Aldren","Cedric","Theron","Evander","Darian","Caelan","Adrian",
-        "Orlan","Magnus","Arion","Edrin","Valen","Lorian","Aeron","Cyril"
-    ],
-
-    second: [
-        "ius","ian","or","iel","en","ar","eus","ion","ael","is",
-        "an","wyn","eth","on","aris","el","or","ian"
-    ]
-
+    first: ["Aurel","Valerian","Alaric","Cassian","Lucian","Elias","Leander","Aldren","Cedric","Theron","Evander","Darian","Caelan","Adrian","Orlan","Magnus","Arion","Edrin","Valen","Lorian","Aeron","Cyril"],
+    second: ["ius","ian","or","iel","en","ar","eus","ion","ael","is","an","wyn","eth","on","aris","el"]
 },
 
 mystic: {
+    first: ["Luna","Myst","Eira","Nym","Seren","Mira","Elara","Nyra","Astra","Selene","Runa","Veya","Isolde","Elys","Mora","Lyra","Aeris","Neris","Sylva","Elaria","Vesper","Oria"],
+    second: ["ia","iel","ara","is","yn","ora","ael","ira","eth","elle","aris","una","en","a"]
+},
 
-    first: [
-        "Luna","Myst","Eira","Nym","Seren","Mira","Elara","Nyra",
-        "Astra","Selene","Runa","Veya","Isolde","Elys","Mora","Lyra",
-        "Aeris","Neris","Sylva","Elaria","Vesper","Oria"
-    ]
+necromancer: {
+    first: ["Mort","Marrow","Corpse","Oss","Graves","Deth","Necro","Skell","Blight","Vile","Crypt","Bone","Gloom","Than","Rot","Lich","Dread","Karr","Doom","Vault"],
+    second: ["is","us","or","ath","os","arn","ek","ax","oth","um","ar","eth","is"]
+},
 
+pyromancer: {
+    first: ["Ignis","Pyro","Blaze","Cinder","Infern","Vulcan","Ash","Flame","Scorch","Embr","Sol","Char","Brim","Fyr","Sear","Combust","Kilm","Ember"],
+    second: ["us","is","or","on","ax","ium","os","ar","eth","iel","a"]
+},
+
+chronomancer: {
+    first: ["Chrono","Tempus","Aeon","Tick","Sands","Era","Paradox","Hour","Flux","Krono","Aetern","Tock","Moment","Sieve","Shift","Past","Futur"],
+    second: ["os","is","us","or","ion","ael","eth","ar","ix"]
+},
+
+druidic: {
+    first: ["Sylvan","Oak","Bark","Moss","Fern","Thorn","Leaf","Wild","Verd","Rowan","Glen","Root","Branch","Bramble","Flora","Meadow","Timber"],
+    second: ["us","is","or","en","ael","ia","wyn","or","an"]
+},
+
+celestial: {
+    first: ["Astro","Stella","Cosmo","Nova","Nebula","Solar","Orion","Lyra","Zenith","Sirius","Comet","Eclips","Vega","Astral","Lumina","Aether"],
+    second: ["is","us","or","ia","iel","on","os","aris","a"]
+},
+
+shadow: {
+    first: ["Umbra","Shadow","Shade","Gloom","Dusk","Midnight","Obscur","Night","Veil","Murk","Phantom","Void","Creep","Eclipse","Silent"],
+    second: ["is","or","ath","os","eth","ar","us","en","ir"]
+},
+
+runic: {
+    first: ["Rune","Glyph","Sigil","Mark","Scribe","Ward","Bound","Arc","Etch","Symbol","Spell","Script","Cast","Knot","Craft"],
+    second: ["or","is","us","oth","ar","eth","en","on","ic"]
+},
+
+frost: {
+    first: ["Frost","Rime","Glacier","Ice","Chill","Hoar","Boreal","Winter","Shard","Sleet","Hail","Zero","Crystal","Frigid","Freeze"],
+    second: ["is","us","or","on","ax","eth","ia","ar","os"]
+},
+
+storm: {
+    first: ["Gale","Volt","Tempest","Thunder","Storm","Blitz","Surge","Flash","Bolt","Cloud","Gust","Cyclone","Fulgar","Shock","Zephyr"],
+    second: ["us","is","or","on","ax","iel","ar","os"]
+},
+
+alchemy: {
+    first: ["Alchem","Brew","Elixir","Vial","Mix","Pharm","Distill","Transm","Essence","Tinct","Tox","Potion","Solv","React","Flux"],
+    second: ["is","us","or","on","ix","um","eth","ar"]
+},
+
+illusionist: {
+    first: ["Mirage","Phantom","Trick","Shimmer","Veil","Echo","Dream","Mask","Fable","Glamour","Vapour","Feint","Sprite","Vision","Phantasm"],
+    second: ["is","us","or","ia","iel","os","eth","a"]
+},
+
+blood: {
+    first: ["Sanguin","Blood","Gore","Crimson","Vein","Hem","Pulse","Scarlet","Ruby","Carn","Ichor","Fluid","Bleed","Vita"],
+    second: ["is","us","or","ath","oth","ax","eth","en"]
+},
+
+void: {
+    first: ["Void","Null","Abyss","Zero","Gap","Rift","Ruin","Chasm","Naught","Blank","Hollow","Vortex","Obliv","End"],
+    second: ["is","us","or","ath","os","oth","ax","eth"]
+},
+
+fey: {
+    first: ["Fey","Sylvan","Pixie","Flora","Bloom","Glimmer","Sprite","Whisper","Petal","Meadow","Wild","Breeze","Faun","Dream"],
+    second: ["ia","iel","ara","wyn","ora","a","elle","is"]
+},
+
+divine: {
+    first: ["Holy","Sanct","Radiant","Grace","Sol","Halo","Devot","Bless","Praise","Pure","Light","Aura","Seraph","Zeal"],
+    second: ["us","is","or","ia","iel","on","os","a"]
 }
 
 };
@@ -1240,99 +1413,219 @@ mystic: {
 const styleInfo = {
 
 arcane: {
-
     label: "Arcane Mage",
-
     descriptions: [
         "An energetic name that fits a determined protagonist on a great adventure.",
         "A scholarly wizard name filled with the atmosphere of ancient arcane knowledge.",
         "A powerful magical name suited to a master of spells and forbidden knowledge.",
         "A refined wizard name with the feeling of an experienced arcane scholar."
     ],
-
-    bestFor:
-        "Protagonists, adventurers and legendary fighters"
-
+    bestFor: "Protagonists, adventurers and legendary fighters"
 },
 
 dark: {
-
     label: "Dark Wizard",
-
     descriptions: [
         "A sinister wizard name suited to a mysterious master of forbidden magic.",
         "A dark magical name with an ominous and powerful atmosphere.",
         "A mysterious name for a spellcaster who walks the path of shadow magic.",
         "A threatening wizard name with the feeling of ancient forbidden power."
     ],
-
-    bestFor:
-        "Villains, dark lords and shadow casters"
-
+    bestFor: "Villains, dark lords and shadow casters"
 },
 
 elemental: {
-
     label: "Elemental Mage",
-
     descriptions: [
         "A powerful mage name inspired by elemental forces such as fire, ice and storms.",
         "A magical name suited to a spellcaster who commands the forces of nature.",
         "An energetic name with the feeling of elemental power and raw magic.",
         "A fantasy mage name inspired by fire, storms, earth and other elements."
     ],
-
-    bestFor:
-        "Elementals, pyromancers and storm callers"
-
+    bestFor: "Elementals, pyromancers and storm callers"
 },
 
 ancient: {
-
     label: "Ancient Wizard",
-
     descriptions: [
         "An ancient-sounding wizard name that feels connected to forgotten magical civilizations.",
         "A legendary name suited to an immortal sage or forgotten master of magic.",
         "A mysterious name with the atmosphere of an old and powerful magical tradition.",
         "A grand wizard name that sounds as though it belongs to an ancient legend."
     ],
-
-    bestFor:
-        "Ancient sages, immortal archmages and loremasters"
-
+    bestFor: "Ancient sages, immortal archmages and loremasters"
 },
 
 royal: {
-
     label: "Royal Wizard",
-
     descriptions: [
         "An elegant wizard name suited to a powerful mage serving a royal court.",
         "A noble magical name with the atmosphere of royalty and high fantasy.",
         "A refined name for a wizard born into nobility or serving a magical kingdom.",
         "A prestigious wizard name that combines magical power with royal elegance."
     ],
-
-    bestFor:
-        "Court mages, noble advisors and royal sorcerers"
-
+    bestFor: "Court mages, noble advisors and royal sorcerers"
 },
 
 mystic: {
-
     label: "Mystic Sorcerer",
-
     descriptions: [
         "A mysterious magical name suited to a seer, mystic or wandering sorcerer.",
         "An enigmatic name with an otherworldly and mystical atmosphere.",
         "A magical name for a character connected to visions, spirits and hidden knowledge.",
         "A mysterious sorcerer name that feels connected to ancient supernatural forces."
     ],
+    bestFor: "Seers, fortune tellers and spiritualists"
+},
 
-    bestFor:
-        "Seers, fortune tellers and spiritualists"
+necromancer: {
+    label: "Necromancer",
+    descriptions: [
+        "A chilling name suited for a master of the dead and dark forbidden rituals.",
+        "An ominous title fitting a bone weaver or commander of undead legions.",
+        "A dark spellcaster name steeped in crypts, bone magic, and shadows."
+    ],
+    bestFor: "Necromancers, bone mages and undead lords"
+},
 
+pyromancer: {
+    label: "Pyromancer",
+    descriptions: [
+        "A fiery name that bursts with raw heat, flames, and fiery destruction.",
+        "A blazing title suited to an explosive wizard of infernal flames.",
+        "An fiery magic user name forged in volcanic fires and searing blazes."
+    ],
+    bestFor: "Pyromancers, fire weavers and flame archmages"
+},
+
+chronomancer: {
+    label: "Chronomancer",
+    descriptions: [
+        "A temporal wizard name capable of shifting time and altering history.",
+        "A mysterious name for a caster who controls timelines and time sands.",
+        "A rare name fitting a guardian of past, present, and future."
+    ],
+    bestFor: "Time weavers, chronomancers and temporal sages"
+},
+
+druidic: {
+    label: "Druidic Wizard",
+    descriptions: [
+        "A nature-infused name tied to ancient forests, roots, and wild spirits.",
+        "An earthy name fitting a guardian of nature and wild shapeshifters.",
+        "A serene yet powerful name connected to old grove magic."
+    ],
+    bestFor: "Druids, wilderness guardians and forest sages"
+},
+
+celestial: {
+    label: "Celestial Astromancer",
+    descriptions: [
+        "A star-forged name echoing with cosmic energies and stellar magic.",
+        "An otherworldly title fitting a reader of stars and constellations.",
+        "A radiant wizard name inspired by galaxies, nebulae, and starlight."
+    ],
+    bestFor: "Astromancers, star weavers and cosmic mages"
+},
+
+shadow: {
+    label: "Shadow Weaver",
+    descriptions: [
+        "A stealthy wizard name that moves unnoticed in deep gloom.",
+        "A dark name fitting an assassin sorcerer or shadow manipulator.",
+        "A mysterious spellcaster name shrouded in twilight and veil magic."
+    ],
+    bestFor: "Shadow mages, night casters and rogues"
+},
+
+runic: {
+    label: "Runic Enchanter",
+    descriptions: [
+        "An ancient symbol caster name that binds magical runes into artifacts.",
+        "A sturdy title fitting a dwarf runesmith or arcana engraver.",
+        "A name grounded in glyphs, protective wards, and runic power."
+    ],
+    bestFor: "Runesmiths, enchanters and ward masters"
+},
+
+frost: {
+    label: "Frost Wizard",
+    descriptions: [
+        "A chilling name evoking icy blizzards, glaciers, and frozen peaks.",
+        "A cool and calculating title for a master of cryomancy.",
+        "An icy spellcaster name that freezes foes in their tracks."
+    ],
+    bestFor: "Cryomancers, ice mages and winter sorcerers"
+},
+
+storm: {
+    label: "Storm Summoner",
+    descriptions: [
+        "A thunderous name crackling with lightning and tempestuous winds.",
+        "An intense name fitting a caster who commands stormclouds and bolts.",
+        "A high-energy wizard name echoing with rolling thunder."
+    ],
+    bestFor: "Storm mages, lightning casters and sky lords"
+},
+
+alchemy: {
+    label: "Alchemist Wizard",
+    descriptions: [
+        "A scholarly name steeped in potions, transmutation, and elixirs.",
+        "A clever title fitting a scientist-wizard who brews dangerous mixtures.",
+        "A name inspired by chemical reactions, phials, and arcane alchemy."
+    ],
+    bestFor: "Alchemists, potion masters and transmuters"
+},
+
+illusionist: {
+    label: "Illusionist",
+    descriptions: [
+        "A tricky name suited to a master of phantasms, mirages, and tricks.",
+        "An elusive title fitting a caster who bends perception and reality.",
+        "A mysterious name for an enigmatic performer of mind magic."
+    ],
+    bestFor: "Illusionists, tricksters and mind mages"
+},
+
+blood: {
+    label: "Blood Mage",
+    descriptions: [
+        "A taboo name reserved for casters who use vital life force for power.",
+        "A dark and intense title fitting a hemomancer or crimson wizard.",
+        "A dangerous spellcaster name bound by blood seals and sacrifice."
+    ],
+    bestFor: "Hemomancers, blood mages and dark ritualists"
+},
+
+void: {
+    label: "Void Sorcerer",
+    descriptions: [
+        "A vacant and abyssal name from beyond the realm of reality.",
+        "A terrifying title fitting a caster who summons dark vacuums.",
+        "An eerie name for an archmage who commands pure nonexistence."
+    ],
+    bestFor: "Void mages, abyssal casters and reality-warpers"
+},
+
+fey: {
+    label: "Fey Wild Wizard",
+    descriptions: [
+        "An enchanting name filled with woodland trickery and fairy magic.",
+        "A whimsical title fitting a wizard blessed by the Fey Realm.",
+        "A lighthearted yet dangerous name tied to nature spirits."
+    ],
+    bestFor: "Fey casters, wild sorcerers and pixie friends"
+},
+
+divine: {
+    label: "Divine Cleric",
+    descriptions: [
+        "A holy name radiating golden light, healing, and divine judgment.",
+        "A sacred title fitting a holy priest, paladin, or celestial servant.",
+        "A blessed name echoing with prayers and righteous power."
+    ],
+    bestFor: "Clerics, paladins and holy light mages"
 }
 
 };
@@ -1472,7 +1765,7 @@ function generate(){
 
 
     const info =
-        styleInfo[style];
+        styleInfo[style] || styleInfo.arcane;
 
 
     document.getElementById("results").innerHTML =
