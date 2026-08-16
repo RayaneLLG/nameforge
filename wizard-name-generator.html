@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,12 +24,13 @@
 
 :root{
     --bg:#070912;
-    --panel:#101827;
-    --border:#29354d;
+    --panel:#0d1322;
+    --border:#1e293b;
     --text:#f5f7ff;
-    --muted:#9ba7bd;
+    --muted:#8e9bb0;
     --purple:#8b5cf6;
     --blue:#06b6d4;
+    --pink:#ec4899;
 }
 
 *{
@@ -292,67 +292,169 @@ button{
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:13px;
+    gap:16px;
 
-    margin-top:18px;
+    margin-top:20px;
 }
 
+/* -------------------------------- */
+/* STYLE CARTE DESIGN (IMAGE MAQUETTE) */
+/* -------------------------------- */
+
 .result{
-    padding:20px;
+    padding:24px 20px 20px;
 
-    border:1px solid var(--border);
-    border-radius:15px;
+    border:1px solid #1a2333;
+    border-radius:18px;
 
-    background:#101625;
+    background:#0b111e;
 
     text-align:center;
 
     transition:.2s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .result:hover{
-    transform:translateY(-3px);
+    border-color: rgba(139,92,246,.4);
+}
 
-    border-color:
-        rgba(139,92,246,.55);
+.result-header{
+    margin-bottom:12px;
 }
 
 .result-name{
-    font-size:1.15rem;
-
-    font-weight:950;
-
-    word-break:break-word;
+    font-size:1.6rem;
+    font-weight:900;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
 }
 
-
-/* -------------------------------- */
-/* DESCRIPTION DES NOMS */
-/* -------------------------------- */
+.class-tag{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--pink);
+    font-weight: 800;
+    font-size: 0.95rem;
+}
 
 .result-description{
-    margin-top:8px;
-
-    color:var(--muted);
-
-    font-size:.88rem;
-
-    line-height:1.45;
-
-    min-height:58px;
+    margin: 14px 0 10px;
+    color:#a3b1c6;
+    font-size:.95rem;
+    line-height:1.4;
+    min-height:50px;
 }
 
+.best-for{
+    color: #728096;
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
 
-/* -------------------------------- */
-/* BOUTON COPY */
-/* -------------------------------- */
+.best-for strong {
+    color: #a0aec0;
+}
 
+/* GRILLE BOUTONS ACTION */
+.action-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.action-btn{
+    padding: 10px 14px;
+    background: #121927;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.action-btn:hover{
+    background: #182234;
+    border-color: #2e3d54;
+}
+
+/* SECTION RATE & NOTE */
+.rating-note-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 0 4px;
+}
+
+.rate-box{
+    text-align: left;
+}
+
+.rate-box label{
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.stars{
+    display: flex;
+    gap: 4px;
+    color: #334155;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.stars span:hover,
+.stars span:hover ~ span {
+    color: #475569;
+}
+
+.note-btn{
+    padding: 8px 16px;
+    background: #121927;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.note-btn:hover{
+    background: #182234;
+    border-color: #2e3d54;
+}
+
+/* BOUTON COPY DE PLEINE LARGEUR */
 .copy{
-    margin-top:12px;
-
     width:100%;
+    padding: 12px;
+    background:#121927;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
 
-    background:#182236;
+.copy:hover{
+    background: #182234;
+    border-color: #2e3d54;
 }
 
 .section{
@@ -1124,11 +1226,6 @@ mystic: {
         "Luna","Myst","Eira","Nym","Seren","Mira","Elara","Nyra",
         "Astra","Selene","Runa","Veya","Isolde","Elys","Mora","Lyra",
         "Aeris","Neris","Sylva","Elaria","Vesper","Oria"
-    ],
-
-    second: [
-        "ia","iel","ara","is","yn","ora","ael","ira","eth","ia",
-        "elle","aris","una","iel","ora","en","a","is"
     ]
 
 }
@@ -1144,19 +1241,23 @@ const styleInfo = {
 
 arcane: {
 
+    label: "Arcane Mage",
+
     descriptions: [
+        "An energetic name that fits a determined protagonist on a great adventure.",
         "A scholarly wizard name filled with the atmosphere of ancient arcane knowledge.",
         "A powerful magical name suited to a master of spells and forbidden knowledge.",
-        "A refined wizard name with the feeling of an experienced arcane scholar.",
-        "A mystical name that sounds like it belongs to a legendary spellcaster."
+        "A refined wizard name with the feeling of an experienced arcane scholar."
     ],
 
     bestFor:
-        "Fantasy RPGs • Magic academies • Spellcasters"
+        "Protagonists, adventurers and legendary fighters"
 
 },
 
 dark: {
+
+    label: "Dark Wizard",
 
     descriptions: [
         "A sinister wizard name suited to a mysterious master of forbidden magic.",
@@ -1166,11 +1267,13 @@ dark: {
     ],
 
     bestFor:
-        "Dark fantasy • Villains • Forbidden magic"
+        "Villains, dark lords and shadow casters"
 
 },
 
 elemental: {
+
+    label: "Elemental Mage",
 
     descriptions: [
         "A powerful mage name inspired by elemental forces such as fire, ice and storms.",
@@ -1180,11 +1283,13 @@ elemental: {
     ],
 
     bestFor:
-        "Elemental magic • RPGs • Fantasy adventures"
+        "Elementals, pyromancers and storm callers"
 
 },
 
 ancient: {
+
+    label: "Ancient Wizard",
 
     descriptions: [
         "An ancient-sounding wizard name that feels connected to forgotten magical civilizations.",
@@ -1194,11 +1299,13 @@ ancient: {
     ],
 
     bestFor:
-        "Ancient lore • Sages • Legendary wizards"
+        "Ancient sages, immortal archmages and loremasters"
 
 },
 
 royal: {
+
+    label: "Royal Wizard",
 
     descriptions: [
         "An elegant wizard name suited to a powerful mage serving a royal court.",
@@ -1208,11 +1315,13 @@ royal: {
     ],
 
     bestFor:
-        "Royal courts • High fantasy • Noble characters"
+        "Court mages, noble advisors and royal sorcerers"
 
 },
 
 mystic: {
+
+    label: "Mystic Sorcerer",
 
     descriptions: [
         "A mysterious magical name suited to a seer, mystic or wandering sorcerer.",
@@ -1222,7 +1331,7 @@ mystic: {
     ],
 
     bestFor:
-        "Mystics • Sorcerers • Magical mysteries"
+        "Seers, fortune tellers and spiritualists"
 
 }
 
@@ -1250,13 +1359,13 @@ function randomItem(array){
 
 function makeName(style, length){
 
-    const parts = nameParts[style];
+    const parts = nameParts[style] || nameParts.arcane;
 
     let first =
         randomItem(parts.first);
 
     let second =
-        randomItem(parts.second);
+        parts.second ? randomItem(parts.second) : "is";
 
     let name;
 
@@ -1305,7 +1414,7 @@ function makeName(style, length){
     else{
 
         const third =
-            randomItem(parts.second);
+            parts.second ? randomItem(parts.second) : "or";
 
         name =
             first +
@@ -1372,26 +1481,40 @@ function generate(){
 
             <div class="result">
 
-                <div class="result-name">
-                    ${name}
+                <div class="result-header">
+                    <div class="result-name">${name}</div>
+                    <div class="class-tag">
+                        ⚔️ ${info.label || 'Hero'}
+                    </div>
                 </div>
 
                 <p class="result-description">
-                    ${randomItem(
-                        info.descriptions
-                    )}
+                    ${randomItem(info.descriptions)}
                 </p>
 
-                <div
-                    style="
-                        margin-top:10px;
-                        color:#a78bfa;
-                        font-size:.78rem;
-                        font-weight:800;
-                    "
-                >
-                    Best for:
-                    ${info.bestFor}
+                <div class="best-for">
+                    <strong>Best for:</strong> ${info.bestFor}
+                </div>
+
+                <div class="action-grid">
+                    <button class="action-btn">
+                        🔖 Save
+                    </button>
+                    <button class="action-btn">
+                        ❤️ Like
+                    </button>
+                </div>
+
+                <div class="rating-note-row">
+                    <div class="rate-box">
+                        <label>Rate:</label>
+                        <div class="stars">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                    </div>
+                    <button class="note-btn">
+                        + Note
+                    </button>
                 </div>
 
                 <button
@@ -1448,4 +1571,3 @@ generate();
 </body>
 
 </html>
-```
