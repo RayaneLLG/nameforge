@@ -1,95 +1,399 @@
-<!-- FAQ SECTION -->
-<section
-    class="section container"
-    id="faq"
->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de Noms de Sorciers & Mages | NameForge</title>
+  <style>
+    :root {
+      --bg-color: #060913;
+      --card-bg: #0b1120;
+      --card-border: #162032;
+      --card-hover-border: rgba(139, 92, 246, 0.4);
+      --text-main: #ffffff;
+      --text-muted: #8e9bb0;
+      --accent-purple: #8b5cf6;
+      --accent-purple-light: #a855f7;
+      --accent-pink: #ec4899;
+      --icon-bg: #151d30;
+      --icon-border: #222e48;
+    }
 
-<div class="content">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<h2 style="text-align: center; margin-bottom: 12px; font-weight: 900; font-size: 2.4rem;">
-Foire aux questions
-</h2>
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
 
-<p style="text-align: center; margin-bottom: 35px; color: var(--muted); font-size: 1.05rem;">
-Tout ce que vous devez savoir sur la génération de noms fantastiques avec NameForge.
-</p>
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
+    .section {
+      margin-bottom: 70px;
+    }
 
-<div class="faq">
+    /* Titles & Subtitles */
+    .section-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
 
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 15px;
+      letter-spacing: -0.02em;
+    }
 
-<details>
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
 
-<summary>
-Le générateur de noms NameForge Wizard est-il entièrement gratuit ?
-</summary>
+    /* Grid Layouts */
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
 
-<p>
-Oui, 100% gratuit. Vous pouvez générer un nombre illimité de noms fantastiques sans inscription, création de compte ou paiement. Tous les noms générés sont libres de droits pour un usage personnel et commercial.
-</p>
+    .grid-3x2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
 
-</details>
+    /* Card Styling */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
 
+    .card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
 
-<details>
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background-color: var(--icon-bg);
+      border: 1px solid var(--icon-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
 
-<summary>
-Puis-je utiliser ces noms pour des livres, des jeux ou des jeux de rôle commerciaux ?
-</summary>
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
 
-<p>
-Absolument. Tous les noms produits par notre générateur sont créés algorithmiquement et sont exempts de droits d'auteur. Vous pouvez les utiliser librement pour vos romans, jeux vidéo, campagnes de JDR (D&D, Pathfinder) et projets de création d'univers.
-</p>
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-</details>
+    /* FAQ Styling */
+    .faq-list {
+      max-width: 850px;
+      margin: 0 auto;
+    }
 
+    .faq-item {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
 
-<details>
+    .faq-item[open] {
+      border-color: var(--card-hover-border);
+    }
 
-<summary>
-Comment le générateur de noms crée-t-il des noms fantastiques authentiques ?
-</summary>
+    .faq-summary {
+      padding: 22px 28px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-<p>
-Notre générateur s'appuie sur des structures linguistiques issues de mythologies anciennes et des conventions de la littérature fantasy. En associant des préfixes thématiques à des suffixes spécialisés, il produit des noms fluides, mémorables et immersifs.
-</p>
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
 
-</details>
+    .faq-summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--accent-purple-light);
+      margin-left: 15px;
+    }
 
+    .faq-item[open] .faq-summary::after {
+      content: "✕";
+      color: var(--accent-pink);
+    }
 
-<details>
+    .faq-content {
+      padding: 0 28px 24px 28px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
 
-<summary>
-Comment filtrer les noms par longueur ou par style magique ?
-</summary>
+    /* Navigation Bottom Button */
+    .nav-bottom {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
 
-<p>
-Utilisez le panneau de contrôle en haut de la page. Choisissez parmi les différents styles (Mage arcanique, Nécromancier, Pyromancier, etc.) et sélectionnez la longueur souhaitée (Court, Moyen, Long) avant de cliquer sur "Générer les noms".
-</p>
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--accent-purple-light);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
 
-</details>
+    .back-btn:hover {
+      background-color: #121a2e;
+      border-color: var(--accent-purple);
+      color: #c084fc;
+      transform: translateY(-1px);
+    }
 
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .grid-3x2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-</div>
+    @media (max-width: 650px) {
+      .grid-2x2, .grid-3x2 {
+        grid-template-columns: 1fr;
+      }
+      .section-header h2 {
+        font-size: 1.75rem;
+      }
+      .card {
+        padding: 24px;
+      }
+      .faq-summary {
+        padding: 18px 20px;
+        font-size: 1rem;
+      }
+      .faq-content {
+        padding: 0 20px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
 
-</div>
+  <div class="container">
 
-</section>
+    <!-- SECTION 1: QU'EST-CE QU'UN GÉNÉRATEUR DE NOMS DE SORCIERS ? -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Qu'est-ce qu'un générateur de noms de sorciers ?</h2>
+        <p>
+          Un moteur créatif intelligent conçu pour créer des identités authentiques et fidèles à l'univers pour les lanceurs de sorts, les mages et les héros mythiques de la fantasy, et ce, dans tous les supports narratifs.
+        </p>
+      </div>
 
+      <div class="grid-2x2">
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <h3>Construction algorithmique du savoir</h3>
+          <p>
+            Notre générateur combine des racines linguistiques anciennes, des préfixes ésotériques et des suffixes thématiques pour forger des noms qui sonnent naturels, sont mémorables et ancrés dans la mythologie de la fantasy.
+          </p>
+        </div>
 
-<!-- NAVIGATION BOTTOM -->
+        <div class="card">
+          <div class="card-icon">🎲</div>
+          <h3>Conçu sur mesure pour les jeux de rôle sur table et les jeux de société.</h3>
+          <p>
+            Que vous créiez un archimage pour Donjons et Dragons, un personnage principal pour un MMORPG ou un PNJ pour un jeu indépendant, obtenez des noms immersifs associés à des rôles de combat et à des archétypes de personnages.
+          </p>
+        </div>
 
-<section class="section container" style="padding-top: 10px; padding-bottom: 50px;">
+        <div class="card">
+          <div class="card-icon">✒️</div>
+          <h3>Outil indispensable pour les auteurs</h3>
+          <p>
+            Surmontez instantanément le syndrome de la page blanche. Trouvez des noms de personnages originaux pour vos romans fantastiques, vos webfictions et vos projets de création d'univers, en assurant une cohérence de ton et une profondeur narrative optimale.
+          </p>
+        </div>
 
-<div class="navigation-bottom" style="text-align: center;">
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h3>Plus de 20 archétypes spécialisés</h3>
+          <p>
+            Des nécromanciens ténébreux aux astromanciens célestes en passant par les chronomanciens antiques, filtrez facilement les noms par écoles de magie, niveaux de puissance et longueur des syllabes.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<a
-    href="all-name-generators.html"
-    class="back-link"
->
-← Tous les générateurs de noms
-</a>
+    <!-- SECTION 2: LES 6 STYLES DE SORCIERS LES PLUS POPULAIRES -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Les 6 styles de sorciers les plus populaires</h2>
+        <p>
+          Découvrez les archétypes de lanceurs de sorts les plus recherchés par les écrivains, les joueurs et les créateurs d'univers du monde entier.
+        </p>
+      </div>
 
-</div>
+      <div class="grid-3x2">
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h3>Mages arcaniques</h3>
+          <p>
+            L'archétype intemporel de la fantasy épique. Idéal pour les lanceurs de sorts érudits, les archimages et les maîtres des arts mystiques anciens.
+          </p>
+        </div>
 
-</section>
+        <div class="card">
+          <div class="card-icon">🔮</div>
+          <h3>Mages noirs</h3>
+          <p>
+            Des noms mystérieux et dangereux pour des sorciers manipulant la magie de l'ombre, les malédictions interdites et les pouvoirs obscurs et inquiétants.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔥</div>
+          <h3>Sorciers élémentaires</h3>
+          <p>
+            Des identités à haute énergie conçues pour les lanceurs de sorts maîtrisant les forces brutes de la nature : le feu, la glace, les tempêtes et la terre.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💀</div>
+          <h3>Nécromanciens</h3>
+          <p>
+            Des titres glaçants conçus pour les tisseurs d'os, les adeptes de rituels obscurs et les commandants des morts-vivants et des cryptes oubliées.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💥</div>
+          <h3>Pyromanciens</h3>
+          <p>
+            Des noms flamboyants et explosifs, parfaits pour des mages de bataille agressifs maniant des flammes destructrices, du soufre et des brasiers volcaniques.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌟</div>
+          <h3>Astromanciens Célestes</h3>
+          <p>
+            Des noms rayonnants et éthérés, inspirés par l'énergie cosmique, la lumière des étoiles, les nébuleuses et l'ancienne divination stellaire.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FOIRE AUX QUESTIONS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Foire aux questions</h2>
+        <p>
+          Tout ce que vous devez savoir sur la génération de noms fantastiques avec NameForge.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-summary">
+            Le générateur de noms NameForge Wizard est-il entièrement gratuit ?
+          </summary>
+          <div class="faq-content">
+            Oui, 100% gratuit. Vous pouvez générer un nombre illimité de noms fantastiques sans inscription, création de compte ou paiement. Tous les noms générés sont libres de droits pour un usage personnel et commercial.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            Puis-je utiliser ces noms pour des livres, des jeux ou des jeux de rôle commerciaux ?
+          </summary>
+          <div class="faq-content">
+            Absolument. Tous les noms produits par notre générateur sont créés algorithmiquement et sont exempts de droits d'auteur. Vous pouvez les utiliser librement pour vos romans, jeux vidéo, campagnes de JDR (D&D, Pathfinder) et projets de création d'univers.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            Comment le générateur de noms crée-t-il des noms fantastiques authentiques ?
+          </summary>
+          <div class="faq-content">
+            Notre générateur s'appuie sur des structures linguistiques issues de mythologies anciennes et des conventions de la littérature fantasy. En associant des préfixes thématiques à des suffixes spécialisés, il produit des noms fluides, mémorables et immersifs.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            Comment filtrer les noms par longueur ou par style magique ?
+          </summary>
+          <div class="faq-content">
+            Utilisez le panneau de contrôle en haut de la page. Choisissez parmi les différents styles (Mage arcanique, Nécromancier, Pyromancier, etc.) et sélectionnez la longueur souhaitée (Court, Moyen, Long) avant de cliquer sur "Générer les noms".
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- BOTTOM NAVIGATION BUTTON -->
+    <div class="nav-bottom">
+      <a href="#" class="back-btn">
+        ← Tous les générateurs de noms
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
