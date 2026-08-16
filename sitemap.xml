@@ -2,59 +2,93 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/</loc>
-    </url>
+```
+<!-- =========================================
+     NAMEFORGE — MAIN PAGES
+========================================== -->
 
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/all-name-generators.html</loc>
-    </url>
-
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/fantasy-name-generator.html</loc>
-    </url>
-
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/rpg-name-generator.html</loc>
-    </url>
-
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/anime-name-generator.html</loc>
-    </url>
-
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/gaming-name-generator.html</loc>
-    </url>
-
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/kingdom-name-generator.html</loc>
-    </url>
-
-    <url>
-        <loc>https://rayanellg.github.io/nameforge/dragon-name-generator.html</loc>
-    </url>
 <url>
-<loc>https://rayanellg.github.io/nameforge/dragon-name-generator.html</loc>
+    <loc>https://rayanellg.github.io/nameforge/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
 </url>
 
 <url>
-<loc>https://rayanellg.github.io/nameforge/wizard-name-generator.html</loc>
+    <loc>https://rayanellg.github.io/nameforge/all-name-generators.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+
+<!-- =========================================
+     NAMEFORGE — NAME GENERATORS
+========================================== -->
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/fantasy-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
 </url>
 
 <url>
-<loc>https://rayanellg.github.io/nameforge/elf-name-generator.html</loc>
+    <loc>https://rayanellg.github.io/nameforge/elf-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
 </url>
 
 <url>
-<loc>https://rayanellg.github.io/nameforge/warrior-name-generator.html</loc>
+    <loc>https://rayanellg.github.io/nameforge/dragon-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
 </url>
 
 <url>
-<loc>https://rayanellg.github.io/nameforge/vampire-name-generator.html</loc>
+    <loc>https://rayanellg.github.io/nameforge/kingdom-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
 </url>
 
 <url>
-<loc>https://rayanellg.github.io/nameforge/sci-fi-name-generator.html</loc>
+    <loc>https://rayanellg.github.io/nameforge/anime-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
 </url>
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/vampire-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/wizard-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/warrior-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/sci-fi-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/gaming-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<url>
+    <loc>https://rayanellg.github.io/nameforge/rpg-name-generator.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+```
 
 </urlset>
