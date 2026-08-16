@@ -22,10 +22,6 @@
 
 <style>
 
-/* =========================================
-   ROOT
-========================================= */
-
 :root{
 
     --bg:#070912;
@@ -42,27 +38,19 @@
 
 }
 
-
-/* =========================================
-   RESET
-========================================= */
-
 *{
 
     box-sizing:border-box;
-
     margin:0;
     padding:0;
 
 }
-
 
 html{
 
     scroll-behavior:smooth;
 
 }
-
 
 body{
 
@@ -97,7 +85,6 @@ body{
 
 }
 
-
 button,
 input,
 textarea{
@@ -105,11 +92,6 @@ textarea{
     font:inherit;
 
 }
-
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .container{
 
@@ -127,9 +109,7 @@ textarea{
 header{
 
     position:sticky;
-
     top:0;
-
     z-index:10;
 
     background:
@@ -142,7 +122,6 @@ header{
 
 }
 
-
 nav{
 
     min-height:68px;
@@ -154,11 +133,6 @@ nav{
     justify-content:space-between;
 
 }
-
-
-/* =========================================
-   LOGO
-========================================= */
 
 .logo{
 
@@ -178,11 +152,9 @@ nav{
 
 }
 
-
 .logo-icon{
 
     width:38px;
-
     height:38px;
 
     display:grid;
@@ -192,7 +164,6 @@ nav{
     border-radius:11px;
 
     background:
-
         linear-gradient(
             135deg,
             var(--red),
@@ -201,19 +172,12 @@ nav{
 
 }
 
-
-/* =========================================
-   NAVIGATION
-========================================= */
-
 .nav-links{
 
     display:flex;
-
     gap:18px;
 
 }
-
 
 .nav-links a{
 
@@ -224,7 +188,6 @@ nav{
     font-weight:800;
 
 }
-
 
 .nav-links a:hover{
 
@@ -244,7 +207,6 @@ nav{
     padding:70px 0 35px;
 
 }
-
 
 .badge{
 
@@ -266,7 +228,6 @@ nav{
 
 }
 
-
 h1{
 
     margin:18px auto 12px;
@@ -280,13 +241,11 @@ h1{
 
 }
 
-
 .gradient{
 
     color:transparent;
 
     background:
-
         linear-gradient(
             90deg,
             #fff,
@@ -299,7 +258,6 @@ h1{
     -webkit-background-clip:text;
 
 }
-
 
 .hero p{
 
@@ -329,7 +287,6 @@ h1{
 
 }
 
-
 .stat{
 
     padding:20px;
@@ -344,7 +301,6 @@ h1{
 
 }
 
-
 .stat-number{
 
     font-size:1.8rem;
@@ -352,7 +308,6 @@ h1{
     font-weight:950;
 
 }
-
 
 .stat-label{
 
@@ -385,7 +340,6 @@ h1{
 
 }
 
-
 .search{
 
     width:100%;
@@ -404,14 +358,12 @@ h1{
 
 }
 
-
 .search:focus{
 
     border-color:
         rgba(139,92,246,.7);
 
 }
-
 
 .filters{
 
@@ -424,7 +376,6 @@ h1{
     flex-wrap:wrap;
 
 }
-
 
 .filter{
 
@@ -444,13 +395,11 @@ h1{
 
 }
 
-
 .filter:hover{
 
     color:white;
 
 }
-
 
 .filter.active{
 
@@ -505,7 +454,6 @@ h1{
 
 }
 
-
 .name-card:hover{
 
     transform:translateY(-3px);
@@ -514,7 +462,6 @@ h1{
         rgba(139,92,246,.5);
 
 }
-
 
 .name-top{
 
@@ -528,7 +475,6 @@ h1{
 
 }
 
-
 .name{
 
     font-size:1.25rem;
@@ -539,13 +485,15 @@ h1{
 
 }
 
+.status-icons{
 
-.like-status{
+    display:flex;
 
-    font-size:1.1rem;
+    gap:5px;
+
+    font-size:1.05rem;
 
 }
-
 
 .meta{
 
@@ -558,20 +506,15 @@ h1{
 }
 
 
+/* =========================================
+   NOTE
+========================================= */
+
 .note-box{
 
     margin-top:14px;
 
-    padding:12px;
-
-    border-radius:10px;
-
-    background:#090e1a;
-
-    border:1px solid rgba(255,255,255,.05);
-
 }
-
 
 .note-label{
 
@@ -584,20 +527,6 @@ h1{
     margin-bottom:5px;
 
 }
-
-
-.note-text{
-
-    color:#cbd5e1;
-
-    font-size:.87rem;
-
-    white-space:pre-wrap;
-
-    word-break:break-word;
-
-}
-
 
 .note-editor{
 
@@ -620,7 +549,6 @@ h1{
     outline:none;
 
 }
-
 
 .note-editor:focus{
 
@@ -647,7 +575,6 @@ h1{
 
 }
 
-
 .card-button{
 
     padding:10px;
@@ -666,13 +593,31 @@ h1{
 
 }
 
-
 .card-button:hover{
 
     background:#202d45;
 
 }
 
+.card-button.liked{
+
+    border-color:#ef4444;
+
+    background:rgba(239,68,68,.15);
+
+    color:#fca5a5;
+
+}
+
+.card-button.saved{
+
+    border-color:#8b5cf6;
+
+    background:rgba(139,92,246,.15);
+
+    color:#c4b5fd;
+
+}
 
 .delete-button:hover{
 
@@ -685,7 +630,7 @@ h1{
 
 
 /* =========================================
-   EMPTY STATE
+   EMPTY
 ========================================= */
 
 .empty{
@@ -704,7 +649,6 @@ h1{
 
 }
 
-
 .empty-icon{
 
     font-size:3rem;
@@ -713,13 +657,11 @@ h1{
 
 }
 
-
 .empty h2{
 
     margin-bottom:8px;
 
 }
-
 
 .empty p{
 
@@ -730,7 +672,6 @@ h1{
     margin:auto;
 
 }
-
 
 .empty-button{
 
@@ -760,7 +701,7 @@ h1{
 
 
 /* =========================================
-   DANGER ZONE
+   DANGER
 ========================================= */
 
 .danger-zone{
@@ -779,7 +720,6 @@ h1{
 
 }
 
-
 .clear-button{
 
     padding:10px 14px;
@@ -797,7 +737,6 @@ h1{
     font-weight:800;
 
 }
-
 
 .clear-button:hover{
 
@@ -841,7 +780,6 @@ footer{
 
 }
 
-
 @media(max-width:600px){
 
     .nav-links{
@@ -850,20 +788,17 @@ footer{
 
     }
 
-
     .stats{
 
         grid-template-columns:1fr;
 
     }
 
-
     .names-grid{
 
         grid-template-columns:1fr;
 
     }
-
 
     .hero{
 
@@ -881,14 +816,9 @@ footer{
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
-
 <header>
 
 <nav class="container">
-
 
 <a
     href="index.html"
@@ -920,22 +850,15 @@ Generators
 
 </div>
 
-
 </nav>
 
 </header>
 
 
-
 <main class="container">
 
 
-<!-- =========================================
-     HERO
-========================================= -->
-
 <section class="hero">
-
 
 <span class="badge">
 ❤️ YOUR PERSONAL NAME COLLECTION
@@ -960,14 +883,8 @@ are stored locally in this browser.
 
 </p>
 
-
 </section>
 
-
-
-<!-- =========================================
-     STATS
-========================================= -->
 
 <section class="stats">
 
@@ -1019,14 +936,8 @@ Total Names
 
 </div>
 
-
 </section>
 
-
-
-<!-- =========================================
-     TOOLBAR
-========================================= -->
 
 <section class="toolbar">
 
@@ -1053,6 +964,15 @@ All
 
 <button
     class="filter"
+    data-filter="saved"
+    onclick="setFilter('saved')"
+>
+💾 Saved
+</button>
+
+
+<button
+    class="filter"
     data-filter="liked"
     onclick="setFilter('liked')"
 >
@@ -1071,38 +991,24 @@ All
 
 </div>
 
-
 </section>
 
 
-
-<!-- =========================================
-     NAMES
-========================================= -->
-
 <section>
-
 
 <div
     id="namesGrid"
     class="names-grid"
 ></div>
 
-
 </section>
 
-
-
-<!-- =========================================
-     DANGER ZONE
-========================================= -->
 
 <section
     id="dangerZone"
     class="danger-zone"
     style="display:none;"
 >
-
 
 <button
     class="clear-button"
@@ -1113,17 +1019,11 @@ All
 
 </button>
 
-
 </section>
 
 
 </main>
 
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
 
 <footer>
 
@@ -1146,13 +1046,7 @@ Your personal collection of generated names.
 </footer>
 
 
-
-<!-- =========================================
-     STORAGE
-========================================= -->
-
 <script src="js/nameforge-storage.js"></script>
-
 
 
 <script>
@@ -1193,33 +1087,20 @@ function safeId(value){
 
 
 /* =========================================
-   GENERATOR NAME
+   GENERATOR LABEL
 ========================================= */
 
 function getGeneratorLabel(generator){
 
     const labels = {
 
-        dragon:
-            "🐲 Dragon",
-
-        fantasy:
-            "🐉 Fantasy",
-
-        rpg:
-            "🎲 RPG",
-
-        anime:
-            "✨ Anime",
-
-        gaming:
-            "🎮 Gaming",
-
-        kingdom:
-            "🏰 Kingdom",
-
-        wizard:
-            "🧙 Wizard"
+        dragon:"🐲 Dragon",
+        fantasy:"🐉 Fantasy",
+        rpg:"🎲 RPG",
+        anime:"✨ Anime",
+        gaming:"🎮 Gaming",
+        kingdom:"🏰 Kingdom",
+        wizard:"🧙 Wizard"
 
     };
 
@@ -1270,7 +1151,7 @@ document
 
 
 /* =========================================
-   GET FILTERED NAMES
+   GET FILTERED
 ========================================= */
 
 function getFilteredNames(){
@@ -1285,6 +1166,16 @@ function getFilteredNames(){
 
     let names =
         getSavedNames();
+
+
+    if(currentFilter === "saved"){
+
+        names =
+            names.filter(
+                item => item.saved === true
+            );
+
+    }
 
 
     if(currentFilter === "liked"){
@@ -1367,8 +1258,6 @@ function renderNames(){
         getSavedNames();
 
 
-    /* STATS */
-
     document.getElementById(
         "totalCount"
     ).textContent =
@@ -1393,8 +1282,6 @@ function renderNames(){
         ).length;
 
 
-    /* DANGER ZONE */
-
     document.getElementById(
         "dangerZone"
     ).style.display =
@@ -1402,8 +1289,6 @@ function renderNames(){
             ? "block"
             : "none";
 
-
-    /* FILTERED */
 
     const names =
         getFilteredNames();
@@ -1422,9 +1307,11 @@ function renderNames(){
             <div class="empty">
 
                 <div class="empty-icon">
+
                     ${allNames.length
                         ? "🔎"
                         : "❤️"}
+
                 </div>
 
 
@@ -1440,16 +1327,13 @@ function renderNames(){
                 <p>
 
                     ${allNames.length
-
                         ? "Try another search or filter."
-
                         : "Generate a name and save or like it to see it here."}
 
                 </p>
 
 
                 ${!allNames.length
-
                     ? `
 
                         <a
@@ -1462,7 +1346,6 @@ function renderNames(){
                         </a>
 
                     `
-
                     : ""}
 
             </div>
@@ -1475,9 +1358,10 @@ function renderNames(){
     }
 
 
-    grid.innerHTML = names
-        .map(renderCard)
-        .join("");
+    grid.innerHTML =
+        names
+            .map(renderCard)
+            .join("");
 
 }
 
@@ -1489,7 +1373,9 @@ function renderNames(){
 function renderCard(item){
 
     const id =
-        safeId(item.id || item.name);
+        safeId(
+            item.id || item.name
+        );
 
 
     const note =
@@ -1497,9 +1383,7 @@ function renderCard(item){
 
 
     const style =
-        item.style
-            ? item.style
-            : "";
+        item.style || "";
 
 
     return `
@@ -1520,17 +1404,20 @@ function renderCard(item){
                 </div>
 
 
-                <div class="like-status">
+                <div class="status-icons">
+
+                    ${item.saved
+                        ? "💾"
+                        : ""}
 
                     ${item.liked
                         ? "❤️"
-                        : "🤍"}
+                        : ""}
 
                 </div>
 
 
             </div>
-
 
 
             <div class="meta">
@@ -1549,9 +1436,7 @@ function renderCard(item){
             </div>
 
 
-
             <div class="note-box">
-
 
                 <div class="note-label">
 
@@ -1566,12 +1451,34 @@ function renderCard(item){
                     placeholder="Write a note about this name..."
                 >${escapeHtml(note)}</textarea>
 
-
             </div>
 
 
-
             <div class="card-actions">
+
+
+                <button
+                    class="card-button ${item.saved ? "saved" : ""}"
+                    onclick="toggleCardSave('${escapeHtml(item.name)}','${escapeHtml(item.generator || "unknown")}','${escapeHtml(item.style || "")}')"
+                >
+
+                    ${item.saved
+                        ? "💾 Saved"
+                        : "💾 Save"}
+
+                </button>
+
+
+                <button
+                    class="card-button ${item.liked ? "liked" : ""}"
+                    onclick="toggleCardLike('${escapeHtml(item.name)}','${escapeHtml(item.generator || "unknown")}','${escapeHtml(item.style || "")}')"
+                >
+
+                    ${item.liked
+                        ? "❤️ Liked"
+                        : "🤍 Like"}
+
+                </button>
 
 
                 <button
@@ -1605,14 +1512,76 @@ function renderCard(item){
 
 
 /* =========================================
-   SAVE CARD NOTE
+   TOGGLE CARD SAVE
 ========================================= */
 
-function saveCardNote(name,id){
+function toggleCardSave(
+    name,
+    generator,
+    style
+){
+
+    const existing =
+        findSavedName(name);
+
+
+    if(existing && existing.saved){
+
+        unsaveName(name);
+
+    }
+
+    else{
+
+        saveName(
+            name,
+            generator,
+            style
+        );
+
+    }
+
+
+    renderNames();
+
+}
+
+
+/* =========================================
+   TOGGLE CARD LIKE
+========================================= */
+
+function toggleCardLike(
+    name,
+    generator,
+    style
+){
+
+    likeName(
+        name,
+        generator,
+        style
+    );
+
+
+    renderNames();
+
+}
+
+
+/* =========================================
+   SAVE NOTE
+========================================= */
+
+function saveCardNote(
+    name,
+    id
+){
 
     const textarea =
         document.getElementById(
-            "note-" + safeId(id || name)
+            "note-" +
+            safeId(id || name)
         );
 
 
@@ -1623,31 +1592,26 @@ function saveCardNote(name,id){
     }
 
 
-    const success =
-        updateNameNote(
-            name,
-            textarea.value
-        );
+    updateNameNote(
+        name,
+        textarea.value
+    );
 
 
-    if(success){
-
-        renderNames();
-
-    }
+    renderNames();
 
 }
 
 
 /* =========================================
-   DELETE NAME
+   DELETE
 ========================================= */
 
 function deleteName(name){
 
     const confirmed =
         confirm(
-            `Delete "${name}" from My Names?`
+            `Delete "${name}" completely from My Names?`
         );
 
 
@@ -1673,7 +1637,7 @@ function clearEverything(){
 
     const confirmed =
         confirm(
-            "Are you sure you want to delete ALL your saved names, likes and notes?"
+            "Are you sure you want to delete ALL your names, likes and notes?"
         );
 
 
@@ -1692,7 +1656,7 @@ function clearEverything(){
 
 
 /* =========================================
-   REFRESH WHEN PAGE BECOMES VISIBLE
+   REFRESH
 ========================================= */
 
 document.addEventListener(
