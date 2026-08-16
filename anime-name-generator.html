@@ -1,129 +1,1296 @@
-display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:13px;
-    margin-top:18px;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Fantasy Name Generator | NameForge</title>
+
+<meta
+    name="description"
+    content="Generate unique fantasy names for elves, dwarves, wizards, dragons, heroes and mythical characters with the free NameForge Fantasy Name Generator."
+>
+
+<meta name="robots" content="index, follow">
+
+<link
+    rel="canonical"
+    href="https://rayanellg.github.io/nameforge/fantasy-name-generator.html"
+>
+
+<style>
+
+/* =========================================================
+   NAMEFORGE — FANTASY GENERATOR
+========================================================= */
+
+:root{
+
+    --bg:#070912;
+
+    --panel:#0d1322;
+    --panel-2:#101827;
+    --panel-3:#0a0f1b;
+
+    --border:#1d293d;
+    --border-hover:#33415b;
+
+    --text:#f7f8ff;
+    --muted:#8e9bb0;
+    --muted-2:#65738a;
+
+    --purple:#8b5cf6;
+    --purple-light:#c084fc;
+
+    --blue:#06b6d4;
+    --cyan:#67e8f9;
+
+    --pink:#ec4899;
+
+    --green:#22c55e;
+
+    --shadow:
+        0 25px 70px rgba(0,0,0,.38);
+
+    --radius:18px;
 }
 
-.result{
-    padding:20px;
-    border:1px solid var(--border);
-    border-radius:15px;
-    background:#101625;
-    text-align:center;
-    transition:.2s;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-.result:hover{
-    transform:translateY(-3px);
-    border-color:rgba(139,92,246,.5);
+html{
+    scroll-behavior:smooth;
 }
 
-.result-name{
-    font-size:1.25rem;
+body{
+
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 8% 0%,
+            rgba(139,92,246,.16),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 92% 4%,
+            rgba(6,182,212,.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(139,92,246,.035),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    line-height:1.6;
+}
+
+button,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+
+    width:min(1100px,92%);
+
+    margin:auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+        rgba(7,9,18,.88);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.055);
+}
+
+nav{
+
+    min-height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:1.12rem;
+
     font-weight:950;
 }
 
-.copy{
-    margin-top:12px;
-    width:100%;
-    background:#182236;
+.logo-icon{
+
+    width:36px;
+    height:36px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 7px 22px
+        rgba(139,92,246,.22);
 }
 
+.nav-links{
+
+    display:flex;
+
+    gap:20px;
+}
+
+.nav-links a{
+
+    color:var(--muted);
+
+    text-decoration:none;
+
+    font-size:.9rem;
+
+    font-weight:800;
+
+    transition:.2s;
+}
+
+.nav-links a:hover{
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    text-align:center;
+
+    padding:
+        76px 0
+        48px;
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+        7px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:999px;
+
+    background:
+        rgba(13,19,34,.75);
+
+    color:#dbe4f5;
+
+    font-size:.78rem;
+
+    font-weight:850;
+
+    letter-spacing:.2px;
+}
+
+.hero h1{
+
+    max-width:900px;
+
+    margin:
+        20px auto
+        18px;
+
+    font-size:
+        clamp(2.7rem,6vw,5rem);
+
+    line-height:.98;
+
+    letter-spacing:-2.8px;
+}
+
+.gradient{
+
+    color:transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #c084fc,
+            #67e8f9
+        );
+
+    background-clip:text;
+
+    -webkit-background-clip:text;
+}
+
+.hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:1rem;
+}
+
+.hero-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:24px;
+
+    padding:
+        13px 20px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    box-shadow:
+        0 12px 30px
+        rgba(139,92,246,.2);
+
+    transition:.2s;
+}
+
+.hero-button:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 16px 36px
+        rgba(139,92,246,.28);
+}
+
+
+/* =========================================================
+   GENERATOR
+========================================================= */
+
+.generator{
+
+    padding:25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:21px;
+
+    background:
+
+        linear-gradient(
+            155deg,
+            rgba(20,29,47,.96),
+            rgba(10,15,27,.97)
+        );
+
+    box-shadow:
+        var(--shadow);
+}
+
+.generator-header{
+
+    margin-bottom:20px;
+}
+
+.generator-header h2{
+
+    font-size:1.25rem;
+
+    margin-bottom:4px;
+}
+
+.generator-header p{
+
+    color:var(--muted);
+
+    font-size:.88rem;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1.35fr
+        auto;
+
+    gap:11px;
+
+    margin-top:20px;
+}
+
+select{
+
+    width:100%;
+
+    padding:
+        12px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#090e1a;
+
+    color:#fff;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+select:hover,
+select:focus{
+
+    border-color:
+        rgba(139,92,246,.55);
+}
+
+.generate{
+
+    padding:
+        12px 17px;
+
+    border:0;
+
+    border-radius:10px;
+
+    color:white;
+
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    white-space:nowrap;
+
+    transition:.2s;
+}
+
+.generate:hover{
+
+    transform:
+        translateY(-1px);
+
+    filter:
+        brightness(1.08);
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:18px;
+}
+
+
+/* =========================================================
+   RESULT CARD
+========================================================= */
+
+.result{
+
+    padding:
+        23px 17px 16px;
+
+    border:
+        1px solid #1b2638;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #101625,
+            #0b101d
+        );
+
+    text-align:center;
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+
+    min-width:0;
+}
+
+.result:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(139,92,246,.42);
+
+    box-shadow:
+        0 16px 35px
+        rgba(0,0,0,.28);
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.result-name{
+
+    font-size:1.38rem;
+
+    font-weight:950;
+
+    color:#fff;
+
+    letter-spacing:-.4px;
+
+    margin-bottom:7px;
+}
+
+
+/* =========================================================
+   STYLE LABEL
+========================================================= */
+
+.result-style{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:
+        #f43f5e;
+
+    font-size:.78rem;
+
+    font-weight:850;
+
+    margin-bottom:13px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.result-description{
+
+    min-height:67px;
+
+    margin-bottom:12px;
+
+    color:
+        var(--muted);
+
+    font-size:.86rem;
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
+   BEST FOR
+========================================================= */
+
+.best-for{
+
+    min-height:42px;
+
+    margin-bottom:15px;
+
+    color:
+        var(--muted-2);
+
+    font-size:.76rem;
+
+    text-align:left;
+
+    line-height:1.45;
+}
+
+.best-for strong{
+
+    color:#9ba9bd;
+
+    font-weight:850;
+}
+
+
+/* =========================================================
+   SAVE / LIKE
+========================================================= */
+
+.action-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:9px;
+
+    margin-bottom:14px;
+}
+
+.action-btn{
+
+    min-height:39px;
+
+    padding:
+        9px 8px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#0d1526;
+
+    color:white;
+
+    font-size:.77rem;
+
+    font-weight:850;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    transition:.2s;
+}
+
+.action-btn:hover{
+
+    background:#152035;
+
+    border-color:
+        var(--border-hover);
+}
+
+.action-btn.active{
+
+    border-color:
+        rgba(139,92,246,.55);
+
+    background:
+        rgba(139,92,246,.13);
+}
+
+.action-btn.liked{
+
+    border-color:
+        rgba(236,72,153,.55);
+
+    background:
+        rgba(236,72,153,.10);
+}
+
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.rating-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:14px;
+}
+
+.rating-label{
+
+    color:#fff;
+
+    font-size:.76rem;
+
+    font-weight:850;
+
+    text-align:left;
+
+    margin-bottom:4px;
+}
+
+.stars{
+
+    display:flex;
+
+    gap:1px;
+}
+
+.star{
+
+    padding:0 1px;
+
+    border:0;
+
+    background:none;
+
+    color:#334155;
+
+    font-size:.93rem;
+
+    transition:.15s;
+}
+
+.star:hover,
+.star.active{
+
+    color:#fbbf24;
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   PRIVATE NOTE
+========================================================= */
+
+.note-btn{
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#0d1526;
+
+    color:white;
+
+    font-size:.74rem;
+
+    font-weight:850;
+
+    transition:.2s;
+}
+
+.note-btn:hover{
+
+    background:#152035;
+
+    border-color:
+        var(--border-hover);
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.copy{
+
+    width:100%;
+
+    padding:
+        11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#0d1526;
+
+    color:#fff;
+
+    font-size:.8rem;
+
+    font-weight:850;
+
+    transition:.2s;
+}
+
+.copy:hover{
+
+    background:#152035;
+
+    border-color:
+        var(--border-hover);
+}
+
+.copy.copied{
+
+    border-color:
+        rgba(34,197,94,.5);
+
+    color:#86efac;
+}
+
+
+/* =========================================================
+   CONTENT SECTIONS
+========================================================= */
+
 .section{
-    padding:65px 0;
+
+    padding:
+        70px 0;
 }
 
 .content{
+
     max-width:850px;
+
     margin:auto;
 }
 
 .content h2{
+
     margin-bottom:14px;
-    font-size:2rem;
+
+    font-size:
+        clamp(2rem,4vw,2.8rem);
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    text-align:center;
 }
 
-.content h3{
-    margin-top:27px;
-    margin-bottom:8px;
-}
+.content > p{
 
-.content p{
     color:var(--muted);
-    margin-bottom:15px;
+
+    text-align:center;
+
+    line-height:1.7;
 }
+
+
+/* =========================================================
+   INFORMATION CARDS
+========================================================= */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:13px;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:32px;
 }
 
 .card{
-    padding:22px;
-    border:1px solid var(--border);
-    border-radius:15px;
-    background:#101625;
+
+    padding:
+        24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    background:#0b101d;
+
+    transition:.2s;
+}
+
+.card:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(139,92,246,.38);
+}
+
+.card-icon{
+
+    width:44px;
+    height:44px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:
+        1px solid
+        rgba(139,92,246,.3);
+
+    border-radius:12px;
+
+    background:
+        rgba(139,92,246,.1);
+
+    margin-bottom:15px;
+
+    font-size:1.25rem;
 }
 
 .card h3{
-    margin-bottom:7px;
+
+    margin-bottom:8px;
+
+    font-size:1.05rem;
 }
 
 .card p{
-    color:var(--muted);
-    font-size:.9rem;
+
+    color:
+        var(--muted);
+
+    font-size:.84rem;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+
+    max-width:850px;
+
+    margin:
+        30px auto 0;
 }
 
 .faq details{
+
     margin-bottom:10px;
-    padding:17px;
-    border:1px solid var(--border);
+
+    padding:
+        16px 18px;
+
+    border:
+        1px solid var(--border);
+
     border-radius:12px;
-    background:#101625;
+
+    background:#0a0f1d;
 }
 
 .faq summary{
+
     cursor:pointer;
-    font-weight:900;
+
+    font-weight:850;
+
+    color:#fff;
 }
 
 .faq p{
-    margin-top:10px;
+
+    margin-top:11px;
+
     color:var(--muted);
+
+    font-size:.88rem;
+
+    line-height:1.65;
 }
+
+
+/* =========================================================
+   MORE GENERATORS
+========================================================= */
+
+.more-generators{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+}
+
+.more-generators a{
+
+    padding:
+        11px 15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#0b101d;
+
+    color:#c084fc;
+
+    text-decoration:none;
+
+    font-size:.8rem;
+
+    font-weight:850;
+
+    transition:.2s;
+}
+
+.more-generators a:hover{
+
+    border-color:
+        var(--purple);
+
+    color:#fff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-    padding:40px 0;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    padding:
+        42px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.055);
+
     text-align:center;
+
     color:var(--muted);
+
+    font-size:.82rem;
 }
 
-@media(max-width:850px){
+.footer-brand{
+
+    color:#fff;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+
+/* =========================================================
+   MODAL NOTE
+========================================================= */
+
+.note-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:500;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,0,0,.68);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+.note-modal.show{
+
+    display:flex;
+}
+
+.note-box{
+
+    width:min(440px,100%);
+
+    padding:24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:#0d1322;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.5);
+}
+
+.note-box h3{
+
+    margin-bottom:12px;
+}
+
+.note-box textarea{
+
+    width:100%;
+
+    min-height:120px;
+
+    resize:vertical;
+
+    padding:12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:#080d18;
+
+    color:#fff;
+
+    font:inherit;
+}
+
+.note-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:8px;
+
+    margin-top:12px;
+}
+
+.note-actions button{
+
+    padding:
+        10px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#101827;
+
+    color:#fff;
+
+    font-weight:800;
+}
+
+.note-actions .save-note{
+
+    border:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
     .controls{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr 1fr;
     }
+
     .generate{
-        grid-column:span 2;
+
+        grid-column:
+            span 2;
+    }
+
+    .results{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .cards{
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
+
 
 @media(max-width:700px){
+
     .nav-links{
+
         display:none;
     }
+
+    .hero{
+
+        padding-top:50px;
+    }
+
     .controls{
+
         grid-template-columns:1fr;
     }
+
     .generate{
+
         grid-column:span 1;
     }
-    .results, .cards{
+
+    .results,
+    .cards{
+
         grid-template-columns:1fr;
     }
-    .hero{
-        padding-top:50px;
+
+    .generator{
+
+        padding:17px;
+    }
+
+    .result{
+
+        padding:
+            24px 18px 17px;
     }
 }
 
@@ -131,258 +1298,1556 @@ footer{
 
 </head>
 
+
 <body>
 
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
 <header>
-    <nav class="container">
-        <a href="index.html" class="logo">
-            <span class="logo-icon">⚡</span>
-            NameForge
-        </a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#generator">Generator</a>
-            <a href="#guide">Guide</a>
-            <a href="#faq">FAQ</a>
-        </div>
-    </nav>
+
+<nav class="container">
+
+<a href="index.html" class="logo">
+
+<span class="logo-icon">⚡</span>
+
+<span>NameForge</span>
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="#generator">
+Generator
+</a>
+
+<a href="#guide">
+Guide
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+</div>
+
+</nav>
+
 </header>
+
+
 
 <main>
 
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
 <section class="hero container">
-    <span class="badge">✨ FREE FANTASY NAME GENERATOR</span>
-    <h1>Forge Your Next <span class="gradient">Fantasy Legend</span></h1>
-    <p>Generate unique names for wizards, elves, dwarves, dragons, dark lords, and mythical heroes for your novels, tabletop campaigns, and RPG games.</p>
-    <a href="#generator" class="btn">✨ Generate Fantasy Names</a>
+
+<span class="badge">
+✨ FREE FANTASY NAME GENERATOR
+</span>
+
+
+<h1>
+
+Forge Your Next
+
+<span class="gradient">
+Fantasy Legend
+</span>
+
+</h1>
+
+
+<p>
+
+Generate unique fantasy names for elves, dwarves,
+wizards, dragons, dark lords and legendary heroes
+for novels, RPG campaigns, games and worldbuilding.
+
+</p>
+
+
+<a
+    href="#generator"
+    class="hero-button"
+>
+
+⚡ Generate Fantasy Names
+
+</a>
+
 </section>
 
-<section class="container" id="generator">
-    <div class="generator">
-        <h2>✨ Fantasy Character Name Generator</h2>
-        <p>Select your category, gender preference, and length to create custom fantasy names.</p>
 
-        <div class="controls">
-            <select id="style">
-                <option value="elf">Elven</option>
-                <option value="dwarf">Dwarven</option>
-                <option value="wizard">Wizard / Mage</option>
-                <option value="dragon">Dragon</option>
-                <option value="dark">Dark Lord / Necromancer</option>
-                <option value="human">High Fantasy Human</option>
-            </select>
 
-            <select id="gender">
-                <option value="any">Any Gender</option>
-                <option value="masc">Masculine</option>
-                <option value="fem">Feminine</option>
-            </select>
+<!-- ======================================================
+     GENERATOR
+====================================================== -->
 
-            <select id="length">
-                <option value="short">Short</option>
-                <option value="medium" selected>Medium</option>
-                <option value="long">Long</option>
-            </select>
+<section
+    class="container"
+    id="generator"
+>
 
-            <button class="generate" onclick="generate()">✨ Generate Names</button>
-        </div>
+<div class="generator">
 
-        <div id="results" class="results"></div>
-    </div>
+
+<div class="generator-header">
+
+<h2>
+⚔️ Fantasy Character Name Generator
+</h2>
+
+<p>
+Choose a fantasy style, gender and name length.
+</p>
+
+</div>
+
+
+
+<div class="controls">
+
+
+<select id="style">
+
+<option value="elf">
+🧝 Elven
+</option>
+
+<option value="dwarf">
+⛏️ Dwarven
+</option>
+
+<option value="wizard">
+🧙 Wizard / Mage
+</option>
+
+<option value="dragon">
+🐉 Dragon
+</option>
+
+<option value="dark">
+💀 Dark Lord / Necromancer
+</option>
+
+<option value="human">
+👑 High Fantasy Human
+</option>
+
+</select>
+
+
+
+<select id="gender">
+
+<option value="any">
+Any Gender
+</option>
+
+<option value="masc">
+Masculine
+</option>
+
+<option value="fem">
+Feminine
+</option>
+
+</select>
+
+
+
+<select id="length">
+
+<option value="short">
+Short
+</option>
+
+<option
+    value="medium"
+    selected
+>
+Medium
+</option>
+
+<option value="long">
+Long
+</option>
+
+</select>
+
+
+
+<button
+    class="generate"
+    onclick="generate()"
+>
+
+⚡ Generate Names
+
+</button>
+
+
+</div>
+
+
+
+<div
+    id="results"
+    class="results"
+></div>
+
+
+</div>
+
 </section>
 
-<section class="section" id="guide">
-    <div class="content">
-        <h2>How to Choose the Perfect Fantasy Name</h2>
-        <p>A name carries the weight of a character's ancestry, culture, and power. Whether you are building world-building lore or rolling up a new D&D character, picking a fitting name grounds your concept in the fantasy realm.</p>
 
-        <h3>🧝‍♂️ Elven Names</h3>
-        <p>Elven names prioritize fluid, melodic vowels, soft sibilants, and references to nature, starlight, and ancient forests.</p>
 
-        <h3>🧔 Dwarven Names</h3>
-        <p>Dwarven names feature heavy, resonant consonants (K, Th, R, Gr) reflecting stone, iron, subterranean strongholds, and ancestral honor.</p>
+<!-- ======================================================
+     GUIDE
+====================================================== -->
 
-        <h3>🧙‍♂️ Wizard & Mage Names</h3>
-        <p>Mystical names often carry ancient or classical roots, paired with epithets that denote elemental mastery or arcane scholarly achievements.</p>
+<section
+    class="section"
+    id="guide"
+>
 
-        <h3>🐉 Dragon Names</h3>
-        <p>Dragons command powerful, guttural, or sharp names that echo ancient languages, flame, and primordial scale.</p>
-    </div>
+<div class="content">
+
+<h2>
+What is a Fantasy Name Generator?
+</h2>
+
+<p>
+
+🧙 A fantasy name generator is a creative tool
+designed to produce original-sounding names for
+characters, creatures and fictional worlds.
+
+</p>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="card-icon">
+🧝
+</div>
+
+<h3>
+Elven Names
+</h3>
+
+<p>
+Elegant and melodic names inspired by ancient
+forests, magic, stars and mythical civilizations.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+⛏️
+</div>
+
+<h3>
+Dwarven Names
+</h3>
+
+<p>
+Strong names built around hard consonants,
+ancient clans, mountains, stone and forged metal.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+🧙
+</div>
+
+<h3>
+Wizard Names
+</h3>
+
+<p>
+Mystical names suitable for powerful mages,
+scholars, archmages and arcane characters.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+🐉
+</div>
+
+<h3>
+Dragon Names
+</h3>
+
+<p>
+Ancient and powerful names designed for dragons,
+wyrms, drakes and legendary creatures.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+💀
+</div>
+
+<h3>
+Dark Lords
+</h3>
+
+<p>
+Sinister names for necromancers, villains,
+warlords and mysterious dark characters.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+👑
+</div>
+
+<h3>
+Fantasy Humans
+</h3>
+
+<p>
+Noble and heroic names for knights, kings,
+queens, adventurers and legendary warriors.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section container">
-    <div class="content">
-        <h2>Popular Fantasy Archetypes</h2>
-    </div>
 
-    <div class="cards">
-        <div class="card">
-            <h3>🧝 High Elves</h3>
-            <p>Graceful, ancient names infused with celestial harmony.</p>
-        </div>
-        <div class="card">
-            <h3>⛏️ Mountain Dwarves</h3>
-            <p>Stout, formidable names built on forge and clan pride.</p>
-        </div>
-        <div class="card">
-            <h3>🔮 Archmagi</h3>
-            <p>Scholarly titles and archaic sorcerer names.</p>
-        </div>
-        <div class="card">
-            <h3>💀 Shadow Necromancers</h3>
-            <p>Sinister, mysterious names for dark magic users.</p>
-        </div>
-        <div class="card">
-            <h3>🔥 Primordial Dragons</h3>
-            <p>Imposing names for ancient fire-drakes and wyrms.</p>
-        </div>
-        <div class="card">
-            <h3>👑 Noble Knights</h3>
-            <p>High fantasy human names carrying honor and legacy.</p>
-        </div>
-    </div>
+
+<!-- ======================================================
+     FAQ
+====================================================== -->
+
+<section
+    class="section"
+    id="faq"
+>
+
+<div class="content">
+
+<h2>
+Fantasy Name Generator FAQ
+</h2>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+Are these fantasy names free to use?
+</summary>
+
+<p>
+Yes. The names generated by NameForge are intended
+for creative projects such as stories, games,
+RPG campaigns and worldbuilding.
+</p>
+
+</details>
+
+
+
+<details>
+
+<summary>
+Can I use the names for RPG characters?
+</summary>
+
+<p>
+Absolutely. The generator is designed for fantasy
+characters, tabletop RPGs, games and fictional worlds.
+</p>
+
+</details>
+
+
+
+<details>
+
+<summary>
+How does NameForge generate names?
+</summary>
+
+<p>
+NameForge combines different linguistic components
+according to the selected fantasy archetype to create
+large numbers of possible character names.
+</p>
+
+</details>
+
+
+
+<details>
+
+<summary>
+Can I save my favorite names?
+</summary>
+
+<p>
+Yes. Use the Save and Like buttons directly on
+generated names to keep track of your favorite ideas.
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section container" id="faq">
-    <div class="content">
-        <h2>Fantasy Name Generator FAQ</h2>
-        <div class="faq">
-            <details>
-                <summary>Are these fantasy names free to use commercially?</summary>
-                <p>Yes! All generated names are free to use in your published novels, video games, tabletop modules, and projects without attribution.</p>
-            </details>
-            <details>
-                <summary>Are these suitable for D&D (Dungeons & Dragons)?</summary>
-                <p>Absolutely. The categories align closely with standard fantasy races and classes used in modern tabletop RPGs.</p>
-            </details>
-        </div>
-    </div>
+
+
+<!-- ======================================================
+     MORE GENERATORS
+====================================================== -->
+
+<section class="section">
+
+<div class="content">
+
+<h2>
+More Name Generators
+</h2>
+
+<p>
+Explore other NameForge generators.
+</p>
+
+
+<div class="more-generators">
+
+<a href="anime-name-generator.html">
+⚡ Anime Names
+</a>
+
+<a href="rpg-name-generator.html">
+🎲 RPG Names
+</a>
+
+<a href="gaming-name-generator.html">
+🎮 Gaming Names
+</a>
+
+<a href="dragon-name-generator.html">
+🐉 Dragon Names
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section container">
-    <div class="content">
-        <h2>More Generators</h2>
-        <p><a href="index.html">← Main NameForge Generator</a></p>
-        <p><a href="anime-name-generator.html">⚡ Anime Name Generator</a></p>
-        <p><a href="rpg-name-generator.html">🎲 RPG Name Generator</a></p>
-    </div>
-</section>
 
 </main>
 
+
+
+<!-- ======================================================
+     NOTE MODAL
+====================================================== -->
+
+<div
+    id="noteModal"
+    class="note-modal"
+>
+
+<div class="note-box">
+
+<h3>
+📝 Private Note
+</h3>
+
+<textarea
+    id="noteText"
+    placeholder="Add a private note about this name..."
+></textarea>
+
+
+<div class="note-actions">
+
+<button onclick="closeNote()">
+Cancel
+</button>
+
+<button
+    class="save-note"
+    onclick="savePrivateNote()"
+>
+Save Note
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
 <footer>
-    <div class="container">
-        <strong>⚡ NameForge</strong><br><br>
-        Free fantasy name generator for worldbuilding, writing, and tabletop RPGs.<br><br>
-        © 2026 NameForge
-    </div>
+
+<div class="container">
+
+<div class="footer-brand">
+⚡ NameForge
+</div>
+
+Free fantasy name generator for
+worldbuilding, writing and tabletop RPGs.
+
+<br><br>
+
+© 2026 NameForge
+
+</div>
+
 </footer>
+
+
+
+<!-- ======================================================
+     NAMEFORGE STORAGE
+====================================================== -->
+
+<script src="js/nameforge-storage.js"></script>
+
+
 
 <script>
 
+/* =========================================================
+   FANTASY NAME DATA
+========================================================= */
+
 const nameParts = {
-    elf: {
-        start: ["Ael", "Ae", "Cael", "Fael", "Gal", "Ith", "Lal", "Leg", "Lien", "Rael", "Syl", "Thal", "Val", "Yll"],
-        middle: ["a", "ae", "ea", "ia", "i", "o", "ri", "li", "ra", "va"],
-        end: ["don", "dor", "ion", "las", "lith", "mir", "mon", "reth", "ros", "riel", "veth", "wyn"]
+
+    elf:{
+        start:[
+            "Ael","Ae","Cael","Fael","Gal",
+            "Ith","Lal","Lien","Rael","Syl",
+            "Thal","Val","Yll"
+        ],
+
+        middle:[
+            "a","ae","ea","ia","i",
+            "o","ri","li","ra","va"
+        ],
+
+        end:[
+            "don","dor","ion","las","lith",
+            "mir","mon","reth","ros",
+            "riel","veth","wyn"
+        ]
     },
-    dwarf: {
-        start: ["Bori", "Bram", "Dain", "Drak", "Dur", "Gim", "Khar", "Krag", "Morn", "Thar", "Thor", "Tor"],
-        middle: ["a", "o", "u", "gr", "k", "r", "th"],
-        end: ["adin", "bek", "dorn", "grim", "karn", "li", "morn", "ram", "rek", "rum", "strum", "vark"]
+
+
+    dwarf:{
+        start:[
+            "Bori","Bram","Dain","Drak",
+            "Dur","Gim","Khar","Krag",
+            "Morn","Thar","Thor","Tor"
+        ],
+
+        middle:[
+            "a","o","u","gr","k","r","th"
+        ],
+
+        end:[
+            "adin","bek","dorn","grim",
+            "karn","li","morn","ram",
+            "rek","rum","strum","vark"
+        ]
     },
-    wizard: {
-        start: ["Alt", "Ar", "Balth", "Eld", "Ign", "Mal", "Merv", "Or", "Rad", "Sol", "Vaz", "Zeph"],
-        middle: ["a", "e", "i", "o", "u", "za", "ri", "mon"],
-        end: ["azar", "ius", "mancer", "mir", "on", "or", "ous", "us", "vane", "ward"]
+
+
+    wizard:{
+        start:[
+            "Alt","Ar","Balth","Eld",
+            "Ign","Mal","Merv","Or",
+            "Rad","Sol","Vaz","Zeph"
+        ],
+
+        middle:[
+            "a","e","i","o","u",
+            "za","ri","mon"
+        ],
+
+        end:[
+            "azar","ius","mancer","mir",
+            "on","or","ous","us",
+            "vane","ward"
+        ]
     },
-    dragon: {
-        start: ["Anca", "Bal", "Dra", "Ign", "Kal", "Kor", "Maly", "Nef", "Saph", "Verm", "Vyr", "Zul"],
-        middle: ["a", "i", "o", "rax", "roth", "th"],
-        end: ["gor", "ion", "is", "oth", "rax", "reon", "ros", "thor", "viss", "wing"]
+
+
+    dragon:{
+        start:[
+            "Anca","Bal","Dra","Ign",
+            "Kal","Kor","Maly","Nef",
+            "Saph","Verm","Vyr","Zul"
+        ],
+
+        middle:[
+            "a","i","o","rax",
+            "roth","th"
+        ],
+
+        end:[
+            "gor","ion","is","oth",
+            "rax","reon","ros",
+            "thor","viss","wing"
+        ]
     },
-    dark: {
-        start: ["Mal", "Mor", "Vex", "Zul", "Khor", "Drak", "Nek", "Seth", "Grim", "Rav", "Xar"],
-        middle: ["a", "o", "u", "kr", "v", "z"],
-        end: ["gath", "lich", "mord", "moth", "or", "oth", "ras", "rix", "vark", "zar"]
+
+
+    dark:{
+        start:[
+            "Mal","Mor","Vex","Zul",
+            "Khor","Drak","Nek","Seth",
+            "Grim","Rav","Xar"
+        ],
+
+        middle:[
+            "a","o","u","kr","v","z"
+        ],
+
+        end:[
+            "gath","lich","mord","moth",
+            "or","oth","ras","rix",
+            "vark","zar"
+        ]
     },
-    human: {
-        start: ["Ald", "Beric", "Ced", "Ead", "Garr", "Hend", "Just", "Madr", "Roder", "Val"],
-        middle: ["a", "e", "i", "o", "u", "ric", "ren"],
-        end: ["an", "eric", "ford", "gard", "ic", "mon", "mond", "ric", "ton", "vane"]
+
+
+    human:{
+        start:[
+            "Ald","Beric","Ced","Ead",
+            "Garr","Hend","Just","Madr",
+            "Roder","Val"
+        ],
+
+        middle:[
+            "a","e","i","o","u",
+            "ric","ren"
+        ],
+
+        end:[
+            "an","eric","ford","gard",
+            "ic","mon","mond","ric",
+            "ton","vane"
+        ]
     }
+
 };
+
+
+
+/* =========================================================
+   STYLE INFORMATION
+========================================================= */
 
 const styleInfo = {
-    elf: { label: "Elven", icon: "🧝‍♂️", bestFor: "High Elves, Wood Elves, Rangers", descriptions: ["A graceful elven name woven with elemental magic.", "An ancient name passed down through forest realms."] },
-    dwarf: { label: "Dwarven", icon: "🧔", bestFor: "Mountain Dwarves, Blacksmiths, Warriors", descriptions: ["A sturdy dwarven name carrying subterranean pride.", "A forged title respected across mountain halls."] },
-    wizard: { label: "Wizard", icon: "🧙‍♂️", bestFor: "Mages, Scholars, Archmagi", descriptions: ["An arcane name suited to a master of ancient spellcraft.", "A scholarly wizard name steeped in mystery."] },
-    dragon: { label: "Dragon", icon: "🐉", bestFor: "Wyrms, Ancient Beasts, Drake Lords", descriptions: ["A formidable name that strikes awe in mortal hearts.", "An ancient draconic name forged in fire and scale."] },
-    dark: { label: "Dark Lord", icon: "💀", bestFor: "Necromancers, Villains, Warlords", descriptions: ["A ominous name spoken only in fearful whispers.", "A dark title associated with forbidden black magic."] },
-    human: { label: "Human", icon: "👑", bestFor: "Knights, Monarchs, Adventurers", descriptions: ["A noble high-fantasy human name of heroic heritage.", "A classic adventurer name suited to legends."] }
+
+    elf:{
+        label:"Elven",
+        icon:"🧝",
+        bestFor:"High Elves, Wood Elves, Rangers",
+
+        descriptions:[
+            "🌿 A graceful elven name woven with nature, ancient magic and celestial beauty.",
+            "✨ An elegant name passed through generations of an ancient forest realm.",
+            "🌙 A mystical name suited to an elf touched by moonlight and old magic."
+        ]
+    },
+
+
+    dwarf:{
+        label:"Dwarven",
+        icon:"⛏️",
+        bestFor:"Mountain Dwarves, Blacksmiths, Warriors",
+
+        descriptions:[
+            "⛰️ A sturdy dwarven name carrying the strength of mountains and ancient clans.",
+            "🔥 A forged name suited to a warrior, blacksmith or legendary clan leader.",
+            "⚒️ A powerful name inspired by stone, iron and ancestral honor."
+        ]
+    },
+
+
+    wizard:{
+        label:"Wizard",
+        icon:"🧙",
+        bestFor:"Mages, Scholars, Archmagi",
+
+        descriptions:[
+            "🔮 An arcane name suited to a master of ancient spellcraft.",
+            "📜 A scholarly wizard name steeped in forgotten magic and mysterious knowledge.",
+            "✨ A mystical identity worthy of an ambitious archmage."
+        ]
+    },
+
+
+    dragon:{
+        label:"Dragon",
+        icon:"🐉",
+        bestFor:"Wyrms, Ancient Beasts, Drake Lords",
+
+        descriptions:[
+            "🔥 A formidable draconic name forged in fire and primordial power.",
+            "🐲 An ancient name suited to a legendary wyrm feared across kingdoms.",
+            "🌋 A powerful name echoing the fury of an ancient dragon."
+        ]
+    },
+
+
+    dark:{
+        label:"Dark Lord",
+        icon:"💀",
+        bestFor:"Necromancers, Villains, Warlords",
+
+        descriptions:[
+            "🌑 An ominous name whispered by those who fear the darkness.",
+            "💀 A sinister identity associated with forbidden magic and ancient power.",
+            "🩸 A dark title suited to a mysterious villain or feared warlord."
+        ]
+    },
+
+
+    human:{
+        label:"Human",
+        icon:"👑",
+        bestFor:"Knights, Monarchs, Adventurers",
+
+        descriptions:[
+            "👑 A noble high-fantasy human name carrying heroic heritage.",
+            "⚔️ A classic adventurer name suited to a legendary knight.",
+            "🏰 A regal identity worthy of a monarch or powerful noble."
+        ]
+    }
+
 };
 
-const titles = ["the Wise", "Shadowwalker", "Ironfist", "Spellweaver", "the Ancient", "Stormbringer", "the Undying", "Bloodthorn"];
 
-function randomItem(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-function cleanName(name) {
-    name = name.replace(/([aeiou])\1{2,}/gi, "$1");
-    return name.charAt(0).toUpperCase() + name.slice(1);
+const titles = [
+
+    "the Wise",
+    "Shadowwalker",
+    "Ironfist",
+    "Spellweaver",
+    "the Ancient",
+    "Stormbringer",
+    "the Undying",
+    "Bloodthorn"
+
+];
+
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function randomItem(array){
+
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
+
 }
 
-function makeName(style, length) {
-    const parts = nameParts[style] || nameParts.elf;
-    let name = parts.start[Math.floor(Math.random() * parts.start.length)] + parts.end[Math.floor(Math.random() * parts.end.length)];
-    
-    if (length === "long") {
-        name = parts.start[Math.floor(Math.random() * parts.start.length)] + randomItem(parts.middle) + parts.end[Math.floor(Math.random() * parts.end.length)];
+
+function cleanName(name){
+
+    name =
+        name.replace(
+            /([aeiou])\1{2,}/gi,
+            "$1"
+        );
+
+    return (
+        name.charAt(0).toUpperCase() +
+        name.slice(1)
+    );
+
+}
+
+
+
+/* =========================================================
+   NAME GENERATION
+========================================================= */
+
+function makeName(style,length){
+
+    const parts =
+        nameParts[style] ||
+        nameParts.elf;
+
+
+    let name =
+        randomItem(parts.start) +
+        randomItem(parts.end);
+
+
+    if(length === "long"){
+
+        name =
+            randomItem(parts.start) +
+            randomItem(parts.middle) +
+            randomItem(parts.end);
+
     }
-    
-    if (Math.random() < 0.2 && length !== "short") {
-        name += " " + randomItem(titles);
+
+
+    if(
+        Math.random() < .20 &&
+        length !== "short"
+    ){
+
+        name +=
+            " " +
+            randomItem(titles);
+
     }
+
+
     return cleanName(name);
+
 }
 
-function generate() {
-    const style = document.getElementById("style").value;
-    const length = document.getElementById("length").value;
-    const results = [];
 
-    for (let i = 0; i < 9; i++) {
+
+/* =========================================================
+   RATING STORAGE
+   Separate from the central NameForge storage.
+   This means nameforge-storage.js is not modified.
+========================================================= */
+
+const RATING_KEY =
+    "nameforge_fantasy_ratings";
+
+
+function getRatings(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(RATING_KEY)
+        ) || {};
+
+    }
+
+    catch{
+
+        return {};
+
+    }
+
+}
+
+
+function setRating(name,rating){
+
+    const ratings =
+        getRatings();
+
+    ratings[name] =
+        rating;
+
+    localStorage.setItem(
+        RATING_KEY,
+        JSON.stringify(ratings)
+    );
+
+}
+
+
+
+/* =========================================================
+   GENERATE
+========================================================= */
+
+function generate(){
+
+    const style =
+        document.getElementById(
+            "style"
+        ).value;
+
+    const length =
+        document.getElementById(
+            "length"
+        ).value;
+
+
+    const results=[];
+
+
+    for(
+        let i=0;
+        i<9;
+        i++
+    ){
+
         results.push({
-            name: makeName(style, length),
-            style: styleInfo[style].label,
-            icon: styleInfo[style].icon,
-            description: randomItem(styleInfo[style].descriptions),
-            bestFor: styleInfo[style].bestFor
+
+            name:
+                makeName(
+                    style,
+                    length
+                ),
+
+            style:
+                styleInfo[style].label,
+
+            icon:
+                styleInfo[style].icon,
+
+            description:
+                randomItem(
+                    styleInfo[style]
+                        .descriptions
+                ),
+
+            bestFor:
+                styleInfo[style]
+                    .bestFor
+
         });
+
     }
 
-    document.getElementById("results").innerHTML = results.map(r => `
-        <div class="result">
-            <div class="result-name" style="font-size:1.35rem; font-weight:950; margin-bottom:8px;">${r.name}</div>
-            <div style="color:#8b5cf6; font-size:.85rem; font-weight:850; margin-bottom:8px;">${r.icon} ${r.style}</div>
-            <p style="color:#8e9bb0; line-height:1.55; margin-bottom:12px;">${r.description}</p>
-            <div style="font-size:.82rem; color:#64748b; margin-bottom:14px;"><strong>Best for:</strong> ${r.bestFor}</div>
-            <button class="copy" onclick="copyName('${r.name.replace(/'/g, "\\'")}')">📋 Copy name</button>
+
+    renderResults(results);
+
+}
+
+
+
+/* =========================================================
+   RENDER RESULTS
+========================================================= */
+
+function renderResults(results){
+
+    const container =
+        document.getElementById(
+            "results"
+        );
+
+
+    container.innerHTML =
+        results.map(
+            (r,index)=>{
+
+                const rating =
+                    getRatings()[r.name] || 0;
+
+
+                return `
+
+<div class="result">
+
+
+    <div class="result-name">
+        ${escapeHTML(r.name)}
+    </div>
+
+
+    <div class="result-style">
+        ${r.icon}
+        ${r.style}
+    </div>
+
+
+    <p class="result-description">
+        ${escapeHTML(r.description)}
+    </p>
+
+
+    <div class="best-for">
+
+        <strong>
+            Ideal for:
+        </strong>
+
+        ${escapeHTML(r.bestFor)}
+
+    </div>
+
+
+    <div class="action-grid">
+
+
+        <button
+            class="action-btn"
+            id="save-${index}"
+            onclick="toggleSave(
+                '${escapeJS(r.name)}',
+                '${escapeJS(r.style)}',
+                ${index}
+            )"
+        >
+
+            💾
+            <span>
+                Enregistrer
+            </span>
+
+        </button>
+
+
+        <button
+            class="action-btn"
+            id="like-${index}"
+            onclick="toggleLike(
+                '${escapeJS(r.name)}',
+                '${escapeJS(r.style)}',
+                ${index}
+            )"
+        >
+
+            💗
+            <span>
+                J’aime
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="rating-row">
+
+
+        <div>
+
+            <div class="rating-label">
+                Note
+            </div>
+
+
+            <div class="stars">
+
+                ${[1,2,3,4,5].map(
+                    star => `
+
+                    <button
+                        class="star ${
+                            star <= rating
+                            ? "active"
+                            : ""
+                        }"
+                        onclick="
+                            rateName(
+                                '${escapeJS(r.name)}',
+                                ${star},
+                                ${index}
+                            )
+                        "
+                    >
+                        ★
+                    </button>
+
+                `).join("")}
+
+            </div>
+
         </div>
-    `).join("");
+
+
+        <button
+            class="note-btn"
+            onclick="
+                openNote(
+                    '${escapeJS(r.name)}',
+                    '${escapeJS(r.style)}'
+                )
+            "
+        >
+
+            📝 Note
+
+        </button>
+
+
+    </div>
+
+
+    <button
+        class="copy"
+        id="copy-${index}"
+        onclick="
+            copyName(
+                '${escapeJS(r.name)}',
+                ${index}
+            )
+        "
+    >
+
+        📋 Copy name
+
+    </button>
+
+
+</div>
+
+`;
+
+            }
+        ).join("");
+
 }
 
-async function copyName(name) {
-    try {
-        await navigator.clipboard.writeText(name);
-        alert("Name copied: " + name);
-    } catch (err) {
-        alert("Name: " + name);
+
+
+/* =========================================================
+   STORAGE INTEGRATION
+========================================================= */
+
+function toggleSave(
+    name,
+    style,
+    index
+){
+
+    if(
+        typeof saveName !==
+        "function"
+    ){
+
+        console.warn(
+            "NameForge storage not loaded."
+        );
+
+        return;
+
     }
+
+
+    const existing =
+        typeof findNameForgeEntry ===
+        "function"
+            ? findNameForgeEntry(
+                name,
+                "fantasy"
+            )
+            : null;
+
+
+    if(
+        existing &&
+        existing.saved === true
+    ){
+
+        if(
+            typeof unsaveName ===
+            "function"
+        ){
+
+            unsaveName(
+                name,
+                "fantasy"
+            );
+
+        }
+
+        document
+            .getElementById(
+                `save-${index}`
+            )
+            ?.classList
+            .remove("active");
+
+        return;
+
+    }
+
+
+    saveName(
+        name,
+        "fantasy",
+        style
+    );
+
+
+    document
+        .getElementById(
+            `save-${index}`
+        )
+        ?.classList
+        .add("active");
+
 }
+
+
+
+/* =========================================================
+   LIKE
+========================================================= */
+
+function toggleLike(
+    name,
+    style,
+    index
+){
+
+    if(
+        typeof likeName !==
+        "function"
+    ){
+
+        return;
+
+    }
+
+
+    const result =
+        likeName(
+            name,
+            "fantasy",
+            style
+        );
+
+
+    const button =
+        document.getElementById(
+            `like-${index}`
+        );
+
+
+    if(result?.liked){
+
+        button
+            ?.classList
+            .add("liked");
+
+    }
+
+    else{
+
+        button
+            ?.classList
+            .remove("liked");
+
+    }
+
+}
+
+
+
+/* =========================================================
+   RATING
+========================================================= */
+
+function rateName(
+    name,
+    rating,
+    index
+){
+
+    setRating(
+        name,
+        rating
+    );
+
+
+    const ratings =
+        getRatings();
+
+
+    const stars =
+        document
+            .querySelectorAll(
+                `#results .result:nth-child(${index+1}) .star`
+            );
+
+
+    stars.forEach(
+        (star,i)=>{
+
+            star.classList.toggle(
+                "active",
+                i < rating
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+async function copyName(
+    name,
+    index
+){
+
+    try{
+
+        await navigator.clipboard
+            .writeText(name);
+
+
+        const button =
+            document.getElementById(
+                `copy-${index}`
+            );
+
+
+        if(button){
+
+            button.classList.add(
+                "copied"
+            );
+
+            button.innerHTML =
+                "✓ Copied!";
+
+
+            setTimeout(
+                ()=>{
+
+                    button.classList.remove(
+                        "copied"
+                    );
+
+                    button.innerHTML =
+                        "📋 Copy name";
+
+                },
+                1300
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        alert(
+            "Name: " + name
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   PRIVATE NOTE
+========================================================= */
+
+let currentNoteName = "";
+let currentNoteGenerator = "";
+
+
+function openNote(
+    name,
+    style
+){
+
+    currentNoteName =
+        name;
+
+    currentNoteGenerator =
+        "fantasy";
+
+
+    let existing = null;
+
+
+    if(
+        typeof findNameForgeEntry ===
+        "function"
+    ){
+
+        existing =
+            findNameForgeEntry(
+                name,
+                "fantasy"
+            );
+
+    }
+
+
+    document.getElementById(
+        "noteText"
+    ).value =
+        existing?.note || "";
+
+
+    document.getElementById(
+        "noteModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+function closeNote(){
+
+    document.getElementById(
+        "noteModal"
+    ).classList.remove(
+        "show"
+    );
+
+}
+
+
+function savePrivateNote(){
+
+    const note =
+        document.getElementById(
+            "noteText"
+        ).value.trim();
+
+
+    if(
+        typeof updateNameNote ===
+        "function"
+    ){
+
+        updateNameNote(
+            currentNoteName,
+            note
+        );
+
+    }
+
+
+    closeNote();
+
+}
+
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function escapeJS(value){
+
+    return String(value)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+
+/* =========================================================
+   INITIAL GENERATION
+========================================================= */
 
 generate();
 
 </script>
 
 </body>
+
 </html>
